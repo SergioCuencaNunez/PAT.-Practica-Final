@@ -16,12 +16,14 @@ import java.time.LocalTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table("TABLA_REGISTRO")
-public class TablaRegistro {
+@Table("TABLA_RESERVAS")
+public class TablaReservas {
+    private @Column("ID") @Id Long id;
     private @Column("NIF") @Id String nif;
-    private @Column("NOMBRE") String nombre;
-    private @Column("APELLIDO1") String apellido1;
-    private @Column("APELLIDO2") String apellido2;
-    private @Column("CORREO") String correo;
-    private @Column("CUMPLEANOS") LocalDate cumpleanos;
+    private @Column("DESTINO") String destino;
+    private @Column("HOTEL") String hotel;
+    private @Column("HUESPEDES") Long huespedes;
+    private @Column("HABITACIONES") Long habitaciones;
+    private @Column("FECHAENTRADA") LocalDate fechaEntrada;
+    private @Column("FECHASALIDA") LocalDate fechaSalida;
 }
