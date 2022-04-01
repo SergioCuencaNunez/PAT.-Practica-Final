@@ -1,8 +1,8 @@
-package edu.icai.gittpat.service.impl;
+package com.example.demo.service.impl;
 
-import edu.icai.gittpat.model.MyTable;
-import edu.icai.gittpat.repository.MyTableRepository;
-import edu.icai.gittpat.service.MyService;
+import com.example.demo.model.TablaRegistro;
+import com.example.demo.repository.TablaRegistroRepository;
+import com.example.demo.service.ServiceRegistro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

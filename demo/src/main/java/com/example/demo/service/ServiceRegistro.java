@@ -1,6 +1,6 @@
-package edu.icai.gittpat.service;
+package com.example.demo.service;
 
-import edu.icai.gittpat.model.MyTable;
+import com.example.demo.model.TablaRegistro;
 
 import java.util.List;
 
