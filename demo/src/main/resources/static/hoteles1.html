@@ -48,10 +48,10 @@
         <nav class="mainmenu mobile-menu">
             <ul>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./hoteles1.html">Hoteles</a></li>
+                <li class="active"><a href="./hoteles1.html">Hoteles</a></li>
                 <li><a href="./check-in.html">Check-in Online</a></li>
                 <li><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
-                <li class="active"><a href="./contact.html">Contacto</a></li>
+                <li><a href="./contact.html">Contacto</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -108,10 +108,10 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li><a href="./index.html">Home</a></li>
-                                    <li><a href="./hoteles1.html">Hoteles</a></li>
+                                    <li class="active"><a href="./hoteles1.html">Hoteles</a></li>
                                     <li><a href="./check-in.html">Check-in Online</a></li>
                                     <li><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
-                                    <li class="active"><a href="./contact.html">Contacto</a></li>
+                                    <li><a href="./contact.html">Contacto</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -125,56 +125,107 @@
     </header>
     <!-- Header End -->
 
-    <!-- Contact Section Begin -->
-    <section class="contact-section spad">
+    <!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="contact-text">
-                        <h2>Contacta con nosotros</h2>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="c-o">Dirección:</td>
-                                    <td>Gremio Toneleros, 24. Polígono Industrial Son Castelló. 07009, Palma de Mallorca, Islas Baleares, España</td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Teléfono:</td>
-                                    <td>917 14 82 48</td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Email:</td>
-                                    <td>miexperiencia@melia.com</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Nuestros Hoteles</h2>
+                        <div class="bt-option">
+                            <a href="./home.html">Home</a>
+                            <span>Hoteles</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-7 offset-lg-1">
-                    <form action="#" class="contact-form">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Nombre">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Correo electrónico">
-                            </div>
-                            <div class="col-lg-12">
-                                <textarea placeholder="Tu mensaje"></textarea>
-                                <button type="submit">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Rooms Section Begin -->
+    <section class="rooms-section spad">
+        <div class="container">
+            <div>
+                <div class="row" id="madrid-hoteles">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="room-item">
+                            <img src="img/room/madrid-princesa.png" alt="">
+                            <div class="ri-text">
+                                <h4>Meliá Madrid Princesa</h4>
+                                <h3>Desde 142€<span>/Habitación noche</span></h3>
+                                <h5>Sueña en el corazón de Madrid</h5><br>
+                                <p>Excelente ubicación en el corazón del <b>Madrid más cultural</b>, este hotel es perfecto para encuentros de negocios, que se podrán combinar con la cercana y variada oferta de ocio que brinda la ciudad.</p>
+                                <p>Podrás llegar a pie a puntos tan emblemáticos como <b>Plaza de España</b>, Puerta del Sol o el Palacio Real, disfrutando de la historia y el patrimonio de Madrid.</p>
+                                <p>El hotel ha sido remodelado para renovar su tradicional estilo lujoso con las últimas y más <b>vanguardistas tendencias decorativas</b>. Es la opción perfecta para viajes tanto de negocio como de ocio.</p>
+                                <p>Con nuestro exclusivo servicio <b>The Level</b> alcanzarás un nuevo nivel de bienestar y confort. Un trato personalizado pensado para ir más allá de tus expectativas.</p>
+                                <p>Déjate seducir por la <b>gastronomía mediterránea</b> en nuestro moderno restaurante de cocina de autor. Cualquiera de los vinos españoles con Denominación de Origen será el acompañamiento ideal.</p>
+                                <a href="./habitaciones-madrid-princesa.html" class="primary-btn">Ver habitaciones</a>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="room-item">
+                            <img src="img/room/madrid-duques.png" alt="">
+                            <div class="ri-text">
+                                <h4>Gran Meliá Palacio de los Duques</h4>
+                                <h3>Desde 350€<span>/Habitación noche</span></h3>
+                                <h5>Una extraordinaria obra de arte en pleno centro cultural</h5><br>
+                                <p>Un <b>Palacio del siglo XIX</b> con una ubicación privilegiada, sobre el que fuera el Convento de Santo Domingo, en el Madrid de los Austrias, al lado del Palacio Real, el Teatro Real y la Catedral de la Almudena, inspirado en la obra del famoso pintor Velázquez y miembro del exclusivo grupo <b>“The Leading Hotels of The World”.</b></p>
+                                <p>Espectacular jardín histórico de 1000 m² lleno de vida, único en el <b>corazón de Madrid</b>, un remanso de paz con zonas verdes y excepcionales propuestas gastronómicas.</p>
+                                <p><b>Piscina de temporada</b> y bañera de hidromasaje en el ático con vistas al Palacio Real, a la Catedral de la Almudena con solárium y bar de cócteles.</p>
+                                <p><b>Suites, habitaciones RedLevel y habitaciones</b> muchas de ellas especialmente diseñadas para familias.<p>
+                                <p>En el corazón de Madrid Central, la zona de bajas emisiones y con menos tráfico de la ciudad, disfrutando de un <b>entorno más saludable</b>, que pone Madrid a tus pies.<p>
+                                <a href="./habitaciones-madrid-duques.html" class="primary-btn">Ver habitaciones</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="map-contact">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d11512.121330499764!2d2.662608691440712!3d39.606357179361304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGremio%20Toneleros%2C%2024.%20Pol%C3%ADgono%20Industrial%20Son%20Castell%C3%B3.%2007009%20Palma%20de%20Mallorca%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1649610169909!5m2!1ses!2ses"
-                    height="470" style="border:0;" allowfullscreen=""></iframe>
+                <div class="row" id="londres-hoteles">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="room-item">
+                            <img src="img/room/londres-wh.png" alt="">
+                            <div class="ri-text">
+                                <h4>Meliá White House</h4>
+                                <h3>Desde 208€<span>/Habitación noche</span></h3>
+                                <h5>Tradición y vanguardia en Londres</h5><br>
+                                <p><b>Excepcionalmente ubicado</b> a pocos pasos de las famosas calles de Oxford Circus y Regent's Street.</p>
+                                <p>El hermoso <b>Regent's Park</b> y London Zoo se encuentran al lado del hotel, Madame Tussauds está a poca distancia y el mundialmente famoso Camden Town a sus puertas y una auténtica pasión por el servicio harán que tu estancia en Londres sea inolvidable.</p>
+                                <p>Disfruta de un cóctel preparado por expertos en el nuevo Bar y Salón Nineteenthirtyfive o de una suntuosa comida en nuestro Restaurante Arado.</p>
+                                <p>Reserva una habitación o suite de <b>The Level</b> y disfruta del The Level Lounge con desayuno, bebidas y tapas de cortesía y de un gimnasio totalmente equipado las 24 horas del día.</p>
+                                <p>Un hotel perfecto para <b>familias</b>, con amplias habitaciones familiares y estancias gratuitas para niños hasta 4 años, entre muchos otros servicios diseñados para niños.</p>
+                                <a href="./habitaciones-londres-wh.html" class="primary-btn">Ver habitaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="room-item">
+                            <img src="img/room/londres-me.png" alt="">
+                            <div class="ri-text">
+                                <h4>ME London</h4>
+                                <h3>Desde 334€<span>/Habitación noche</span></h3>
+                                <h5>Descubre ME en Londres</h5><br>
+                                <p>Modernidad y sofisticación en el centro de Londres. ME London se encuentra en el <b>corazón del West End</b>, la zona urbana más de moda de la ciudad, rodeada de teatros, tiendas y boutiques.</p>
+                                <p>A pocos minutos de las <b>atracciones más populares</b> de la capital británica, como Covent Garden, Trafalgar Square, el Parlamento o la impresionante St. Paul's Cathedral.</p>
+                                <p>La oferta gastronómica del restaurante <b>STK London</b> te transporta al corazón de Nueva York, mientras que el Radio Rooftop Bar disfruta de las mejores vistas panorámicas de Londres.</p>
+                                <p>El <b>servicio exclusivo de ME+</b> ofrece un nivel de comodidad superior gracias a sus ventajas exclusivas como entrada preferente a las instalaciones del hotel o cócteles de cortesía en el Radio Rooftop Bar al reservar una Suite.</p>
+                                <p>Excelente opción para la celebración de tu <b>boda o renovación de vuestros votos</b> en un ambiente sofisticado. Las 7 salas de eventos también ofrecen espacios ideales para cualquier <b>reunión o evento profesional</b>.</p>
+                                <a href="./habitaciones-londres-me.html" class="primary-btn">Ver habitaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="room-pagination">
+                        <a href="./hoteles1.html">1</a>
+                        <a href="./hoteles2.html">2</a>
+                        <a href="./hoteles2.html">Siguiente <i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- Contact Section End -->
+    <!-- Rooms Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">

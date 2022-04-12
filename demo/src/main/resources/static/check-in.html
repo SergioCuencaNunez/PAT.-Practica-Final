@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meliá Hotels & Resorts</title>
-    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="icon" type="image/png" href="img/favicon.png"/>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -49,9 +49,9 @@
             <ul>
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./hoteles1.html">Hoteles</a></li>
-                <li><a href="./check-in.html">Check-in Online</a></li>
+                <li class="active"><a href="./check-in.html">Check-in Online</a></li>
                 <li><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
-                <li class="active"><a href="./contact.html">Contacto</a></li>
+                <li><a href="./contact.html">Contacto</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -108,10 +108,10 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li><a href="./index.html">Home</a></li>
-                                    <li><a href="./hoteles1.html">Hoteles</a></li>
-                                    <li><a href="./check-in.html">Check-in Online</a></li>
+                                    <li ><a href="./hoteles1.html">Hoteles</a></li>
+                                    <li class="active" ><a href="./check-in.html">Check-in Online</a></li>
                                     <li><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
-                                    <li class="active"><a href="./contact.html">Contacto</a></li>
+                                    <li><a href="./contact.html">Contacto</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -125,56 +125,116 @@
     </header>
     <!-- Header End -->
 
-    <!-- Contact Section Begin -->
-    <section class="contact-section spad">
+    <!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="contact-text">
-                        <h2>Contacta con nosotros</h2>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="c-o">Dirección:</td>
-                                    <td>Gremio Toneleros, 24. Polígono Industrial Son Castelló. 07009, Palma de Mallorca, Islas Baleares, España</td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Teléfono:</td>
-                                    <td>917 14 82 48</td>
-                                </tr>
-                                <tr>
-                                    <td class="c-o">Email:</td>
-                                    <td>miexperiencia@melia.com</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Check-in Online</h2>
+                        <div class="bt-option">
+                            <a href="./index.html">Home</a>
+                            <span>Check-in Online</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-7 offset-lg-1">
-                    <form action="#" class="contact-form">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Nombre">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Correo electrónico">
-                            </div>
-                            <div class="col-lg-12">
-                                <textarea placeholder="Tu mensaje"></textarea>
-                                <button type="submit">Enviar</button>
-                            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- About Us Page Section Begin -->
+    <section class="aboutus-page-section spad">
+        <div class="container">
+            <div class="about-page-text">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="ap-title">
+                            <h2>Tu check-in en unos segundos</h2>
+                            <h3>Aprovecha estas ventajas exclusivas</h3>
+                            <p>Si haces check-in online desde 96 horas antes de la llegada y hasta las 10h del día de llegada al hotel</p>
                         </div>
-                    </form>
+                        <div>
+                            <ul class="ap-services">
+                                <li><i class="icon_check"></i> Consigue una habitación superior (*)</li>
+                                <li><i class="icon_check"></i> Ahorra tiempo con la máxima seguridad</li>
+                                <li><i class="icon_check"></i> Si no eres miembro de MeliáRewards, date de alta ahora y consigue 2000 puntos de bienvenida</li>
+                                <li><i class="icon_check"></i> Asigna huéspedes a cada habitación</li>
+                                <li><i class="icon_check"></i> Obtén tu Llave digital (**)</li>
+                            </ul>
+                            <p>(*) Sujeto a disponibilidad <br> (**) Solo en aquellos hoteles con el sistema activo</p><br>
+                            <h3>Descarga nuestra APP</h3>
+                            <p>Check-in más rápido disfrutando de todas las ventajas en tu móvil<p>
+                        </div>
+                        <div class="ap-button">
+                            <a href="https://apps.apple.com/es/app/meliá/id1151855213" target="_blank">Download on the App Store</a>
+                            <a href="https://play.google.com/store/apps/details?id=es.mobail.meliarewards" target="_blank">Disponible en Google Play</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+                        <div class="checkin-form">
+                            <h3>Check-in</h3>
+                            <form action="#">
+                                <div class="text-input">
+                                    <label for="nif">Introduzca su NIF/DNI:</label>
+                                    <input type="text" id="nif">
+                                </div>
+                                <div class="text-input">
+                                    <label for="id">Introduzca el ID de reserva:</label>
+                                    <input type="text" id="id">
+                                </div>
+                                <div class="text-input">
+                                    <label for="destino">Destino:</label>
+                                    <input type="text" id="destino">
+                                </div>
+                                <div class="text-input">
+                                    <label for="hotel">Nombre del hotel:</label>
+                                    <input type="text" id="hotel">
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-in-check-in">Check In:</label>
+                                    <input type="text" class="date-input" id="date-in-check-in">
+                                    <i class="icon_calendar"></i>
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-out-check-in">Check Out:</label>
+                                    <input type="text" class="date-input" id="date-out-check-in">
+                                    <i class="icon_calendar"></i>
+                                </div>
+                                <button type="submit">Localiza mi reserva</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="map-contact">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d11512.121330499764!2d2.662608691440712!3d39.606357179361304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGremio%20Toneleros%2C%2024.%20Pol%C3%ADgono%20Industrial%20Son%20Castell%C3%B3.%2007009%20Palma%20de%20Mallorca%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1649610169909!5m2!1ses!2ses"
-                    height="470" style="border:0;" allowfullscreen=""></iframe>
+            <div class="about-page-services">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="ap-service-item set-bg" data-setbg="img/about/check1.png">
+                            <div class="api-text">
+                                <h3>Upgrade de habitación</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ap-service-item set-bg" data-setbg="img/about/check2.png">
+                            <div class="api-text">
+                                <h3>Asigna huéspedes</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ap-service-item set-bg" data-setbg="img/about/check3.png">
+                            <div class="api-text">
+                                <h3>Hazte MeliáRewards</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- Contact Section End -->
+    <!-- About Us Page Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">
