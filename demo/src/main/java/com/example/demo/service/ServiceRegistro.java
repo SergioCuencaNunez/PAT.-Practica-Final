@@ -2,10 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.model.TablaRegistro;
 
-import java.util.List;
+import java.util.Iterator;
 
 public interface ServiceRegistro {
 
-    List<TablaRegistro> getElements();
+    Iterable<TablaRegistro> getElements();
 
 }

@@ -1,4 +1,4 @@
-package com.example.demo.model;
+/*package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,4 +22,4 @@ public class TablaHoteles {
     private @Column("CAPACIDAD") Long capacidad;
     private @Column("OCUPACION") Long ocupacion;
     private @Column("DESTINO") String destino;
-}
+}*/

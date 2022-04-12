@@ -1,4 +1,4 @@
-package com.example.demo.model;
+/*package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,3 +27,4 @@ public class TablaReservas {
     private @Column("FECHAENTRADA") LocalDate fechaEntrada;
     private @Column("FECHASALIDA") LocalDate fechaSalida;
 }
+*/

@@ -6,7 +6,7 @@ import com.example.demo.service.ServiceRegistro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
 @Service
@@ -16,7 +16,8 @@ public class ServiceRegistroImpl implements ServiceRegistro {
     private TablaRegistroRepository tableRegistroRepository;
 
     @Override
-    public List<TablaRegistro> getElements() {
-        return StreamSupport.stream(TablaRegistroRepository.findAll().spliterator(), false).toList();
+    public Iterable<TablaRegistro> getElements() {
+        return tableRegistroRepository.findAll();
+        //return StreamSupport.stream(tableRegistroRepository.findAll().spliterator(), false).toList();
     }
 }
