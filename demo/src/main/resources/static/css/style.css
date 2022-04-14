@@ -1113,6 +1113,11 @@ ul, ol {
 .breadcrumb-text {
 	text-align: center;
 }
+.breadcrumb-text .rating {
+	display: inline-block;
+	margin-right: 25px;
+	margin-bottom: 10px;
+}
 .breadcrumb-text h2 {
 	font-size: 44px;
 	color: #19191a;
