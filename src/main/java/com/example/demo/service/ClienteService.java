@@ -16,7 +16,7 @@ public interface ClienteService {
     Cliente updateClienteNombreCompletobyNif(String nif, String nombre, String apellido1, String apellido2);
     Cliente updateClienteCorreobyNif(String nif, String correo);
     Cliente updateClienteCumpleanosbyNif(String nif, LocalDate cumpleanos);
-    String insertAndCompareCliente(String nif, String nombre, String apellido1, String apellido2, String correo, LocalDate cumpleanos);
+    String insertAndCompareCliente(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena,LocalDate cumpleanos);
     String deleteClientebyNif(String nif);
     //INNER-JOIN
     List<ClienteReservaDTO> getClientesConReservas();

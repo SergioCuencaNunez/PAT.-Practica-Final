@@ -3,8 +3,13 @@ package com.example.demo.controller;
 import com.example.demo.model.Cliente;
 import com.example.demo.service.ClienteService;
 import com.example.demo.service.dto.ClienteReservaDTO;
+import com.example.demo.controller.LoginResponse;
+import com.example.demo.service.LoginService;
+import com.example.demo.service.LoginServiceResult;
+import org.springframework.validation.BindingResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +25,9 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteServicio;
+
+    @Autowired
+    private LoginService loginServicio;
 
     @Transactional
     @GetMapping("/clientes/nif/{nif}")
@@ -84,10 +92,10 @@ public class ClienteController {
     }
 
     @Transactional
-    @GetMapping("/clientes/insert/{nif}/{nombre}/{apellido1}/{apellido2}/{correo}/{cumpleanos}")
-    public ResponseEntity<String> insertCompareCliente(@PathVariable("nif") String nif, @PathVariable("nombre") String nombre, @PathVariable("apellido1") String apellido1,@PathVariable("apellido2") String apellido2,@PathVariable("correo") String correo,@PathVariable("cumpleanos") String cumpleanosStr) {
+    @GetMapping("/clientes/insert/{nif}/{nombre}/{apellido1}/{apellido2}/{correo}/{contrasena}/{cumpleanos}")
+    public ResponseEntity<String> insertCompareCliente(@PathVariable("nif") String nif, @PathVariable("nombre") String nombre, @PathVariable("apellido1") String apellido1,@PathVariable("apellido2") String apellido2,@PathVariable("correo") String correo,@PathVariable("contrasena") String contrasena,@PathVariable("cumpleanos") String cumpleanosStr) {
         LocalDate cumpleanos = LocalDate.parse(cumpleanosStr);
-        String resultado = clienteServicio.insertAndCompareCliente(nif,nombre,apellido1,apellido2,correo,cumpleanos);
+        String resultado = clienteServicio.insertAndCompareCliente(nif,nombre,apellido1,apellido2,correo,contrasena,cumpleanos);
         return ResponseEntity.ok().body(resultado);
     }
 
@@ -104,5 +112,25 @@ public class ClienteController {
     public ResponseEntity<List<ClienteReservaDTO>> getClientesReservas() {
         var reservas = clienteServicio.getClientesConReservas();
         return ResponseEntity.ok().body(reservas);
+    }
+
+    @Transactional
+    @PostMapping("/clientes/inicio-sesion")
+    public ResponseEntity<LoginResponse> inicioSesionCliente(@RequestBody Cliente cliente, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            LoginResponse loginResponse = new LoginResponse("KO");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
+        LoginServiceResult result = loginServicio.inicioSesionDeCliente(cliente);
+        if (result.isFlag()) {
+            LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
+        }else if(result.getAccessToken() == "Contraseña Errónea") {
+            LoginResponse loginResponse = new LoginResponse("Contraseña errónea");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            LoginResponse loginResponse = new LoginResponse("Usuario no existe");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
     }
 }

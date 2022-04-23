@@ -1,5 +1,6 @@
 com/example/demo/controller/ReservaController.class
 com/example/demo/service/impl/HabitacionServiceImpl.class
+com/example/demo/service/LoginServiceResult.class
 com/example/demo/model/Reserva.class
 com/example/demo/service/impl/HotelServiceImpl.class
 com/example/demo/service/dto/HabitacionDTO.class
@@ -19,10 +20,13 @@ com/example/demo/controller/ClienteController.class
 com/example/demo/model/Habitacion.class
 com/example/demo/model/Hotel$HotelBuilder.class
 com/example/demo/model/Hotel.class
+com/example/demo/controller/LoginResponse.class
 com/example/demo/model/Habitacion$HabitacionBuilder.class
+com/example/demo/service/LoginService.class
 com/example/demo/controller/HotelController.class
 com/example/demo/repository/ClienteRepository.class
 com/example/demo/service/dto/HotelReservaDTO.class
+com/example/demo/service/impl/LoginServiceImpl.class
 com/example/demo/repository/ReservaRepository.class
 com/example/demo/model/Cliente$ClienteBuilder.class
 com/example/demo/service/impl/ReservaServiceImpl.class

@@ -25,5 +25,6 @@ public class Cliente {
     private @Column("APELLIDO1") String apellido1;
     private @Column("APELLIDO2") String apellido2;
     private @Column("CORREO") String correo;
+    private @Column("CONTRASENA") String contrasena;
     private @Column("CUMPLEANOS") LocalDate cumpleanos;
 }

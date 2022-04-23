@@ -101,7 +101,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     @Transactional
-    public String insertAndCompareCliente(String nif, String nombre, String apellido1, String apellido2, String correo, LocalDate cumpleanos){
+    public String insertAndCompareCliente(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena, LocalDate cumpleanos){
         Optional<Cliente> ocliente = clienteRepository.findById(nif);
         List<String> correos = clienteRepository.getClienteCorreos();
         if(ocliente.isPresent()) {
@@ -115,8 +115,9 @@ public class ClienteServiceImpl implements ClienteService {
             cliente.setApellido1(apellido1);
             cliente.setApellido2(apellido2);
             cliente.setCorreo(correo);
+            cliente.setContrasena(contrasena);
             cliente.setCumpleanos(cumpleanos);
-            clienteRepository.insertCliente(cliente.getNif(), cliente.getNombre(), cliente.getApellido1(), cliente.getApellido2(),cliente.getCorreo(),cliente.getCumpleanos());
+            clienteRepository.insertCliente(cliente.getNif(), cliente.getNombre(), cliente.getApellido1(), cliente.getApellido2(),cliente.getCorreo(),cliente.getContrasena(),cliente.getCumpleanos());
             return "El cliente con NIF " + nif + " se ha registrado correctamente";
         }
     }
