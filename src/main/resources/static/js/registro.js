@@ -7,6 +7,7 @@ async function registro() {
         var cumpleanos = document.getElementById("cumpleanos").value;
         var correo = document.getElementById("correo").value;
         var contrasena = document.getElementById("contrasena").value;
+        var contrasena2 = document.getElementById("contrasena2").value;
         var cumpleanosDia = cumpleanos.substr(0,2);
         var cumpleanosMes = cumpleanos.substr(3,(cumpleanos.indexOf(",")) - 3);
         var cumpleanosAno = cumpleanos.substr((cumpleanos.indexOf(",") + 2));
@@ -15,7 +16,7 @@ async function registro() {
           numeroMes = "0" + numeroMes;
         }
         var cumpleanosDef = cumpleanosAno + "-" + numeroMes + "-" + cumpleanosDia;
-        const data1 = {nombre: nombre, apellido1: apellido1, apellido2: apellido2, nif: nif, cumpleanos: cumpleanosDef, correo: correo, contrasena: contrasena};
+        const data1 = {nombre: nombre, apellido1: apellido1, apellido2: apellido2, nif: nif, cumpleanos: cumpleanosDef, correo: correo, contrasena: contrasena, contrasena2: contrasena2};
         const address1 = "api/v1/usuarios/registro";
         fetch(address1, {
             method: 'POST',
@@ -50,7 +51,7 @@ async function registro() {
                     }
                 });
             }else{
-                alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales.\n Debe introducir un NIF vigente, un email válido y una contraseña alfanúmerica de 10 a 50 caracteres");
+                alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales. Debe introducir un NIF vigente, un email válido y una contraseña alfanúmerica de 10 a 50 caracteres. Recuerde que la contraseña debe ser igual en ambos campos.");
             }
        });
     } catch (err) {

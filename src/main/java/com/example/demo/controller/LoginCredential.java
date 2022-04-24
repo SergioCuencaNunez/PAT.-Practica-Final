@@ -24,5 +24,8 @@ record LoginCredential(
     String correo,
 
     @Pattern(message="mínimo 15 caracteres y máximo 50 caracteres" , regexp="^[a-zA-Z-.0-9]{15,50}$")
-    String contrasena) {}
+    String contrasena,
+
+    @Pattern(message="mínimo 15 caracteres y máximo 50 caracteres" , regexp="^[a-zA-Z-.0-9]{15,50}$")
+    String contrasena2) {}
 

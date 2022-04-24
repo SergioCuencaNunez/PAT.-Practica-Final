@@ -161,7 +161,7 @@ public class UsuarioController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
         }
-        if ((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (!loginParam.contrasena().equals(""))) {
+        if ((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (loginParam.contrasena().equals(loginParam.contrasena2()))) {
             return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
         }
         return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
