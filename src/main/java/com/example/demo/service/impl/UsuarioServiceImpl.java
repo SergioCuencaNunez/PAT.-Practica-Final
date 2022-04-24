@@ -107,26 +107,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     @Transactional
-    public String insertAndCompareUsuario(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena, LocalDate cumpleanos, String rol){
-        Optional<Usuario> ousuario = usuarioRepository.findById(nif);
-        List<String> correos = usuarioRepository.getUsuarioCorreos();
-        if(ousuario.isPresent()) {
-            return "El usuario con NIF " + nif + " ya está registrado";
-        }else if(correos.contains(correo)){
-           return "El usuario con correo " + correo + " ya está registrado";
-        }else{
-            Usuario usuario = new Usuario();
-            usuario.setNif(nif);
-            usuario.setNombre(nombre);
-            usuario.setApellido1(apellido1);
-            usuario.setApellido2(apellido2);
-            usuario.setCorreo(correo);
-            usuario.setContrasena(contrasena);
-            usuario.setCumpleanos(cumpleanos);
-            usuario.setRol(rol);
-            usuarioRepository.insertUsuario(usuario.getNif(), usuario.getNombre(), usuario.getApellido1(), usuario.getApellido2(),usuario.getCorreo(),usuario.getContrasena(),usuario.getCumpleanos(),usuario.getRol());
-            return "El usuario con NIF " + nif + " se ha registrado correctamente";
-        }
+    public void insertUsuario(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena, LocalDate cumpleanos, String rol){
+        Usuario usuario = new Usuario();
+        usuario.setNif(nif);
+        usuario.setNombre(nombre);
+        usuario.setApellido1(apellido1);
+        usuario.setApellido2(apellido2);
+        usuario.setCorreo(correo);
+        usuario.setContrasena(contrasena);
+        usuario.setCumpleanos(cumpleanos);
+        usuario.setRol(rol);
+        usuarioRepository.insertUsuario(usuario.getNif(), usuario.getNombre(), usuario.getApellido1(), usuario.getApellido2(),usuario.getCorreo(),usuario.getContrasena(),usuario.getCumpleanos(),usuario.getRol());
     }
 
     @Override

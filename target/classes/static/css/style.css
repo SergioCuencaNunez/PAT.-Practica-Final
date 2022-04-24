@@ -1377,7 +1377,8 @@ ul, ol {
 	height: 50px;
 	border: 1px solid #e1e1e1;
 	font-size: 16px;
-	color: #aaaab3;
+	color: #19191a;
+	font-weight: 500;
 	padding-left: 25px;
 	margin-bottom: 28px;
 }
@@ -1429,7 +1430,7 @@ ul, ol {
     text-transform: uppercase;
     font-weight: 700;
     background: #dfa974;
-    padding: 14px 70px 13px;
+    padding: 14px 91px 13px;
 	display: inline-block;
 }
 .registro-text .reg-title2 .reg-form .select-option {

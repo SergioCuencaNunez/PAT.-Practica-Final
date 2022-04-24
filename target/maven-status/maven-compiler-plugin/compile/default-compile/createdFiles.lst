@@ -34,3 +34,4 @@ com/example/demo/repository/HotelRepository.class
 com/example/demo/service/dto/HotelDTO.class
 com/example/demo/service/HabitacionService.class
 com/example/demo/controller/HabitacionController.class
+com/example/demo/controller/LoginCredential.class

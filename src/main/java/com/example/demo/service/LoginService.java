@@ -5,5 +5,6 @@ import com.example.demo.model.Usuario;
 public interface LoginService {
 
   LoginServiceResult inicioSesionDeUsuario(Usuario usuario);
+  LoginServiceResult registroUsuario(Usuario usuario);
 
 }

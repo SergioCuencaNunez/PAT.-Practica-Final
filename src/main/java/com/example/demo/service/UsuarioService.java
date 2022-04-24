@@ -17,7 +17,7 @@ public interface UsuarioService {
     Usuario updateUsuarioNombreCompletobyNif(String nif, String nombre, String apellido1, String apellido2);
     Usuario updateUsuarioCorreobyNif(String nif, String correo);
     Usuario updateUsuarioCumpleanosbyNif(String nif, LocalDate cumpleanos);
-    String insertAndCompareUsuario(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena,LocalDate cumpleanos, String rol);
+    void insertUsuario(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena,LocalDate cumpleanos, String rol);
     String deleteUsuariobyNif(String nif);
     //INNER-JOIN
     List<UsuarioReservaDTO> getUsuariosConReservas();

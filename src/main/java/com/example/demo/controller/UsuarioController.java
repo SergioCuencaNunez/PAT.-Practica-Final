@@ -5,10 +5,13 @@ import com.example.demo.service.UsuarioService;
 import com.example.demo.service.dto.UsuarioReservaDTO;
 import com.example.demo.service.LoginService;
 import com.example.demo.service.LoginServiceResult;
+import com.example.demo.controller.LoginCredential;
 import org.springframework.validation.BindingResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -98,11 +101,23 @@ public class UsuarioController {
     }
 
     @Transactional
-    @GetMapping("/usuarios/insert/{nif}/{nombre}/{apellido1}/{apellido2}/{correo}/{contrasena}/{cumpleanos}/{rol}")
-    public ResponseEntity<String> insertCompareUsuario(@PathVariable("nif") String nif, @PathVariable("nombre") String nombre, @PathVariable("apellido1") String apellido1,@PathVariable("apellido2") String apellido2,@PathVariable("correo") String correo,@PathVariable("contrasena") String contrasena,@PathVariable("cumpleanos") String cumpleanosStr, @PathVariable("rol") String rol) {
-        LocalDate cumpleanos = LocalDate.parse(cumpleanosStr);
-        String resultado = usuarioServicio.insertAndCompareUsuario(nif,nombre,apellido1,apellido2,correo,contrasena,cumpleanos,rol);
-        return ResponseEntity.ok().body(resultado);
+    @PostMapping("/usuarios/insert")
+    public ResponseEntity<LoginResponse> insertCompareUsuario(@RequestBody Usuario usuario, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            LoginResponse loginResponse = new LoginResponse("KO");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
+        LoginServiceResult result = loginServicio.registroUsuario(usuario);
+        if (result.isFlag()) {
+            LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
+        }else if(result.getAccessToken() == "NIF ya registrado") {
+            LoginResponse loginResponse = new LoginResponse("Un usuario con ese NIF ya está registrado en MeliáRewards");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            LoginResponse loginResponse = new LoginResponse("Un usuario con ese correo electrónico ya está registrado en MeliáRewards");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @Transactional
@@ -138,5 +153,17 @@ public class UsuarioController {
             LoginResponse loginResponse = new LoginResponse("Usuario no existe");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @Transactional
+    @PostMapping(path="/usuarios/registro", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> registroCliente(@Valid @RequestBody LoginCredential loginParam, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
+        }
+        if ((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (!loginParam.contrasena().equals(""))) {
+            return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
     }
 }
