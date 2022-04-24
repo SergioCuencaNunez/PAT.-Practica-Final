@@ -2,7 +2,7 @@ const getCorreo = () => {
     return localStorage.getItem("correo");
 }
 
-const getReservas = () => {
+const getReservas = async () => {
 
    const address = "api/v1/clientes/correo/" + correo;
    fetch(address, {
@@ -12,8 +12,9 @@ const getReservas = () => {
             },
   })
   .then(response => response.json())
+
+  console.log(response);
 }
-console.log(response);
 
 const setCorreo = (correo) => {
     document.getElementById("correo").innerHTML = correo;

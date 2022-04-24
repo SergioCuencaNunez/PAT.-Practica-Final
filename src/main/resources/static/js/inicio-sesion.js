@@ -6,7 +6,7 @@ async function iniciarSesion(){
         var data = {"correo": correo,
                     "contrasena":contrasena
                     };
-        const address = "api/v1/clientes/inicio-sesion";
+        const address = "api/v1/usuarios/inicio-sesion";
         fetch(address, {
             method: 'POST',
             headers: {

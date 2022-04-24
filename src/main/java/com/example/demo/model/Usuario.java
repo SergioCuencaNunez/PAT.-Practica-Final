@@ -18,8 +18,8 @@ import java.time.LocalTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table("CLIENTE")
-public class Cliente {
+@Table("USUARIO")
+public class Usuario {
     private @Column("NIF") @Id String nif;
     private @Column("NOMBRE") String nombre;
     private @Column("APELLIDO1") String apellido1;
@@ -27,4 +27,5 @@ public class Cliente {
     private @Column("CORREO") String correo;
     private @Column("CONTRASENA") String contrasena;
     private @Column("CUMPLEANOS") LocalDate cumpleanos;
+    private @Column("ROL") String rol;
 }

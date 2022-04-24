@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteDTO {
+public class UsuarioDTO {
 	private String nif;
 	private String nombre;
 	private String apellido1;
@@ -17,4 +17,5 @@ public class ClienteDTO {
 	private String correo;
 	private String contrasena;
 	private LocalDate cumpleanos;
+	private String rol;
 }

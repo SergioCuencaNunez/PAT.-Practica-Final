@@ -1,8 +1,8 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Cliente;
+import com.example.demo.model.Usuario;
 import com.example.demo.service.LoginService;
-import com.example.demo.repository.ClienteRepository;
+import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.LoginServiceResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +15,18 @@ import java.util.List;
 public class LoginServiceImpl implements LoginService {
 
   @Autowired
-  private ClienteRepository clienteRepository;
+  private UsuarioRepository usuarioRepository;
 
   @Override
-  public LoginServiceResult inicioSesionDeCliente(Cliente cliente){
+  public LoginServiceResult inicioSesionDeUsuario(Usuario usuario){
 
-    String correo = cliente.getCorreo();
-    String contrasenaValida = cliente.getContrasena();
+    String correo = usuario.getCorreo();
+    String contrasenaValida = usuario.getContrasena();
     String contrasena;
-    List<String> correos = clienteRepository.getClienteCorreos();
+    List<String> correos = usuarioRepository.getUsuarioCorreos();
 
     if(correos.contains(correo)){
-        contrasena = clienteRepository.getClienteContrasena(correo);
+        contrasena = usuarioRepository.getUsuarioContrasena(correo);
         if(contrasena.equals(contrasenaValida)){
             String value = correo + ":" + contrasenaValida;
             String accessToken = Base64.getEncoder().encodeToString(value.getBytes());

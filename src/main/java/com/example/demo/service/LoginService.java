@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Cliente;
+import com.example.demo.model.Usuario;
 
 public interface LoginService {
 
-  LoginServiceResult inicioSesionDeCliente(Cliente cliente);
+  LoginServiceResult inicioSesionDeUsuario(Usuario usuario);
 
 }
