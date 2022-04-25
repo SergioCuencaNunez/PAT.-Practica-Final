@@ -1472,6 +1472,15 @@ ul, ol {
 	margin-top: 0;
 	width: 100%;
 }
+.registro-text .reg-title2 .reg-form p {
+	margin-top: 0px;
+	margin-bottom: 28px;
+	font-size: 16px;
+	color: #707079;
+	line-height: 28px;
+	text-align: center;
+}
+
 /*---------------------
   Room Section
 -----------------------*/
@@ -2273,7 +2282,8 @@ ul, ol {
 	height: 50px;
 	border: 1px solid #e1e1e1;
 	font-size: 16px;
-	color: #aaaab3;
+    color: #19191a;
+    font-weight: 500;
 	padding-left: 25px;
 	margin-bottom: 28px;
 }
@@ -2297,7 +2307,8 @@ ul, ol {
 	height: 150px;
 	border: 1px solid #e1e1e1;
 	font-size: 16px;
-	color: #aaaab3;
+    color: #19191a;
+    font-weight: 500;
 	padding-left: 25px;
 	padding-top: 12px;
 	margin-bottom: 33px;

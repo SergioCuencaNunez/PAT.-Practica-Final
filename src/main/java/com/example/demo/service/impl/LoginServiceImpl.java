@@ -1,12 +1,12 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.model.Contacto;
 import com.example.demo.model.Usuario;
-import com.example.demo.service.LoginService;
-import com.example.demo.service.UsuarioService;
+import com.example.demo.service.*;
 import com.example.demo.repository.UsuarioRepository;
-import com.example.demo.service.LoginServiceResult;
 
 import com.example.demo.service.UsuarioService;
+import com.example.demo.service.ContactoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +24,9 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private UsuarioService usuarioServicio;
+
+    @Autowired
+    private ContactoService contactoServicio;
 
     @Override
     public LoginServiceResult inicioSesionDeUsuario(Usuario usuario){
@@ -70,6 +73,44 @@ public class LoginServiceImpl implements LoginService {
         } else {
             usuarioServicio.insertUsuario(nif, nombre, apellido1, apellido2, correo, contrasena, cumpleanos, rol);
             return new LoginServiceResult(true);
+        }
+    }
+
+    @Override
+    public LoginServiceResult mensajeContacto(Contacto contacto){
+
+        Long numero = contacto.getNumero();
+        String correo = contacto.getCorreo();
+        String nombre = contacto.getNombre();
+        String mensaje = contacto.getMensaje();
+        List<String> correos = usuarioRepository.getUsuarioCorreos();
+
+        if(correos.contains(correo)){
+            String value = correo + ":" + mensaje;
+            String accessToken = Base64.getEncoder().encodeToString(value.getBytes());
+            contactoServicio.insertContacto(numero, correo, nombre, mensaje);
+            return new LoginServiceResult(true, accessToken);
+        }else{
+                return new LoginServiceResult(false, "Usuario no encontrado");
+        }
+    }
+
+    @Override
+    public LoginServiceResult suscripcionContacto(Contacto contacto){
+
+        Long numero = contacto.getNumero();
+        String correo = contacto.getCorreo();
+        String nombre = contacto.getNombre();
+        String mensaje = contacto.getMensaje();
+        List<String> correos = usuarioRepository.getUsuarioCorreos();
+
+        if(correos.contains(correo)){
+            return new LoginServiceResult(false);
+        }else{
+            String value = correo + ":" + mensaje;
+            String accessToken = Base64.getEncoder().encodeToString(value.getBytes());
+            contactoServicio.insertContacto(numero, correo, nombre, mensaje);
+            return new LoginServiceResult(true, accessToken);
         }
     }
 }

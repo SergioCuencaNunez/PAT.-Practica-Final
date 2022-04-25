@@ -61,6 +61,6 @@ INSERT INTO HABITACION(TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD, ESTADO) VALUES ('K
 INSERT INTO HABITACION(TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD, ESTADO) VALUES ('Studio', 238, 18, 'Innside-New-York-Nomad',4,1);
 INSERT INTO HABITACION(TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD, ESTADO) VALUES ('Townhouse-Junior-Suite', 305, 19, 'Innside-New-York-Nomad',4,1);
 
-INSERT INTO CONTACTO(CORREO, NOMBRE, MENSAJE) VALUES ('javier_barneda@gmail.com','Javier','Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias');
-INSERT INTO CONTACTO(CORREO, NOMBRE, MENSAJE) VALUES ('laura.h@gmail.com','Laura','Solicito una devolución y reembolso de mi reserva en Melia White House. Un saludo');
-INSERT INTO CONTACTO(CORREO, NOMBRE, MENSAJE) VALUES ('ineg_s@gmail.com','Ines','¿Que servicios encuentro cerca del hotel Melia Paris La Defense? Muchas gracias');
+INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (1,'javier_barneda@gmail.com','Javier','Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias');
+INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (2,'laura.h@gmail.com','Laura','Solicito una devolución y reembolso de mi reserva en Melia White House. Un saludo');
+INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (3,'ineg_s@gmail.com','Ines','¿Que servicios encuentro cerca del hotel Melia Paris La Defense? Muchas gracias');

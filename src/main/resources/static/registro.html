@@ -198,16 +198,16 @@
                                             <h4>Datos de contacto</h4>
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="text" id="nombre" placeholder="Nombre completo*">
+                                            <input title="Solo carácteres alfabéticos y máximo de 15" type="text" id="nombre" placeholder="Nombre completo*">
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" id="apellido1" placeholder="Primer apellido*">
+                                            <input title="Solo carácteres alfabéticos y máximo de 20" type="text" id="apellido1" placeholder="Primer apellido*">
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" id="apellido2" placeholder="Segundo apellido*">
+                                            <input title="Solo carácteres alfabéticos y máximo de 20" type="text" id="apellido2" placeholder="Segundo apellido*">
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="text" id="nif" placeholder="NIF/DNI*">
+                                            <input title="Solo 8 carácteres númericos y una letra" type="text" id="nif" placeholder="NIF/DNI*">
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="check-date">
@@ -218,13 +218,18 @@
                                             <h4>Datos de acceso</h4>
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="text" id="correo" placeholder="Correo electrónico*">
+                                            <input title="Solo correo electrónico válido con máximo de 50 caracteres" type="text" id="correo" placeholder="Correo electrónico*">
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="password" id="contrasena" placeholder="Contraseña*">
+                                            <input title="Solo carácteres alfanuméricos con mínimo de 15 y máximo de 50" type="password" id="contrasena" placeholder="Contraseña*">
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="password" id="contrasena2" placeholder="Repetir contraseña*">
+                                            <input title="Solo carácteres alfanuméricos con mínimo de 15 y máximo de 50" type="password" id="contrasena2" placeholder="Repetir contraseña*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <p>
+                                                Al darse de alta en el programa de MeliáRewards acepta recibir información sobre ofertas y promociones especiales de melia.com, así como las condiciones que se detallan en la cláusula de privacidad.
+                                            </p>
                                         </div>
                                     </div>
                                     <button type="submit" onclick="registro()">Registrarme y conseguir todas las ventajas exclusivas</button>
@@ -273,8 +278,8 @@
                             <h6>Promociones y descuentos</h6>
                             <p>Suscríbete a nuestro boletín y recibe directamente en tu buzón nuestras mejores ofertas y promociones.</p>
                             <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
+                                <input id= "correoSuscripcion" type="text" placeholder="Correo electrónico">
+                                <button onclick="boletinSuscripcion()" type="submit"><i class="fa fa-send"></i></button>
                             </form>
                         </div>
                     </div>
@@ -323,7 +328,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/registro.js"></script>
-
+    <script src="js/contacto.js"></script>
 </body>
 
 </html>

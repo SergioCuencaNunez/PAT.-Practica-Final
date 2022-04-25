@@ -154,14 +154,14 @@
                     <form action="#" class="contact-form">
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Nombre">
+                                <input id= "nombre" type="text" placeholder="Nombre">
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Correo electrónico">
+                                <input id= "correo" type="text" placeholder="Correo electrónico">
                             </div>
                             <div class="col-lg-12">
-                                <textarea placeholder="Tu mensaje"></textarea>
-                                <button type="submit">Enviar</button>
+                                <textarea id= "mensaje" placeholder="Tu mensaje"></textarea>
+                                <button type="submit" onclick="contactar()">Enviar</button>
                             </div>
                         </div>
                     </form>
@@ -212,8 +212,8 @@
                             <h6>Promociones y descuentos</h6>
                             <p>Suscríbete a nuestro boletín y recibe directamente en tu buzón nuestras mejores ofertas y promociones.</p>
                             <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
+                                <input id= "correoSuscripcion" type="text" placeholder="Correo electrónico">
+                                <button onclick="boletinSuscripcion()" type="submit"><i class="fa fa-send"></i></button>
                             </form>
                         </div>
                     </div>
@@ -261,6 +261,7 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/contacto.js"></script>
 </body>
 
 </html>

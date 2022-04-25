@@ -51,7 +51,7 @@ async function registro() {
                     }
                 });
             }else{
-                alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales. Debe introducir un NIF vigente, un email válido y una contraseña alfanúmerica de 10 a 50 caracteres. Recuerde que la contraseña debe ser igual en ambos campos.");
+                alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales.\nDebe introducir todos los datos marcados, un NIF vigente, un email válido y una contraseña alfanúmerica.\nRecuerde que la contraseña debe ser igual en ambos campos.");
             }
        });
     } catch (err) {

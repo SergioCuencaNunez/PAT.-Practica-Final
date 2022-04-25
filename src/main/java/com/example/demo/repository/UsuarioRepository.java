@@ -48,6 +48,6 @@ public interface UsuarioRepository extends CrudRepository<Usuario, String> {
 
     @Query("INSERT INTO USUARIO (NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES (:nif,:nombre,:apellido1,:apellido2,:correo,:contrasena,:cumpleanos,:rol)")
     @Modifying
-    void insertUsuario(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena, LocalDate cumpleanos, String rol);
+    void insertarUsuario(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena, LocalDate cumpleanos, String rol);
 
 }

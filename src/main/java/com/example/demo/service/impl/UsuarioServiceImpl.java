@@ -117,7 +117,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setContrasena(contrasena);
         usuario.setCumpleanos(cumpleanos);
         usuario.setRol(rol);
-        usuarioRepository.insertUsuario(usuario.getNif(), usuario.getNombre(), usuario.getApellido1(), usuario.getApellido2(),usuario.getCorreo(),usuario.getContrasena(),usuario.getCumpleanos(),usuario.getRol());
+        usuarioRepository.insertarUsuario(usuario.getNif(), usuario.getNombre(), usuario.getApellido1(), usuario.getApellido2(),usuario.getCorreo(),usuario.getContrasena(),usuario.getCumpleanos(),usuario.getRol());
     }
 
     @Override

@@ -16,7 +16,7 @@ INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPL
 INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES ('74575576P','Laura','Hernandez','Pardo','laura.h@gmail.com','Lauritaa','2000-08-27','cliente');
 INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES ('73010655F','Gerardo','Fernandez','Gomez','ag@gmail.com','GerarF','2000-03-12','cliente');
 INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES ('38421952S','Soraya','Conderana','Sicilia','sorayita@gmail.com','sorcorsic','2000-03-12','cliente');
-INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES ('56808995F','Inés','Garcia','Santamaria','ele@gmail.com','ElenaGarcia829','2000-09-12','cliente');
+INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES ('56808995F','Inés','Garcia','Santamaria','ineg_s@gmail.com','ElenaGarcia829','2000-09-12','cliente');
 INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES ('86104585Z','Isabel','Gonzalez','Casado','isaa@gmail.com','IsabelGlezz','2000-09-9','cliente');
 INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES ('87504295J','Jaime','Lopez','Ayuso','jla@gmail.com','JaimeLo','2000-09-9','cliente');
 INSERT INTO USUARIO(NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES ('93528386J','Santiago','Pascual','Sanchez','g_pas@gmail.com','SantiPas','2000-11-9','cliente');
@@ -60,3 +60,7 @@ INSERT INTO HABITACION(TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD, ESTADO) VALUES ('J
 INSERT INTO HABITACION(TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD, ESTADO) VALUES ('King-City', 184, 15, 'Innside-New-York-Nomad',3,1);
 INSERT INTO HABITACION(TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD, ESTADO) VALUES ('Studio', 238, 18, 'Innside-New-York-Nomad',4,1);
 INSERT INTO HABITACION(TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD, ESTADO) VALUES ('Townhouse-Junior-Suite', 305, 19, 'Innside-New-York-Nomad',4,1);
+
+INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (1,'javier_barneda@gmail.com','Javier','Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias');
+INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (2,'laura.h@gmail.com','Laura','Solicito una devolución y reembolso de mi reserva en Melia White House. Un saludo');
+INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (3,'ineg_s@gmail.com','Ines','¿Que servicios encuentro cerca del hotel Melia Paris La Defense? Muchas gracias');
