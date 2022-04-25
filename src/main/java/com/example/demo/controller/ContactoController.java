@@ -76,7 +76,7 @@ public class ContactoController {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
         } else {
-            LoginResponse loginResponse = new LoginResponse("El usuario no existe. Para poder enviar un mensaje debe estar registrado en MeliáRewards");
+            LoginResponse loginResponse = new LoginResponse("El usuario no existe. Para poder enviar un mensaje debe estar registrado en MeliáRewards.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }
     }
@@ -92,8 +92,14 @@ public class ContactoController {
         if (result.isFlag()) {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
-        } else {
-            LoginResponse loginResponse = new LoginResponse("Este correo electrónico ya está vinculado con una cuenta en MeliáRewards");
+        }else if(result.getAccessToken() == "Usuario registrado en MeliáRewards") {
+            LoginResponse loginResponse = new LoginResponse("Este correo electrónico ya está vinculado con una cuenta en MeliáRewards.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }else if(result.getAccessToken() == "Usuario registrado en boletín de suscripción"){
+            LoginResponse loginResponse = new LoginResponse("Este correo electrónico ya está suscrito al boletín de suscripción.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            LoginResponse loginResponse = new LoginResponse("Debe rellenar el campo con un correo electrónico para suscribirse al boletín de suscripción.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }
     }

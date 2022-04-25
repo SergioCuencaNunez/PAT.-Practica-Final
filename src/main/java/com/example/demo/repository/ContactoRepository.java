@@ -5,10 +5,15 @@ import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface ContactoRepository extends CrudRepository<Contacto, Long> {
 
     @Query("SELECT* FROM CONTACTO WHERE CONTACTO.CORREO= :correo")
     public Contacto getContactoByCorreo(String correo);
+
+    @Query("SELECT CORREO FROM CONTACTO")
+    public List<String> getContactoCorreos();
 
     @Query("SELECT CONTACTO.MENSAJE FROM CONTACTO WHERE CONTACTO.CORREO= :correo")
     public String getMensajeByCorreo(String correo);

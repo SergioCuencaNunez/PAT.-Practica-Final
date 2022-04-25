@@ -40,7 +40,7 @@ async function boletinSuscripcion(){
         var data = {"numero": null,
                     "correo": correo,
                     "nombre": "",
-                    "mensaje": "Suscripción al boletín de ofertas y descuentos",
+                    "mensaje": "Suscripcion al boletín de ofertas y descuentos",
                     };
         const address = "api/v1/contactos/insert-suscripcion";
         fetch(address, {
@@ -54,9 +54,9 @@ async function boletinSuscripcion(){
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    alert("Gracias por suscribirte al boletín de noticias de Meliá Hotels International. Pronto recibirás nuevas ofertas y descuentos.");
+                    window.alert("Gracias por suscribirte al boletín de noticias de Meliá Hotels International. Pronto recibirás nuevas ofertas y descuentos.");
                 }else{
-                    alert(data.result);
+                    window.alert(data.result);
                 }
             });
 

@@ -40,7 +40,7 @@ async function boletinSuscripcion(){
         var data = {"numero": null,
                     "correo": correo,
                     "nombre": "",
-                    "mensaje": "Suscripción al boletín de ofertas y descuentos",
+                    "mensaje": "Suscripcion al boletín de ofertas y descuentos",
                     };
         const address = "api/v1/contactos/insert-suscripcion";
         fetch(address, {

@@ -3,8 +3,8 @@ package com.example.demo.service.impl;
 import com.example.demo.model.Contacto;
 import com.example.demo.model.Usuario;
 import com.example.demo.service.*;
+import com.example.demo.repository.ContactoRepository;
 import com.example.demo.repository.UsuarioRepository;
-
 import com.example.demo.service.UsuarioService;
 import com.example.demo.service.ContactoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +21,9 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private ContactoRepository contactoRepository;
 
     @Autowired
     private UsuarioService usuarioServicio;
@@ -102,15 +105,22 @@ public class LoginServiceImpl implements LoginService {
         String correo = contacto.getCorreo();
         String nombre = contacto.getNombre();
         String mensaje = contacto.getMensaje();
-        List<String> correos = usuarioRepository.getUsuarioCorreos();
+        List<String> correosUsuarios = usuarioRepository.getUsuarioCorreos();
+        List<String> correosContactos = contactoRepository.getContactoCorreos();
 
-        if(correos.contains(correo)){
-            return new LoginServiceResult(false);
+        if(correo != "") {
+            if (correosUsuarios.contains(correo)) {
+                return new LoginServiceResult(false, "Usuario registrado en MeliáRewards");
+            } else if (correosContactos.contains(correo)) {
+                return new LoginServiceResult(false, "Usuario registrado en boletín de suscripción");
+            } else {
+                String value = correo + ":" + mensaje;
+                String accessToken = Base64.getEncoder().encodeToString(value.getBytes());
+                contactoServicio.insertContacto(numero, correo, nombre, mensaje);
+                return new LoginServiceResult(true, accessToken);
+            }
         }else{
-            String value = correo + ":" + mensaje;
-            String accessToken = Base64.getEncoder().encodeToString(value.getBytes());
-            contactoServicio.insertContacto(numero, correo, nombre, mensaje);
-            return new LoginServiceResult(true, accessToken);
+            return new LoginServiceResult(false, "Correo no rellenado");
         }
     }
 }

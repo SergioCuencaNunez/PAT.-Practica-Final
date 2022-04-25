@@ -112,10 +112,10 @@ public class UsuarioController {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
         }else if(result.getAccessToken() == "NIF ya registrado") {
-            LoginResponse loginResponse = new LoginResponse("Un usuario con ese NIF ya está registrado en MeliáRewards");
+            LoginResponse loginResponse = new LoginResponse("Un usuario con ese NIF ya está registrado en MeliáRewards.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }else{
-            LoginResponse loginResponse = new LoginResponse("Un usuario con ese correo electrónico ya está registrado en MeliáRewards");
+            LoginResponse loginResponse = new LoginResponse("Un usuario con ese correo electrónico ya está registrado en MeliáRewards.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }
     }
