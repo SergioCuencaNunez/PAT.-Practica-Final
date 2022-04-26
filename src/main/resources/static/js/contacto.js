@@ -65,3 +65,11 @@ async function boletinSuscripcion(){
     }
     return false;
 }
+
+$('#mensajeForm').submit(function (e) {
+    e.preventDefault();
+});
+
+$('#contactForm').submit(function (e) {
+    e.preventDefault();
+});

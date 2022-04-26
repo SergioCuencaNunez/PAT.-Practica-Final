@@ -59,3 +59,7 @@ async function registro() {
     }
     return false;
 }
+
+$('#registroForm').submit(function (e) {
+    e.preventDefault();
+});

@@ -32,3 +32,7 @@ async function iniciarSesion(){
     }
     return false;
 }
+
+$('#inicioSesionForm').submit(function (e) {
+    e.preventDefault();
+});

@@ -54,9 +54,9 @@ async function boletinSuscripcion(){
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    window.alert("Gracias por suscribirte al boletín de noticias de Meliá Hotels International. Pronto recibirás nuevas ofertas y descuentos.");
+                    alert("Gracias por suscribirte al boletín de noticias de Meliá Hotels International. Pronto recibirás nuevas ofertas y descuentos.");
                 }else{
-                    window.alert(data.result);
+                    alert(data.result);
                 }
             });
 
@@ -65,3 +65,11 @@ async function boletinSuscripcion(){
     }
     return false;
 }
+
+$('#mensajeForm').submit(function (e) {
+    e.preventDefault();
+});
+
+$('#contactForm').submit(function (e) {
+    e.preventDefault();
+});
