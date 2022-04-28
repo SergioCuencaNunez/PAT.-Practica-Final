@@ -34,15 +34,15 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public LoginServiceResult inicioSesionDeUsuario(Usuario usuario){
 
-    String correo = usuario.getCorreo();
-    String contrasenaValida = usuario.getContrasena();
-    String contrasena;
-    List<String> correos = usuarioRepository.getUsuarioCorreos();
+        String correo = usuario.getCorreo();
+        String contrasena = usuario.getContrasena();
+        String contrasenaValida;
+        List<String> correos = usuarioRepository.getUsuarioCorreos();
 
         if(correos.contains(correo)){
-            contrasena = usuarioRepository.getUsuarioContrasena(correo);
+            contrasenaValida = usuarioRepository.getUsuarioContrasena(correo);
             if(contrasena.equals(contrasenaValida)){
-                 String value = correo + ":" + contrasenaValida;
+                 String value = correo + ":" + contrasena;
                  String accessToken = Base64.getEncoder().encodeToString(value.getBytes());
                  return new LoginServiceResult(true, accessToken);
 

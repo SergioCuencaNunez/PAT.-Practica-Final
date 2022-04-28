@@ -1,7 +1,11 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Reserva;
+import com.example.demo.service.ReservaServiceResult;
+import com.example.demo.controller.ReservaResponse;
 import com.example.demo.service.ReservaService;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -82,7 +86,7 @@ public class ReservaController {
         return ResponseEntity.notFound().build();
     }
 
-    @Transactional
+    /*@Transactional
     @GetMapping("reservas/insert/{id}/{nif}/{hotel}/{destino}/{huespedes}/{habitaciones}/{fechaEntrada}/{fechaSalida}")
     public ResponseEntity<String> insertCompareReserva(@PathVariable("id") String idStr, @PathVariable("nif") String nif, @PathVariable("hotel") String hotel,@PathVariable("destino") String destino,@PathVariable("huespedes") String huespedesStr,@PathVariable("habitaciones") String habitacionesStr,@PathVariable("fechaEntrada") String fechaEntradaStr,@PathVariable("fechaSalida") String fechaSalidaStr){
         Long id = Long.parseLong(idStr);
@@ -92,6 +96,23 @@ public class ReservaController {
         LocalDate fechaSalida = LocalDate.parse(fechaSalidaStr);
         String resultado = reservaServicio.insertAndCompareReserva(id, nif, hotel, destino, huespedes, habitaciones, fechaEntrada, fechaSalida);
         return ResponseEntity.ok().body(resultado);
+    }*/
+
+    @Transactional
+    @PostMapping("/reservas/insert")
+    public ResponseEntity<ReservaResponse> insertCompareReserva(@RequestBody Reserva reserva, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            ReservaResponse reservaResponse = new ReservaResponse("KO");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
+        ReservaServiceResult result = reservaServicio.registrarReserva(reserva);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("Una reserva en Meliá Hotels International con ese identificador ya existe.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @Transactional

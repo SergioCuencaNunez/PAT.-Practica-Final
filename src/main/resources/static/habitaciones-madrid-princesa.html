@@ -196,10 +196,10 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaForm">
                             <div class="text-input">
-                                <label for="id-princesa1">Introduzca el ID de reserva:</label>
-                                <input type="text" id="id-princesa1">
+                                <label for="nif-princesa1">Introduzca su NIF/DNI:</label>
+                                <input type="text" id="nif-princesa1">
                             </div>
                             <div class="check-date">
                                 <label for="date-in-princesa1">Check In:</label>
@@ -231,7 +231,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservar1()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -284,8 +284,8 @@
                         <h3>Tu Reserva</h3>
                         <form action="#">
                             <div class="text-input">
-                                <label for="id-princesa2">Introduzca el ID de reserva:</label>
-                                <input type="text" id="id-princesa2">
+                                <label for="nif-princesa2">Introduzca su NIF/DNI:</label>
+                                <input type="text" id="nif-princesa2">
                             </div>
                             <div class="check-date">
                                 <label for="date-in-princesa2">Check In:</label>
@@ -370,8 +370,8 @@
                         <h3>Tu Reserva</h3>
                         <form action="#">
                             <div class="text-input">
-                                <label for="id-princesa3">Introduzca el ID de reserva:</label>
-                                <input type="text" id="id-princesa3">
+                                <label for="nif-princesa3">Introduzca su NIF/DNI:</label>
+                                <input type="text" id="nif-princesa3">
                             </div>
                             <div class="check-date">
                                 <label for="date-in-princesa3">Check In:</label>
@@ -499,6 +499,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/contacto.js"></script>
+    <script src="js/reservas-madrid-princesa.js"></script>
 </body>
 
 </html>

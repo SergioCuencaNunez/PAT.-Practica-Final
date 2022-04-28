@@ -13,6 +13,7 @@ public interface ReservaService {
     List<Reserva> getReservasbyHotelFechaEntrada(String hotel, LocalDate fechaEntrada);
     Reserva updateReservabyId(Long id, String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
     List<Reserva> getReservas();
-    String insertAndCompareReserva(Long id, String nif, String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
+    void insertReserva(Long id, String nif, String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
+    ReservaServiceResult registrarReserva(Reserva reserva);
     String deleteReservabyId(Long id);
 }
