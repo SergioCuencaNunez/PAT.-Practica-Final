@@ -3,8 +3,10 @@ async function reservar1(){
         var nif = await document.getElementById("nif-princesa1").value;
         var checkIn = await document.getElementById("date-in-princesa1").value;
         var checkOut = await document.getElementById("date-out-princesa1").value;
-        var huespedes = await document.getElementById("guest-princesa1").value;
-        var habitaciones = await document.getElementById("room-princesa1").value;
+        var huespedesAnti = await document.getElementById("guest-princesa1");
+        var huespedesAnt = huespedesAnti.options[huespedesAnti.selectedIndex].text;
+        var habitacionesAnt = await document.getElementById("room-princesa1");
+        var habitaciones = habitacionesAnt.options[habitacionesAnt.selectedIndex].text;
         var checkInDia = checkIn.substr(0,2);
         var checkOutDia = checkOut.substr(0,2);
         var checkInMes = checkIn.substr(3,(checkIn.indexOf(",")) - 3);
@@ -13,6 +15,7 @@ async function reservar1(){
         var checkOutAno = checkOut.substr((checkOut.indexOf(",") + 2));
         var checkInNumeroMes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"].indexOf(checkInMes.toLowerCase()) + 1;
         var checkOutNumeroMes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"].indexOf(checkOutMes.toLowerCase()) + 1;
+        var huespedes = huespedesAnt.substr(0,1);
 
         if (checkInNumeroMes < 10 || checkOutNumeroMes < 10) {
           checkInNumeroMes = "0" + checkInNumeroMes;
@@ -23,7 +26,7 @@ async function reservar1(){
         var checkInDefi = new Date(checkInDef);
         var checkOutDefi = new Date(checkOutDef);
 
-        var data = {"id": 9, "nif":nif, "hotel": 'Melia-Madrid-Princesa', "destino": 'Madrid', "huespedes": huespedes, "habitaciones":habitaciones, "fechaEntrada": checkInDefi, "fechaSalida": checkOutDefi};
+        var data = {"id": null, "nif":nif, "hotel": 'Melia-Madrid-Princesa', "destino": 'Madrid', "huespedes": huespedes, "habitaciones":habitaciones, "fechaEntrada": checkInDefi, "fechaSalida": checkOutDefi};
         const address = "api/v1/reservas/insert";
         fetch(address, {
             method: 'POST',

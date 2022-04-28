@@ -109,13 +109,11 @@ public class ReservaServiceImpl implements ReservaService {
         LocalDate fechaEntrada = reserva.getFechaEntrada();
         LocalDate fechaSalida = reserva.getFechaSalida();
 
-        Optional<Reserva> oreserva = reservaRepository.findById(id);
-
-        if(oreserva.isPresent()){
-            return new ReservaServiceResult(false, "Reserva ya registrada");
-        }else{
+        if(id == null){
             ReservaServiceImpl.this.insertReserva(id, nif, hotel, destino, huespedes, habitaciones, fechaEntrada, fechaSalida);
             return new ReservaServiceResult(true);
+        }else{
+            return new ReservaServiceResult(false, "Reserva ya registrada");
         }
     }
 
