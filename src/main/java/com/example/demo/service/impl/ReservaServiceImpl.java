@@ -65,18 +65,19 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservabyId(Long id, String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
+    public Reserva updateReservabyId(Long id, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
         if(oreserva.isPresent()){
             reserva = oreserva.get();
             reserva.setHotel(hotel);
             reserva.setDestino(destino);
+            reserva.setTipo(tipo);
             reserva.setHuespedes(huespedes);
             reserva.setHabitaciones(habitaciones);
             reserva.setFechaEntrada(fechaEntrada);
             reserva.setFechaSalida(fechaSalida);
-            reservaRepository.updateReservaById(reserva.getId(), reserva.getHotel(), reserva.getDestino(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
+            reservaRepository.updateReservaById(reserva.getId(), reserva.getHotel(), reserva.getDestino(), reserva.getTipo(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
             return reserva;
         }
         return reserva;
@@ -84,7 +85,7 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public void insertReserva(Long id, String nif, String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
+    public void insertReserva(Long id, String nif, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
         Reserva reserva = new Reserva();
         reserva.setId(id);
         reserva.setNif(nif);
@@ -94,7 +95,8 @@ public class ReservaServiceImpl implements ReservaService {
         reserva.setHabitaciones(habitaciones);
         reserva.setFechaEntrada(fechaEntrada);
         reserva.setFechaSalida(fechaSalida);
-        reservaRepository.insertReserva(reserva.getId(), reserva.getNif(), reserva.getHotel(), reserva.getDestino(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
+        reserva.setTipo(tipo);
+        reservaRepository.insertReserva(reserva.getId(), reserva.getNif(), reserva.getHotel(), reserva.getDestino(), reserva.getTipo(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
     }
 
     @Override
@@ -104,13 +106,14 @@ public class ReservaServiceImpl implements ReservaService {
         String nif = reserva.getNif();
         String hotel = reserva.getHotel();
         String destino = reserva.getDestino();
+        String tipo = reserva.getTipo();
         Long huespedes = reserva.getHuespedes();
         Long habitaciones = reserva.getHabitaciones();
         LocalDate fechaEntrada = reserva.getFechaEntrada();
         LocalDate fechaSalida = reserva.getFechaSalida();
 
         if(id == null){
-            ReservaServiceImpl.this.insertReserva(id, nif, hotel, destino, huespedes, habitaciones, fechaEntrada, fechaSalida);
+            ReservaServiceImpl.this.insertReserva(id, nif, hotel, destino,tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
             return new ReservaServiceResult(true);
         }else{
             return new ReservaServiceResult(false, "Reserva ya registrada");

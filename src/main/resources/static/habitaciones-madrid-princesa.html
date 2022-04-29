@@ -196,7 +196,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form id="reservaForm">
+                        <form id="reservaFormPremium">
                             <div class="text-input">
                                 <label for="nif-princesa1">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-princesa1">
@@ -216,8 +216,8 @@
                                     <div class="select-option">
                                         <label for="guest-princesa1">Huéspedes:</label>
                                         <select id="guest-princesa1">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -225,13 +225,13 @@
                                     <div class="select-option">
                                         <label for="room-princesa1">Habitaciones:</label>
                                         <select id="room-princesa1">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button onclick="reservar1()" type="submit">Reserva ya</button>
+                            <button onclick="reservarPremium()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -282,7 +282,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormSuite">
                             <div class="text-input">
                                 <label for="nif-princesa2">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-princesa2">
@@ -302,8 +302,9 @@
                                     <div class="select-option">
                                         <label for="guest-princesa2">Huéspedes:</label>
                                         <select id="guest-princesa2">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -311,13 +312,13 @@
                                     <div class="select-option">
                                         <label for="room-princesa2">Habitaciones:</label>
                                         <select id="room-princesa2">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarSuite()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -368,7 +369,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormGrandSuite">
                             <div class="text-input">
                                 <label for="nif-princesa3">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-princesa3">
@@ -388,8 +389,10 @@
                                     <div class="select-option">
                                         <label for="guest-princesa3">Huéspedes:</label>
                                         <select id="guest-princesa3">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
+                                            <option value="5">5 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -397,13 +400,13 @@
                                     <div class="select-option">
                                         <label for="room-princesa3">Habitaciones:</label>
                                         <select id="room-princesa3">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarGrandSuite()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>

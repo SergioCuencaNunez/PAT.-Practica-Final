@@ -3,15 +3,21 @@ package com.example.demo.controller;
 import com.example.demo.model.Reserva;
 import com.example.demo.service.ReservaServiceResult;
 import com.example.demo.controller.ReservaResponse;
+import com.example.demo.controller.ReservaCredential;
 import com.example.demo.service.ReservaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
@@ -72,31 +78,19 @@ public class ReservaController {
     }
 
     @Transactional
-    @GetMapping("/reservas/update/{id}/{hotel}/{destino}/{huespedes}/{habitaciones}/{fechaEntrada}/{fechaSalida}")
-    public ResponseEntity<Reserva> updateReservaId(@PathVariable("id") String idStr,@PathVariable("hotel") String hotel,@PathVariable("destino") String destino,@PathVariable("huespedes") String huespedesStr,@PathVariable("habitaciones") String habitacionesStr,@PathVariable("fechaEntrada") String fechaEntradaStr,@PathVariable("fechaSalida") String fechaSalidaStr){
+    @GetMapping("/reservas/update/{id}/{hotel}/{destino}/{tipo}/{huespedes}/{habitaciones}/{fechaEntrada}/{fechaSalida}")
+    public ResponseEntity<Reserva> updateReservaId(@PathVariable("id") String idStr,@PathVariable("hotel") String hotel,@PathVariable("destino") String destino, @PathVariable("tipo") String tipo, @PathVariable("huespedes") String huespedesStr,@PathVariable("habitaciones") String habitacionesStr,@PathVariable("fechaEntrada") String fechaEntradaStr,@PathVariable("fechaSalida") String fechaSalidaStr){
         Long id = Long.parseLong(idStr);
         Long huespedes = Long.parseLong(huespedesStr);
         Long habitaciones = Long.parseLong(habitacionesStr);
         LocalDate fechaEntrada = LocalDate.parse(fechaEntradaStr);
         LocalDate fechaSalida = LocalDate.parse(fechaSalidaStr);
-        Reserva reserva = reservaServicio.updateReservabyId(id, hotel, destino, huespedes, habitaciones, fechaEntrada, fechaSalida);
+        Reserva reserva = reservaServicio.updateReservabyId(id, hotel, destino, tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
         if(reserva != null){
             return ResponseEntity.ok().body(reserva);
         }
         return ResponseEntity.notFound().build();
     }
-
-    /*@Transactional
-    @GetMapping("reservas/insert/{id}/{nif}/{hotel}/{destino}/{huespedes}/{habitaciones}/{fechaEntrada}/{fechaSalida}")
-    public ResponseEntity<String> insertCompareReserva(@PathVariable("id") String idStr, @PathVariable("nif") String nif, @PathVariable("hotel") String hotel,@PathVariable("destino") String destino,@PathVariable("huespedes") String huespedesStr,@PathVariable("habitaciones") String habitacionesStr,@PathVariable("fechaEntrada") String fechaEntradaStr,@PathVariable("fechaSalida") String fechaSalidaStr){
-        Long id = Long.parseLong(idStr);
-        Long huespedes = Long.parseLong(huespedesStr);
-        Long habitaciones = Long.parseLong(habitacionesStr);
-        LocalDate fechaEntrada = LocalDate.parse(fechaEntradaStr);
-        LocalDate fechaSalida = LocalDate.parse(fechaSalidaStr);
-        String resultado = reservaServicio.insertAndCompareReserva(id, nif, hotel, destino, huespedes, habitaciones, fechaEntrada, fechaSalida);
-        return ResponseEntity.ok().body(resultado);
-    }*/
 
     @Transactional
     @PostMapping("/reservas/insert")
@@ -113,6 +107,23 @@ public class ReservaController {
             ReservaResponse reservaResponse = new ReservaResponse("Una reserva en Meliá Hotels International con ese identificador ya existe.");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @Transactional
+    @PostMapping(path="/reservas/registro", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> registroReserva(@Valid @RequestBody ReservaCredential reservaParam, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            if ((!reservaParam.nif().equals("")) && (!reservaParam.checkIn().equals("")) && (!reservaParam.checkOut().equals("")) && ((sdf.parse(reservaParam.checkOut())).after((sdf.parse(reservaParam.checkIn())))) && (!reservaParam.huespedes().equals("")) && (!reservaParam.habitaciones().equals(""))) {
+                return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
+            }
+        } catch(ParseException e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
     }
 
     @Transactional

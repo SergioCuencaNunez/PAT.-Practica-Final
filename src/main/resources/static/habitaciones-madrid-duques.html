@@ -197,7 +197,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormSupremme">
                             <div class="text-input">
                                 <label for="nif-duques1">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-duques1">
@@ -217,8 +217,8 @@
                                     <div class="select-option">
                                         <label for="guest-duques1">Huéspedes:</label>
                                         <select id="guest-duques1">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -226,13 +226,13 @@
                                     <div class="select-option">
                                         <label for="room-duques1">Habitaciones:</label>
                                         <select id="room-duques1">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarSupremme()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -282,7 +282,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormSuiteDeluxe">
                             <div class="text-input">
                                 <label for="nif-duques2">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-duques2">
@@ -302,8 +302,9 @@
                                     <div class="select-option">
                                         <label for="guest-duques2">Huéspedes:</label>
                                         <select id="guest-duques2">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -311,13 +312,13 @@
                                     <div class="select-option">
                                         <label for="room-duques2">Habitaciones:</label>
                                         <select id="room-duques2">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarSuiteDeluxe()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -367,7 +368,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormRoyalSuite">
                             <div class="text-input">
                                 <label for="nif-duques3">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-duques3">
@@ -387,8 +388,10 @@
                                     <div class="select-option">
                                         <label for="guest-duques3">Huéspedes:</label>
                                         <select id="guest-duques3">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
+                                            <option value="5">5 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -396,13 +399,13 @@
                                     <div class="select-option">
                                         <label for="room-duques3">Habitaciones:</label>
                                         <select id="room-duques3">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarRoyalSuite()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -498,6 +501,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/contacto.js"></script>
+    <script src="js/reservas-madrid-duques.js"></script>
 </body>
 
 </html>

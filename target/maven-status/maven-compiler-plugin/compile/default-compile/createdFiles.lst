@@ -33,6 +33,7 @@ com/example/demo/service/ReservaServiceResult.class
 com/example/demo/repository/HabitacionRepository.class
 com/example/demo/service/UsuarioService.class
 com/example/demo/service/ReservaService.class
+com/example/demo/controller/ReservaCredential.class
 com/example/demo/model/Contacto$ContactoBuilder.class
 com/example/demo/service/dto/UsuarioReservaDTO.class
 com/example/demo/model/Habitacion.class

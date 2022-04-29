@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 record LoginCredential(
 
-    @Pattern(message="máximo 15 caracteres" , regexp="^[a-zA-z]{0,15}$")//poner máximo
+    @Pattern(message="máximo 15 caracteres" , regexp="^[a-zA-z]{0,15}$")
     String nombre,
 
     @Pattern(message="máximo 20 caracteres" , regexp="^[a-zA-z]{0,20}$")
@@ -14,7 +14,7 @@ record LoginCredential(
     @Pattern(message="máximo 20 caracteres" , regexp="^[a-zA-z]{0,20}$")
     String apellido2,
 
-    @Pattern(message="máximo 8 caracteres" , regexp="^[0-9]{8}+[TRWAGMYFPDXBNJZSQVHLCKE]$")
+    @Pattern(message="máximo 9 caracteres" , regexp="^[0-9]{8}+[TRWAGMYFPDXBNJZSQVHLCKE]$")
     String nif,
 
     @Pattern(message="máximo 10 caracteres" , regexp="^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")
