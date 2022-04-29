@@ -194,7 +194,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormKingCity">
                             <div class="text-input">
                                 <label for="nif-nomad1">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-nomad1">
@@ -214,8 +214,8 @@
                                     <div class="select-option">
                                         <label for="guest-nomad1">Huéspedes:</label>
                                         <select id="guest-nomad1">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -223,13 +223,13 @@
                                     <div class="select-option">
                                         <label for="room-nomad1">Habitaciones:</label>
                                         <select id="room-nomad1">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarKingCity()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -281,7 +281,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormStudio">
                             <div class="text-input">
                                 <label for="nif-nomad2">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-nomad2">
@@ -301,8 +301,9 @@
                                     <div class="select-option">
                                         <label for="guest-nomad2">Huéspedes:</label>
                                         <select id="guest-nomad2">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -310,13 +311,13 @@
                                     <div class="select-option">
                                         <label for="room-nomad2">Habitaciones:</label>
                                         <select id="room-nomad2">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarStudio()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -349,7 +350,7 @@
                                 </tr>
                                 <tr>
                                     <td class="r-o">Capacidad:</td>
-                                    <td>Máximo 4 personas</td>
+                                    <td>Máximo 5 personas</td>
                                 </tr>
                                 <tr>
                                     <td class="r-o">Servicios:</td>
@@ -366,7 +367,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormTownhouseJuniorSuite"">
                             <div class="text-input">
                                 <label for="nif-nomad3">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-nomad3">
@@ -386,8 +387,10 @@
                                     <div class="select-option">
                                         <label for="guest-nomad3">Huéspedes:</label>
                                         <select id="guest-nomad3">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
+                                            <option value="5">5 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -395,13 +398,13 @@
                                     <div class="select-option">
                                         <label for="room-nomad3">Habitaciones:</label>
                                         <select id="room-nomad3">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarTownhouseJuniorSuite()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -497,6 +500,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/contacto.js"></script>
+    <script src="js/reservas-nyc-nomad.js"></script>
 </body>
 
 </html>

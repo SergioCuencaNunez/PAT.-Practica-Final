@@ -177,7 +177,7 @@
                                     </tr>
                                     <tr>
                                         <td class="r-o">Capacidad:</td>
-                                        <td>Máximo 2 personas</td>
+                                        <td>Máximo 3 personas</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">Servicios:</td>
@@ -194,7 +194,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormQueen">
                             <div class="text-input">
                                 <label for="nif-ts1">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-ts1">
@@ -214,8 +214,8 @@
                                     <div class="select-option">
                                         <label for="guest-ts1">Huéspedes:</label>
                                         <select id="guest-ts1">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -223,13 +223,13 @@
                                     <div class="select-option">
                                         <label for="room-ts1">Habitaciones:</label>
                                         <select id="room-ts1">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarQueen()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -262,7 +262,7 @@
                                 </tr>
                                 <tr>
                                     <td class="r-o">Capacidad:</td>
-                                    <td>Máximo 3 personas</td>
+                                    <td>Máximo 4 personas</td>
                                 </tr>
                                 <tr>
                                     <td class="r-o">Servicios:</td>
@@ -280,7 +280,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormKing">
                             <div class="text-input">
                                 <label for="nif-ts2">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-ts2">
@@ -300,8 +300,9 @@
                                     <div class="select-option">
                                         <label for="guest-ts2">Huéspedes:</label>
                                         <select id="guest-ts2">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -309,13 +310,13 @@
                                     <div class="select-option">
                                         <label for="room-ts2">Habitaciones:</label>
                                         <select id="room-ts2">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarKing()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -348,7 +349,7 @@
                                 </tr>
                                 <tr>
                                     <td class="r-o">Capacidad:</td>
-                                    <td>Máximo 4 personas</td>
+                                    <td>Máximo 5 personas</td>
                                 </tr>
                                 <tr>
                                     <td class="r-o">Servicios:</td>
@@ -365,7 +366,7 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormJuniorSuite">
                             <div class="text-input">
                                 <label for="nif-ts3">Introduzca su NIF/DNI:</label>
                                 <input type="text" id="nif-ts3">
@@ -385,8 +386,10 @@
                                     <div class="select-option">
                                         <label for="guest-ts3">Huéspedes:</label>
                                         <select id="guest-ts3">
-                                            <option value="">2 Adultos</option>
-                                            <option value="">3 Adultos</option>
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
+                                            <option value="5">5 Adultos</option>
                                         </select>
                                     </div>
                                 </div>
@@ -394,13 +397,13 @@
                                     <div class="select-option">
                                         <label for="room-ts3">Habitaciones:</label>
                                         <select id="room-ts3">
-                                            <option value="">1</option>
-                                            <option value="">2</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarJuniorSuite()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -496,6 +499,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/contacto.js"></script>
+    <script src="js/reservas-nyc-ts.js"></script>
 </body>
 
 </html>
