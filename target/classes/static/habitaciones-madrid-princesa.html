@@ -196,7 +196,11 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormPremium">
+                            <div class="text-input">
+                                <label for="nif-princesa1">Introduzca su NIF/DNI:</label>
+                                <input type="text" id="nif-princesa1">
+                            </div>
                             <div class="check-date">
                                 <label for="date-in-princesa1">Check In:</label>
                                 <input type="text" class="date-input" id="date-in-princesa1">
@@ -207,21 +211,27 @@
                                 <input type="text" class="date-input" id="date-out-princesa1">
                                 <i class="icon_calendar"></i>
                             </div>
-                            <div class="select-option">
-                                <label for="guest-princesa1">Huéspedes:</label>
-                                <select id="guest-princesa1">
-                                    <option value="">2 Adultos</option>
-                                    <option value="">3 Adultos</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="select-option">
+                                        <label for="guest-princesa1">Huéspedes:</label>
+                                        <select id="guest-princesa1">
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="select-option">
+                                        <label for="room-princesa1">Habitaciones:</label>
+                                        <select id="room-princesa1">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="select-option">
-                                <label for="room-princesa1">Habitaciones:</label>
-                                <select id="room-princesa1">
-                                    <option value="">1 Habitación</option>
-                                    <option value="">2 Habitaciones</option>
-                                </select>
-                            </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarPremium()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -272,7 +282,11 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormSuite">
+                            <div class="text-input">
+                                <label for="nif-princesa2">Introduzca su NIF/DNI:</label>
+                                <input type="text" id="nif-princesa2">
+                            </div>
                             <div class="check-date">
                                 <label for="date-in-princesa2">Check In:</label>
                                 <input type="text" class="date-input" id="date-in-princesa2">
@@ -283,22 +297,28 @@
                                 <input type="text" class="date-input" id="date-out-princesa2">
                                 <i class="icon_calendar"></i>
                             </div>
-                            <div class="select-option">
-                                <label for="guest-princesa2">Huéspedes:</label>
-                                <select id="guest-princesa2">
-                                    <option value="">2 Adultos</option>
-                                    <option value="">3 Adultos</option>
-                                    <option value="">4 Adultos</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="select-option">
+                                        <label for="guest-princesa2">Huéspedes:</label>
+                                        <select id="guest-princesa2">
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="select-option">
+                                        <label for="room-princesa2">Habitaciones:</label>
+                                        <select id="room-princesa2">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="select-option">
-                                <label for="room-princesa2">Habitaciones:</label>
-                                <select id="room-princesa2">
-                                    <option value="">1 Habitación</option>
-                                    <option value="">2 Habitaciones</option>
-                                </select>
-                            </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarSuite()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -349,7 +369,11 @@
                 <div class="col-lg-4">
                     <div class="room-booking">
                         <h3>Tu Reserva</h3>
-                        <form action="#">
+                        <form id="reservaFormGrandSuite">
+                            <div class="text-input">
+                                <label for="nif-princesa3">Introduzca su NIF/DNI:</label>
+                                <input type="text" id="nif-princesa3">
+                            </div>
                             <div class="check-date">
                                 <label for="date-in-princesa3">Check In:</label>
                                 <input type="text" class="date-input" id="date-in-princesa3">
@@ -360,23 +384,29 @@
                                 <input type="text" class="date-input" id="date-out-princesa3">
                                 <i class="icon_calendar"></i>
                             </div>
-                            <div class="select-option">
-                                <label for="guest-princesa3">Huéspedes:</label>
-                                <select id="guest-princesa3">
-                                    <option value="">2 Adultos</option>
-                                    <option value="">3 Adultos</option>
-                                    <option value="">4 Adultos</option>
-                                    <option value="">5 Adultos</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="select-option">
+                                        <label for="guest-princesa3">Huéspedes:</label>
+                                        <select id="guest-princesa3">
+                                            <option value="2">2 Adultos</option>
+                                            <option value="3">3 Adultos</option>
+                                            <option value="4">4 Adultos</option>
+                                            <option value="5">5 Adultos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="select-option">
+                                        <label for="room-princesa3">Habitaciones:</label>
+                                        <select id="room-princesa3">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="select-option">
-                                <label for="room-princesa3">Habitaciones:</label>
-                                <select id="room-princesa3">
-                                    <option value="">1 Habitación</option>
-                                    <option value="">2 Habitaciones</option>
-                                </select>
-                            </div>
-                            <button type="submit">Reserva ya</button>
+                            <button onclick="reservarGrandSuite()" type="submit">Reserva ya</button>
                         </form>
                     </div>
                 </div>
@@ -421,9 +451,9 @@
                         <div class="ft-newslatter">
                             <h6>Promociones y descuentos</h6>
                             <p>Suscríbete a nuestro boletín y recibe directamente en tu buzón nuestras mejores ofertas y promociones.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
+                            <form id="contactForm" class="fn-form">
+                                <input id= "correoSuscripcion" type="text" placeholder="Correo electrónico">
+                                <button onclick="boletinSuscripcion()" type="submit"><i class="fa fa-send"></i></button>
                             </form>
                         </div>
                     </div>
@@ -471,6 +501,8 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/contacto.js"></script>
+    <script src="js/reservas-madrid-princesa.js"></script>
 </body>
 
 </html>

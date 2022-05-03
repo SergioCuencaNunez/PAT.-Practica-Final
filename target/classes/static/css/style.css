@@ -639,7 +639,7 @@ ul, ol {
 	margin-bottom: 14px;
 }
 .checkin-form form .check-date input {
-	width: 100%;
+	width: 90%;
 	height: 50px;
 	border: 1px solid #ebebeb;
 	border-radius: 2px;
@@ -652,11 +652,11 @@ ul, ol {
 .checkin-form form .check-date i {
 	color: #dfa974;
 	position: absolute;
-	right: 18px;
+	right: 60px;
 	bottom: 17px;
 }
 .checkin-form form .text-input input {
-	width: 100%;
+	width: 90%;
 	height: 50px;
 	border: 1px solid #ebebeb;
 	border-radius: 2px;
@@ -689,7 +689,7 @@ ul, ol {
 	line-height: 50px;
 	outline: none;
 	padding-left: 20px;
-	width: 100%;
+	width: 90%;
 	float: none;
 }
 .checkin-form form .select-option .nice-select:after {
@@ -720,7 +720,7 @@ ul, ol {
 	color: #dfa974;
 	font-weight: 500;
 	background: transparent;
-	width: 100%;
+	width: 90%;
 	height: 46px;
 	margin-top: 28px;
 }
@@ -1377,7 +1377,8 @@ ul, ol {
 	height: 50px;
 	border: 1px solid #e1e1e1;
 	font-size: 16px;
-	color: #aaaab3;
+	color: #19191a;
+	font-weight: 500;
 	padding-left: 25px;
 	margin-bottom: 28px;
 }
@@ -1429,7 +1430,7 @@ ul, ol {
     text-transform: uppercase;
     font-weight: 700;
     background: #dfa974;
-    padding: 14px 70px 13px;
+    padding: 14px 91px 13px;
 	display: inline-block;
 }
 .registro-text .reg-title2 .reg-form .select-option {
@@ -1471,6 +1472,15 @@ ul, ol {
 	margin-top: 0;
 	width: 100%;
 }
+.registro-text .reg-title2 .reg-form p {
+	margin-top: 0px;
+	margin-bottom: 28px;
+	font-size: 16px;
+	color: #707079;
+	line-height: 28px;
+	text-align: center;
+}
+
 /*---------------------
   Room Section
 -----------------------*/
@@ -1886,7 +1896,24 @@ ul, ol {
 	background: transparent;
 	width: 100%;
 	height: 46px;
-	margin-top: 30px;
+	margin-top: 15px;
+}
+.room-booking form .text-input input {
+	width: 100%;
+	height: 50px;
+	border: 1px solid #ebebeb;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #19191a;
+	font-weight: 500;
+	padding-left: 20px;
+	margin-bottom: 15px;
+}
+.room-booking form .text-input label {
+	font-size: 14px;
+	color: #707079;
+	display: block;
+	margin-bottom: 10px;
 }
 /*---------------------
   Blog Section
@@ -2254,7 +2281,8 @@ ul, ol {
 	height: 50px;
 	border: 1px solid #e1e1e1;
 	font-size: 16px;
-	color: #aaaab3;
+    color: #19191a;
+    font-weight: 500;
 	padding-left: 25px;
 	margin-bottom: 28px;
 }
@@ -2278,7 +2306,8 @@ ul, ol {
 	height: 150px;
 	border: 1px solid #e1e1e1;
 	font-size: 16px;
-	color: #aaaab3;
+    color: #19191a;
+    font-weight: 500;
 	padding-left: 25px;
 	padding-top: 12px;
 	margin-bottom: 33px;

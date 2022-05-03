@@ -24,6 +24,7 @@ public class Reserva {
     private @Column("NIF") String nif;
     private @Column("HOTEL") String hotel;
     private @Column("DESTINO") String destino;
+    private @Column("TIPO") String tipo;
     private @Column("HUESPEDES") Long huespedes;
     private @Column("HABITACIONES") Long habitaciones;
     private @Column("FECHAENTRADA") LocalDate fechaEntrada;

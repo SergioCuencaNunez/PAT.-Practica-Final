@@ -25,12 +25,12 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
     @Query("SELECT* FROM RESERVA WHERE RESERVA.HOTEL= :hotel AND RESERVA.FECHAENTRADA= :fechaEntrada")
     public List<Reserva> getReservasByHotelFechaEntrada(String hotel, LocalDate fechaEntrada);
 
-    @Query("UPDATE RESERVA SET RESERVA.HOTEL= :hotel, RESERVA.DESTINO= :destino, RESERVA.HUESPEDES= :huespedes, RESERVA.HABITACIONES= :habitaciones, RESERVA.FECHAENTRADA= :fechaEntrada, RESERVA.FECHASALIDA= :fechaSalida WHERE RESERVA.ID= :id")
+    @Query("UPDATE RESERVA SET RESERVA.HOTEL= :hotel, RESERVA.DESTINO= :destino, RESERVA.TIPO= :tipo, RESERVA.HUESPEDES= :huespedes, RESERVA.HABITACIONES= :habitaciones, RESERVA.FECHAENTRADA= :fechaEntrada, RESERVA.FECHASALIDA= :fechaSalida WHERE RESERVA.ID= :id")
     @Modifying
-    void updateReservaById(Long id,String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
+    void updateReservaById(Long id, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
 
-    @Query("INSERT INTO RESERVA (ID, NIF, HOTEL, DESTINO, HUESPEDES, HABITACIONES, FECHAENTRADA, FECHASALIDA) VALUES (:id,:nif,:hotel,:destino,:huespedes,:habitaciones,:fechaEntrada,:fechaSalida)")
+    @Query("INSERT INTO RESERVA (ID, NIF, HOTEL, DESTINO, TIPO, HUESPEDES, HABITACIONES, FECHAENTRADA, FECHASALIDA) VALUES (:id,:nif,:hotel,:destino,:tipo,:huespedes,:habitaciones,:fechaEntrada,:fechaSalida)")
     @Modifying
-    void insertReserva(Long id, String nif, String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
+    void insertReserva(Long id, String nif, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
 
 }

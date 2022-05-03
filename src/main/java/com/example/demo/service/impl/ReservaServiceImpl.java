@@ -1,7 +1,9 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.Reserva;
+import com.example.demo.model.Usuario;
 import com.example.demo.repository.ReservaRepository;
+import com.example.demo.service.ReservaServiceResult;
 import com.example.demo.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,18 +65,19 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservabyId(Long id, String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
+    public Reserva updateReservabyId(Long id, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
         if(oreserva.isPresent()){
             reserva = oreserva.get();
             reserva.setHotel(hotel);
             reserva.setDestino(destino);
+            reserva.setTipo(tipo);
             reserva.setHuespedes(huespedes);
             reserva.setHabitaciones(habitaciones);
             reserva.setFechaEntrada(fechaEntrada);
             reserva.setFechaSalida(fechaSalida);
-            reservaRepository.updateReservaById(reserva.getId(), reserva.getHotel(), reserva.getDestino(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
+            reservaRepository.updateReservaById(reserva.getId(), reserva.getHotel(), reserva.getDestino(), reserva.getTipo(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
             return reserva;
         }
         return reserva;
@@ -82,22 +85,38 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public String insertAndCompareReserva(Long id, String nif, String hotel, String destino, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
-        Optional<Reserva> oreserva = reservaRepository.findById(id);
-        if(oreserva.isPresent()){
-            return "La reserva con ID: " + id + " ya existe";
+    public void insertReserva(Long id, String nif, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
+        Reserva reserva = new Reserva();
+        reserva.setId(id);
+        reserva.setNif(nif);
+        reserva.setHotel(hotel);
+        reserva.setDestino(destino);
+        reserva.setHuespedes(huespedes);
+        reserva.setHabitaciones(habitaciones);
+        reserva.setFechaEntrada(fechaEntrada);
+        reserva.setFechaSalida(fechaSalida);
+        reserva.setTipo(tipo);
+        reservaRepository.insertReserva(reserva.getId(), reserva.getNif(), reserva.getHotel(), reserva.getDestino(), reserva.getTipo(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
+    }
+
+    @Override
+    public ReservaServiceResult registrarReserva(Reserva reserva){
+
+        Long id = reserva.getId();
+        String nif = reserva.getNif();
+        String hotel = reserva.getHotel();
+        String destino = reserva.getDestino();
+        String tipo = reserva.getTipo();
+        Long huespedes = reserva.getHuespedes();
+        Long habitaciones = reserva.getHabitaciones();
+        LocalDate fechaEntrada = reserva.getFechaEntrada();
+        LocalDate fechaSalida = reserva.getFechaSalida();
+
+        if(id == null){
+            ReservaServiceImpl.this.insertReserva(id, nif, hotel, destino,tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
+            return new ReservaServiceResult(true);
         }else{
-            Reserva reserva = new Reserva();
-            reserva.setId(id);
-            reserva.setNif(nif);
-            reserva.setHotel(hotel);
-            reserva.setDestino(destino);
-            reserva.setHuespedes(huespedes);
-            reserva.setHabitaciones(habitaciones);
-            reserva.setFechaEntrada(fechaEntrada);
-            reserva.setFechaSalida(fechaSalida);
-            reservaRepository.insertReserva(reserva.getId(), reserva.getNif(), reserva.getHotel(), reserva.getDestino(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
-            return "La reserva con ID: " + id + " se ha registrado correctamente en el hotel " + hotel;
+            return new ReservaServiceResult(false, "Reserva ya registrada");
         }
     }
 

@@ -15,5 +15,6 @@ public class ClienteDTO {
 	private String apellido1;
 	private String apellido2;
 	private String correo;
+	private String contrasena;
 	private LocalDate cumpleanos;
 }

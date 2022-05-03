@@ -156,16 +156,16 @@
                                 <a href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?state=9zjnBDndgOFdKmLw2LuymwyMCOIAsSqKBo0wBDyVExDS0do1UJ1kHkKpCcNnOBjNjHcpgSsOdDQGNg22KtwCBapBpsaqdiH&access_type=offline&approval_prompt=auto&response_type=code&client_id=493616800848-anbmo9c3e3jk44maf4r49uclovtu6duv.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.melia.com%2Fmeliarewards%2Fhome%2Fregister%2FSocialLoginCallback.jsp&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&flowName=GeneralOAuthFlow" target="_blank">Google</a>
                             </div>
                             <div class="is-form">
-                                <form action="#">
+                                <form id="inicioSesionForm">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <input type="text" placeholder="Correo electrónico">
+                                            <input type="text" id="correo" placeholder="Correo electrónico">
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="password" placeholder="Contraseña">
+                                            <input type="password" id="contrasena" placeholder="Contraseña">
                                         </div>
                                     </div>
-                                    <button type="submit">Inicia Sesión</button>
+                                    <button type="submit" onclick="iniciarSesion()" >Inicia Sesión</button>
                                 </form>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                     <div class="col-lg-6">
                         <div class="is-title">
                             <h3>¿Aún no tienes cuenta de MeliáRewards?</h3>
-                            <p>Regístrate ya y consigue 2.000 puntos de bienvenida, <br> además de todos los beneficios exclusivos que ofrece <br> nuestro programa de fidelización </p>
+                            <p>Regístrate ya y consigue todos los beneficios y <br> ventajas exclusivas que ofrece nuestro <br> programa de fidelización </p>
                             <div class="is-button">
                                 <a href="./registro.html">Crear Cuenta</a>
                             </div>
@@ -220,9 +220,9 @@
                         <div class="ft-newslatter">
                             <h6>Promociones y descuentos</h6>
                             <p>Suscríbete a nuestro boletín y recibe directamente en tu buzón nuestras mejores ofertas y promociones.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
+                            <form id="contactForm" class="fn-form">
+                                <input id= "correoSuscripcion" type="text" placeholder="Correo electrónico">
+                                <button onclick="boletinSuscripcion()" type="submit"><i class="fa fa-send"></i></button>
                             </form>
                         </div>
                     </div>
@@ -270,6 +270,8 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/inicio-sesion.js"></script>
+    <script src="js/contacto.js"></script>
 </body>
 
 </html>

@@ -98,7 +98,15 @@
 	--------------------*/
     $(".date-input").datepicker({
         minDate: 0,
-        dateFormat: 'dd MM, yy'
+        dateFormat: 'dd MM, yy',
+        autoclose: true
+    });
+
+    $(".date-input2").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd MM, yy',
+        autoclose: true
     });
 
     $.datepicker.regional['es'] = {
