@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.controller.LoginResponse;
 import com.example.demo.model.Contacto;
+import com.example.demo.service.ContactoService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public final class ContactoControllerTest {
         //Given
         String address = "http://localhost:" + port + "/api/v1/contactos/insert-mensaje";
         Contacto contacto = new Contacto();
-        contacto.setNumero(1L);
+        contacto.setNumero(4L);
         contacto.setCorreo("econderana@gmail.com");
         contacto.setNombre("Ana");
         contacto.setMensaje("Prueba de Testing");
@@ -42,7 +43,7 @@ public final class ContactoControllerTest {
         ResponseEntity<LoginResponse> result = this.restTemplate.postForEntity(address, request, LoginResponse.class);
 
         //Then
-        then(result.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
 
     }
 
