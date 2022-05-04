@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.controller.LoginResponse;
 import com.example.demo.model.Contacto;
-import com.example.demo.service.ContactoService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -13,7 +10,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -32,10 +28,11 @@ public final class ContactoControllerTest {
         //Given
         String address = "http://localhost:" + port + "/api/v1/contactos/insert-mensaje";
         Contacto contacto = new Contacto();
+
         contacto.setNumero(4L);
-        contacto.setCorreo("econderana@gmail.com");
-        contacto.setNombre("Ana");
-        contacto.setMensaje("Prueba de Testing");
+        contacto.setCorreo("javier_barneda@gmail.com");
+        contacto.setNombre("Javier");
+        contacto.setMensaje("Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias");
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <Contacto> request = new HttpEntity<>(contacto, headers);
 
