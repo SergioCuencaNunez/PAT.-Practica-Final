@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+<<<<<<< HEAD
     import com.example.demo.model.Contacto;
     import org.junit.jupiter.api.Test;
     import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,20 @@ package com.example.demo.controller;
     import org.springframework.http.ResponseEntity;
 
     import static org.assertj.core.api.BDDAssertions.then;
+=======
+import com.example.demo.model.Contacto;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import static org.assertj.core.api.BDDAssertions.then;
+>>>>>>> 24980695be28da70db21e46872ae65b0e59e49ea
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public final class ContactoControllerTest {
