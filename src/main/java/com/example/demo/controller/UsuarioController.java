@@ -5,7 +5,6 @@ import com.example.demo.service.UsuarioService;
 import com.example.demo.service.dto.UsuarioReservaDTO;
 import com.example.demo.service.LoginService;
 import com.example.demo.service.LoginServiceResult;
-import com.example.demo.controller.LoginCredential;
 import org.springframework.validation.BindingResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.Iterator;
 import java.util.List;
 
 @Slf4j

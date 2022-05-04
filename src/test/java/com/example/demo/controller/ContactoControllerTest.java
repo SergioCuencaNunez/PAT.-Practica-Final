@@ -1,4 +1,4 @@
-package java.com.example.demo.controller;
+package com.example.demo.controller;
 
 import com.example.demo.controller.LoginResponse;
 import com.example.demo.model.Contacto;
@@ -30,10 +30,9 @@ public final class ContactoControllerTest {
 
         //Given
         String address = "http://localhost:" + port + "/api/v1/contactos/insert-mensaje";
-        BindingResult bindingResult = Mockito.mock(BindingResult.class);
         Contacto contacto = new Contacto();
         contacto.setNumero(1L);
-        contacto.setCorreo("ana@comillas.edu");
+        contacto.setCorreo("econderana@gmail.com");
         contacto.setNombre("Ana");
         contacto.setMensaje("Prueba de Testing");
         HttpHeaders headers = new HttpHeaders();
@@ -43,7 +42,7 @@ public final class ContactoControllerTest {
         ResponseEntity<LoginResponse> result = this.restTemplate.postForEntity(address, request, LoginResponse.class);
 
         //Then
-        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
     }
 

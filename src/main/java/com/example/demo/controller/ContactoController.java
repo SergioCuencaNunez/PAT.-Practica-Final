@@ -1,21 +1,17 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Contacto;
-import com.example.demo.model.Usuario;
-import com.example.demo.repository.ContactoRepository;
 import com.example.demo.service.ContactoService;
 import com.example.demo.service.LoginServiceResult;
 import com.example.demo.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j

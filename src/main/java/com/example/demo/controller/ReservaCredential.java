@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import javax.validation.constraints.Pattern;
-import java.time.LocalDate;
 
 record ReservaCredential(
 
