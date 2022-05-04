@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: com.example.demo.controller.ContactoControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.926 s <<< FAILURE! - in com.example.demo.controller.ContactoControllerTest
-insertarMensajes_ok  Time elapsed: 0.478 s  <<< FAILURE!
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.733 s <<< FAILURE! - in com.example.demo.controller.ContactoControllerTest
+insertarSuscripcion_ok  Time elapsed: 0.152 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 
 expected: 200 OK
- but was: 400 BAD_REQUEST
-	at com.example.demo.controller.ContactoControllerTest.insertarMensajes_ok(ContactoControllerTest.java:46)
+ but was: 500 INTERNAL_SERVER_ERROR
+	at com.example.demo.controller.ContactoControllerTest.insertarSuscripcion_ok(ContactoControllerTest.java:90)
 
