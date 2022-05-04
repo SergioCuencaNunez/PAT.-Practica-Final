@@ -628,33 +628,6 @@ ul, ol {
 	color: #19191a;
 	margin-bottom: 20px;
 }
-.checkin-form form .check-date {
-	position: relative;
-	margin-bottom: 14px;
-}
-.checkin-form form .check-date label {
-	font-size: 14px;
-	color: #707079;
-	display: block;
-	margin-bottom: 14px;
-}
-.checkin-form form .check-date input {
-	width: 90%;
-	height: 50px;
-	border: 1px solid #ebebeb;
-	border-radius: 2px;
-	font-size: 16px;
-	color: #19191a;
-	text-transform: uppercase;
-	font-weight: 500;
-	padding-left: 20px;
-}
-.checkin-form form .check-date i {
-	color: #dfa974;
-	position: absolute;
-	right: 60px;
-	bottom: 17px;
-}
 .checkin-form form .text-input input {
 	width: 90%;
 	height: 50px;
@@ -665,22 +638,22 @@ ul, ol {
 	text-transform: uppercase;
 	font-weight: 500;
 	padding-left: 20px;
-	margin-bottom: 14px;
+	margin-bottom: 18px;
 }
 .checkin-form form .text-input label {
 	font-size: 14px;
 	color: #707079;
 	display: block;
-	margin-bottom: 14px;
+	margin-bottom: 18px;
 }
 .checkin-form form .select-option {
-	margin-bottom: 14px;
+	margin-bottom: 18px;
 }
 .checkin-form form .select-option label {
 	font-size: 14px;
 	color: #707079;
 	display: block;
-	margin-bottom: 14px;
+	margin-bottom: 18px;
 }
 .checkin-form form .select-option .nice-select {
 	border-radius: 2px;
@@ -1154,7 +1127,7 @@ ul, ol {
 	padding-bottom: 70px;
 }
 .about-page-text {
-	margin-bottom: 65px;
+	margin-bottom: 50px;
 }
 .about-page-text .ap-title {
 	margin-bottom: 30px;
@@ -1195,14 +1168,25 @@ ul, ol {
 .about-page-services .ap-service-item .api-text h3 {
 	color: #ffffff;
 }
-.about-page-text .ap-button a {
+.about-page-text .ap-text h3 {
+	color: #19191a;
+	text-align: center;
+}
+.about-page-text .ap-text p {
+	font-size: 18px;
+    color: #707079;
+    line-height: 28px;
+    text-align: center;
+}
+.about-page-text .ap-text a{
 	display: inline-block;
     color: #ffffff;
     font-size: 13px;
     text-transform: uppercase;
     font-weight: 700;
     background: #dfa974;
-    padding: 14px 28px 13px;
+    padding: 14px 45px 13px;
+    text-align: center;
 }
 /*------------------------
   Inicio Sesion Section
