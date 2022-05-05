@@ -1,19 +1,5 @@
 package com.example.demo.controller;
 
-<<<<<<< HEAD
-    import com.example.demo.model.Contacto;
-    import org.junit.jupiter.api.Test;
-    import org.springframework.beans.factory.annotation.Autowired;
-    import org.springframework.boot.test.context.SpringBootTest;
-    import org.springframework.boot.test.web.client.TestRestTemplate;
-    import org.springframework.boot.web.server.LocalServerPort;
-    import org.springframework.http.HttpEntity;
-    import org.springframework.http.HttpHeaders;
-    import org.springframework.http.HttpStatus;
-    import org.springframework.http.ResponseEntity;
-
-    import static org.assertj.core.api.BDDAssertions.then;
-=======
 import com.example.demo.model.Contacto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.BDDAssertions.then;
->>>>>>> 24980695be28da70db21e46872ae65b0e59e49ea
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public final class ContactoControllerTest {
@@ -91,7 +76,7 @@ public final class ContactoControllerTest {
         Contacto contacto = new Contacto();
 
         //email no registrado en Contacto
-        contacto.setNumero(4L);
+        contacto.setNumero(5L);
         contacto.setCorreo("elena@gmail.com");
         contacto.setNombre("Elena");
         contacto.setMensaje("Prueba Fallida Testing");
@@ -116,19 +101,19 @@ public final class ContactoControllerTest {
         Contacto contacto3 = new Contacto();
 
         //Correo contenido en Contactos
-        contacto1.setNumero(4L);
+        contacto1.setNumero(6L);
         contacto1.setCorreo("javier_barneda@gmail.com");
         contacto1.setNombre("Javier");
         contacto1.setMensaje("Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias");
 
         //Correo vacío
-        contacto2.setNumero(2L);
+        contacto2.setNumero(7L);
         contacto2.setCorreo("");
         contacto2.setNombre("Ana");
         contacto2.setMensaje("Testing Fallido 1");
 
         //Correo contenido en Usuarios
-        contacto3.setNumero(4L);
+        contacto3.setNumero(8L);
         contacto3.setCorreo("econderana@melia.com");
         contacto3.setNombre("Elena");
         contacto3.setMensaje("Prueba Fallida Testing");
