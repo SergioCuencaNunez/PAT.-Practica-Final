@@ -26,7 +26,6 @@ async function contactar(){
                     alert(data.result);
                 }
             });
-
     } catch (err) {
         console.error(err.message);
     }

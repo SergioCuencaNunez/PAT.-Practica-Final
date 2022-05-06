@@ -4,12 +4,9 @@ import com.example.demo.model.Usuario;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Iterator;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, String> {
 
@@ -30,6 +27,12 @@ public interface UsuarioRepository extends CrudRepository<Usuario, String> {
     // Los correos son únicos. No es necesario pasar el rol
     @Query("SELECT USUARIO.CONTRASENA FROM USUARIO WHERE USUARIO.CORREO= :correo")
     public String getUsuarioContrasena(String correo);
+
+    @Query("SELECT USUARIO.CORREO FROM USUARIO WHERE USUARIO.NIF= :nif")
+    public String getUsuarioCorreoByNif(String nif);
+
+    @Query("SELECT USUARIO.NOMBRE FROM USUARIO WHERE USUARIO.NIF= :nif")
+    public String getUsuarioNombreByNif(String nif);
 
     // Los NIFs son únicos. No es necesario pasar el rol
     @Query("UPDATE USUARIO SET USUARIO.NOMBRE= :nombre , USUARIO.APELLIDO1= :apellido1 , USUARIO.APELLIDO2= :apellido2 WHERE USUARIO.NIF= :nif")

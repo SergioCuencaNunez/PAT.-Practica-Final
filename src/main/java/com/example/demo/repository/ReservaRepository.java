@@ -4,12 +4,9 @@ import com.example.demo.model.Reserva;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Iterator;
 
 public interface ReservaRepository extends CrudRepository<Reserva, Long> {
 
@@ -22,8 +19,20 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
     @Query("SELECT* FROM RESERVA WHERE RESERVA.HOTEL= :hotel")
     public List<Reserva> getReservasByHotel(String hotel);
 
-    @Query("SELECT* FROM RESERVA WHERE RESERVA.HOTEL= :hotel AND RESERVA.FECHAENTRADA= :fechaEntrada")
-    public List<Reserva> getReservasByHotelFechaEntrada(String hotel, LocalDate fechaEntrada);
+    @Query("SELECT NIF FROM RESERVA WHERE RESERVA.ID= :id")
+    public String getNifReservaById(Long id);
+
+    @Query("SELECT DESTINO FROM RESERVA WHERE RESERVA.ID= :id")
+    public String getDestinoReservaById(Long id);
+
+    @Query("SELECT HOTEL FROM RESERVA WHERE RESERVA.ID= :id")
+    public String getHotelReservaById(Long id);
+
+    @Query("SELECT FECHAENTRADA FROM RESERVA WHERE RESERVA.ID= :id")
+    public LocalDate getFechaEntradaReservaById(Long id);
+
+    @Query("SELECT FECHASALIDA FROM RESERVA WHERE RESERVA.ID= :id")
+    public LocalDate getFechaSalidaReservaById(Long id);
 
     @Query("UPDATE RESERVA SET RESERVA.HOTEL= :hotel, RESERVA.DESTINO= :destino, RESERVA.TIPO= :tipo, RESERVA.HUESPEDES= :huespedes, RESERVA.HABITACIONES= :habitaciones, RESERVA.FECHAENTRADA= :fechaEntrada, RESERVA.FECHASALIDA= :fechaSalida WHERE RESERVA.ID= :id")
     @Modifying

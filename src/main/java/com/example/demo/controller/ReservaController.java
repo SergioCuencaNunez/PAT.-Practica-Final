@@ -1,20 +1,20 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Reserva;
-import com.example.demo.service.ReservaServiceResult;
 import com.example.demo.service.ReservaService;
-import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
+import com.example.demo.service.ReservaServiceResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
+import javax.validation.Valid;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -59,14 +59,6 @@ public class ReservaController {
     }
 
     @Transactional
-    @GetMapping("/reservas/hotel-fecha/{hotel}/{fechaEntrada}")
-    public ResponseEntity<List<Reserva>> getReservasHotelFechaEntrada(@PathVariable("hotel") String hotel,@PathVariable("fechaEntrada") String fechaEntradaStr){
-        LocalDate fechaEntrada = LocalDate.parse(fechaEntradaStr);
-        List<Reserva> reservas = reservaServicio.getReservasbyHotelFechaEntrada(hotel, fechaEntrada);
-        return ResponseEntity.ok().body(reservas);
-    }
-
-    @Transactional
     @GetMapping("/reservas")
     public ResponseEntity<List<Reserva>> getAllReservas() {
         List<Reserva> reservas = reservaServicio.getReservas();
@@ -86,6 +78,23 @@ public class ReservaController {
             return ResponseEntity.ok().body(reserva);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @Transactional
+    @PostMapping("/reservas/check-in")
+    public ResponseEntity<ReservaResponse> checkInReserva(@RequestBody Reserva reserva, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            ReservaResponse reservaResponse = new ReservaResponse("KO");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
+        ReservaServiceResult result = reservaServicio.checkInReserva(reserva);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("La reserva se ha localizado correctamente, pero los parámetros no coinciden con los introducidos. Por favor, revise que todos sean correctos.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @Transactional

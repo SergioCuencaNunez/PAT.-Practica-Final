@@ -6,6 +6,216 @@
   <component name="ChangeListManager">
     <list default="true" id="c29f3e9b-2b3f-4bb6-9e6f-dd8cb0a8e356" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ContactoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ContactoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ReservaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ReservaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/ReservaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/ReservaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/ReservaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/ReservaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/LoginServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/ReservaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/ReservaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/check-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/check-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/check-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/check-in.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/contacto.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/contacto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/reservas-londres-me.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/reservas-londres-me.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application 2.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/data 2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/schema 2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/check-in 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/check-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/check-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/contact 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/flaticon 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/images/ui-icons_555555_256x240 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/magnific-popup 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style 2.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/style 2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/ElegantIcons 2.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/ElegantIcons 2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/ElegantIcons 2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/ElegantIcons 2.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/ElegantIcons 3.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/Flaticon 2.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/Flaticon 2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/Flaticon 2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/Flaticon 2.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/Flaticon 3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/Flaticon 3.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/Flaticon 3.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/FontAwesome 2.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/FontAwesome 3.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont 2.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont 2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont 2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont 2.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont 2.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont 3.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont 3.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-londres-me 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-londres-wh 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-madrid-duques 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-madrid-princesa 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-nyc-nomad 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-nyc-ts 3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-paris-defense 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/hoteles1 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/hoteles1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/hoteles1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/hoteles2 3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/hoteles2 4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/hoteles2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/hoteles2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/about/check1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/about/check2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/about/check2 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/about/check3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/about/check3 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/about/melia-rewards 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-1 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-10 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-2 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-2 3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-3 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-4 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-5 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-5 3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-6 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-7 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-8 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-9 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-details/avatar/avatar-1 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-details/avatar/avatar-2 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-details/avatar/avatar-3 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-details/blog-details-1 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-details/blog-details-2 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-details/blog-details-2 3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-details/blog-details-3 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-details/blog-details-hero 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/blog/blog-wide 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/favicon 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/hero/hero-11 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/hero/hero-22 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/hero/hero-33 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-cdg 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-defense 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-defense 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-duques 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-me 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-nomad 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-princesa 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-ts 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-wh 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/play 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/registro/registro1 2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/registro/registro2 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/registro/registro3 2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/avatar/avatar-1 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/avatar/avatar-2 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/avatar/avatar-2 3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/cdg1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/cdg2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/cdg3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/defense1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/defense1 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/defense2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/defense2 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/defense3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/duques1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/duques2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/duques3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/me1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/me2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/me3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/me3 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/nomad1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/nomad1 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/nomad2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/nomad2 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/nomad3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/nomad3 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/princesa1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/princesa1 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/princesa2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/princesa3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/ts1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/ts2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/ts3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/ts3 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/wh1 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/wh2 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/habs/wh3 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/londres 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/londres-me 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/londres-wh 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/madrid 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/madrid-duques 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/madrid-duques 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/madrid-princesa 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/nueva-york 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/nyc-nomad 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/nyc-nomad 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/nyc-ts 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/paris 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/paris-cdg 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/paris-defense 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/paris-defense 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/room-details 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/room/room-details 3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/circle 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/gran-melia 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/gran-melia 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/innside 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/innside 4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/innside 5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/innside 6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/me 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/melia 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/paradisus 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/sol 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/sol 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/services/tryp 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/testimonial-logo 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/testimonial-logo 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/video-bg 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/inicio-sesion 3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/inicio-sesion-clientes 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/inicio-sesion-clientes 3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/inicio-sesion-gerentes1 3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/check-in 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/check-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/check-in.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/contacto 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/inicio-sesion 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/inicio-sesion-clientes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-3.3.1.min 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.slicknav 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/main 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/owl.carousel.min 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/registro 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-me 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-me.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-me.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-wh 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-madrid-duques 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-madrid-princesa 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-nyc-ts 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-paris-defense 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/registro 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles 2.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles 2.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles 3.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles 2.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles 2.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.demo.DemoApplicationTests 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.demo.DemoApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.demo.controller.ContactoControllerTest 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.demo.controller.ContactoControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.DemoApplicationTests 2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.DemoApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.controller.ContactoControllerTest 2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.controller.ContactoControllerTest.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

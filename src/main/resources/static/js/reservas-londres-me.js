@@ -35,7 +35,6 @@ async function reservarMode() {
             console.log(data1);
             if(data1.result == "OK") {
                 console.log("Datos correctos");
-                console.log(huespedes);
                 var checkInDefi = new Date(checkInDef);
                 var checkOutDefi = new Date(checkOutDef);
                 const data2 = {"id": null, "nif":nif, "hotel": 'ME-London', "destino": 'Londres', "tipo": 'Mode', "huespedes": huespedes, "habitaciones":habitaciones, "fechaEntrada": checkInDefi, "fechaSalida": checkOutDefi};

@@ -78,6 +78,26 @@ public class ContactoController {
     }
 
     @Transactional
+    @PostMapping("/contactos/insert-checkIn")
+    public ResponseEntity<LoginResponse> insertCheckInContacto(@RequestBody Contacto contacto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            LoginResponse loginResponse = new LoginResponse("KO");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
+        LoginServiceResult result = loginServicio.checkInContacto(contacto);
+        if (result.isFlag()) {
+            LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
+        }else if(result.getAccessToken() == "Check-in online ya realizado"){
+            LoginResponse loginResponse = new LoginResponse("El check-in online ya se ha realizado para esta reserva.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            LoginResponse loginResponse = new LoginResponse("El check-in online no ha podido realizarse correctamente. Disculpe las molestias, inténtelo más tarde.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Transactional
     @PostMapping("/contactos/insert-suscripcion")
     public ResponseEntity<LoginResponse> insertSuscripcionContacto(@RequestBody Contacto contacto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

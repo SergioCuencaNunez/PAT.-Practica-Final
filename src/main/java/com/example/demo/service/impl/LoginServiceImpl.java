@@ -94,7 +94,26 @@ public class LoginServiceImpl implements LoginService {
             contactoServicio.insertContacto(numero, correo, nombre, mensaje);
             return new LoginServiceResult(true, accessToken);
         }else{
-                return new LoginServiceResult(false, "Usuario no encontrado");
+            return new LoginServiceResult(false, "Usuario no encontrado");
+        }
+    }
+
+    @Override
+    public LoginServiceResult checkInContacto(Contacto contacto){
+
+        Long numero = contacto.getNumero();
+        String nif = contacto.getCorreo();
+        String idStr = contacto.getNombre();
+        Long id = Long.parseLong(idStr);
+        String mensaje = contacto.getMensaje();
+        String correo = usuarioRepository.getUsuarioCorreoByNif(nif);
+        String nombre = usuarioRepository.getUsuarioNombreByNif(nif);
+        List<String> mensajesContactos = contactoRepository.getContactoMensajes();
+        if(mensajesContactos.contains("Check-in online de la reserva con identificador " + id + " y NIF " + nif)){
+            return new LoginServiceResult(false, "Check-in online ya realizado");
+        }else{
+            contactoServicio.insertContacto(numero, correo, nombre, mensaje);
+            return new LoginServiceResult(true);
         }
     }
 
