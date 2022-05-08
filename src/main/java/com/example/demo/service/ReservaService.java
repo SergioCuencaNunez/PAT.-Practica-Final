@@ -14,6 +14,7 @@ public interface ReservaService {
     Reserva updateReservabyId(Long id, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
     void insertReserva(Long id, String nif, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);
     ReservaServiceResult registrarReserva(Reserva reserva);
+    ReservaServiceResult comprobarDisponibilidad(String hotel, Long habitaciones);
     ReservaServiceResult checkInReserva(Reserva reserva);
     String deleteReservabyId(Long id);
 }

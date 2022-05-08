@@ -81,6 +81,37 @@ public class ReservaController {
     }
 
     @Transactional
+    @GetMapping("/reservas/booking/{hotel}/{habitaciones}")
+    public ResponseEntity<ReservaResponse> comprobarLaDisponibilidad(@PathVariable("hotel") String hotel, @PathVariable("habitaciones") String habitacionesStr){
+        Long habitaciones = Long.parseLong(habitacionesStr);
+        ReservaServiceResult result = reservaServicio.comprobarDisponibilidad(hotel, habitaciones);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("No hay más habitaciones disponibles en este destino. Disculpe las molestias.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Transactional
+    @PostMapping(path="/reservas/booking", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> comprobarBooking(@Valid @RequestBody ReservaCredential reservaParam, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            if ((reservaParam.nif().equals("")) && (!reservaParam.checkIn().equals("")) && (!reservaParam.checkOut().equals("")) && ((sdf.parse(reservaParam.checkOut())).after((sdf.parse(reservaParam.checkIn())))) && (!reservaParam.huespedes().equals("")) && (!reservaParam.habitaciones().equals(""))) {
+                return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
+            }
+        } catch(ParseException e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
+    }
+
+    @Transactional
     @PostMapping("/reservas/check-in")
     public ResponseEntity<ReservaResponse> checkInReserva(@RequestBody Reserva reserva, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -108,6 +139,9 @@ public class ReservaController {
         if (result.isFlag()) {
             ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else if(result.getAccessToken() == "No hay habitaciones disponibles"){
+            ReservaResponse reservaResponse = new ReservaResponse("No hay más habitaciones disponibles en el hotel para el número que solicita. \nPruebe a reducir el número de habitaciones. Disculpe las molestias.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }else{
             ReservaResponse reservaResponse = new ReservaResponse("Una reserva en Meliá Hotels International con ese identificador ya existe.");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);

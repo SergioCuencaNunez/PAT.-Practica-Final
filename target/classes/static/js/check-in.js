@@ -80,6 +80,61 @@ async function checkIn(){
     return false;
 }
 
+async function booking(){
+    try {
+      var destino = await document.getElementById("destino").value;
+      var habitaciones = await document.getElementById("room").value;
+      var huespedes = await document.getElementById("guest").value;
+      var checkIn = await document.getElementById("date-in").value;
+      var checkOut = await document.getElementById("date-out").value;
+      var checkInDia = checkIn.substr(0,2);
+      var checkOutDia = checkOut.substr(0,2);
+      var checkInMes = checkIn.substr(3,(checkIn.indexOf(",")) - 3);
+      var checkOutMes = checkOut.substr(3,(checkOut.indexOf(",")) - 3);
+      var checkInAno = checkIn.substr((checkIn.indexOf(",") + 2));
+      var checkOutAno = checkOut.substr((checkOut.indexOf(",") + 2));
+      var checkInNumeroMes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"].indexOf(checkInMes.toLowerCase()) + 1;
+      var checkOutNumeroMes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"].indexOf(checkOutMes.toLowerCase()) + 1;
+
+      if (checkInNumeroMes < 10 || checkOutNumeroMes < 10) {
+          checkInNumeroMes = "0" + checkInNumeroMes;
+          checkOutNumeroMes = "0" + checkOutNumeroMes;
+      }
+      var checkInDef = checkInAno + "-" + checkInNumeroMes + "-" + checkInDia;
+      var checkOutDef = checkOutAno + "-" + checkOutNumeroMes + "-" + checkOutDia;
+
+      const data0 = {nif: "", checkIn: checkInDef, checkOut: checkOutDef, huespedes: huespedes, habitaciones: habitaciones};
+                    const address0 = "api/v1/reservas/booking";
+                    fetch(address0, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data0)
+                    })
+                    .then(response => response.json())
+                    .then(data0 => {
+                    if(data0.result == "OK") {
+
+                        const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
+                        request1 = await fetch(address1, {
+                           method: 'GET'
+                        });
+
+                    }else{
+                        alert("No se ha podido comprobar la disponibilidad. Por favor, revise que todos los campos introducidos son correctos.\nDebe introducir un destino, fechas de entrada y de salida coherentes, número de huéspedes y número de habitaciones.");
+                    }
+                    });
+    }catch (err){
+        console.error(err.message);
+    }
+    return false;
+}
+
 $('#checkInForm').submit(function (e) {
+    e.preventDefault();
+});
+
+$('#bookingForm').submit(function (e) {
     e.preventDefault();
 });

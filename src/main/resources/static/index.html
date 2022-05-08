@@ -134,14 +134,14 @@
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                     <div class="booking-form">
                         <h3>Reserva ya</h3>
-                        <form action="#">
+                        <form id="bookingForm">
                             <div class="select-option">
                                 <label for="destino">Destino:</label>
                                 <select id="destino">
-                                    <option value="">Madrid</option>
-                                    <option value="">Londres</option>
-                                    <option value="">París</option>
-                                    <option value="">Nueva York</option>
+                                    <option value="Madrid">Madrid</option>
+                                    <option value="Londres">Londres</option>
+                                    <option value="Paris">París</option>
+                                    <option value="Nueva-York">Nueva York</option>
                                 </select>
                             </div>
                             <div class="check-date">
@@ -157,18 +157,21 @@
                             <div class="select-option">
                                 <label for="guest">Huéspedes:</label>
                                 <select id="guest">
-                                    <option value="">2 Adultos</option>
-                                    <option value="">3 Adultos</option>
+                                    <option value="1">1 Adulto</option>
+                                    <option value="2">2 Adultos</option>
+                                    <option value="3">3 Adultos</option>
+                                    <option value="4">4 Adultos</option>
+                                    <option value="5">5 Adultos</option>
                                 </select>
                             </div>
                             <div class="select-option">
                                 <label for="room">Habitaciones:</label>
                                 <select id="room">
-                                    <option value="">1 Habitación</option>
-                                    <option value="">2 Habitaciones</option>
+                                    <option value="1">1 Habitación</option>
+                                    <option value="2">2 Habitaciones</option>
                                 </select>
                             </div>
-                            <button type="submit">Comprobar disponiblidad</button>
+                            <button onclick="booking()" type="submit">Comprobar disponiblidad</button>
                         </form>
                     </div>
                 </div>
@@ -509,6 +512,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/contacto.js"></script>
+    <script src="js/check-in.js"></script>
 </body>
 
 </html>

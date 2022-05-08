@@ -4,11 +4,8 @@ import com.example.demo.model.Hotel;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Iterator;
 
 public interface HotelRepository extends CrudRepository<Hotel, String> {
 
@@ -17,6 +14,12 @@ public interface HotelRepository extends CrudRepository<Hotel, String> {
 
     @Query("SELECT* FROM HOTEL WHERE HOTEL.ESTADO= :estado ")
     public List<Hotel> getHotelesByEstado(Boolean estado);
+
+    @Query("SELECT OCUPACION FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
+    public Long getOcupacionByHotel(String nombre);
+
+    @Query("SELECT CAPACIDAD FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
+    public Long getCapacidadByHotel(String nombre);
 
     @Query("UPDATE HOTEL SET HOTEL.CAPACIDAD= :capacidad WHERE HOTEL.NOMBRE= :nombre ")
     @Modifying
