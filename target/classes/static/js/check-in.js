@@ -104,27 +104,57 @@ async function booking(){
       var checkOutDef = checkOutAno + "-" + checkOutNumeroMes + "-" + checkOutDia;
 
       const data0 = {nif: "", checkIn: checkInDef, checkOut: checkOutDef, huespedes: huespedes, habitaciones: habitaciones};
-                    const address0 = "api/v1/reservas/booking";
-                    fetch(address0, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data0)
-                    })
-                    .then(response => response.json())
-                    .then(data0 => {
-                    if(data0.result == "OK") {
-
-                        const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
-                        request1 = await fetch(address1, {
-                           method: 'GET'
-                        });
-
-                    }else{
-                        alert("No se ha podido comprobar la disponibilidad. Por favor, revise que todos los campos introducidos son correctos.\nDebe introducir un destino, fechas de entrada y de salida coherentes, número de huéspedes y número de habitaciones.");
-                    }
-                    });
+      const address0 = "api/v1/reservas/booking";
+      fetch(address0, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data0)
+      })
+      .then(response => response.json())
+      .then(data0 => {
+          if(data0.result == "OK"){
+                     if(destino == "Madrid"){
+                            var madrid1, madrid2;
+                            const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
+                            request1 = await fetch(address1, {method: 'GET'});
+                            if(request1.ok){
+                               madrid1 = true;
+                            }else{
+                               madrid1 = false;
+                            }
+                            const address2 = "api/v1/reservas/booking/Gran-Melia-Palacio-de-los-Duques/" + habitaciones;
+                            request2 = await fetch(address2, {
+                                 method: 'GET'
+                            });
+                            if(request2.ok){
+                               madrid2 = true;
+                            }else{
+                               madrid2 = false;
+                            }
+                            if(madrid1 == false && madrid2 == false){
+                                alert("No hay más habitaciones disponibles en los hoteles para el destino solicitados. Disculpe las molestias");
+                            }else if(madrid1 == true && madrid2 == false){
+                                alert("Solo quedan habitaciones disponibles en el hotel Meliá Madrid Princesa.");
+                                document.location.href="habitaciones-madrid-princesa.html";
+                            }else if(madrid1 == false && madrid2 == true){
+                                alert("Solo quedan habitaciones disponibles en el hotel Gran Meliá Palacio de los Duques.");
+                                document.location.href="habitaciones-madrid-duques.html";
+                            }else{
+                                document.location.href="hoteles1.html#madrid-hoteles";
+                            }
+                      }else if(destino == "Londres"){
+                         document.location.href="./hoteles1.html#londres-hoteles";
+                      }else if(destino == "Paris"){
+                         document.location.href="./hoteles2.html#paris-hoteles";
+                      }else{
+                         document.location.href="./hoteles2.html#nyc-hoteles";
+                      }
+          }else{
+             alert("No se ha podido comprobar la disponibilidad. Por favor, revise que todos los campos introducidos son correctos.\nDebe introducir un destino, fechas de entrada y de salida coherentes, número de huéspedes y número de habitaciones.");
+          }
+      });
     }catch (err){
         console.error(err.message);
     }
