@@ -118,14 +118,16 @@ async function booking(){
                      if(destino == "Madrid"){
                             var madrid1, madrid2;
                             const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
-                            request1 = await fetch(address1, {method: 'GET'});
+                            request1 = fetch(address1, {
+                                 method: 'GET'
+                            });
                             if(request1.ok){
                                madrid1 = true;
                             }else{
                                madrid1 = false;
                             }
                             const address2 = "api/v1/reservas/booking/Gran-Melia-Palacio-de-los-Duques/" + habitaciones;
-                            request2 = await fetch(address2, {
+                            request2 = fetch(address2, {
                                  method: 'GET'
                             });
                             if(request2.ok){

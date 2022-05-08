@@ -102,7 +102,7 @@ public class ReservaController {
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            if ((reservaParam.nif().equals("")) && (!reservaParam.checkIn().equals("")) && (!reservaParam.checkOut().equals("")) && ((sdf.parse(reservaParam.checkOut())).after((sdf.parse(reservaParam.checkIn())))) && (!reservaParam.huespedes().equals("")) && (!reservaParam.habitaciones().equals(""))) {
+            if ((!reservaParam.checkIn().equals("")) && (!reservaParam.checkOut().equals("")) && ((sdf.parse(reservaParam.checkOut())).after((sdf.parse(reservaParam.checkIn())))) && (!reservaParam.huespedes().equals("")) && (!reservaParam.habitaciones().equals(""))) {
                 return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
             }
         } catch(ParseException e){

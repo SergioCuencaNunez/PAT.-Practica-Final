@@ -6,143 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c29f3e9b-2b3f-4bb6-9e6f-dd8cb0a8e356" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ReservaCredential.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ReservaCredential.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/check-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/check-in.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application 6.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/data 2.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/data 5.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/data 6.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/schema 3.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/schema 4.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/check-in 4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/check-in.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/contact 5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min 5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/elegant-icons 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/elegant-icons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/flaticon 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/flaticon 5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/flaticon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/font-awesome.min 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/images/ui-icons_444444_256x240 4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/images/ui-icons_444444_256x240 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/images/ui-icons_444444_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/images/ui-icons_555555_256x240 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/images/ui-icons_555555_256x240 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/images/ui-icons_555555_256x240 6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/images/ui-icons_555555_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/jquery-ui.min 3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/jquery-ui.min 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/jquery-ui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/magnific-popup 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/magnific-popup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/nice-select 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/nice-select 5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/nice-select.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/owl.carousel.min 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/owl.carousel.min 5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/owl.carousel.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/slicknav.min 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/slicknav.min 5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/slicknav.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style 4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-londres-me 5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-londres-me.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-londres-wh 4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-londres-wh.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-madrid-duques 4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-madrid-duques.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-madrid-princesa 2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-nyc-nomad 2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-nyc-nomad 5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-nyc-nomad 6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-nyc-nomad.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-paris-cdg 3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-paris-cdg.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/habitaciones-paris-defense.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/hoteles1 4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/hoteles1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-defense 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-defense 6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-me 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-princesa 4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-princesa 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo-wh 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/play 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/play 6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/testimonial-logo 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/video-bg 5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index 5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/inicio-sesion-clientes 2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/inicio-sesion-clientes 5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/inicio-sesion-gerentes2 4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/inicio-sesion-gerentes2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/check-in 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/check-in 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/check-in.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/contacto 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/contacto 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/contacto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/inicio-sesion 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/inicio-sesion-clientes 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/inicio-sesion-clientes 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/inicio-sesion-clientes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/inicio-sesion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-3.3.1.min 3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-3.3.1.min 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-3.3.1.min 6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-ui.min 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery-ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.magnific-popup.min 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.magnific-popup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.nice-select.min 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.nice-select.min 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.nice-select.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.slicknav 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.slicknav 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.slicknav.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/main 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/owl.carousel.min 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/owl.carousel.min 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/registro 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/registro 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/registro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-me 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-me.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-wh 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-wh 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-londres-wh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-madrid-duques 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-madrid-duques.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-madrid-princesa 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-madrid-princesa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-nyc-nomad 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-nyc-nomad 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-nyc-nomad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-nyc-ts 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-nyc-ts 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-nyc-ts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-paris-cdg 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-paris-cdg 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-paris-cdg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-paris-defense 4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-paris-defense 5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/reservas-paris-defense.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/registro 4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/registro.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/check-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/check-in.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +54,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/com/example/demo/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/js" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -199,6 +65,7 @@
       <recent name="java.com.example.demo.controllerTest" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js" />
       <recent name="C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\test\java\com\example\demo\controller" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
