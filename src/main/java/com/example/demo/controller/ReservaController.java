@@ -95,23 +95,6 @@ public class ReservaController {
     }
 
     @Transactional
-    @PostMapping(path="/reservas/booking", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> comprobarBooking(@Valid @RequestBody BookingCredential bookingParam, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            if ((!bookingParam.destino().equals("")) && (!bookingParam.checkIn().equals("")) && (!bookingParam.checkOut().equals("")) && ((sdf.parse(bookingParam.checkOut())).after((sdf.parse(bookingParam.checkIn())))) && (!bookingParam.huespedes().equals("")) && (!bookingParam.habitaciones().equals(""))) {
-                return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
-            }
-        } catch(ParseException e){
-            e.printStackTrace();
-        }
-        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
-    }
-
-    @Transactional
     @PostMapping("/reservas/check-in")
     public ResponseEntity<ReservaResponse> checkInReserva(@RequestBody Reserva reserva, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

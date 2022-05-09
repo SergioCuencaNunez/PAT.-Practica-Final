@@ -103,196 +103,155 @@ async function booking(){
       var checkInDef = checkInAno + "-" + checkInNumeroMes + "-" + checkInDia;
       var checkOutDef = checkOutAno + "-" + checkOutNumeroMes + "-" + checkOutDia;
 
-      const data0 = {destino: destino, checkIn: checkInDef, checkOut: checkOutDef, huespedes: huespedes, habitaciones: habitaciones};
-      const address0 = "api/v1/reservas/booking";
-      fetch(address0, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data0)
-      })
-      .then(response => response.json())
-      .then(data0 => {
-          if(data0.result == "OK"){
-                     if(destino == "Madrid"){
-                            var madrid1, madrid2;
-                            
-                            const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
-                            const request1 = await fetch(address1, {
-                                method: 'GET'
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if(request1.ok) {
-                                   madrid1 = true;
-                                }else {
-                                   madrid1 = false;
-                                }
-                            });
+      var checkInDefi = new Date(checkInDef);
+      var checkOutDefi = new Date(checkOutDef);
 
-                            const address2 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
-                            const request2 = await fetch(address2, {
-                                method: 'GET'
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if(request2.ok) {
-                                   madrid2 = true;
-                                }else {
-                                   madrid2 = false;
-                                }
-                            });
+      if(checkIn && checkOut && (checkOutDefi > checkInDefi)){
+         if(destino == "Madrid"){
+                var madrid1, madrid2;
+                
+                const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
+                let request1 = await fetch(address1, {
+                    method: 'GET'
+                });
+                if(request1.ok) {
+                   madrid1 = true;
+                }else {
+                   madrid1 = false;
+                }
 
-                            if(madrid1 == false && madrid2 == false){
-                                alert("No hay más habitaciones disponibles en ninguno de los hoteles de Madrid. Disculpe las molestias.");
-                            }else if(madrid1 == true && madrid2 == false){
-                                alert("Solo quedan habitaciones disponibles en el hotel Meliá Madrid Princesa.");
-                                document.location.href="habitaciones-madrid-princesa.html";
-                            }else if(madrid1 == false && madrid2 == true){
-                                alert("Solo quedan habitaciones disponibles en el hotel Gran Meliá Palacio de los Duques.");
-                                document.location.href="habitaciones-madrid-duques.html";
-                            }else{
-                                document.location.href="hoteles1.html#madrid-hoteles";
-                            }
+                const address2 = "api/v1/reservas/booking/Gran-Melia-Palacio-de-los-Duques/" + habitaciones;
+                let request2 = await fetch(address2, {
+                    method: 'GET'
+                });
+                if(request2.ok) {
+                   madrid2 = true;
+                }else {
+                   madrid2 = false;
+                }
 
-                      }else if(destino == "Londres"){
-                            var londres1, londres2;
-                            
-                            const address1 = "api/v1/reservas/booking/Melia-White-House/" + habitaciones;
-                            let request1 = fetch(address1, {
-                                method: 'GET'
-                            })
+                if(madrid1 == false && madrid2 == false){
+                    alert("No hay más habitaciones disponibles en ninguno de los hoteles de Madrid. Disculpe las molestias.");
+                }else if(madrid1 == true && madrid2 == false){
+                    alert("Solo quedan habitaciones disponibles en el hotel Meliá Madrid Princesa.");
+                    document.location.href="habitaciones-madrid-princesa.html";
+                }else if(madrid1 == false && madrid2 == true){
+                    alert("Solo quedan habitaciones disponibles en el hotel Gran Meliá Palacio de los Duques.");
+                    document.location.href="habitaciones-madrid-duques.html";
+                }else{
+                    document.location.href="hoteles1.html#madrid-hoteles";
+                }
 
-                            if(request1.ok) {
-                               londres1 = true;
-                            }else {
-                               londres1 = false;
-                            }
+          }else if(destino == "Londres"){
+                var londres1, londres2;
+                
+                const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
+                let request1 = await fetch(address1, {
+                    method: 'GET'
+                });
+                if(request1.ok) {
+                   londres1 = true;
+                }else {
+                   londres1 = false;
+                }
 
-                            const address2 = "api/v1/reservas/booking/ME-London/" + habitaciones;
-                            let request2 = fetch(address2, {
-                                method: 'GET'
-                            })
+                const address2 = "api/v1/reservas/booking/Gran-Melia-Palacio-de-los-Duques/" + habitaciones;
+                let request2 = await fetch(address2, {
+                    method: 'GET'
+                });
+                if(request2.ok) {
+                   londres2 = true;
+                }else {
+                   londres2 = false;
+                }
 
-                            if(request2.ok) {
-                               londres2 = true;
-                            }else {
-                               londres2 = false;
-                            }
+                if(londres1 == false && londres2 == false){
+                    alert("No hay más habitaciones disponibles en ninguno de los hoteles de Londres. Disculpe las molestias");
+                }else if(londres1 == true && londres2 == false){
+                    alert("Solo quedan habitaciones disponibles en el hotel Meliá White House.");
+                    document.location.href="habitaciones-londres-wh.html";
+                }else if(londres1 == false && londres2 == true){
+                    alert("Solo quedan habitaciones disponibles en el hotel ME London.");
+                    document.location.href="habitaciones-londres-me.html";
+                }else{
+                    document.location.href="./hoteles1.html#londres-hoteles";
+                }
 
-                            if(londres1 == false && londres2 == false){
-                                alert("No hay más habitaciones disponibles en ninguno de los hoteles de Londres. Disculpe las molestias");
-                            }else if(londres1 == true && londres2 == false){
-                                alert("Solo quedan habitaciones disponibles en el hotel Meliá White House.");
-                                document.location.href="habitaciones-londres-wh.html";
-                            }else if(londres1 == false && londres2 == true){
-                                alert("Solo quedan habitaciones disponibles en el hotel ME London.");
-                                document.location.href="habitaciones-londres-me.html";
-                            }else{
-                                document.location.href="./hoteles1.html#londres-hoteles";
-                            }
+          }else if(destino == "Paris"){
+                var paris1, paris2;
+                
+                const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
+                let request1 = await fetch(address1, {
+                    method: 'GET'
+                });
+                if(request1.ok) {
+                   paris1 = true;
+                }else {
+                   paris1 = false;
+                }
 
-                      }else if(destino == "Paris"){
-                            var paris1, paris2;
-                            
-                            const address1 = "api/v1/reservas/booking/Innside-Paris-Charles-de-Gaulle/" + habitaciones;
-                            fetch(address1, {
-                                method: 'GET',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if(data.result == "OK") {
-                                    paris1 = true;
-                                }else {
-                                    paris1 = false;
-                                }
-                            });
+                const address2 = "api/v1/reservas/booking/Gran-Melia-Palacio-de-los-Duques/" + habitaciones;
+                let request2 = await fetch(address2, {
+                    method: 'GET'
+                });
+                if(request2.ok) {
+                   paris2 = true;
+                }else {
+                   paris2 = false;
+                }
 
-                            const address2 = "api/v1/reservas/booking/Melia-Paris-La-Defense/" + habitaciones;
-                            fetch(address2, {
-                                method: 'GET',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if(data.result == "OK") {
-                                    paris2 = true;
-                                }else {
-                                    paris2 = false;
-                                }
-                            });
+                if(paris1 == false && paris2 == false){
+                    alert("No hay más habitaciones disponibles en ninguno de los hoteles de Londres. Disculpe las molestias");
+                }else if(paris1 == true && paris2 == false){
+                    alert("Solo quedan habitaciones disponibles en el hotel Innside Paris Charles de Gaulle.");
+                    document.location.href="habitaciones-paris-cdg.html";
+                }else if(paris1 == false && paris2 == true){
+                    alert("Solo quedan habitaciones disponibles en el hotel Meliá Paris La Défense.");
+                    document.location.href="habitaciones-paris-defense.html";
+                }else{
+                    document.location.href="./hoteles2.html#paris-hoteles";
+                }
 
-                            if(paris1 == false && paris2 == false){
-                                alert("No hay más habitaciones disponibles en ninguno de los hoteles de Londres. Disculpe las molestias");
-                            }else if(paris1 == true && paris2 == false){
-                                alert("Solo quedan habitaciones disponibles en el hotel Innside Paris Charles de Gaulle.");
-                                document.location.href="habitaciones-paris-cdg.html";
-                            }else if(paris1 == false && paris2 == true){
-                                alert("Solo quedan habitaciones disponibles en el hotel Meliá Paris La Défense.");
-                                document.location.href="habitaciones-paris-defense.html";
-                            }else{
-                                document.location.href="./hoteles2.html#paris-hoteles";
-                            }
-
-                      }else{
-                            var nyc1, nyc2;
-                            
-                            const address1 = "api/v1/reservas/booking/TRYP-New-York-Times-Square/" + habitaciones;
-                            fetch(address1, {
-                                method: 'GET',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if(data.result == "OK") {
-                                    nyc1 = true;
-                                }else {
-                                    nyc1 = false;
-                                }
-                            });
-
-                            const address2 = "api/v1/reservas/booking/Innside-New-York-Nomad/" + habitaciones;
-                            fetch(address2, {
-                                method: 'GET',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if(data.result == "OK") {
-                                    nyc2 = true;
-                                }else {
-                                    nyc2 = false;
-                                }
-                            });
-
-                            if(nyc1 == false && nyc2 == false){
-                                alert("No hay más habitaciones disponibles en ninguno de los hoteles de Londres. Disculpe las molestias");
-                            }else if(nyc1 == true && nyc2 == false){
-                                alert("Solo quedan habitaciones disponibles en el hotel Innside Paris Charles de Gaulle.");
-                                document.location.href="habitaciones-nyc-ts.html";
-                            }else if(nyc1 == false && nyc2 == true){
-                                alert("Solo quedan habitaciones disponibles en el hotel Meliá Paris La Défense.");
-                                document.location.href="habitaciones-nyc-nomad.html";
-                            }else{
-                                document.location.href="./hoteles2.html#nyc-hoteles";
-                            }
-
-                         document.location.href="./hoteles2.html#nyc-hoteles";
-                      }
           }else{
-             alert("No se ha podido comprobar la disponibilidad. Por favor, revise que todos los campos introducidos son correctos.\nDebe introducir un destino, fechas de entrada y de salida coherentes, número de huéspedes y número de habitaciones.");
+                var nyc1, nyc2;
+                
+                const address1 = "api/v1/reservas/booking/Melia-Madrid-Princesa/" + habitaciones;
+                let request1 = await fetch(address1, {
+                    method: 'GET'
+                });
+                if(request1.ok) {
+                   nyc1 = true;
+                }else {
+                   nyc1 = false;
+                }
+
+                const address2 = "api/v1/reservas/booking/Gran-Melia-Palacio-de-los-Duques/" + habitaciones;
+                let request2 = await fetch(address2, {
+                    method: 'GET'
+                });
+                if(request2.ok) {
+                   nyc2 = true;
+                }else {
+                   nyc2 = false;
+                }
+
+                if(nyc1 == false && nyc2 == false){
+                    alert("No hay más habitaciones disponibles en ninguno de los hoteles de Londres. Disculpe las molestias");
+                }else if(nyc1 == true && nyc2 == false){
+                    alert("Solo quedan habitaciones disponibles en el hotel Innside Paris Charles de Gaulle.");
+                    document.location.href="habitaciones-nyc-ts.html";
+                }else if(nyc1 == false && nyc2 == true){
+                    alert("Solo quedan habitaciones disponibles en el hotel Meliá Paris La Défense.");
+                    document.location.href="habitaciones-nyc-nomad.html";
+                }else{
+                    document.location.href="./hoteles2.html#nyc-hoteles";
+                }
+
+             document.location.href="./hoteles2.html#nyc-hoteles";
           }
-      });
+      }else{
+           alert("No se ha podido comprobar la disponibilidad. Por favor, revise que las fechas introducidas son correctas.");
+      }
     }catch (err){
         console.error(err.message);
     }
