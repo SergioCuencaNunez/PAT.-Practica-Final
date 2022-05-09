@@ -96,13 +96,13 @@ public class ReservaController {
 
     @Transactional
     @PostMapping(path="/reservas/booking", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> comprobarBooking(@Valid @RequestBody ReservaCredential reservaParam, BindingResult bindingResult) {
+    public ResponseEntity<String> comprobarBooking(@Valid @RequestBody BookingCredential bookingParam, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            if ((!reservaParam.checkIn().equals("")) && (!reservaParam.checkOut().equals("")) && ((sdf.parse(reservaParam.checkOut())).after((sdf.parse(reservaParam.checkIn())))) && (!reservaParam.huespedes().equals("")) && (!reservaParam.habitaciones().equals(""))) {
+            if ((!bookingParam.destino().equals("")) && (!bookingParam.checkIn().equals("")) && (!bookingParam.checkOut().equals("")) && ((sdf.parse(bookingParam.checkOut())).after((sdf.parse(bookingParam.checkIn())))) && (!bookingParam.huespedes().equals("")) && (!bookingParam.habitaciones().equals(""))) {
                 return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
             }
         } catch(ParseException e){
@@ -140,10 +140,10 @@ public class ReservaController {
             ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
         }else if(result.getAccessToken() == "No hay habitaciones disponibles"){
-            ReservaResponse reservaResponse = new ReservaResponse("No hay más habitaciones disponibles en el hotel para el número que solicita. \nPruebe a reducir el número de habitaciones. Disculpe las molestias.");
+            ReservaResponse reservaResponse = new ReservaResponse("No hay más habitaciones disponibles en este hotel para el número que solicita. \nPruebe a reducir el número de habitaciones. Disculpe las molestias.");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }else{
-            ReservaResponse reservaResponse = new ReservaResponse("Una reserva en Meliá Hotels International con ese identificador ya existe.");
+            ReservaResponse reservaResponse = new ReservaResponse("Ya existe una reserva en Meliá Hotels International con ese identificador.");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }
     }
