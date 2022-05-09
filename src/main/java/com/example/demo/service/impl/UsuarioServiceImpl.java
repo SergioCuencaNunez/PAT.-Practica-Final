@@ -1,8 +1,8 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.Usuario;
-import com.example.demo.service.UsuarioService;
 import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.service.UsuarioService;
 import com.example.demo.service.dto.UsuarioReservaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,9 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.Iterator;
-import java.util.Optional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -35,12 +34,6 @@ public class UsuarioServiceImpl implements UsuarioService {
             return usuario;
         }
         return usuario;
-    }
-
-    @Override
-    @Transactional
-    public Usuario getUsuariobyNombreCompleto(String nombre, String apellido1, String apellido2, String rol) {
-        return usuarioRepository.getUsuarioByNombreCompleto(nombre,apellido1,apellido2,rol);
     }
 
     @Override

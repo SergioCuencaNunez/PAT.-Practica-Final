@@ -40,7 +40,7 @@ public class LoginServiceImpl implements LoginService {
         List<String> correos = usuarioRepository.getUsuarioCorreos();
 
         if(correos.contains(correo)){
-            contrasenaValida = usuarioRepository.getUsuarioContrasena(correo);
+            contrasenaValida = usuarioRepository.getUsuarioByContrasena(correo);
             if(contrasena.equals(contrasenaValida)){
                  String value = correo + ":" + contrasena;
                  String accessToken = Base64.getEncoder().encodeToString(value.getBytes());

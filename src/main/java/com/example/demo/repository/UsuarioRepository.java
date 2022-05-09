@@ -10,9 +10,6 @@ import java.util.List;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, String> {
 
-    @Query("SELECT* FROM USUARIO WHERE USUARIO.NOMBRE= :nombre AND USUARIO.APELLIDO1= :apellido1 AND USUARIO.APELLIDO2= :apellido2 AND USUARIO.ROL= :rol")
-    public Usuario getUsuarioByNombreCompleto(String nombre, String apellido1, String apellido2, String rol);
-
     // Los correos son únicos. No es necesario pasar el rol
     @Query("SELECT* FROM USUARIO WHERE USUARIO.CORREO= :correo")
     public Usuario getUsuarioByCorreo(String correo);
@@ -26,7 +23,7 @@ public interface UsuarioRepository extends CrudRepository<Usuario, String> {
 
     // Los correos son únicos. No es necesario pasar el rol
     @Query("SELECT USUARIO.CONTRASENA FROM USUARIO WHERE USUARIO.CORREO= :correo")
-    public String getUsuarioContrasena(String correo);
+    public String getUsuarioByContrasena(String correo);
 
     @Query("SELECT USUARIO.CORREO FROM USUARIO WHERE USUARIO.NIF= :nif")
     public String getUsuarioCorreoByNif(String nif);
