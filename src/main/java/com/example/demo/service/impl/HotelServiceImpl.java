@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.time.LocalDate;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -99,7 +98,7 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     @Transactional
-    public String insertAndCompareHotel(String nombre, String destino, Long capacidad, Long ocupacion, Boolean estado){
+    public String insertAndCompareHotel(String nombre, String destino, Long habitacionesTotales, Long habitacionesOcupadas, Long capacidad, Long ocupacion, Boolean estado){
         Optional<Hotel> ohotel = hotelRepository.findById(nombre);
         if(ohotel.isPresent()) {
             return "El hotel " + nombre + " ya está registrado en Meliá Hotels International";
@@ -107,10 +106,12 @@ public class HotelServiceImpl implements HotelService {
             Hotel hotel = new Hotel();
             hotel.setNombre(nombre);
             hotel.setDestino(destino);
+            hotel.setHabitacionesTotales(habitacionesTotales);
+            hotel.setHabitacionesOcupadas(habitacionesOcupadas);
             hotel.setCapacidad(capacidad);
             hotel.setOcupacion(ocupacion);
             hotel.setEstado(estado);
-            hotelRepository.insertHotel(hotel.getNombre(), hotel.getDestino(), hotel.getCapacidad(), hotel.getOcupacion(),hotel.getEstado());
+            hotelRepository.insertHotel(hotel.getNombre(), hotel.getDestino(), hotel.getHabitacionesTotales(), hotel.getHabitacionesOcupadas(), hotel.getCapacidad(), hotel.getOcupacion(),hotel.getEstado());
             return "El hotel " + nombre + " se ha registrado correctamente en Meliá Hotels International";
         }
     }

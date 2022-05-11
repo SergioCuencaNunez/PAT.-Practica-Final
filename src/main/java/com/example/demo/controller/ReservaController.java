@@ -123,7 +123,7 @@ public class ReservaController {
             ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
         }else if(result.getAccessToken() == "No hay habitaciones disponibles"){
-            ReservaResponse reservaResponse = new ReservaResponse("No hay más habitaciones disponibles en este hotel para el número que solicita. \nPruebe a reducir el número de habitaciones. Disculpe las molestias.");
+            ReservaResponse reservaResponse = new ReservaResponse("No hay más habitaciones disponibles en este hotel para el número que solicita.\nPruebe a reducir el número de habitaciones. Disculpe las molestias.");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }else{
             ReservaResponse reservaResponse = new ReservaResponse("Ya existe una reserva en Meliá Hotels International con ese identificador.");

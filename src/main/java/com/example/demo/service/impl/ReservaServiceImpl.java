@@ -100,10 +100,10 @@ public class ReservaServiceImpl implements ReservaService {
     @Transactional
     public ReservaServiceResult comprobarDisponibilidad(String hotel, Long habitaciones) {
 
-        Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
-        Long capacidad = hotelRepository.getCapacidadByHotel(hotel);
+        Long habitacionesTotales = hotelRepository.getHabitacionesTotalesByHotel(hotel);
+        Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
 
-        if((ocupacion + habitaciones) <= capacidad) {
+        if((habitacionesOcupadas + habitaciones) <= habitacionesTotales) {
             return new ReservaServiceResult(true);
         }else{
             return new ReservaServiceResult(false, "No hay habitaciones disponibles");
@@ -143,11 +143,14 @@ public class ReservaServiceImpl implements ReservaService {
         LocalDate fechaSalida = reserva.getFechaSalida();
 
         Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
+        Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
+
 
         if(id == null){
             ReservaServiceResult result = this.comprobarDisponibilidad(hotel, habitaciones);
             if(result.isFlag()) {
-                hotelRepository.updateHotelOcupacionByNombre(ocupacion + habitaciones, hotel);
+                hotelRepository.updateHotelOcupacionByNombre(ocupacion + huespedes, hotel);
+                hotelRepository.updateHotelHabitacionesOcupadasByNombre(habitacionesOcupadas + habitaciones, hotel);
                 ReservaServiceImpl.this.insertReserva(id, nif, hotel, destino, tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
                 return new ReservaServiceResult(true);
             }else{
