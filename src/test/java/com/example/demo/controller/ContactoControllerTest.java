@@ -10,7 +10,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import static org.assertj.core.api.BDDAssertions.then;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -32,7 +31,7 @@ public final class ContactoControllerTest {
         contacto.setNumero(4L);
         contacto.setCorreo("javier_barneda@gmail.com");
         contacto.setNombre("Javier");
-        contacto.setMensaje("Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias");
+        contacto.setMensaje("Prueba de Testing");
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <Contacto> request = new HttpEntity<>(contacto, headers);
 
@@ -55,7 +54,7 @@ public final class ContactoControllerTest {
         contacto.setNumero(4L);
         contacto.setCorreo("elena@gmail.com");
         contacto.setNombre("Elena");
-        contacto.setMensaje("Prueba Fallida Testing");
+        contacto.setMensaje("Prueba Fallida de Testing");
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <Contacto> request = new HttpEntity<>(contacto, headers);
 
@@ -79,7 +78,7 @@ public final class ContactoControllerTest {
         contacto.setNumero(5L);
         contacto.setCorreo("elena@gmail.com");
         contacto.setNombre("Elena");
-        contacto.setMensaje("Prueba Fallida Testing");
+        contacto.setMensaje("Prueba de Testing");
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <Contacto> request = new HttpEntity<>(contacto, headers);
 

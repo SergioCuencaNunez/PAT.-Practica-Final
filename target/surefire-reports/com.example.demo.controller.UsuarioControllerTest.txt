@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: com.example.demo.controller.UsuarioControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.297 s <<< FAILURE! - in com.example.demo.controller.UsuarioControllerTest
+registroCliente_ko  Time elapsed: 0.079 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 401 UNAUTHORIZED
+ but was: 400 BAD_REQUEST
+	at com.example.demo.controller.UsuarioControllerTest.registroCliente_ko(UsuarioControllerTest.java:208)
+
+registroCliente_ok  Time elapsed: 0.032 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 200 OK
+ but was: 400 BAD_REQUEST
+	at com.example.demo.controller.UsuarioControllerTest.registroCliente_ok(UsuarioControllerTest.java:190)
+

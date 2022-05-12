@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.demo.DemoApplicationTests" time="0.517" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.demo.controller.UsuarioControllerTest" time="0.297" tests="6" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -56,5 +56,24 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.demo.DemoApplicationTests" time="0"/>
+  <testcase name="inicioSesionCliente_ko" classname="com.example.demo.controller.UsuarioControllerTest" time="0.009"/>
+  <testcase name="inicioSesionCliente_ok" classname="com.example.demo.controller.UsuarioControllerTest" time="0.016"/>
+  <testcase name="insertarUsuario_ko" classname="com.example.demo.controller.UsuarioControllerTest" time="0.097"/>
+  <testcase name="insertarUsuario_ok" classname="com.example.demo.controller.UsuarioControllerTest" time="0.017"/>
+  <testcase name="registroCliente_ko" classname="com.example.demo.controller.UsuarioControllerTest" time="0.079">
+    <failure message="&#10;expected: 401 UNAUTHORIZED&#10; but was: 400 BAD_REQUEST" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+
+expected: 401 UNAUTHORIZED
+ but was: 400 BAD_REQUEST
+	at com.example.demo.controller.UsuarioControllerTest.registroCliente_ko(UsuarioControllerTest.java:208)
+</failure>
+  </testcase>
+  <testcase name="registroCliente_ok" classname="com.example.demo.controller.UsuarioControllerTest" time="0.032">
+    <failure message="&#10;expected: 200 OK&#10; but was: 400 BAD_REQUEST" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+
+expected: 200 OK
+ but was: 400 BAD_REQUEST
+	at com.example.demo.controller.UsuarioControllerTest.registroCliente_ok(UsuarioControllerTest.java:190)
+</failure>
+  </testcase>
 </testsuite>
