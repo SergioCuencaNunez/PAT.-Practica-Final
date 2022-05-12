@@ -38,7 +38,7 @@ async function iniciarSesion(){
 }
 
 async function testSecureEndpoint() {
-    console.log("Connecting with a secure endpoint");
+    console.log("Conectando con un endpoint seguro");
     var headers = {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -60,8 +60,10 @@ async function testSecureEndpoint() {
 
 async function sesionIniciada(){
     console.log("Redireccionando a página usuario");
-    if(localStorage.getItem("acces_token") != null){
+    if(localStorage.getItem("access_token") != null){
         document.location.href="inicio-sesion-clientes.html";
+        /*document.getElementById("cuenta1").innerHTML = "Mi Cuenta";
+        document.getElementById("cuenta2").innerHTML = "Mi Cuenta";*/
     }
 }
 sesionIniciada();

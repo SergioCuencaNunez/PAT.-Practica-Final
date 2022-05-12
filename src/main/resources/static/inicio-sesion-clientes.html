@@ -7,7 +7,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mi Cuenta MeliáRewards</title>
+    <title>MeliáRewards - Reservas</title>
     <link rel="icon" type="image/png" href="img/favicon.png" />
 
     <!-- Google Font -->
@@ -50,7 +50,12 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./hoteles1.html">Hoteles</a></li>
                 <li><a href="./check-in.html">Check-in Online</a></li>
-                <li class="active"><a href="./inicio-sesion-clientes.html">Mi Cuenta</a></li>
+                <li class="active"><a href="./inicio-sesion-clientes.html">Mi Cuenta</a>
+                    <ul class="dropdown">
+                        <li><a href="./perfil.html">Perfil</a></li>
+                        <li><a href="./inicio-sesion-clientes.html">Reservas</a></li>
+                    </ul>
+                </li>
                 <li><a href="./contact.html">Contacto</a></li>
             </ul>
         </nav>
@@ -60,7 +65,6 @@
             <a href="https://www.facebook.com/Melia.Hotels?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
             <a href="https://instagram.com/meliahtlresorts/" target="_blank"><i class="fa fa-instagram"></i></a>
             <a href="https://www.youtube.com/channel/UCIslJhf4yPT7UMMPrHIa94w" target="_blank"><i class="fa fa-youtube-play"></i></a>
-
         </div>
         <ul class="top-widget">
             <li><i class="fa fa-phone"></i> 917 14 82 48</li>
@@ -110,7 +114,12 @@
                                     <li><a href="./index.html">Home</a></li>
                                     <li><a href="./hoteles1.html">Hoteles</a></li>
                                     <li><a href="./check-in.html">Check-in Online</a></li>
-                                    <li class="active"><a href="./inicio-sesion-clientes.html">Mi Cuenta</a></li>
+                                    <li class="active"><a href="./inicio-sesion-clientes.html">Mi Cuenta</a>
+                                        <ul class="dropdown">
+                                            <li><a href="./perfil.html">Perfil</a></li>
+                                            <li><a href="./inicio-sesion-clientes.html">Reservas</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="./contact.html">Contacto</a></li>
                                 </ul>
                             </nav>
@@ -131,10 +140,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2 id="miCuenta">Mis reservas</h2>
+                        <h2 id="cuenta1">Mis reservas</h2>
                         <div class="bt-option">
-                            <a href="./home.html">Inicio de Sesión</a>
-                            <span id="correo"></span>
+                            <a href="./inicio-sesion-clientes.html">Mi Cuenta</a>
+                            <span>Reservas</span>
                         </div>
                     </div>
                 </div>
@@ -328,6 +337,7 @@
                         <a href="./inicio-sesion-clientes.html">1</a>
                     </div>
                 </div>
+                <button onclick="cerrarSesion()" >Cerrar Sesión</button>
             </div>
         </div>
     </section>

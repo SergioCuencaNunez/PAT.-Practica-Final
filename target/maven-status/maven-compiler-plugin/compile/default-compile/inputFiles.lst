@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/MainApplication.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/LoginService.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/dto/HabitacionDTO.java
@@ -25,14 +24,15 @@
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/impl/HabitacionServiceImpl.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/repository/UsuarioRepository.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/ReservaServiceResult.java
-/Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/APP_ROLES.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/model/Contacto.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/controller/ReservaCredential.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/dto/ClienteDTO.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/dto/HotelDTO.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/dto/UsuarioDTO.java
+/Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/controller/SecureController.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/repository/HotelRepository.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/ContactoService.java
+/Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/ROLES.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/model/Usuario.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/LoginServiceResult.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/dto/HotelHabitacionDTO.java
@@ -43,50 +43,3 @@
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/dto/ReservaDTO.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/dto/HotelReservaDTO.java
 /Users/sergiocuencanunez/Documents/ICAI/3º GITT+BA/Asignaturas/2º Cuatrimestre/PAT | Programación de Aplicaciones Telemáticas/Prácticas/Práctica Final/src/main/java/com/example/demo/service/HotelService.java
-=======
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\ContactoController.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\repository\ContactoRepository.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\ReservaCredential.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\ReservaDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\HotelHabitacionDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\HotelReservaDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\SecureController.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\ClienteReservaDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\impl\ContactoServiceImpl.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\repository\UsuarioRepository.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\ReservaServiceResult.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\HabitacionService.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\ReservaService.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\impl\LoginServiceImpl.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\UsuarioService.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\MainApplication.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\ROLES.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\LoginService.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\UsuarioController.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\model\Usuario.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\ClienteDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\LoginResponse.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\ContactoService.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\HotelService.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\impl\HabitacionServiceImpl.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\ReservaResponse.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\LoginCredential.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\HotelController.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\HabitacionDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\repository\ReservaRepository.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\model\Habitacion.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\repository\HabitacionRepository.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\HabitacionController.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\HotelDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\impl\ReservaServiceImpl.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\UsuarioReservaDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\LoginServiceResult.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\impl\UsuarioServiceImpl.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\ReservaController.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\UsuarioDTO.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\impl\HotelServiceImpl.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\model\Hotel.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\model\Contacto.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\model\Reserva.java
-C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\repository\HotelRepository.java
->>>>>>> 66c03206cd986c9289f8fd205852ab1c0c21b01a

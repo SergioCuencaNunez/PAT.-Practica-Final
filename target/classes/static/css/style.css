@@ -416,6 +416,7 @@ ul, ol {
 	top: 77px;
 	opacity: 1;
 	visibility: visible;
+	width:135px;
 }
 .menu-item .nav-menu .mainmenu li a {
 	font-size: 16px;
@@ -446,7 +447,7 @@ ul, ol {
 	position: absolute;
 	left: 0;
 	top: 97px;
-	width: 180px;
+	width: 135px;
 	background: #ffffff;
 	z-index: 9;
 	opacity: 0;
@@ -841,7 +842,7 @@ ul, ol {
 	text-align: justify;
 }
 /*------------------------
-  Home Page Room Section 
+  Home Page Room Section
 -------------------------*/
 
 .hp-room-section .section-title {

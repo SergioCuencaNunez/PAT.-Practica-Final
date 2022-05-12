@@ -22,14 +22,10 @@ async function iniciarSesion(){
                 console.log(data);
                 if(data.result == "OK") {
                     alert("Inicio de Sesión Correcto");
-                    localStorage.setItem("acces_token", data.accessToken);
+                    localStorage.setItem("access_token", data.accessToken);
                     console.log(data.accessToken);
                     console.log("Authenticated");
-<<<<<<< HEAD
-                    document.location.href="inicio-sesion-clientes.html";
-=======
                     testSecureEndpoint();
->>>>>>> 66c03206cd986c9289f8fd205852ab1c0c21b01a
                 }else{
                     alert(data.result);
                 }
@@ -42,7 +38,7 @@ async function iniciarSesion(){
 }
 
 async function testSecureEndpoint() {
-    console.log("Connecting with a secure endpoint");
+    console.log("Conectando con un endpoint seguro");
     var headers = {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -64,8 +60,10 @@ async function testSecureEndpoint() {
 
 async function sesionIniciada(){
     console.log("Redireccionando a página usuario");
-    if(localStorage.getItem("acces_token") != null){
+    if(localStorage.getItem("access_token") != null){
         document.location.href="inicio-sesion-clientes.html";
+        /*document.getElementById("cuenta1").innerHTML = "Mi Cuenta";
+        document.getElementById("cuenta2").innerHTML = "Mi Cuenta";*/
     }
 }
 sesionIniciada();
