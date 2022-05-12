@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum APP_ROLES {
     ROLE_USER("ROLE_USER"),
     ROLE_ADMIN("ROLE_ADMIN");

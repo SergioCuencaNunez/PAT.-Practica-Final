@@ -6,7 +6,7 @@ import com.example.demo.model.Usuario;
 public interface LoginService {
 
   LoginServiceResult inicioSesionDeUsuario(Usuario usuario);
-  APP_ROLES getRole(String accessToken)
+  APP_ROLES getRole(String accessToken);
   LoginServiceResult registroUsuario(Usuario usuario);
   LoginServiceResult mensajeContacto(Contacto contacto);
   LoginServiceResult checkInContacto(Contacto contacto);
