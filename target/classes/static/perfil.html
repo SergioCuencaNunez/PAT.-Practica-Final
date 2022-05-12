@@ -153,112 +153,89 @@
     </div>
     <!-- Breadcrumb Section End -->
 
-    <!-- About Us Page Section Begin -->
-    <section class="aboutus-page-section spad">
+    <!-- Rooms Section Begin -->
+    <section class="registro-section spad">
         <div class="container">
-            <div class="about-page-text">
+            <div class="registro-text">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="ap-title">
-                            <h2>Tu check-in en unos segundos</h2>
-                            <h3>Aprovecha estas ventajas exclusivas</h3>
-                            <p>Si haces check-in online desde 96 horas antes de la llegada y hasta las 10h del día de llegada al hotel</p>
-                        </div>
-                        <div>
-                            <ul class="ap-services">
-                                <li><i class="icon_check"></i> Consigue una habitación superior (*)</li>
-                                <li><i class="icon_check"></i> Ahorra tiempo con la máxima seguridad</li>
-                                <li><i class="icon_check"></i> Si no eres miembro de MeliáRewards, date de alta ahora y consigue 2000 puntos de bienvenida</li>
-                                <li><i class="icon_check"></i> Asigna huéspedes a cada habitación</li>
-                                <li><i class="icon_check"></i> Obtén tu Llave digital (**)</li>
+                        <div class="reg-title3">
+                            <h2>Pertenecer es tener ventajas exclusivas</h2>
+                            <ul class="reg-services1">
+                                <li><i class="icon_check"></i><b>MÁS VALOR</b></li>
+                                    <ul class="reg-services2">
+                                        <li><i class="icon_check"></i>Desayuno gratis para el acompañante</li>
+                                        <li><i class="icon_check"></i>2000 puntos de bienvenida</li>
+                                        <li><i class="icon_check"></i>Wi-Fi gratis</li>
+                                        <li><i class="icon_check"></i>Habitación superior garantizada</li>
+                                    </ul>
+                                <li><i class="icon_check"></i><b>MÁS POSIBILIDADES</b></li>
+                                <ul class="reg-services2">
+                                    <li><i class="icon_check"></i>En nuestros SPAs de marcas propias</li>
+                                    <li><i class="icon_check"></i>En estancias en nuestros hoteles</li>
+                                    <li><i class="icon_check"></i>En servicios de nuestros hoteles</li>
+                                    <li><i class="icon_check"></i>Con nuestras empresas colaboradoras</li>
+                                </ul>
+                                <li><i class="icon_check"></i><b>MÁS TIEMPO</b></li>
+                                <ul class="reg-services2">
+                                    <li><i class="icon_check"></i>Pre check-in online exclusivo</li>
+                                    <li><i class="icon_check"></i>late check-out en hoteles disponibles</li>
+                                    <li><i class="icon_check"></i>Acceso prioritario a tu llegada al hotel</li>
+                                </ul>
                             </ul>
-                            <p>(*) Sujeto a disponibilidad <br> (**) Solo en aquellos hoteles con el sistema activo</p><br>
-                            <h3>Descarga nuestra APP</h3>
-                            <p>Check-in más rápido disfrutando de todas las ventajas en tu móvil<p>
-                        </div>
-                        <div class="ap-button">
-                            <a href="https://apps.apple.com/es/app/meliá/id1151855213" target="_blank">Download on the App Store</a>
-                            <a href="https://play.google.com/store/apps/details?id=es.mobail.meliarewards" target="_blank">Disponible en Google Play</a>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
-                        <div class="checkin-form">
-                            <h3>Check-in</h3>
-                            <form id="checkInForm">
-                                <div class="text-input">
-                                    <label for="nif">Introduzca su NIF/DNI:</label>
-                                    <input type="text" id="nif">
-                                </div>
-                                <div class="text-input">
-                                    <label for="id">Introduzca el ID de reserva:</label>
-                                    <input type="text" id="id">
-                                </div>
-                                <div class="select-option">
-                                    <label for="destino">Destino:</label>
-                                    <select id="destino">
-                                        <option value="Madrid">Madrid</option>
-                                        <option value="Londres">Londres</option>
-                                        <option value="Paris">París</option>
-                                        <option value="Nueva-York">Nueva York</option>
-                                    </select>
-                                </div>
-                                <div class="select-option">
-                                    <label for="hotel">Nombre del hotel:</label>
-                                    <select id="hotel">
-                                        <option value="Melia-Madrid-Princesa">Meliá Madrid Princesa</option>
-                                        <option value="Gran-Melia-Palacio-de-los-Duques">Gran Meliá Palacio de los Duques</option>
-                                        <option value="Melia-White-House">Meliá White House</option>
-                                        <option value="ME-London">ME London</option>
-                                        <option value="Innside-Paris-Charles-de-Gaulle">Innside Paris Charles de Gaulle</option>
-                                        <option value="Melia-Paris-La-Defense">Meliá Paris La Défense</option>
-                                        <option value="TRYP-New-York-Times-Square">TRYP New York Times Square</option>
-                                        <option value="Innside-New-York-Nomad">Innside New York Nomad</option>
-                                    </select>
-                                </div>
-                                <div class="check-date">
-                                    <label for="date-in">Check In:</label>
-                                    <input type="text" class="date-input" id="date-in">
-                                    <i class="icon_calendar"></i>
-                                </div>
-                                <div class="check-date">
-                                    <label for="date-out">Check Out:</label>
-                                    <input type="text" class="date-input" id="date-out">
-                                    <i class="icon_calendar"></i>
-                                </div>
-                                <button onclick="checkIn()" type="submit">Localiza mi reserva</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-page-services">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="ap-service-item set-bg" data-setbg="img/about/check1.png">
-                            <div class="api-text">
-                                <h3>Upgrade de habitación</h3>
+                            <div class="reg-button">
+                                <button onclick="cerrarSesión">Cerrar Sesión</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="ap-service-item set-bg" data-setbg="img/about/check2.png">
-                            <div class="api-text">
-                                <h3>Asigna huéspedes</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="ap-service-item set-bg" data-setbg="img/about/check3.png">
-                            <div class="api-text">
-                                <h3>Hazte MeliáRewards</h3>
+                    <div class="col-lg-6">
+                        <div class="reg-title2">
+                            <h3>Información de perfil</h3>
+                            <div class="reg-form">
+                                <form id="registroForm">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h4>Datos de contacto</h4>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo carácteres alfabéticos y máximo de 15" type="text" id="nombre" placeholder="Nombre completo*">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input title="Solo carácteres alfabéticos y máximo de 20" type="text" id="apellido1" placeholder="Primer apellido*">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input title="Solo carácteres alfabéticos y máximo de 20" type="text" id="apellido2" placeholder="Segundo apellido*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo 8 carácteres númericos y una letra" type="text" id="nif" placeholder="NIF/DNI*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="check-date">
+                                                <input type="text" class="date-input2" id="cumpleanos" placeholder="Fecha de nacimiento*">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <h4>Datos de acceso</h4>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo correo electrónico válido con máximo de 50 caracteres" type="text" id="correo" placeholder="Correo electrónico*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo carácteres alfanuméricos con mínimo de 15 y máximo de 50" type="password" id="contrasena" placeholder="Contraseña*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo carácteres alfanuméricos con mínimo de 15 y máximo de 50" type="password" id="contrasena2" placeholder="Repetir contraseña*">
+                                        </div>
+                                    </div>
+                                    <button type="submit" onclick="registro()">Cambiar información de perfil</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
-    <!-- About Us Page Section End -->
+    <!-- Rooms Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">
