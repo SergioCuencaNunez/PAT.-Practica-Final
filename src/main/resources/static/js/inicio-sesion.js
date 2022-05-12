@@ -1,4 +1,7 @@
 async function iniciarSesion(){
+    console.log("Retrieving the access token");
+    console.log(localStorage.getItem("access_token"));
+
     try {
         var correo = await document.getElementById("correo").value;
         var contrasena = await document.getElementById("contrasena").value;
@@ -19,8 +22,9 @@ async function iniciarSesion(){
                 console.log(data);
                 if(data.result == "OK") {
                     alert("Inicio de Sesión Correcto");
-                    localStorage.setItem("correo", correo);
+                    localStorage.setItem("acces_token", data.accessToken);
                     console.log(data.accessToken);
+                    console.log("Authenticated");
                     document.location.href="inicio-sesion-clientes.html";
                 }else{
                     alert(data.result);

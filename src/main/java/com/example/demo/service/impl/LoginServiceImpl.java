@@ -7,6 +7,9 @@ import com.example.demo.repository.ContactoRepository;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.UsuarioService;
 import com.example.demo.service.ContactoService;
+import org.apache.logging.log4j.spi.AbstractLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +21,8 @@ import java.util.Optional;
 
 @Service
 public class LoginServiceImpl implements LoginService {
+
+    Logger logger = LoggerFactory.getLogger(LoginServiceImpl.class);
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -52,6 +57,17 @@ public class LoginServiceImpl implements LoginService {
         }else{
             return new LoginServiceResult(false, "Usuario no encontrado");
         }
+    }
+
+    @Override
+    public APP_ROLES getRole(String accessToken) {
+        String access_token_raw = accessToken.replace("Bearer ", "");
+        String access_token = new String(Base64.getDecoder().decode(access_token_raw));
+        logger.info("Access token raw: " + access_token_raw);
+        String[] parts = access_token.split(":");
+
+        Usuario usuario = usuarioRepository.getUsuarioByCorreo(parts[0]);
+        return APP_ROLES.get(usuario.getRol());
     }
 
     @Override
