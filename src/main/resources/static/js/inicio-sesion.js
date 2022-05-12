@@ -25,7 +25,7 @@ async function iniciarSesion(){
                     localStorage.setItem("access_token", data.accessToken);
                     console.log(data.accessToken);
                     console.log("Authenticated");
-                    document.location.href="inicio-sesion-clientes.html";
+                    testSecureEndpoint();
                 }else{
                     alert(data.result);
                 }
@@ -37,6 +37,36 @@ async function iniciarSesion(){
     return false;
 }
 
+async function testSecureEndpoint() {
+    console.log("Connecting with a secure endpoint");
+    var headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem("access_token")
+            };
+    fetch("/secure", {
+            method: 'GET',
+            headers: headers
+        })
+        .then(data => {
+            if(data.status == 401) {
+                document.location.href="inicio-sesion-clientes.html";
+            }else{
+                document.location.href="inicio-sesion-gerentes1.html";
+            }
+
+        });
+}
+
+async function sesionIniciada(){
+    console.log("Redireccionando a página usuario");
+    if(localStorage.getItem("acces_token") != null){
+        document.location.href="inicio-sesion-clientes.html";
+    }
+}
+sesionIniciada();
+
 $('#inicioSesionForm').submit(function (e) {
     e.preventDefault();
 });
+

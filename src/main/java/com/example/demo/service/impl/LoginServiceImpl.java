@@ -60,14 +60,14 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public APP_ROLES getRole(String accessToken) {
+    public ROLES getRole(String accessToken) {
         String access_token_raw = accessToken.replace("Bearer ", "");
         String access_token = new String(Base64.getDecoder().decode(access_token_raw));
         logger.info("Access token raw: " + access_token_raw);
         String[] parts = access_token.split(":");
 
         Usuario usuario = usuarioRepository.getUsuarioByCorreo(parts[0]);
-        return APP_ROLES.get(usuario.getRol());
+        return ROLES.get(usuario.getRol());
     }
 
     @Override
