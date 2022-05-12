@@ -4,6 +4,7 @@ C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\c
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\ReservaDTO.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\HotelHabitacionDTO.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\HotelReservaDTO.java
+C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\SecureController.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\dto\ClienteReservaDTO.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\impl\ContactoServiceImpl.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\repository\UsuarioRepository.java
@@ -13,6 +14,7 @@ C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\s
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\impl\LoginServiceImpl.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\UsuarioService.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\MainApplication.java
+C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\ROLES.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\service\LoginService.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\controller\UsuarioController.java
 C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\main\java\com\example\demo\model\Usuario.java

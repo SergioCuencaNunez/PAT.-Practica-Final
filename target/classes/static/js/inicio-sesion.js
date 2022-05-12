@@ -1,4 +1,7 @@
 async function iniciarSesion(){
+    console.log("Retrieving the access token");
+    console.log(localStorage.getItem("access_token"));
+
     try {
         var correo = await document.getElementById("correo").value;
         var contrasena = await document.getElementById("contrasena").value;
@@ -19,9 +22,10 @@ async function iniciarSesion(){
                 console.log(data);
                 if(data.result == "OK") {
                     alert("Inicio de Sesión Correcto");
-                    localStorage.setItem("correo", correo);
+                    localStorage.setItem("acces_token", data.accessToken);
                     console.log(data.accessToken);
-                    document.location.href="inicio-sesion-clientes.html";
+                    console.log("Authenticated");
+                    testSecureEndpoint();
                 }else{
                     alert(data.result);
                 }
@@ -33,6 +37,36 @@ async function iniciarSesion(){
     return false;
 }
 
+async function testSecureEndpoint() {
+    console.log("Connecting with a secure endpoint");
+    var headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem("access_token")
+            };
+    fetch("/secure", {
+            method: 'GET',
+            headers: headers
+        })
+        .then(data => {
+            if(data.status == 401) {
+                document.location.href="inicio-sesion-clientes.html";
+            }else{
+                document.location.href="inicio-sesion-gerentes1.html";
+            }
+
+        });
+}
+
+async function sesionIniciada(){
+    console.log("Redireccionando a página usuario");
+    if(localStorage.getItem("acces_token") != null){
+        document.location.href="inicio-sesion-clientes.html";
+    }
+}
+sesionIniciada();
+
 $('#inicioSesionForm').submit(function (e) {
     e.preventDefault();
 });
+
