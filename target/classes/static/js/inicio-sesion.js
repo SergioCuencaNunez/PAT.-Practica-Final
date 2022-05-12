@@ -25,7 +25,11 @@ async function iniciarSesion(){
                     localStorage.setItem("acces_token", data.accessToken);
                     console.log(data.accessToken);
                     console.log("Authenticated");
+<<<<<<< HEAD
+                    document.location.href="inicio-sesion-clientes.html";
+=======
                     testSecureEndpoint();
+>>>>>>> 66c03206cd986c9289f8fd205852ab1c0c21b01a
                 }else{
                     alert(data.result);
                 }

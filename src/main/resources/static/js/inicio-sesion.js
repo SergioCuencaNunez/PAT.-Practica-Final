@@ -22,7 +22,7 @@ async function iniciarSesion(){
                 console.log(data);
                 if(data.result == "OK") {
                     alert("Inicio de Sesión Correcto");
-                    localStorage.setItem("acces_token", data.accessToken);
+                    localStorage.setItem("access_token", data.accessToken);
                     console.log(data.accessToken);
                     console.log("Authenticated");
                     testSecureEndpoint();
