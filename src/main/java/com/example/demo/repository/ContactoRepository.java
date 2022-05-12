@@ -18,6 +18,9 @@ public interface ContactoRepository extends CrudRepository<Contacto, Long> {
     @Query("SELECT CONTACTO.MENSAJE FROM CONTACTO WHERE CONTACTO.CORREO= :correo")
     public String getMensajeByCorreo(String correo);
 
+    @Query("SELECT CONTACTO.MENSAJE FROM CONTACTO")
+    public List<String> getContactoMensajes();
+
     @Query("INSERT INTO CONTACTO (NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (:numero,:correo,:nombre,:mensaje)")
     @Modifying
     void insertarContacto(Long numero, String correo, String nombre, String mensaje);

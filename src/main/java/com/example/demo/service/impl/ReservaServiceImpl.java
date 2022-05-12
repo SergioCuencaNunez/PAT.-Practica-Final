@@ -1,25 +1,28 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.Reserva;
-import com.example.demo.model.Usuario;
 import com.example.demo.repository.ReservaRepository;
-import com.example.demo.service.ReservaServiceResult;
+import com.example.demo.repository.HotelRepository;
 import com.example.demo.service.ReservaService;
+import com.example.demo.service.ReservaServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-import java.time.LocalDate;
 
 @Service
 public class ReservaServiceImpl implements ReservaService {
 
     @Autowired
     private ReservaRepository reservaRepository;
+
+    @Autowired
+    private HotelRepository hotelRepository;
 
     @Override
     @Transactional
@@ -49,12 +52,6 @@ public class ReservaServiceImpl implements ReservaService {
     @Transactional
     public List<Reserva> getReservasbyHotel(String hotel) {
         return reservaRepository.getReservasByHotel(hotel);
-    }
-
-    @Override
-    @Transactional
-    public List<Reserva> getReservasbyHotelFechaEntrada(String hotel, LocalDate fechaEntrada){
-        return reservaRepository.getReservasByHotelFechaEntrada(hotel, fechaEntrada);
     }
 
     @Override
@@ -100,6 +97,39 @@ public class ReservaServiceImpl implements ReservaService {
     }
 
     @Override
+    @Transactional
+    public ReservaServiceResult comprobarDisponibilidad(String hotel, Long habitaciones) {
+
+        Long habitacionesTotales = hotelRepository.getHabitacionesTotalesByHotel(hotel);
+        Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
+
+        if((habitacionesOcupadas + habitaciones) <= habitacionesTotales) {
+            return new ReservaServiceResult(true);
+        }else{
+            return new ReservaServiceResult(false, "No hay habitaciones disponibles");
+        }
+    }
+
+    @Override
+    @Transactional
+    public ReservaServiceResult checkInReserva(Reserva reserva){
+
+        Long id = reserva.getId();
+        String nif = reserva.getNif();
+        String hotel = reserva.getHotel();
+        String destino = reserva.getDestino();
+        LocalDate fechaEntrada = reserva.getFechaEntrada();
+        LocalDate fechaSalida = reserva.getFechaSalida();
+
+        if(nif.equals(reservaRepository.getNifReservaById(id)) && hotel.equals(reservaRepository.getHotelReservaById(id)) && destino.equals(reservaRepository.getDestinoReservaById(id)) && fechaEntrada.equals(reservaRepository.getFechaEntradaReservaById(id)) && fechaSalida.equals(reservaRepository.getFechaSalidaReservaById(id))){
+            return new ReservaServiceResult(true);
+        }else{
+            return new ReservaServiceResult(false, "Reserva no encontrada");
+        }
+    }
+
+    @Override
+    @Transactional
     public ReservaServiceResult registrarReserva(Reserva reserva){
 
         Long id = reserva.getId();
@@ -112,9 +142,20 @@ public class ReservaServiceImpl implements ReservaService {
         LocalDate fechaEntrada = reserva.getFechaEntrada();
         LocalDate fechaSalida = reserva.getFechaSalida();
 
+        Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
+        Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
+
+
         if(id == null){
-            ReservaServiceImpl.this.insertReserva(id, nif, hotel, destino,tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
-            return new ReservaServiceResult(true);
+            ReservaServiceResult result = this.comprobarDisponibilidad(hotel, habitaciones);
+            if(result.isFlag()) {
+                hotelRepository.updateHotelOcupacionByNombre(ocupacion + huespedes, hotel);
+                hotelRepository.updateHotelHabitacionesOcupadasByNombre(habitacionesOcupadas + habitaciones, hotel);
+                ReservaServiceImpl.this.insertReserva(id, nif, hotel, destino, tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
+                return new ReservaServiceResult(true);
+            }else{
+                return new ReservaServiceResult(false, "No hay habitaciones disponibles");
+            }
         }else{
             return new ReservaServiceResult(false, "Reserva ya registrada");
         }

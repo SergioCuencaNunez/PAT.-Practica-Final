@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Contacto;
 import com.example.demo.model.Usuario;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

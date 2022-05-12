@@ -4,11 +4,8 @@ import com.example.demo.model.Hotel;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Iterator;
 
 public interface HotelRepository extends CrudRepository<Hotel, String> {
 
@@ -17,6 +14,19 @@ public interface HotelRepository extends CrudRepository<Hotel, String> {
 
     @Query("SELECT* FROM HOTEL WHERE HOTEL.ESTADO= :estado ")
     public List<Hotel> getHotelesByEstado(Boolean estado);
+
+    @Query("SELECT HOTEL.HABITACIONES_TOTALES FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
+    public Long getHabitacionesTotalesByHotel(String nombre);
+
+    @Query("SELECT HOTEL.HABITACIONES_OCUPADAS FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
+    public Long getHabitacionesOcupadasByHotel(String nombre);
+
+    @Query("SELECT HOTEL.OCUPACION FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
+    public Long getOcupacionByHotel(String nombre);
+
+    @Query("UPDATE HOTEL SET HOTEL.HABITACIONES_OCUPADAS= :habitacionesOcupadas WHERE HOTEL.NOMBRE= :nombre ")
+    @Modifying
+    void updateHotelHabitacionesOcupadasByNombre(Long habitacionesOcupadas, String nombre);
 
     @Query("UPDATE HOTEL SET HOTEL.CAPACIDAD= :capacidad WHERE HOTEL.NOMBRE= :nombre ")
     @Modifying
@@ -30,8 +40,8 @@ public interface HotelRepository extends CrudRepository<Hotel, String> {
     @Modifying
     void updateHotelEstadoByNombre(Boolean estado, String nombre);
 
-    @Query("INSERT INTO HOTEL (NOMBRE, DESTINO, CAPACIDAD, OCUPACION, ESTADO) VALUES (:nombre,:destino,:capacidad,:ocupacion,:estado)")
+    @Query("INSERT INTO HOTEL (NOMBRE, DESTINO, HABITACIONES_TOTALES, HABITACIONES_OCUPADAS, CAPACIDAD, OCUPACION, ESTADO) VALUES (:nombre,:destino,:habitacionesTotales,:habitacionesOcupadas,:capacidad,:ocupacion,:estado)")
     @Modifying
-    void insertHotel(String nombre, String destino, Long capacidad, Long ocupacion, Boolean estado);
+    void insertHotel(String nombre, String destino,Long habitacionesTotales, Long habitacionesOcupadas, Long capacidad, Long ocupacion, Boolean estado);
 
 }

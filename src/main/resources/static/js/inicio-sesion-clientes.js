@@ -2,22 +2,26 @@ const getCorreo = () => {
     return localStorage.getItem("correo");
 }
 
-const getReservas = async () => {
-
-   const address = "api/v1/clientes/correo/" + correo;
-   fetch(address, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-  })
-  .then(response => response.json())
-
-  console.log(response);
+async function setNombre(){
+     try {
+       const address = "api/v1/usuarios/nombre/" + getCorreo();
+       let request = await fetch(address, {
+           method: 'GET'
+       });
+       if(request.ok){
+           var usuario = await request.json();
+           console.log(usuario.nombre);
+           document.getElementById("miCuenta").innerHTML = "Reservas de " + usuario.nombre;
+       }
+     }catch (err){
+       console.error(err.message);
+     }
+     return false;
 }
 
 const setCorreo = (correo) => {
     document.getElementById("correo").innerHTML = correo;
 }
 
+setNombre();
 setCorreo(getCorreo());

@@ -1,20 +1,20 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Usuario;
-import com.example.demo.service.UsuarioService;
-import com.example.demo.service.dto.UsuarioReservaDTO;
 import com.example.demo.service.LoginService;
 import com.example.demo.service.LoginServiceResult;
-import org.springframework.validation.BindingResult;
+import com.example.demo.service.UsuarioService;
+import com.example.demo.service.dto.UsuarioReservaDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -40,9 +40,9 @@ public class UsuarioController {
     }
 
     @Transactional
-    @GetMapping("/usuarios/nombre/{nombre}/{apellido1}/{apellido2}/{rol}")
-    public ResponseEntity<Usuario> getUsuarioNombreCompleto(@PathVariable("nombre") String nombre, @PathVariable("apellido1") String apellido1,@PathVariable("apellido2") String apellido2,@PathVariable("rol") String rol){
-        Usuario usuario = usuarioServicio.getUsuariobyNombreCompleto(nombre,apellido1,apellido2,rol);
+    @GetMapping("/usuarios/nombre/{correo}")
+    public ResponseEntity<Usuario> getUsuarioNombreCorreo(@PathVariable("correo") String correo){
+        Usuario usuario = usuarioServicio.getUsuariobyCorreo(correo);
         return ResponseEntity.ok().body(usuario);
     }
 

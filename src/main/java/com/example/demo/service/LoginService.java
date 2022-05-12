@@ -8,5 +8,6 @@ public interface LoginService {
   LoginServiceResult inicioSesionDeUsuario(Usuario usuario);
   LoginServiceResult registroUsuario(Usuario usuario);
   LoginServiceResult mensajeContacto(Contacto contacto);
+  LoginServiceResult checkInContacto(Contacto contacto);
   LoginServiceResult suscripcionContacto(Contacto contacto);
 }

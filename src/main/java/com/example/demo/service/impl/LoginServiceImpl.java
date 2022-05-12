@@ -40,7 +40,7 @@ public class LoginServiceImpl implements LoginService {
         List<String> correos = usuarioRepository.getUsuarioCorreos();
 
         if(correos.contains(correo)){
-            contrasenaValida = usuarioRepository.getUsuarioContrasena(correo);
+            contrasenaValida = usuarioRepository.getUsuarioByContrasena(correo);
             if(contrasena.equals(contrasenaValida)){
                  String value = correo + ":" + contrasena;
                  String accessToken = Base64.getEncoder().encodeToString(value.getBytes());
@@ -94,7 +94,26 @@ public class LoginServiceImpl implements LoginService {
             contactoServicio.insertContacto(numero, correo, nombre, mensaje);
             return new LoginServiceResult(true, accessToken);
         }else{
-                return new LoginServiceResult(false, "Usuario no encontrado");
+            return new LoginServiceResult(false, "Usuario no encontrado");
+        }
+    }
+
+    @Override
+    public LoginServiceResult checkInContacto(Contacto contacto){
+
+        Long numero = contacto.getNumero();
+        String nif = contacto.getCorreo();
+        String idStr = contacto.getNombre();
+        Long id = Long.parseLong(idStr);
+        String mensaje = contacto.getMensaje();
+        String correo = usuarioRepository.getUsuarioCorreoByNif(nif);
+        String nombre = usuarioRepository.getUsuarioNombreByNif(nif);
+        List<String> mensajesContactos = contactoRepository.getContactoMensajes();
+        if(mensajesContactos.contains("Check-in online de la reserva con identificador " + id + " y NIF " + nif)){
+            return new LoginServiceResult(false, "Check-in online ya realizado");
+        }else{
+            contactoServicio.insertContacto(numero, correo, nombre, mensaje);
+            return new LoginServiceResult(true);
         }
     }
 

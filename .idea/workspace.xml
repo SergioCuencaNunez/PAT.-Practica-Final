@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c29f3e9b-2b3f-4bb6-9e6f-dd8cb0a8e356" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/UsuarioControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/ContactoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/ContactoControllerTest.java" afterDir="false" />
@@ -15,6 +16,21 @@
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.demo.controller.ContactoControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.example.demo.controller.ContactoControllerTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.DemoApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.DemoApplicationTests.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.controller.ContactoControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.example.demo.controller.ContactoControllerTest.txt" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ReservaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ReservaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/HotelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/repository/HotelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/HotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/HotelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/HotelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/ReservaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/service/impl/ReservaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+>>>>>>> 39a4becc7a1dd93f93c663ad76d89b33b03e980a
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +51,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
@@ -52,7 +76,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="27nEpABzTnJM9AGQszYJ0PsX3uM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -63,7 +89,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/com/example/demo/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/js" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -74,6 +100,7 @@
       <recent name="java.com.example.demo.controllerTest" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js" />
       <recent name="C:\Users\Elena\IdeaProjects\PAT.-Practica-Final\src\test\java\com\example\demo\controller" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -81,6 +108,9 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="java.com.example.demo.controllerTest" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.demo.controller" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

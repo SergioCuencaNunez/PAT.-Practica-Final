@@ -86,12 +86,14 @@ public class HotelController {
     }
 
     @Transactional
-    @GetMapping("/hoteles/insert/{nombre}/{destino}/{capacidad}/{ocupacion}/{estado}")
-    public ResponseEntity<String> insertCompareHotel(@PathVariable("nombre") String nombre, @PathVariable("destino") String destino, @PathVariable("capacidad") String capacidadStr,@PathVariable("ocupacion") String ocupacionStr,@PathVariable("estado") String estadoStr) {
+    @GetMapping("/hoteles/insert/{nombre}/{destino}/{habitacionesTotales}/{habitacionesOcupadas}/{capacidad}/{ocupacion}/{estado}")
+    public ResponseEntity<String> insertCompareHotel(@PathVariable("nombre") String nombre, @PathVariable("destino") String destino, @PathVariable("habitacionesTotales") String habitacionesTotalesStr, @PathVariable("habitacionesOcupadas") String habitacionesOcupadasStr, @PathVariable("capacidad") String capacidadStr,@PathVariable("ocupacion") String ocupacionStr,@PathVariable("estado") String estadoStr) {
+        Long habitacionesTotales = Long.parseLong(habitacionesTotalesStr);
+        Long habitacionesOcupadas = Long.parseLong(habitacionesOcupadasStr);
         Long capacidad = Long.parseLong(capacidadStr);
         Long ocupacion = Long.parseLong(ocupacionStr);
         Boolean estado = Boolean.parseBoolean(estadoStr);
-        String resultado = hotelServicio.insertAndCompareHotel(nombre,destino,capacidad,ocupacion,estado);
+        String resultado = hotelServicio.insertAndCompareHotel(nombre,destino,habitacionesTotales,habitacionesOcupadas,capacidad,ocupacion,estado);
         return ResponseEntity.ok().body(resultado);
     }
 

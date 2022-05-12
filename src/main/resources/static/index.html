@@ -134,14 +134,14 @@
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                     <div class="booking-form">
                         <h3>Reserva ya</h3>
-                        <form action="#">
+                        <form id="bookingForm">
                             <div class="select-option">
                                 <label for="destino">Destino:</label>
                                 <select id="destino">
-                                    <option value="">Madrid</option>
-                                    <option value="">Londres</option>
-                                    <option value="">París</option>
-                                    <option value="">Nueva York</option>
+                                    <option value="Madrid">Madrid</option>
+                                    <option value="Londres">Londres</option>
+                                    <option value="Paris">París</option>
+                                    <option value="Nueva-York">Nueva York</option>
                                 </select>
                             </div>
                             <div class="check-date">
@@ -157,18 +157,21 @@
                             <div class="select-option">
                                 <label for="guest">Huéspedes:</label>
                                 <select id="guest">
-                                    <option value="">2 Adultos</option>
-                                    <option value="">3 Adultos</option>
+                                    <option value="1">1 Adulto</option>
+                                    <option value="2">2 Adultos</option>
+                                    <option value="3">3 Adultos</option>
+                                    <option value="4">4 Adultos</option>
+                                    <option value="5">5 Adultos</option>
                                 </select>
                             </div>
                             <div class="select-option">
                                 <label for="room">Habitaciones:</label>
                                 <select id="room">
-                                    <option value="">1 Habitación</option>
-                                    <option value="">2 Habitaciones</option>
+                                    <option value="1">1 Habitación</option>
+                                    <option value="2">2 Habitaciones</option>
                                 </select>
                             </div>
-                            <button type="submit">Comprobar disponiblidad</button>
+                            <button onclick="booking()" type="submit">Comprobar disponiblidad</button>
                         </form>
                     </div>
                 </div>
@@ -309,15 +312,15 @@
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td class="r-o">Una capital acogedora y vibrante.</td>
+                                            <td class="r-o">Capital acogedora y vibrante.</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Meliá Madrid Princesa:</td>
-                                            <td>142€</td>
+                                            <td class="r-o"><b>Meliá Madrid Princesa</b>:</td>
+                                            <td>Desde 142€</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Gran Meliá Palacio de los Duques:</td>
-                                            <td>350€</td>
+                                            <td class="r-o"><b>Gran Meliá Palacio de los Duques</b>:</td>
+                                            <td>Desde 350€</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -336,12 +339,12 @@
                                             <td class="r-o">La joya de la realeza británica.</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Meliá White House:</td>
-                                            <td>208€</td>
+                                            <td class="r-o"><b>Meliá White House</b>:</td>
+                                            <td>Desde 208€</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">ME London:</td>
-                                            <td>334€</td>
+                                            <td class="r-o"><b>ME London</b>:</td>
+                                            <td>Desde 334€</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -360,12 +363,12 @@
                                             <td class="r-o">La ciudad perfecta del amor.</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Innside Charles de Gaulle:</td>
-                                            <td>189€</td>
+                                            <td class="r-o"><b>Innside Charles de Gaulle</b>:</td>
+                                            <td>Desde 189€</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Meliá Paris La Défense:</td>
-                                            <td>229€</td>
+                                            <td class="r-o"><b>Meliá Paris La Défense</b>:</td>
+                                            <td>Desde 229€</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -384,12 +387,12 @@
                                             <td class="r-o">Disfruta de sus ajetreadas calles.</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Innside New York Nomad:</td>
-                                            <td>199€</td>
+                                            <td class="r-o"><b>Innside New York Nomad</b>:</td>
+                                            <td>Desde 199€</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">TRYP New York Times Square:</td>
-                                            <td>235€</td>
+                                            <td class="r-o"><b>TRYP New York Times Square</b>:</td>
+                                            <td>Desde 235€</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -509,6 +512,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/contacto.js"></script>
+    <script src="js/check-in.js"></script>
 </body>
 
 </html>
