@@ -71,8 +71,12 @@ public class UsuarioController {
         if (result.isFlag()) {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
-        }else if(result.getAccessToken().equals("Este no es el NIF adjunto")) {
-            LoginResponse loginResponse = new LoginResponse("El NIF introducido pertenece a otro usuario ya registrado. Revise que el NIF introducido pertenezca a usted");
+        }else if(result.getAccessToken().equals("Correo ya registrado")) {
+            LoginResponse loginResponse = new LoginResponse("El correo introducido pertenece a otro usuario ya registrado.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
+        else if(result.getAccessToken().equals("Este no es el NIF adjunto")) {
+            LoginResponse loginResponse = new LoginResponse("El NIF introducido pertenece a otro usuario ya registrado.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }else{
             LoginResponse loginResponse = new LoginResponse("No es posible modificar el NIF introducido en el momento del registro.\nSi desea contactar con el servicio de atención al cliente del programa MeliáRewards, llame al teléfono 912 76 47 40.");

@@ -95,13 +95,13 @@ async function cambiarInformacionPerfil() {
                 })
                 .then(response => response.json())
                 .then(data2 => {
-                    if(data2.result == "OK") {
+                    if(data2.result == "OK"){
+                        localStorage.setItem("correoPerfil", correo);
                         alert("Credenciales modificados correctamente.");
                     }else{
                         alert(data2.result);
                     }
                 });
-                localStorage.setItem("correoPerfil", correo);
             }else{
                 alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales para poder modificarlos.\nDebe introducir todos los datos marcados, el NIF adjunto en el momento del registro, un email válido y una contraseña alfanúmerica.\nRecuerde que la contraseña debe ser igual en ambos campos.");
             }
