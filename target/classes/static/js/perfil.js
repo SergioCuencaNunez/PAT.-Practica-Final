@@ -11,18 +11,12 @@ async function setNombre(){
        if(request.ok){
            var usuario = await request.json();
            console.log(usuario.nombre);
-           document.getElementById("cuenta").innerHTML = "Reservas de " + usuario.nombre;
+           document.getElementById("cuenta").innerHTML = "Perfil de " + usuario.nombre;
        }
      }catch (err){
        console.error(err.message);
      }
      return false;
-}
-
-async function cerrarSesion(){
-    localStorage.removeItem("access_token");
-    console.log(localStorage.getItem("access_token"));
-    document.location.href="/inicio-sesion.html";
 }
 
 /*const setCorreo = (correo) => {
