@@ -1492,29 +1492,6 @@ ul, ol {
     padding: 14px 91px 13px;
 	display: inline-block;
 }
-.registro-text .reg-title2 .reg-form .reg-button-ger button {
-    height: 50px;
-    color: #dfa974;
-	border: 1px solid #dfa974;
-	border-radius: 2px;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 500;
-    background: transparent;
-    padding: 14px 91px 13px;
-	display: inline-block;
-}
-.registro-text .reg-title2 .reg-form .reg-button-gere button {
-    color: #ffffff;
-	border: none;
-	height: 50px;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 500;
-    background: #dfa974;
-    padding: 14px 91px 13px;
-	display: inline-block;
-}
 .registro-text .reg-title2 .reg-form .select-option {
 	margin-bottom: 15px;
 	height: 100px;
