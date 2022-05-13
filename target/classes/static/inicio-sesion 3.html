@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meliá Hotels & Resorts</title>
-    <link rel="icon" type="image/png" href="img/favicon.png"/>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+
 </head>
 
 <body>
@@ -49,8 +50,8 @@
             <ul>
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./hoteles1.html">Hoteles</a></li>
-                <li class="active"><a href="./check-in.html">Check-in Online</a></li>
-                <li><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
+                <li><a href="./check-in.html">Check-in Online</a></li>
+                <li class="active"><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
                 <li><a href="./contact.html">Contacto</a></li>
             </ul>
         </nav>
@@ -108,9 +109,9 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li><a href="./index.html">Home</a></li>
-                                    <li ><a href="./hoteles1.html">Hoteles</a></li>
-                                    <li class="active" ><a href="./check-in.html">Check-in Online</a></li>
-                                    <li id="cuenta"><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
+                                    <li><a href="./hoteles1.html">Hoteles</a></li>
+                                    <li><a href="./check-in.html">Check-in Online</a></li>
+                                    <li class="active"><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
                                     <li><a href="./contact.html">Contacto</a></li>
                                 </ul>
                             </nav>
@@ -131,10 +132,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>Check-in Online</h2>
+                        <h2>Inicio de Sesión</h2>
                         <div class="bt-option">
                             <a href="./index.html">Home</a>
-                            <span>Check-in Online</span>
+                            <span>Inicio de Sesión</span>
                         </div>
                     </div>
                 </div>
@@ -144,103 +145,38 @@
     <!-- Breadcrumb Section End -->
 
     <!-- About Us Page Section Begin -->
-    <section class="aboutus-page-section spad">
+    <section class="inicio-sesion-section spad">
         <div class="container">
-            <div class="about-page-text">
+            <div class="inicio-sesion-text">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="ap-title">
-                            <h2>Tu check-in en unos segundos</h2>
-                            <h3>Aprovecha estas ventajas exclusivas</h3>
-                            <p>Si haces check-in online desde 96 horas antes de la llegada y hasta las 10h del día de llegada al hotel</p>
-                        </div>
-                        <div>
-                            <ul class="ap-services">
-                                <li><i class="icon_check"></i> Consigue una habitación superior (*)</li>
-                                <li><i class="icon_check"></i> Ahorra tiempo con la máxima seguridad</li>
-                                <li><i class="icon_check"></i> Si no eres miembro de MeliáRewards, date de alta ahora y consigue 2000 puntos de bienvenida</li>
-                                <li><i class="icon_check"></i> Asigna huéspedes a cada habitación</li>
-                                <li><i class="icon_check"></i> Obtén tu Llave digital (**)</li>
-                            </ul>
-                            <p>(*) Sujeto a disponibilidad <br> (**) Solo en aquellos hoteles con el sistema activo</p><br>
-                            <h3>Descarga nuestra APP</h3>
-                            <p>Check-in más rápido disfrutando de todas las ventajas en tu móvil<p>
-                        </div>
-                        <div class="ap-button">
-                            <a href="https://apps.apple.com/es/app/meliá/id1151855213" target="_blank">Download on the App Store</a>
-                            <a href="https://play.google.com/store/apps/details?id=es.mobail.meliarewards" target="_blank">Disponible en Google Play</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6" style="left: 182px;">
-                        <div class="checkin-form">
-                            <h3>Check-in</h3>
-                            <form id="checkInForm">
-                                <div class="text-input">
-                                    <label for="nif">Introduzca su NIF/DNI:</label>
-                                    <input type="text" id="nif">
-                                </div>
-                                <div class="text-input">
-                                    <label for="id">Introduzca el ID de reserva:</label>
-                                    <input type="text" id="id">
-                                </div>
-                                <div class="select-option">
-                                    <label for="destino">Destino:</label>
-                                    <select id="destino">
-                                        <option value="Madrid">Madrid</option>
-                                        <option value="Londres">Londres</option>
-                                        <option value="Paris">París</option>
-                                        <option value="Nueva-York">Nueva York</option>
-                                    </select>
-                                </div>
-                                <div class="select-option">
-                                    <label for="hotel">Nombre del hotel:</label>
-                                    <select id="hotel">
-                                        <option value="Melia-Madrid-Princesa">Meliá Madrid Princesa</option>
-                                        <option value="Gran-Melia-Palacio-de-los-Duques">Gran Meliá Palacio de los Duques</option>
-                                        <option value="Melia-White-House">Meliá White House</option>
-                                        <option value="ME-London">ME London</option>
-                                        <option value="Innside-Paris-Charles-de-Gaulle">Innside Paris Charles de Gaulle</option>
-                                        <option value="Melia-Paris-La-Defense">Meliá Paris La Défense</option>
-                                        <option value="TRYP-New-York-Times-Square">TRYP New York Times Square</option>
-                                        <option value="Innside-New-York-Nomad">Innside New York Nomad</option>
-                                    </select>
-                                </div>
-                                <div class="check-date">
-                                    <label for="date-in">Check In:</label>
-                                    <input type="text" class="date-input" id="date-in">
-                                    <i class="icon_calendar"></i>
-                                </div>
-                                <div class="check-date">
-                                    <label for="date-out">Check Out:</label>
-                                    <input type="text" class="date-input" id="date-out">
-                                    <i class="icon_calendar"></i>
-                                </div>
-                                <button onclick="checkIn()" type="submit">Localiza mi reserva</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-page-services">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="ap-service-item set-bg" data-setbg="img/about/check1.png">
-                            <div class="api-text">
-                                <h3>Upgrade de habitación</h3>
+                        <div class="is-title">
+                            <h3>Entra en MeliáRewards con:</h3>
+                            <div class="is-button">
+                                <a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=231661638887259&kid_directed_site=0&app_id=231661638887259&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fresponse_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fwww.melia.com%252Fmeliarewards%252Fhome%252Fregister%252FSocialLoginCallback.jsp%26display%3Dpopup%26scope%3Demail%252Cpublic_profile%26client_id%3D231661638887259%26state%3DeUEr2HbylTdOjGQBekzDGlnRqTxVxqLP0sel0rTJImraKisusyupgFPtGNCGOEVuVghdBaNDiHFLmjS0JiRG0Lt1thKtwzB%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D10a4519a-be22-4cd6-9122-c0a30d98914d%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.melia.com%2Fmeliarewards%2Fhome%2Fregister%2FSocialLoginCallback.jsp%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DeUEr2HbylTdOjGQBekzDGlnRqTxVxqLP0sel0rTJImraKisusyupgFPtGNCGOEVuVghdBaNDiHFLmjS0JiRG0Lt1thKtwzB%23_%3D_&display=popup&locale=es_ES&pl_dbl=0" target="_blank">Facebook</a>
+                                <a href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?state=9zjnBDndgOFdKmLw2LuymwyMCOIAsSqKBo0wBDyVExDS0do1UJ1kHkKpCcNnOBjNjHcpgSsOdDQGNg22KtwCBapBpsaqdiH&access_type=offline&approval_prompt=auto&response_type=code&client_id=493616800848-anbmo9c3e3jk44maf4r49uclovtu6duv.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.melia.com%2Fmeliarewards%2Fhome%2Fregister%2FSocialLoginCallback.jsp&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&flowName=GeneralOAuthFlow" target="_blank">Google</a>
+                            </div>
+                            <div class="is-form">
+                                <form id="inicioSesionForm">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <input type="text" id="correo" placeholder="Correo electrónico">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="password" id="contrasena" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                    <button type="submit" onclick="iniciarSesion()" >Inicia Sesión</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="ap-service-item set-bg" data-setbg="img/about/check2.png">
-                            <div class="api-text">
-                                <h3>Asigna huéspedes</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="ap-service-item set-bg" data-setbg="img/about/check3.png">
-                            <div class="api-text">
-                                <h3>Hazte MeliáRewards</h3>
+                    <div class="col-lg-6">
+                        <div class="is-title">
+                            <h3>¿Aún no tienes cuenta de MeliáRewards?</h3>
+                            <p>Regístrate ya y consigue todos los beneficios y <br> ventajas exclusivas que ofrece nuestro <br> programa de fidelización </p>
+                            <div class="is-button">
+                                <a href="./registro.html">Crear Cuenta</a>
                             </div>
                         </div>
                     </div>
@@ -335,8 +271,8 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/inicio-sesion.js"></script>
     <script src="js/contacto.js"></script>
-    <script src="js/check-in.js"></script>
 </body>
 
 </html>
