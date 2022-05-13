@@ -134,3 +134,13 @@
     $("select").niceSelect();
 
 })(jQuery);
+
+async function sesionIniciada(){
+    console.log("Redireccionando a página de usuario");
+    if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "cliente"){
+        document.getElementById("cuenta1").innerHTML = "Mi Cuenta";
+    }else if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "admin"){
+        document.getElementById("cuenta1").innerHTML = "Gestión de hoteles";
+    }
+}
+sesionIniciada();

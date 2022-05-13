@@ -49,10 +49,10 @@ async function testSecureEndpoint() {
     .then(data => {
         if(data.status == 401) {
             localStorage.setItem("access_token_type", "cliente");
-            document.location.href="inicio-sesion-clientes.html";
+            document.location.href="perfil.html";
         }else{
             localStorage.setItem("access_token_type", "admin");
-            document.location.href="inicio-sesion-gerentes1.html";
+            document.location.href="perfil-gerentes.html";
         }
     });
 }
