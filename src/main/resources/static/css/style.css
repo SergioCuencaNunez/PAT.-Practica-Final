@@ -641,7 +641,7 @@ ul, ol {
 	margin-bottom: 14px;
 }
 .checkin-form form .check-date input {
-	width: 100%;
+	width: 70%;
 	height: 50px;
 	border: 1px solid #ebebeb;
 	border-radius: 2px;
@@ -654,11 +654,11 @@ ul, ol {
 .checkin-form form .check-date i {
 	color: #dfa974;
 	position: absolute;
-	right: 18px;
-	bottom: 17px;
+    right: 165px;
+    bottom: 17px;
 }
 .checkin-form form .text-input input {
-	width: 100%;
+	width: 70%;
 	height: 50px;
 	border: 1px solid #ebebeb;
 	border-radius: 2px;
@@ -691,7 +691,7 @@ ul, ol {
 	line-height: 50px;
 	outline: none;
 	padding-left: 20px;
-	width: 100%;
+	width: 70%;
 	float: none;
 }
 .checkin-form form .select-option .nice-select:after {
@@ -722,7 +722,7 @@ ul, ol {
 	color: #dfa974;
 	font-weight: 500;
 	background: transparent;
-	width: 100%;
+	width: 70%;
 	height: 46px;
 	margin-top: 28px;
 }
@@ -1206,6 +1206,7 @@ ul, ol {
     font-weight: 500;
     background: #dfa974;
     padding: 14px 28px 13px;
+    height: 46px;
 }
 /*------------------------
   Inicio Sesion Section
