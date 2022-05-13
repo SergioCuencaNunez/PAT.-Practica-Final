@@ -261,9 +261,9 @@ async function booking(){
 async function sesionIniciada(){
     console.log("Redireccionando a página de usuario");
     if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "cliente"){
-        document.getElementById("cuenta").innerHTML = "Mi Cuenta ";
+        document.getElementById("cuenta").innerHTML = "Mi Cuenta";
     }else if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "admin"){
-        document.getElementById("cuenta").innerHTML = "Gestión de hoteles ";
+        document.getElementById("cuenta").innerHTML = "Gestión de hoteles";
     }
 }
 sesionIniciada();
