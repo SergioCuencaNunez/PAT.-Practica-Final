@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.LoginService;
-import com.example.demo.service.ROLES;
+import com.example.demo.service.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,8 @@ public class SecureController {
 
     @GetMapping(value = "/secure", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> greeting(@RequestHeader("Authorization") String token) {
-        ROLES role = loginService.getRole(token);
-        if (ROLES.ROLE_ADMIN.equals(role)){
+        Roles role = loginService.getRole(token);
+        if (Roles.ROLE_ADMIN.equals(role)){
             return ResponseEntity.ok().body("Safe place");
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("");

@@ -20,6 +20,7 @@ async function iniciarSesion(){
                 if(data.result == "OK") {
                     alert("Inicio de Sesión Correcto");
                     localStorage.setItem("correo", correo);
+                    console.log(data.accessToken)
                     localStorage.setItem("access_token", data.accessToken);
                     console.log(data.accessToken);
                     testSecureEndpoint();
@@ -57,7 +58,7 @@ async function testSecureEndpoint() {
 }
 
 async function sesionIniciada(){
-    console.log("Redireccionando a página usuario");
+    console.log("Redireccionando a página de usuario");
         if(localStorage.getItem("access_token") != null){
             document.location.href="inicio-sesion-clientes.html";
         }

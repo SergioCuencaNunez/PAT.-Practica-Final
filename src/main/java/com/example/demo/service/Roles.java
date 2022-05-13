@@ -3,7 +3,7 @@ package com.example.demo.service;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum ROLES {
+public enum Roles {
 
     ROLE_USER("cliente"),
     ROLE_ADMIN("admin");
@@ -11,15 +11,15 @@ public enum ROLES {
     private final String abbreviation;
 
     // Reverse-lookup map for getting a day from an abbreviation
-    private static final Map<String, ROLES> lookup = new HashMap<String, ROLES>();
+    private static final Map<String, Roles> lookup = new HashMap<String, Roles>();
 
     static {
-        for (ROLES d : ROLES.values()) {
+        for (Roles d : Roles.values()) {
             lookup.put(d.getAbbreviation(), d);
         }
     }
 
-    private ROLES(String abbreviation) {
+    private Roles(String abbreviation) {
         this.abbreviation = abbreviation;
     }
 
@@ -27,7 +27,7 @@ public enum ROLES {
         return abbreviation;
     }
 
-    public static ROLES get(String abbreviation) {
+    public static Roles get(String abbreviation) {
         return lookup.get(abbreviation);
     }
 

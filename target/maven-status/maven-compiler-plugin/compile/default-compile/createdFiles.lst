@@ -33,7 +33,6 @@ com/example/demo/service/ReservaServiceResult.class
 com/example/demo/repository/HabitacionRepository.class
 com/example/demo/service/UsuarioService.class
 com/example/demo/service/ReservaService.class
-com/example/demo/service/ROLES.class
 com/example/demo/controller/ReservaCredential.class
 com/example/demo/model/Contacto$ContactoBuilder.class
 com/example/demo/service/dto/UsuarioReservaDTO.class
@@ -41,6 +40,7 @@ com/example/demo/model/Habitacion.class
 com/example/demo/controller/LoginResponse.class
 com/example/demo/model/Habitacion$HabitacionBuilder.class
 com/example/demo/controller/ReservaResponse.class
+com/example/demo/service/Roles.class
 com/example/demo/controller/SecureController.class
 com/example/demo/repository/ReservaRepository.class
 com/example/demo/model/Usuario.class
