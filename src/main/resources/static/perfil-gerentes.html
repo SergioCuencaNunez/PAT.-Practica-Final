@@ -49,7 +49,7 @@
             <ul>
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./hoteles1.html">Hoteles</a></li>
-                <li class="active"><a href="./inicio-sesion-gerentes1.html">Gestión de hoteles</a></li>
+                <li class="active"><a href="./inicio-sesion-gerentes1.html">Gestión de hoteles</a>
                     <ul class="dropdown">
                         <li><a href="./perfil-gerentes.html">Perfil</a></li>
                         <li><a href="./inicio-sesion-gerentes1.html">Reservas</a></li>
@@ -112,11 +112,11 @@
                                 <ul>
                                     <li><a href="./index.html">Home</a></li>
                                     <li><a href="./hoteles1.html">Hoteles</a></li>
-                                    <li class="active"><a href="./inicio-sesion-gerentes1.html">Gestión de hoteles</a></li>
-                                    <ul class="dropdown">
-                                        <li><a href="./perfil-gerentes.html">Perfil</a></li>
-                                        <li><a href="./inicio-sesion-gerentes1.html">Reservas</a></li>
-                                    </ul>
+                                    <li class="active"><a href="./inicio-sesion-gerentes1.html">Gestión de hoteles</a>
+                                        <ul class="dropdown">
+                                            <li><a href="./perfil-gerentes.html">Perfil</a></li>
+                                            <li><a href="./inicio-sesion-gerentes1.html">Reservas</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </nav>
@@ -193,13 +193,15 @@
                                             <input title="Solo carácteres alfanuméricos con mínimo de 15 y máximo de 50" type="password" id="contrasena2" placeholder="Repetir contraseña*">
                                         </div>
                                     </div>
-                                    <button type="submit" onclick="cambiarInformacionPerfil()">Cambiar información de perfil</button>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <button type="submit" onclick="cambiarInformacionPerfil()">Cambiar información de perfil</button>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <button onclick="cerrarSesion()">Cerrar Sesión</button>
+                                        </div>
+                                    </div>
                                 </form>
-                            </div>
-                        </div>
-                        <div class="reg-title3">
-                            <div class="reg-button">
-                                <button onclick="cerrarSesion()">Cerrar Sesión</button>
                             </div>
                         </div>
                     </div>

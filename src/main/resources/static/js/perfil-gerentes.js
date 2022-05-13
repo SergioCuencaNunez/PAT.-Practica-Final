@@ -14,7 +14,7 @@ async function setNombre(){
        });
        if(request.ok){
            var usuario = await request.json();
-           document.getElementById("cuenta").innerHTML = "Perfil de " + usuario.nombre;
+           document.getElementById("cuenta").innerHTML = "Perfil de gerentes de " + usuario.nombre + usuario.apellido1 + usuario.apellido2;
        }
      }catch (err){
        console.error(err.message);
