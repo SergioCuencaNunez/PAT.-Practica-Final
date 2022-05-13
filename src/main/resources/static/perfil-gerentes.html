@@ -137,7 +137,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2 id="cuenta">Perfil</h2>
+                        <h2 id="cuenta">Perfil de gerentes</h2>
                         <div class="bt-option">
                             <a href="./perfil-gerentes.html">Gestión de hoteles</a>
                             <span>Perfil</span>
@@ -192,13 +192,15 @@
                                         <div class="col-lg-12">
                                             <input title="Solo carácteres alfanuméricos con mínimo de 15 y máximo de 50" type="password" id="contrasena2" placeholder="Repetir contraseña*">
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-lg-6">
-                                            <button type="submit" onclick="cambiarInformacionPerfil()">Cambiar información de perfil</button>
+                                            <div class="reg-button-ger">
+                                                <button type="submit" onclick="cambiarInformacionPerfil()">Cambiar información de perfil</button>
+                                            </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <button onclick="cerrarSesion()">Cerrar Sesión</button>
+                                            <div class="reg-button-gere">
+                                                <button onclick="cerrarSesion()">Cerrar Sesión</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -207,6 +209,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <!-- Rooms Section End -->
 

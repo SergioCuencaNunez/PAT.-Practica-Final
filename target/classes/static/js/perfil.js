@@ -135,7 +135,9 @@ async function cambiarInformacionPerfil() {
 async function cerrarSesion(){
     localStorage.removeItem("access_token");
     console.log(localStorage.getItem("access_token"));
-    document.location.href="/inicio-sesion.html";
+    if(confirm("¿Realmente desea cerrar su sesión?")){
+        document.location.href="/inicio-sesion.html";
+    }
 }
 
 setNombre();

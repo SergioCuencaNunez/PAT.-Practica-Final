@@ -6,22 +6,6 @@ const getCorreoPerfil = () => {
     return localStorage.getItem("correoPerfil");
 }
 
-async function setNombre(){
-     try {
-       const address = "api/v1/usuarios/correo/" + getCorreo();
-       let request = await fetch(address, {
-           method: 'GET'
-       });
-       if(request.ok){
-           var usuario = await request.json();
-           document.getElementById("cuenta").innerHTML = "Perfil de gerentes de " + usuario.nombre + usuario.apellido1 + usuario.apellido2;
-       }
-     }catch (err){
-       console.error(err.message);
-     }
-     return false;
-}
-
 async function getInformacionPerfil(){
      try {
        var nombre = document.getElementById("nombre");
@@ -135,10 +119,11 @@ async function cambiarInformacionPerfil() {
 async function cerrarSesion(){
     localStorage.removeItem("access_token");
     console.log(localStorage.getItem("access_token"));
-    document.location.href="/inicio-sesion.html";
+    if(confirm("¿Realmente desea cerrar su sesión?")){
+        document.location.href="/inicio-sesion.html";
+    }
 }
 
-setNombre();
 getInformacionPerfil();
 
 $('#perfilForm').submit(function (e) {
