@@ -24,7 +24,6 @@ async function iniciarSesion(){
                     localStorage.setItem("access_token", data.accessToken);
                     console.log(data.accessToken);
                     testSecureEndpoint();
-                    //document.location.href="inicio-sesion-clientes.html";
                 }else{
                     alert(data.result);
                 }
@@ -46,22 +45,25 @@ async function testSecureEndpoint() {
     fetch("/secure", {
             method: 'GET',
             headers: headers
-        })
-        .then(data => {
-            if(data.status == 401) {
-                document.location.href="inicio-sesion-clientes.html";
-            }else{
-                document.location.href="inicio-sesion-gerentes1.html";
-            }
-
-        });
+    })
+    .then(data => {
+        if(data.status == 401) {
+            localStorage.setItem("access_token_type", "cliente");
+            document.location.href="inicio-sesion-clientes.html";
+        }else{
+            localStorage.setItem("access_token_type", "admin");
+            document.location.href="inicio-sesion-gerentes1.html";
+        }
+    });
 }
 
 async function sesionIniciada(){
     console.log("Redireccionando a página de usuario");
-        if(localStorage.getItem("access_token") != null){
-            document.location.href="inicio-sesion-clientes.html";
-        }
+    if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "cliente"){
+        document.location.href="inicio-sesion-clientes.html";
+    }else if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "admin"){
+        document.location.href="inicio-sesion-gerentes1.html";
+    }
 }
 sesionIniciada();
 
