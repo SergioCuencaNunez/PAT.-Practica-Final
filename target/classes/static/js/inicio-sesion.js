@@ -60,9 +60,9 @@ async function testSecureEndpoint() {
 async function sesionIniciada(){
     console.log("Redireccionando a página de usuario");
     if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "cliente"){
-        document.location.href="inicio-sesion-clientes.html";
+        document.location.href="perfil.html";
     }else if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "admin"){
-        document.location.href="inicio-sesion-gerentes1.html";
+        document.location.href="perfil-gerentes.html";
     }
 }
 sesionIniciada();
