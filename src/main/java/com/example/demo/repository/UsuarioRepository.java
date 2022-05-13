@@ -18,12 +18,19 @@ public interface UsuarioRepository extends CrudRepository<Usuario, String> {
     @Query("SELECT CORREO FROM USUARIO")
     public List<String> getUsuarioCorreos();
 
+    // Los NIFs son únicos. No es necesario pasar el rol
+    @Query("SELECT NIF FROM USUARIO")
+    public List<String> getUsuarioNifs();
+
     @Query("SELECT* FROM USUARIO WHERE USUARIO.ROL= :rol")
     public List<Usuario> getUsuariosByRol(String rol);
 
     // Los correos son únicos. No es necesario pasar el rol
     @Query("SELECT USUARIO.CONTRASENA FROM USUARIO WHERE USUARIO.CORREO= :correo")
     public String getUsuarioByContrasena(String correo);
+
+    @Query("SELECT USUARIO.NIF FROM USUARIO WHERE USUARIO.CORREO= :correo")
+    public String getUsuarioNifByCorreo(String correo);
 
     @Query("SELECT USUARIO.CORREO FROM USUARIO WHERE USUARIO.NIF= :nif")
     public String getUsuarioCorreoByNif(String nif);
@@ -32,19 +39,9 @@ public interface UsuarioRepository extends CrudRepository<Usuario, String> {
     public String getUsuarioNombreByNif(String nif);
 
     // Los NIFs son únicos. No es necesario pasar el rol
-    @Query("UPDATE USUARIO SET USUARIO.NOMBRE= :nombre , USUARIO.APELLIDO1= :apellido1 , USUARIO.APELLIDO2= :apellido2 WHERE USUARIO.NIF= :nif")
+    @Query("UPDATE USUARIO SET USUARIO.NOMBRE= :nombre , USUARIO.APELLIDO1= :apellido1 , USUARIO.APELLIDO2= :apellido2, USUARIO.CORREO= :correo, USUARIO.CONTRASENA= :contrasena, USUARIO.CUMPLEANOS= :cumpleanos WHERE USUARIO.NIF= :nif")
     @Modifying
-    void updateUsuarioNombreCompletoByNif(String nombre, String apellido1, String apellido2, String nif);
-
-    // Los NIFs son únicos. No es necesario pasar el rol
-    @Query("UPDATE USUARIO SET USUARIO.CORREO= :correo WHERE USUARIO.NIF= :nif")
-    @Modifying
-    void updateUsuarioCorreoByNif(String correo, String nif);
-
-    // Los NIFs son únicos. No es necesario pasar el rol
-    @Query("UPDATE USUARIO SET USUARIO.CUMPLEANOS= :cumpleanos WHERE USUARIO.NIF= :nif")
-    @Modifying
-    void updateUsuarioCumpleanosByNif(LocalDate cumpleanos, String nif);
+    void updateUsuarioByNif(String nombre, String apellido1, String apellido2, String correo, String contrasena, LocalDate cumpleanos, String nif);
 
     @Query("INSERT INTO USUARIO (NIF, NOMBRE, APELLIDO1, APELLIDO2, CORREO, CONTRASENA, CUMPLEANOS, ROL) VALUES (:nif,:nombre,:apellido1,:apellido2,:correo,:contrasena,:cumpleanos,:rol)")
     @Modifying

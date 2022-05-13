@@ -4,7 +4,7 @@ const getCorreo = () => {
 
 async function setNombre(){
      try {
-       const address = "api/v1/usuarios/nombre/" + getCorreo();
+       const address = "api/v1/usuarios/correo/" + getCorreo();
        let request = await fetch(address, {
            method: 'GET'
        });
@@ -17,12 +17,6 @@ async function setNombre(){
        console.error(err.message);
      }
      return false;
-}
-
-async function cerrarSesion(){
-    localStorage.removeItem("access_token");
-    console.log(localStorage.getItem("access_token"));
-    document.location.href="/inicio-sesion.html";
 }
 
 /*const setCorreo = (correo) => {

@@ -213,7 +213,4 @@ public final class UsuarioControllerTest {
         then(result2.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
 
     }
-
-
-
 }

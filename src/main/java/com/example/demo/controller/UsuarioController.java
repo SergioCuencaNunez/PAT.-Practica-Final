@@ -40,13 +40,6 @@ public class UsuarioController {
     }
 
     @Transactional
-    @GetMapping("/usuarios/nombre/{correo}")
-    public ResponseEntity<Usuario> getUsuarioNombreCorreo(@PathVariable("correo") String correo){
-        Usuario usuario = usuarioServicio.getUsuariobyCorreo(correo);
-        return ResponseEntity.ok().body(usuario);
-    }
-
-    @Transactional
     @GetMapping("/usuarios/correo/{correo}")
     public ResponseEntity<Usuario> getUsuarioCorreo(@PathVariable("correo") String correo){
         Usuario usuario = usuarioServicio.getUsuariobyCorreo(correo);
@@ -68,34 +61,23 @@ public class UsuarioController {
     }
 
     @Transactional
-    @GetMapping("/usuarios/update/nombre/{nif}/{nombre}/{apellido1}/{apellido2}")
-    public ResponseEntity<Usuario> updateClienteNombreCompletoNif(@PathVariable("nif") String nif, @PathVariable("nombre") String nombre, @PathVariable("apellido1") String apellido1,@PathVariable("apellido2") String apellido2) {
-        Usuario usuario= usuarioServicio.updateUsuarioNombreCompletobyNif(nif,nombre,apellido1,apellido2);
-        if(usuario != null){
-            return ResponseEntity.ok().body(usuario);
+    @PutMapping("/usuarios/update")
+    public ResponseEntity<LoginResponse> updateClienteNombreCompletoNif(@RequestBody Usuario usuario, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            LoginResponse loginResponse = new LoginResponse("KO");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }
-        return ResponseEntity.notFound().build();
-    }
-
-    @Transactional
-    @GetMapping("/usuarios/update/correo/{nif}/{correo}")
-    public ResponseEntity<Usuario> updateClienteCorreoNif(@PathVariable("nif") String nif, @PathVariable("correo") String correo) {
-        Usuario usuario= usuarioServicio.updateUsuarioCorreobyNif(nif,correo);
-        if(usuario != null){
-            return ResponseEntity.ok().body(usuario);
+        LoginServiceResult result = usuarioServicio.updateUsuario(usuario);
+        if (result.isFlag()) {
+            LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
+        }else if(result.getAccessToken().equals("Este no es el NIF adjunto")) {
+            LoginResponse loginResponse = new LoginResponse("El NIF introducido pertenece a otro usuario ya registrado. Revise que el NIF introducido pertenezca a usted");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            LoginResponse loginResponse = new LoginResponse("No es posible modificar el NIF introducido en el momento del registro.\nSi desea contactar con el servicio de atención al cliente del programa MeliáRewards, llame al teléfono 912 76 47 40.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }
-        return ResponseEntity.notFound().build();
-    }
-
-    @Transactional
-    @GetMapping("/usuarios/update/cumpleanos/{nif}/{cumpleanos}")
-    public ResponseEntity<Usuario> updateUsuarioCumpleanosNif(@PathVariable("nif") String nif, @PathVariable("cumpleanos") String cumpleanosStr) {
-        LocalDate cumpleanos = LocalDate.parse(cumpleanosStr);
-        Usuario usuario= usuarioServicio.updateUsuarioCumpleanosbyNif(nif,cumpleanos);
-        if(usuario != null){
-            return ResponseEntity.ok().body(usuario);
-        }
-        return ResponseEntity.notFound().build();
     }
 
     @Transactional
@@ -109,7 +91,7 @@ public class UsuarioController {
         if (result.isFlag()) {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
-        }else if(result.getAccessToken() == "NIF ya registrado") {
+        }else if(result.getAccessToken().equals("NIF ya registrado")){
             LoginResponse loginResponse = new LoginResponse("Un usuario con ese NIF ya está registrado en MeliáRewards.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }else{

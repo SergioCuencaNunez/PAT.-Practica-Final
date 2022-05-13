@@ -64,7 +64,6 @@ async function sesionIniciada(){
 }
 sesionIniciada();
 
-
 $('#inicioSesionForm').submit(function (e) {
     e.preventDefault();
 });

@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.UsuarioService;
+import com.example.demo.service.LoginServiceResult;
 import com.example.demo.service.dto.UsuarioReservaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -55,47 +56,30 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    @Transactional
-    public Usuario updateUsuarioNombreCompletobyNif(String nif, String nombre, String apellido1, String apellido2) {
-        Usuario usuario = null;
-        Optional<Usuario> ousuario = usuarioRepository.findById(nif);
-        if(ousuario.isPresent()){
-            usuario = ousuario.get();
-            usuario.setNombre(nombre);
-            usuario.setApellido1(apellido1);
-            usuario.setApellido2(apellido2);
-            usuarioRepository.updateUsuarioNombreCompletoByNif(usuario.getNombre(), usuario.getApellido1(), usuario.getApellido2(), usuario.getNif());
-            return usuario;
-        }
-        return usuario;
-    }
+    public LoginServiceResult updateUsuario(Usuario usuario) {
 
-    @Override
-    @Transactional
-    public Usuario updateUsuarioCorreobyNif(String nif, String correo) {
-        Usuario usuario = null;
-        Optional<Usuario> ousuario = usuarioRepository.findById(nif);
-        if(ousuario.isPresent()){
-            usuario = ousuario.get();
-            usuario.setCorreo(correo);
-            usuarioRepository.updateUsuarioCorreoByNif(usuario.getCorreo(), usuario.getNif());
-            return usuario;
-        }
-        return usuario;
-    }
+        String nif = usuario.getNif();
+        String nombre = usuario.getNombre();
+        String apellido1 = usuario.getApellido1();
+        String apellido2 = usuario.getApellido2();
+        String correo = usuario.getCorreo();
+        String contrasena = usuario.getContrasena();
+        LocalDate cumpleanos = usuario.getCumpleanos();
+        String correoAntiguo = usuario.getRol();
 
-    @Override
-    @Transactional
-    public Usuario updateUsuarioCumpleanosbyNif(String nif, LocalDate cumpleanos) {
-        Usuario usuario = null;
-        Optional<Usuario> ousuario = usuarioRepository.findById(nif);
-        if(ousuario.isPresent()){
-            usuario = ousuario.get();
-            usuario.setCumpleanos(cumpleanos);
-            usuarioRepository.updateUsuarioCumpleanosByNif(usuario.getCumpleanos(), usuario.getNif());
-            return usuario;
+        List<String> nifs = usuarioRepository.getUsuarioNifs();
+
+        if(nifs.contains(nif)){
+            String nifValido = usuarioRepository.getUsuarioNifByCorreo(correoAntiguo);
+            if (nif.equals(nifValido)) {
+                usuarioRepository.updateUsuarioByNif(nombre, apellido1, apellido2, correo, contrasena, cumpleanos, nif);
+                return new LoginServiceResult(true);
+            }else{
+                return new LoginServiceResult(false, "Este no es el NIF adjunto");
+            }
+        }else{
+            return new LoginServiceResult(false, "El NIF no se puede cambiar");
         }
-        return usuario;
     }
 
     @Override
