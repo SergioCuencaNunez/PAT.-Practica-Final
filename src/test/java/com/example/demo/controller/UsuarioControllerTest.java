@@ -198,18 +198,18 @@ public final class UsuarioControllerTest {
         //No coincide contrasena1 y contrasena2
         LoginCredential loginc1 = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda653");
         //Nombre vacío
-        LoginCredential loginc2 = new LoginCredential("","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda654");
+        LoginCredential loginc2 = new LoginCredential("","Barneda","Castillejo","6806067Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda654");
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <LoginCredential> request1 = new HttpEntity<>(loginc1, headers);
         HttpEntity <LoginCredential> request2 = new HttpEntity<>(loginc2, headers);
 
         //When
-        //ResponseEntity<LoginResponse> result1 = this.restTemplate.postForEntity(address, request1, LoginResponse.class);
+        ResponseEntity<LoginResponse> result1 = this.restTemplate.postForEntity(address, request1, LoginResponse.class);
         ResponseEntity<LoginResponse> result2 = this.restTemplate.postForEntity(address, request2, LoginResponse.class);
 
         //Then
-       // then(result1.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+        then(result1.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
         then(result2.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
     }
