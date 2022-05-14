@@ -196,7 +196,7 @@ public final class UsuarioControllerTest {
         //Given
         String address = "http://localhost:" + port + "/api/v1/usuarios/registro";
         //No coincide contrasena1 y contrasena2
-        LoginCredential loginc1 = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda","JavierBarneda654");
+        LoginCredential loginc1 = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda653","JavierBarneda654");
         //Nombre vacío
         LoginCredential loginc2 = new LoginCredential("","Barneda","Castillejo","6806067Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda654");
 
@@ -209,7 +209,7 @@ public final class UsuarioControllerTest {
         ResponseEntity<LoginResponse> result2 = this.restTemplate.postForEntity(address, request2, LoginResponse.class);
 
         //Then
-        then(result1.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        then(result1.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
         then(result2.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
     }
