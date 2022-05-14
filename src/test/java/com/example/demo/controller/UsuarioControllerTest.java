@@ -32,12 +32,12 @@ public final class UsuarioControllerTest {
         Usuario usuario = new Usuario();
 
         usuario.setNif("51507247N");
-        usuario.setNombre("Elena");
-        usuario.setApellido1("Conderana");
-        usuario.setApellido2("Medem");
-        usuario.setCorreo("ecm@gmail.com");
-        usuario.setContrasena("1234");
-        String date = "2000-08-16";
+        usuario.setNombre("Javier");
+        usuario.setApellido1("Barneda");
+        usuario.setApellido2("Castillejo");
+        usuario.setCorreo("javier_barneda@gmail.com");
+        usuario.setContrasena("JavierBarneda654");
+        String date = "2000-02-08";
         LocalDate localDate = LocalDate.parse(date);
         usuario.setCumpleanos(localDate);
         usuario.setRol("cliente");
@@ -177,7 +177,7 @@ public final class UsuarioControllerTest {
 
         //Given
         String address = "http://localhost:" + port + "/api/v1/usuarios/registro";
-        LoginCredential loginc = new LoginCredential("Elena","Conderana","Medem","51507247N","2000-08-16","ecm@gmail.com","1234567891234567","1234567891234567");
+        LoginCredential loginc = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda654");
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <LoginCredential> request = new HttpEntity<>(loginc, headers);
