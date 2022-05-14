@@ -46,22 +46,22 @@ async function testSecureEndpoint() {
     fetch("/secure", {
             method: 'GET',
             headers: headers
-        })
-        .then(data => {
-            if(data.status == 401) {
-                document.location.href="inicio-sesion-clientes.html";
-            }else{
-                document.location.href="inicio-sesion-gerentes1.html";
-            }
+    })
+    .then(data => {
+        if(data.status == 401) {
+            document.location.href="inicio-sesion-clientes.html";
+        }else{
+            document.location.href="inicio-sesion-gerentes1.html";
+        }
 
-        });
+    });
 }
 
 async function sesionIniciada(){
     console.log("Redireccionando a página de usuario");
-        if(localStorage.getItem("access_token") != null){
-            document.location.href="inicio-sesion-clientes.html";
-        }
+    if(localStorage.getItem("access_token") != null){
+        document.location.href="inicio-sesion-clientes.html";
+    }
 }
 sesionIniciada();
 
