@@ -110,7 +110,7 @@ public final class UsuarioControllerTest {
         usuario.setApellido1("Hernandez");
         usuario.setApellido2("Pardo");
         usuario.setCorreo("laura.h@gmail.com");
-        usuario.setContrasena("Lauritaa");
+        usuario.setContrasena("LauritaaHeranP09");
         String date = "2000-08-27";
         LocalDate localDate = LocalDate.parse(date);
         usuario.setCumpleanos(localDate);
@@ -196,9 +196,9 @@ public final class UsuarioControllerTest {
         //Given
         String address = "http://localhost:" + port + "/api/v1/usuarios/registro";
         //No coincide contrasena1 y contrasena2
-        LoginCredential loginc1 = new LoginCredential("Elena","Conderana","Medem","51507247N","2000-08-16","ecm@gmail.com","1234567890123456","123456789012678");
+        LoginCredential loginc1 = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda653");
         //Nombre vacío
-        LoginCredential loginc2 = new LoginCredential("","Conderana","Medem","51507247N","2000-08-16","ecm@gmail.com","1234567890123456","1234567890123456");
+        LoginCredential loginc2 = new LoginCredential("","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda654");
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <LoginCredential> request1 = new HttpEntity<>(loginc1, headers);
@@ -210,7 +210,7 @@ public final class UsuarioControllerTest {
 
         //Then
        // then(result1.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
-        then(result2.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+        then(result2.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
     }
 }
