@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.example.demo.controller.ContactoControllerTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in com.example.demo.controller.ContactoControllerTest
+=======
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.591 s - in com.example.demo.controller.ContactoControllerTest
+>>>>>>> 385a8ab1f1f3ff69990e5d334a0478ddadae6179
