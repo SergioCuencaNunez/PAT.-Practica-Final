@@ -31,13 +31,13 @@ public final class UsuarioControllerTest {
         String address = "http://localhost:" + port + "/api/v1/usuarios/insert";
         Usuario usuario = new Usuario();
 
-        usuario.setNif("51507247N");
-        usuario.setNombre("Javier");
-        usuario.setApellido1("Barneda");
-        usuario.setApellido2("Castillejo");
-        usuario.setCorreo("javier_barneda@gmail.com");
-        usuario.setContrasena("JavierBarneda654");
-        String date = "2000-02-08";
+        usuario.setNif("78272775A");
+        usuario.setNombre("Mario");
+        usuario.setApellido1("Conde");
+        usuario.setApellido2("Villarejo");
+        usuario.setCorreo("mario.conde.villarejo@yahoo.com");
+        usuario.setContrasena("MarioCondeVillarejo03");
+        String date = "2001-04-15";
         LocalDate localDate = LocalDate.parse(date);
         usuario.setCumpleanos(localDate);
         usuario.setRol("cliente");
