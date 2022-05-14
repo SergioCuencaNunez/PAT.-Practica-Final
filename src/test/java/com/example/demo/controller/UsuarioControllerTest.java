@@ -196,7 +196,7 @@ public final class UsuarioControllerTest {
         //Given
         String address = "http://localhost:" + port + "/api/v1/usuarios/registro";
         //No coincide contrasena1 y contrasena2
-        LoginCredential loginc1 = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda653");
+        LoginCredential loginc1 = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda","JavierBarneda654");
         //Nombre vacío
         LoginCredential loginc2 = new LoginCredential("","Barneda","Castillejo","6806067Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda654");
 
