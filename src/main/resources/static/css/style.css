@@ -1415,10 +1415,30 @@ ul, ol {
 	margin-right: 5px;
 	text-indent: 40px;
 }
+.registro-text .reg-services3 li {
+	list-style: none;
+	font-size: 20px;
+	color: #707079;
+	line-height: 42px;
+	margin-bottom: 7px;
+}
+.registro-text .reg-services3 p {
+	list-style: none;
+	font-size: 18px;
+	color: #707079;
+	line-height: 42px;
+	margin-bottom: 2px;
+}
+.registro-text .reg-services3 li i {
+	color: #dfa974;
+	margin-right: 5px;
+}
+.registro-text .reg-services3 {
+	margin-bottom: 18px;
+}
 .registro-text .reg-title3 .reg-button {
     text-align: center;
 }
-
 .registro-text .reg-title3 .reg-button button {
     color: #ffffff;
 	border: none;

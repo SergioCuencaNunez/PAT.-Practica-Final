@@ -71,8 +71,12 @@ public class UsuarioController {
         if (result.isFlag()) {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
-        }else if(result.getAccessToken().equals("Este no es el NIF adjunto")) {
-            LoginResponse loginResponse = new LoginResponse("El NIF introducido pertenece a otro usuario ya registrado. Revise que el NIF introducido pertenezca a usted");
+        }else if(result.getAccessToken().equals("Correo ya registrado")) {
+            LoginResponse loginResponse = new LoginResponse("El correo introducido pertenece a otro usuario ya registrado.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
+        else if(result.getAccessToken().equals("Este no es el NIF adjunto")) {
+            LoginResponse loginResponse = new LoginResponse("El NIF introducido pertenece a otro usuario ya registrado.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }else{
             LoginResponse loginResponse = new LoginResponse("No es posible modificar el NIF introducido en el momento del registro.\nSi desea contactar con el servicio de atención al cliente del programa MeliáRewards, llame al teléfono 912 76 47 40.");
@@ -142,6 +146,30 @@ public class UsuarioController {
             return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
         }
         if ((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (loginParam.contrasena().equals(loginParam.contrasena2()))) {
+            return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
+    }
+
+    @Transactional
+    @PostMapping(path="/usuarios/perfil/cliente", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> perfilCliente(@Valid @RequestBody LoginCredential loginParam, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
+        }
+        if ((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (!loginParam.correo().contains("@melia")) && (loginParam.contrasena().equals(loginParam.contrasena2()))) {
+            return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
+    }
+
+    @Transactional
+    @PostMapping(path="/usuarios/perfil/gerente", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> perfilGerente(@Valid @RequestBody LoginCredential loginParam, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
+        }
+        if ((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (loginParam.correo().contains("@melia")) && (loginParam.contrasena().equals(loginParam.contrasena2()))) {
             return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
         }
         return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);

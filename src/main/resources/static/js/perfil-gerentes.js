@@ -6,22 +6,6 @@ const getCorreoPerfil = () => {
     return localStorage.getItem("correoPerfil");
 }
 
-async function setNombre(){
-     try {
-       const address = "api/v1/usuarios/correo/" + getCorreo();
-       let request = await fetch(address, {
-           method: 'GET'
-       });
-       if(request.ok){
-           var usuario = await request.json();
-           document.getElementById("cuenta").innerHTML = "Perfil de " + usuario.nombre;
-       }
-     }catch (err){
-       console.error(err.message);
-     }
-     return false;
-}
-
 async function getInformacionPerfil(){
      try {
        var nombre = document.getElementById("nombre");
@@ -86,7 +70,7 @@ async function cambiarInformacionPerfil() {
             }
         }
         const data1 = {nombre: nombre, apellido1: apellido1, apellido2: apellido2, nif: nif, cumpleanos: cumpleanosDef, correo: correo, contrasena: contrasena, contrasena2: contrasena};
-        const address1 = "api/v1/usuarios/registro";
+        const address1 = "api/v1/usuarios/perfil/gerente";
         fetch(address1, {
             method: 'POST',
             headers: {
@@ -111,15 +95,15 @@ async function cambiarInformacionPerfil() {
                 })
                 .then(response => response.json())
                 .then(data2 => {
-                    if(data2.result == "OK") {
+                    if(data2.result == "OK"){
+                        localStorage.setItem("correoPerfil", correo);
                         alert("Credenciales modificados correctamente.");
                     }else{
                         alert(data2.result);
                     }
                 });
-                localStorage.setItem("correoPerfil", correo);
             }else{
-                alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales para poder modificarlos.\nDebe introducir todos los datos marcados, el NIF adjunto en el momento del registro, un email válido y una contraseña alfanúmerica.\nRecuerde que la contraseña debe ser igual en ambos campos.");
+                alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales para poder modificarlos.\nDebe introducir el NIF utilizado en el momento del registro, un email empresarial válido (@melia.com) y una contraseña alfanúmerica.\nRecuerde que la contraseña debe ser igual en ambos campos.");
             }
        });
     } catch (err) {
@@ -135,10 +119,11 @@ async function cambiarInformacionPerfil() {
 async function cerrarSesion(){
     localStorage.removeItem("access_token");
     console.log(localStorage.getItem("access_token"));
-    document.location.href="/inicio-sesion.html";
+    if(confirm("¿Desea cerrar su sesión?")){
+        document.location.href="/inicio-sesion.html";
+    }
 }
 
-setNombre();
 getInformacionPerfil();
 
 $('#perfilForm').submit(function (e) {

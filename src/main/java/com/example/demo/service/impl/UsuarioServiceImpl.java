@@ -68,12 +68,23 @@ public class UsuarioServiceImpl implements UsuarioService {
         String correoAntiguo = usuario.getRol();
 
         List<String> nifs = usuarioRepository.getUsuarioNifs();
+        List<String> correos = usuarioRepository.getUsuarioCorreos();
 
         if(nifs.contains(nif)){
             String nifValido = usuarioRepository.getUsuarioNifByCorreo(correoAntiguo);
-            if (nif.equals(nifValido)) {
-                usuarioRepository.updateUsuarioByNif(nombre, apellido1, apellido2, correo, contrasena, cumpleanos, nif);
-                return new LoginServiceResult(true);
+            if(nif.equals(nifValido)){
+                String correoValido = usuarioRepository.getUsuarioCorreoByNif(nif);
+                if(correos.contains(correo)){
+                    if(correoValido.equals(correo)){
+                        usuarioRepository.updateUsuarioByNif(nombre, apellido1, apellido2, correo, contrasena, cumpleanos, nif);
+                        return new LoginServiceResult(true);
+                    }else {
+                        return new LoginServiceResult(false, "Correo ya registrado");
+                    }
+                }else {
+                    usuarioRepository.updateUsuarioByNif(nombre, apellido1, apellido2, correo, contrasena, cumpleanos, nif);
+                    return new LoginServiceResult(true);
+                }
             }else{
                 return new LoginServiceResult(false, "Este no es el NIF adjunto");
             }

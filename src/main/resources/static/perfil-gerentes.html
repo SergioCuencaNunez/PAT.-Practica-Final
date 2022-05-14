@@ -7,8 +7,8 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meliá Hotels & Resorts</title>
-    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <title>Gestión Meliá Hotels & Resorts - Perfil</title>
+    <link rel="icon" type="image/png" href="img/favicon.png"/>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-
 </head>
 
 <body>
@@ -51,7 +50,12 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./hoteles1.html">Hoteles</a></li>
                 <li><a href="./check-in.html">Check-in Online</a></li>
-                <li class="active"><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
+                <li class="active"><a href="./perfil-gerentes.html">Gestión de hoteles</a>
+                    <ul class="dropdown">
+                        <li><a href="./perfil-gerentes.html">Perfil</a></li>
+                        <li><a href="./inicio-sesion-gerentes1.html">Reservas</a></li>
+                    </ul>
+                </li>
                 <li><a href="./contact.html">Contacto</a></li>
             </ul>
         </nav>
@@ -111,7 +115,12 @@
                                     <li><a href="./index.html">Home</a></li>
                                     <li><a href="./hoteles1.html">Hoteles</a></li>
                                     <li><a href="./check-in.html">Check-in Online</a></li>
-                                    <li class="active"><a href="./inicio-sesion.html">Inicio de Sesión</a></li>
+                                    <li class="active"><a href="./perfil-gerentes.html">Gestión de hoteles</a>
+                                        <ul class="dropdown">
+                                            <li><a href="./perfil-gerentes.html">Perfil</a></li>
+                                            <li><a href="./inicio-sesion-gerentes1.html">Reservas</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="./contact.html">Contacto</a></li>
                                 </ul>
                             </nav>
@@ -132,10 +141,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>Inicio de Sesión</h2>
+                        <h2 id="cuenta">Perfil de gerentes</h2>
                         <div class="bt-option">
-                            <a href="./index.html">Home</a>
-                            <span>Inicio de Sesión</span>
+                            <a href="./perfil-gerentes.html">Gestión de hoteles</a>
+                            <span>Perfil</span>
                         </div>
                     </div>
                 </div>
@@ -144,47 +153,86 @@
     </div>
     <!-- Breadcrumb Section End -->
 
-    <!-- About Us Page Section Begin -->
-    <section class="inicio-sesion-section spad">
+    <!-- Rooms Section Begin -->
+    <section class="registro-section spad">
         <div class="container">
-            <div class="inicio-sesion-text">
+            <div class="registro-text">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="is-title">
-                            <h3>Entra en MeliáRewards con:</h3>
-                            <div class="is-button">
-                                <a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=231661638887259&kid_directed_site=0&app_id=231661638887259&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fresponse_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fwww.melia.com%252Fmeliarewards%252Fhome%252Fregister%252FSocialLoginCallback.jsp%26display%3Dpopup%26scope%3Demail%252Cpublic_profile%26client_id%3D231661638887259%26state%3DeUEr2HbylTdOjGQBekzDGlnRqTxVxqLP0sel0rTJImraKisusyupgFPtGNCGOEVuVghdBaNDiHFLmjS0JiRG0Lt1thKtwzB%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D10a4519a-be22-4cd6-9122-c0a30d98914d%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.melia.com%2Fmeliarewards%2Fhome%2Fregister%2FSocialLoginCallback.jsp%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DeUEr2HbylTdOjGQBekzDGlnRqTxVxqLP0sel0rTJImraKisusyupgFPtGNCGOEVuVghdBaNDiHFLmjS0JiRG0Lt1thKtwzB%23_%3D_&display=popup&locale=es_ES&pl_dbl=0" target="_blank">Facebook</a>
-                                <a href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?state=9zjnBDndgOFdKmLw2LuymwyMCOIAsSqKBo0wBDyVExDS0do1UJ1kHkKpCcNnOBjNjHcpgSsOdDQGNg22KtwCBapBpsaqdiH&access_type=offline&approval_prompt=auto&response_type=code&client_id=493616800848-anbmo9c3e3jk44maf4r49uclovtu6duv.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.melia.com%2Fmeliarewards%2Fhome%2Fregister%2FSocialLoginCallback.jsp&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&flowName=GeneralOAuthFlow" target="_blank">Google</a>
-                            </div>
-                            <div class="is-form">
-                                <form id="inicioSesionForm">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <input type="text" id="correo" placeholder="Correo electrónico">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="password" id="contrasena" placeholder="Contraseña">
-                                        </div>
-                                    </div>
-                                    <button type="submit" onclick="iniciarSesion()" >Inicia Sesión</button>
-                                </form>
+                        <div class="reg-title3">
+                            <h2>Beneficios para empleados gracias al programa MyBenefits</h2>
+                            <ul class="reg-services3">
+                                <li><i class="icon_check"></i><b>RETRIBUCIÓN FLEXIBLE</b></li>
+                                <p>Exenciones fiscales al destinar una parte de tu
+                                    salario a la contratación de productos o servicios.
+                                </p>
+                                <li><i class="icon_check"></i><b>DESCUENTOS</b></li>
+                                <p>Descuentos exclusivos en una gran variedad de productos y servicios.
+                                </p>
+                                <li><i class="icon_check"></i><b>SEGUROS</b></li>
+                                <p>Las mejores soluciones aseguradoras para proteger tus intereses personales.
+                                </p>
+                                <li><i class="icon_check"></i><b>FINANZAS</b></li>
+                                <p>Las mejores condiciones adaptadas a tus necesidades financieras.
+                                </p>
+                                <li><i class="icon_check"></i><b>BIENESTAR</b></li>
+                                <p>Mantén un estilo de vida activo y saludable a través de precios especiales en centros deportivos
+                                    y productos de salud.
+                                </p>
+                            </ul>
+                            <div class="reg-button">
+                                <button onclick="cerrarSesion()">Cerrar Sesión</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="is-title">
-                            <h3>¿Aún no tienes cuenta de MeliáRewards?</h3>
-                            <p>Regístrate ya y consigue todos los beneficios y <br> ventajas exclusivas que ofrece nuestro <br> programa de fidelización </p>
-                            <div class="is-button">
-                                <a href="./registro.html">Crear Cuenta</a>
+                        <div class="reg-title2">
+                            <h3>Información de perfil</h3>
+                            <div class="reg-form">
+                                <form id="perfilForm">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h4>Datos de contacto</h4>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo carácteres alfabéticos y máximo de 15" type="text" id="nombre" placeholder="Nombre completo*">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input title="Solo carácteres alfabéticos y máximo de 20" type="text" id="apellido1" placeholder="Primer apellido*">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input title="Solo carácteres alfabéticos y máximo de 20" type="text" id="apellido2" placeholder="Segundo apellido*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo 8 carácteres númericos y una letra" type="text" id="nif" placeholder="NIF/DNI*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="check-date">
+                                                <input type="text" class="date-input2" id="cumpleanos" placeholder="Fecha de nacimiento*">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <h4>Datos de acceso</h4>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo correo electrónico válido con máximo de 50 caracteres" type="text" id="correo" placeholder="Correo electrónico*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo carácteres alfanuméricos con mínimo de 15 y máximo de 50" type="password" id="contrasena" placeholder="Contraseña*">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input title="Solo carácteres alfanuméricos con mínimo de 15 y máximo de 50" type="password" id="contrasena2" placeholder="Repetir contraseña*">
+                                        </div>
+                                    </div>
+                                    <button type="submit" onclick="cambiarInformacionPerfil()">Cambiar información de perfil</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
-    <!-- About Us Page Section End -->
+    <!-- Rooms Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">
@@ -271,8 +319,8 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/inicio-sesion.js"></script>
     <script src="js/contacto.js"></script>
+    <script src="js/perfil-gerentes.js"></script>
 </body>
 
 </html>
