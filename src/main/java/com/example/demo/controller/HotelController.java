@@ -6,6 +6,7 @@ import com.example.demo.service.dto.HotelHabitacionDTO;
 import com.example.demo.service.dto.HotelReservaDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -31,21 +32,6 @@ public class HotelController {
     }
 
     @Transactional
-    @GetMapping("/hoteles/destino/{destino}")
-    public ResponseEntity<List<Hotel>> getHotelesDestino(@PathVariable("destino") String destino){
-        List<Hotel> hoteles = hotelServicio.getHotelesbyDestino(destino);
-        return ResponseEntity.ok().body(hoteles);
-    }
-
-    @Transactional
-    @GetMapping("/hoteles/estado/{estado}")
-    public ResponseEntity<List<Hotel>> getHotelesEstado(@PathVariable("estado") String estadoStr){
-        Boolean estado = Boolean.parseBoolean(estadoStr);
-        List<Hotel> hoteles = hotelServicio.getHotelesbyEstado(estado);
-        return ResponseEntity.ok().body(hoteles);
-    }
-
-    @Transactional
     @GetMapping("/hoteles")
     public ResponseEntity<List<Hotel>> getAllHoteles() {
         List<Hotel> hoteles = hotelServicio.getHoteles();
@@ -53,55 +39,36 @@ public class HotelController {
     }
 
     @Transactional
-    @GetMapping("/hoteles/update/capacidad/{nombre}/{capacidad}")
-    public ResponseEntity<Hotel> updateHotelCapacidadNombre(@PathVariable("nombre") String nombre, @PathVariable("capacidad") String capacidadStr) {
-        Long capacidad = Long.parseLong(capacidadStr);
-        Hotel hotel= hotelServicio.updateHotelCapacidadbyNombre(nombre,capacidad);
+    @PutMapping("/hoteles/update/ampliar/habitacionesTotales/{nombre}/{habitacionesTotales}")
+    public ResponseEntity<String> updateAmpliarHotelHabitacionesTotalesNombre(@PathVariable("nombre") String nombre, @PathVariable("habitacionesTotales") String habitacionesTotalesStr) {
+        Long habitacionesTotales = Long.parseLong(habitacionesTotalesStr);
+        Hotel hotel= hotelServicio.updateAmpliarHotelHabitacionesTotalesbyNombre(nombre,habitacionesTotales);
         if(hotel != null){
-            return ResponseEntity.ok().body(hotel);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
     }
 
     @Transactional
-    @GetMapping("/hoteles/update/ocupacion/{nombre}/{ocupacion}")
-    public ResponseEntity<Hotel> updateHotelOcupacionNombre(@PathVariable("nombre") String nombre, @PathVariable("ocupacion") String ocupacionStr) {
-        Long ocupacion = Long.parseLong(ocupacionStr);
-        Hotel hotel= hotelServicio.updateHotelOcupacionbyNombre(nombre,ocupacion);
+    @PutMapping("/hoteles/update/reducir/habitacionesTotales/{nombre}/{habitacionesTotales}")
+    public ResponseEntity<String> updateReducirHotelHabitacionesTotalesNombre(@PathVariable("nombre") String nombre, @PathVariable("habitacionesTotales") String habitacionesTotalesStr) {
+        Long habitacionesTotales = Long.parseLong(habitacionesTotalesStr);
+        Hotel hotel= hotelServicio.updateReducirHotelHabitacionesTotalesbyNombre(nombre,habitacionesTotales);
         if(hotel != null){
-            return ResponseEntity.ok().body(hotel);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
     }
 
     @Transactional
-    @GetMapping("/hoteles/update/estado/{nombre}/{estado}")
-    public ResponseEntity<Hotel> updateHotelEstadoNombre(@PathVariable("nombre") String nombre, @PathVariable("estado") String estadoStr) {
+    @PutMapping("/hoteles/update/estado/{nombre}/{estado}")
+    public ResponseEntity<String> updateHotelEstadoNombre(@PathVariable("nombre") String nombre, @PathVariable("estado") String estadoStr) {
         Boolean estado = Boolean.parseBoolean(estadoStr);
         Hotel hotel= hotelServicio.updateHotelEstadobyNombre(nombre,estado);
         if(hotel != null){
-            return ResponseEntity.ok().body(hotel);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }
-        return ResponseEntity.notFound().build();
-    }
-
-    @Transactional
-    @GetMapping("/hoteles/insert/{nombre}/{destino}/{habitacionesTotales}/{habitacionesOcupadas}/{capacidad}/{ocupacion}/{estado}")
-    public ResponseEntity<String> insertCompareHotel(@PathVariable("nombre") String nombre, @PathVariable("destino") String destino, @PathVariable("habitacionesTotales") String habitacionesTotalesStr, @PathVariable("habitacionesOcupadas") String habitacionesOcupadasStr, @PathVariable("capacidad") String capacidadStr,@PathVariable("ocupacion") String ocupacionStr,@PathVariable("estado") String estadoStr) {
-        Long habitacionesTotales = Long.parseLong(habitacionesTotalesStr);
-        Long habitacionesOcupadas = Long.parseLong(habitacionesOcupadasStr);
-        Long capacidad = Long.parseLong(capacidadStr);
-        Long ocupacion = Long.parseLong(ocupacionStr);
-        Boolean estado = Boolean.parseBoolean(estadoStr);
-        String resultado = hotelServicio.insertAndCompareHotel(nombre,destino,habitacionesTotales,habitacionesOcupadas,capacidad,ocupacion,estado);
-        return ResponseEntity.ok().body(resultado);
-    }
-
-    @Transactional
-    @GetMapping("/hoteles/delete/{nombre}")
-    public ResponseEntity<String> deleteHotelNombre(@PathVariable("nombre") String nombre) {
-        String resultado = hotelServicio.deleteHotelbyNombre(nombre);
-        return ResponseEntity.ok().body(resultado);
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
     }
 
     // INNER-JOIN

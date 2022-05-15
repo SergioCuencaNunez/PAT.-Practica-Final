@@ -24,10 +24,6 @@ public interface HotelRepository extends CrudRepository<Hotel, String> {
     @Query("SELECT HOTEL.OCUPACION FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
     public Long getOcupacionByHotel(String nombre);
 
-    @Query("UPDATE HOTEL SET HOTEL.HABITACIONES_OCUPADAS= :habitacionesOcupadas WHERE HOTEL.NOMBRE= :nombre ")
-    @Modifying
-    void updateHotelHabitacionesOcupadasByNombre(Long habitacionesOcupadas, String nombre);
-
     @Query("UPDATE HOTEL SET HOTEL.CAPACIDAD= :capacidad WHERE HOTEL.NOMBRE= :nombre ")
     @Modifying
     void updateHotelCapacidadByNombre(Long capacidad, String nombre);
@@ -36,12 +32,16 @@ public interface HotelRepository extends CrudRepository<Hotel, String> {
     @Modifying
     void updateHotelOcupacionByNombre(Long ocupacion, String nombre);
 
-    @Query("UPDATE HOTEL SET HOTEL.ESTADO= :estado WHERE HOTEL.NOMBRE= :nombre ")
+    @Query("UPDATE HOTEL SET HOTEL.HABITACIONES_OCUPADAS= :habitacionesOcupadas WHERE HOTEL.NOMBRE= :nombre ")
+    @Modifying
+    void updateHotelHabitacionesOcupadasByNombre(Long habitacionesOcupadas, String nombre);
+
+    @Query("UPDATE HOTEL SET HOTEL.HABITACIONES_TOTALES= :habitacionesTotales WHERE HOTEL.NOMBRE= :nombre ")
+    @Modifying
+    void updateHotelHabitacionesTotalesByNombre(Long habitacionesTotales, String nombre);
+
+    @Query("UPDATE HOTEL SET HOTEL.ESTADO= :estado WHERE HOTEL.NOMBRE= :nombre")
     @Modifying
     void updateHotelEstadoByNombre(Boolean estado, String nombre);
-
-    @Query("INSERT INTO HOTEL (NOMBRE, DESTINO, HABITACIONES_TOTALES, HABITACIONES_OCUPADAS, CAPACIDAD, OCUPACION, ESTADO) VALUES (:nombre,:destino,:habitacionesTotales,:habitacionesOcupadas,:capacidad,:ocupacion,:estado)")
-    @Modifying
-    void insertHotel(String nombre, String destino,Long habitacionesTotales, Long habitacionesOcupadas, Long capacidad, Long ocupacion, Boolean estado);
 
 }

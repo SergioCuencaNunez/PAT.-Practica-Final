@@ -97,7 +97,7 @@ public class ReservaController {
     @Transactional
     @PostMapping("/reservas/check-in")
     public ResponseEntity<ReservaResponse> checkInReserva(@RequestBody Reserva reserva, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
+        if(bindingResult.hasErrors()){
             ReservaResponse reservaResponse = new ReservaResponse("KO");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }
@@ -114,7 +114,7 @@ public class ReservaController {
     @Transactional
     @PostMapping("/reservas/insert")
     public ResponseEntity<ReservaResponse> insertCompareReserva(@RequestBody Reserva reserva, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
+        if(bindingResult.hasErrors()){
             ReservaResponse reservaResponse = new ReservaResponse("KO");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }
@@ -122,7 +122,7 @@ public class ReservaController {
         if (result.isFlag()) {
             ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
-        }else if(result.getAccessToken() == "No hay habitaciones disponibles"){
+        }else if(result.getAccessToken().equals("No hay habitaciones disponibles")){
             ReservaResponse reservaResponse = new ReservaResponse("No hay más habitaciones disponibles en este hotel para el número que solicita.\nPruebe a reducir el número de habitaciones. Disculpe las molestias.");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }else{

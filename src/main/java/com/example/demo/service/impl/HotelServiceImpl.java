@@ -38,31 +38,26 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     @Transactional
-    public List<Hotel> getHotelesbyDestino(String destino) {
-        return hotelRepository.getHotelesByDestino(destino);
-    }
-
-    @Override
-    @Transactional
-    public List<Hotel> getHotelesbyEstado(Boolean estado) {
-        return hotelRepository.getHotelesByEstado(estado);
-    }
-
-    @Override
-    @Transactional
     public List<Hotel> getHoteles() {
         return StreamSupport.stream(hotelRepository.findAll().spliterator(), false).collect(Collectors.toUnmodifiableList());
     }
 
     @Override
     @Transactional
-    public Hotel updateHotelCapacidadbyNombre(String nombre, Long capacidad) {
+    public Hotel updateAmpliarHotelHabitacionesTotalesbyNombre(String nombre, Long nuevasHabitacionesTotales){
         Hotel hotel = null;
         Optional<Hotel> ohotel = hotelRepository.findById(nombre);
         if(ohotel.isPresent()){
             hotel = ohotel.get();
-            hotel.setCapacidad(capacidad);
-            hotelRepository.updateHotelCapacidadByNombre(hotel.getCapacidad(), hotel.getNombre());
+            Long habitacionesTotales = hotel.getHabitacionesTotales();
+            if(nombre.equals("Gran-Melia-Palacio-de-los-Duques") || nombre.equals("ME-London")){
+                hotelRepository.updateHotelCapacidadByNombre(((habitacionesTotales + nuevasHabitacionesTotales)*6), nombre);
+            }else if(nombre.equals("TRYP-New-York-Times-Square")){
+                hotelRepository.updateHotelCapacidadByNombre(((habitacionesTotales + nuevasHabitacionesTotales)*4), nombre);
+            }else{
+                hotelRepository.updateHotelCapacidadByNombre(((habitacionesTotales + nuevasHabitacionesTotales)*5), nombre);
+            }
+            hotelRepository.updateHotelHabitacionesTotalesByNombre(habitacionesTotales + nuevasHabitacionesTotales, nombre);
             return hotel;
         }
         return hotel;
@@ -70,13 +65,20 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     @Transactional
-    public Hotel updateHotelOcupacionbyNombre(String nombre, Long ocupacion) {
+    public Hotel updateReducirHotelHabitacionesTotalesbyNombre(String nombre, Long nuevasHabitacionesTotales){
         Hotel hotel = null;
         Optional<Hotel> ohotel = hotelRepository.findById(nombre);
         if(ohotel.isPresent()){
             hotel = ohotel.get();
-            hotel.setOcupacion(ocupacion);
-            hotelRepository.updateHotelOcupacionByNombre(hotel.getOcupacion(), hotel.getNombre());
+            Long habitacionesTotales = hotel.getHabitacionesTotales();
+            if(nombre.equals("Gran-Melia-Palacio-de-los-Duques") || nombre.equals("ME-London")){
+                hotelRepository.updateHotelCapacidadByNombre(((habitacionesTotales - nuevasHabitacionesTotales)*6), nombre);
+            }else if(nombre.equals("TRYP-New-York-Times-Square")){
+                hotelRepository.updateHotelCapacidadByNombre(((habitacionesTotales - nuevasHabitacionesTotales)*4), nombre);
+            }else{
+                hotelRepository.updateHotelCapacidadByNombre(((habitacionesTotales - nuevasHabitacionesTotales)*5), nombre);
+            }
+            hotelRepository.updateHotelHabitacionesTotalesByNombre(habitacionesTotales - nuevasHabitacionesTotales, nombre);
             return hotel;
         }
         return hotel;
@@ -89,43 +91,10 @@ public class HotelServiceImpl implements HotelService {
         Optional<Hotel> ohotel = hotelRepository.findById(nombre);
         if(ohotel.isPresent()){
             hotel = ohotel.get();
-            hotel.setEstado(estado);
-            hotelRepository.updateHotelEstadoByNombre(hotel.getEstado(), hotel.getNombre());
+            hotelRepository.updateHotelEstadoByNombre(estado, nombre);
             return hotel;
         }
         return hotel;
-    }
-
-    @Override
-    @Transactional
-    public String insertAndCompareHotel(String nombre, String destino, Long habitacionesTotales, Long habitacionesOcupadas, Long capacidad, Long ocupacion, Boolean estado){
-        Optional<Hotel> ohotel = hotelRepository.findById(nombre);
-        if(ohotel.isPresent()) {
-            return "El hotel " + nombre + " ya está registrado en Meliá Hotels International";
-        }else{
-            Hotel hotel = new Hotel();
-            hotel.setNombre(nombre);
-            hotel.setDestino(destino);
-            hotel.setHabitacionesTotales(habitacionesTotales);
-            hotel.setHabitacionesOcupadas(habitacionesOcupadas);
-            hotel.setCapacidad(capacidad);
-            hotel.setOcupacion(ocupacion);
-            hotel.setEstado(estado);
-            hotelRepository.insertHotel(hotel.getNombre(), hotel.getDestino(), hotel.getHabitacionesTotales(), hotel.getHabitacionesOcupadas(), hotel.getCapacidad(), hotel.getOcupacion(),hotel.getEstado());
-            return "El hotel " + nombre + " se ha registrado correctamente en Meliá Hotels International";
-        }
-    }
-
-    @Override
-    @Transactional
-    public String deleteHotelbyNombre(String nombre) {
-        Optional<Hotel> ohotel = hotelRepository.findById(nombre);
-        if(ohotel.isPresent()) {
-            hotelRepository.deleteById(nombre);
-            return "El hotel " + nombre + " se ha eliminado correctamente de los activos de Meliá Hotels International";
-        }else{
-            return "No hay ningún hotel llamado " + nombre + " en los activos de Meliá Hotels International";
-        }
     }
 
     // INNER-JOIN

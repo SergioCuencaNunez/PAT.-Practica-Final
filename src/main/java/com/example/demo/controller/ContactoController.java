@@ -88,7 +88,7 @@ public class ContactoController {
         if (result.isFlag()) {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
-        }else if(result.getAccessToken() == "Check-in online ya realizado"){
+        }else if(result.getAccessToken().equals("Check-in online ya realizado")){
             LoginResponse loginResponse = new LoginResponse("El check-in online ya se ha realizado para esta reserva.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }else{
@@ -108,10 +108,10 @@ public class ContactoController {
         if (result.isFlag()) {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
-        }else if(result.getAccessToken() == "Usuario registrado en MeliáRewards") {
+        }else if(result.getAccessToken().equals("Usuario registrado en MeliáRewards")){
             LoginResponse loginResponse = new LoginResponse("Este correo electrónico ya está vinculado con una cuenta en MeliáRewards.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
-        }else if(result.getAccessToken() == "Usuario registrado en boletín de suscripción"){
+        }else if(result.getAccessToken().equals("Usuario registrado en boletín de suscripción")){
             LoginResponse loginResponse = new LoginResponse("Este correo electrónico ya está suscrito al boletín de suscripción.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }else{
@@ -121,7 +121,7 @@ public class ContactoController {
     }
 
     @Transactional
-    @GetMapping("/usuarios/delete/{numero}")
+    @GetMapping("/contactos/delete/{numero}")
     public ResponseEntity<String> deleteContactoNif(@PathVariable("numero") String numeroStr) {
         Long numero = Long.parseLong(numeroStr);
         String resultado = contactoServicio.deleteContactobyNumero(numero);

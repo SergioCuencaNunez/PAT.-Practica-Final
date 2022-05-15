@@ -9,14 +9,10 @@ import java.util.List;
 public interface HotelService {
 
     Hotel getHotelbyNombre(String nombre);
-    List<Hotel> getHotelesbyDestino(String destino);
-    List<Hotel> getHotelesbyEstado(Boolean estado);
     List<Hotel> getHoteles();
-    Hotel updateHotelCapacidadbyNombre(String nombre, Long capacidad);
-    Hotel updateHotelOcupacionbyNombre(String nombre, Long ocupacion);
+    Hotel updateAmpliarHotelHabitacionesTotalesbyNombre(String nombre, Long nuevasHabitacionesTotales);
+    Hotel updateReducirHotelHabitacionesTotalesbyNombre(String nombre, Long nuevasHabitacionesTotales);
     Hotel updateHotelEstadobyNombre(String nombre, Boolean estado);
-    String insertAndCompareHotel(String nombre, String destino, Long habitacionesTotales, Long habitacionesOcupadas, Long capacidad, Long ocupacion, Boolean estado);
-    String deleteHotelbyNombre(String nombre);
     //INNER-JOIN
     List<HotelReservaDTO> getHotelesConReservas();
     //INNER-JOIN
