@@ -106,33 +106,6 @@ async function getInformacionMELondon(nombreHotel){
      return false;
 }
 
-async function getInformacionMELondon(nombreHotel){
-     try {
-       const address0 = "api/v1/hoteles/nombre/" + nombreHotel;
-       let request0 = await fetch(address0, {
-           method: 'GET'
-       });
-       if(request0.ok){
-           var hotel = await request0.json();
-           document.getElementById("room-total-me").innerHTML = hotel.habitacionesTotales;
-           document.getElementById("room-ocupadas-me").innerHTML = hotel.habitacionesOcupadas;
-           document.getElementById("capacidad-me").innerHTML = hotel.capacidad;
-           document.getElementById("ocupacion-me").innerHTML = hotel.ocupacion;
-           const address1 = "api/v1/reservas/hotel/" + nombreHotel;
-           let request1 = await fetch(address1, {
-               method: 'GET'
-           });
-           if(request1.ok){
-               var reservas = await request1.json();
-               document.getElementById("reservas-me").innerHTML = reservas.length;
-           }
-       }
-     }catch (err){
-       console.error(err.message);
-     }
-     return false;
-}
-
 async function abrirHotel(nombreHotel){
      try {
        const address0 = "api/v1/hoteles/nombre/" + nombreHotel;
