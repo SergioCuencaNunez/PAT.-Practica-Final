@@ -139,7 +139,7 @@ async function sesionIniciada(){
     if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "cliente"){
         document.getElementById("cuenta1").innerHTML = "Mi Cuenta";
     }else if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "admin"){
-        document.getElementById("cuenta1").innerHTML = "Gestión de hoteles";
+        document.getElementById("cuenta1").innerHTML = "Gestión empresarial";
     }
 }
 sesionIniciada();

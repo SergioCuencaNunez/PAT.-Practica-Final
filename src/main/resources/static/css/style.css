@@ -1680,6 +1680,54 @@ ul, ol {
 	color: #19191a;
 	text-align: center;
 }
+.reservas-gerentes-item {
+	margin-bottom: 35px;
+	overflow: hidden
+}
+.reservas-gerentes-item img {
+	min-width: 100%
+}
+.reservas-gerentes-item .ri-text {
+	border: 1px solid #ebebeb;
+	padding: 24px 24px 30px 28px;
+}
+.reservas-gerentes-item .ri-text h4 {
+	color: #19191a;
+	margin-bottom: 17px;
+}
+.reservas-gerentes-item .ri-text h3 {
+	color: #dfa974;
+	font-weight: 700;
+	margin-bottom: 14px;
+}
+.reservas-gerentes-item .ri-text h3 span {
+	font-family: "Cabin", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #19191a;
+}
+.reservas-gerentes-item .ri-text .ri-button {
+	margin-bottom: 10px;
+	text-align: center;
+	margin-bottom: 25px;
+}
+.reservas-gerentes-item .ri-text table {
+	margin-bottom: 8px;
+}
+.reservas-gerentes-item .ri-text table tbody tr td {
+	font-size: 17px;
+	color: #707079;
+	line-height: 36px;
+	line-width: 10px;
+	width: 250px;
+}
+.reservas-gerentes-item .ri-text table tbody tr td.r-o {
+	width: 700px;
+}
+.reservas-gerentes-item .ri-text table tbody tr td.r-p {
+	width: 300px;
+	font-weight: bold;
+}
 .reservas-pagination {
 	text-align: center;
 	padding-top: 20px;
