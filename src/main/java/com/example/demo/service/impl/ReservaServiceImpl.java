@@ -139,7 +139,6 @@ public class ReservaServiceImpl implements ReservaService {
         Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
         Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
 
-
         if(id == null){
             ReservaServiceResult result = this.comprobarDisponibilidad(hotel, habitaciones);
             if(result.isFlag()) {
@@ -161,9 +160,9 @@ public class ReservaServiceImpl implements ReservaService {
         Optional<Reserva> oreserva = reservaRepository.findById(id);
         if(oreserva.isPresent()){
             reservaRepository.deleteById(id);
-            return "La reserva con ID: " + id + " se ha borrado correctamente";
+            return "La reserva se ha borrado correctamente";
         }else{
-            return "No existe la reserva con ID: "+id;
+            return "No existe una reserva con ese ID";
         }
     }
 

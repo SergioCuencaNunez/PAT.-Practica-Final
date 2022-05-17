@@ -142,11 +142,14 @@ public class ReservaController {
     }
 
     @Transactional
-    @GetMapping("/reservas/delete/{id}")
+    @DeleteMapping("/reservas/delete/{id}")
     public ResponseEntity<String> deleteReservaId(@PathVariable("id") String idStr){
         Long id = Long.parseLong(idStr);
         String resultado = reservaServicio.deleteReservabyId(id);
-        return ResponseEntity.ok().body(resultado);
+        if(resultado.equals("La reserva se ha borrado correctamente")){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+        }
     }
-
 }

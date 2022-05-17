@@ -143,24 +143,18 @@ ul, ol {
 	content: "";
 }
 .secondary-btn {
-	display: inline-block;
-	font-size: 13px;
-	color: #19191a;
+	font-size: 14px;
 	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-weight: 700;
-	position: relative;
+	border: 1px solid #dfa974;
+	border-radius: 2px;
+	color: #dfa974;
+	font-weight: 500;
+	background: transparent;
+	width: 20%;
+	height: 46px;
+	/*margin-top: 28px;*/
 	margin-right: 50px;
 	margin-left: 50px;
-}
-.secondary-btn:after {
-	position: absolute;
-	left: 0;
-	bottom: 4px;
-	width: 100%;
-	height: 2px;
-	background: #dfa974;
-	content: "";
 }
 /* Preloder */
 
@@ -1742,10 +1736,6 @@ ul, ol {
 	font-weight: bold;
 }
 .reservas-gerentes-item .ri-text .primary-btn {
-	color: #19191a;
-	text-align: center;
-}
-.reservas-gerentes-item .ri-text .secondary-btn {
 	color: #19191a;
 	text-align: center;
 }
