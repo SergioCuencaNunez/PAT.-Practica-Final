@@ -183,99 +183,99 @@ async function getReservas(){
                                     td.style.width = '474px';
                                     if(reserva.tipo == 'Premium'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/princesa1.png";
+                                        img.src = "img/room/habs-reservas/princesa1.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Suite'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/princesa2.png";
+                                        img.src = "img/room/habs-reservas/princesa2.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Grand-Suite-Presidencial'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/princesa3.png";
+                                        img.src = "img/room/habs-reservas/princesa3.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Supremme'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/duques1.png";
+                                        img.src = "img/room/habs-reservas/duques1.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Suite-Deluxe'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/duques2.png";
+                                        img.src = "img/room/habs-reservas/duques2.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Royal-Suite'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/duques3.png";
+                                        img.src = "img/room/habs-reservas/duques3.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Premium-King'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/wh1.png";
+                                        img.src = "img/room/habs-reservas/wh1.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Junior-Suite'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/wh2.png";
+                                        img.src = "img/room/habs-reservas/wh2.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Marylebone-Suite'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/wh3.png";
+                                        img.src = "img/room/habs-reservas/wh3.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Mode'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/me1.png";
+                                        img.src = "img/room/habs-reservas/me1.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Suite-Personality'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/me2.png";
+                                        img.src = "img/room/habs-reservas/me2.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Chic-Penthouse-Suite'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/me3.png";
+                                        img.src = "img/room/habs-reservas/me3.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Premium-Extra'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/cdg1.png";
+                                        img.src = "img/room/habs-reservas/cdg1.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Loft'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/cdg2.png";
+                                        img.src = "img/room/habs-reservas/cdg2.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Townhouse-Suite'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/cdg3.png";
+                                        img.src = "img/room/habs-reservas/cdg3.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Premium-Twin'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/defense1.png";
+                                        img.src = "img/room/habs-reservas/defense1.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Suite-Premium'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/defense2.png";
+                                        img.src = "img/room/habs-reservas/defense2.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Grand-Suite-Eiffel'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/defense3.png";
+                                        img.src = "img/room/habs-reservas/defense3.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Queen'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/ts1.png";
+                                        img.src = "img/room/habs-reservas/ts1.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'King'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/ts2.png";
+                                        img.src = "img/room/habs-reservas/ts2.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Junior-Suite-Metro'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/ts3.png";
+                                        img.src = "img/room/habs-reservas/ts3.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'King-City'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/nomad1.png";
+                                        img.src = "img/room/habs-reservas/nomad1.png";
                                         td.appendChild(img);
                                     }else if(reserva.tipo == 'Studio'){
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/nomad2.png";
+                                        img.src = "img/room/habs-reservas/nomad2.png";
                                         td.appendChild(img);
                                     }else{
                                         var img = document.createElement('img');
-                                        img.src = "img/room/habs/nomad3.png";
+                                        img.src = "img/room/habs-reservas/nomad3.png";
                                         td.appendChild(img);
                                     }
                                 }
@@ -342,4 +342,3 @@ async function cancelarReservas(){
 }
 
 getReservas();
-
