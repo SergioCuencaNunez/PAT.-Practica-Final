@@ -56,19 +56,64 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservabyId(Long id, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
+    public Reserva updateReservaTipobyId(Long id, String tipo){
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
         if(oreserva.isPresent()){
             reserva = oreserva.get();
-            reserva.setHotel(hotel);
-            reserva.setDestino(destino);
-            reserva.setTipo(tipo);
-            reserva.setHuespedes(huespedes);
-            reserva.setHabitaciones(habitaciones);
-            reserva.setFechaEntrada(fechaEntrada);
-            reserva.setFechaSalida(fechaSalida);
-            reservaRepository.updateReservaById(reserva.getId(), reserva.getHotel(), reserva.getDestino(), reserva.getTipo(), reserva.getHuespedes(), reserva.getHabitaciones(), reserva.getFechaEntrada(), reserva.getFechaSalida());
+            reservaRepository.updateReservaTipoById(id, tipo);
+            return reserva;
+        }
+        return reserva;
+    }
+
+    @Override
+    @Transactional
+    public Reserva updateReservaHuespedesbyId(Long id, Long huespedes){
+        Reserva reserva = null;
+        Optional<Reserva> oreserva = reservaRepository.findById(id);
+        if(oreserva.isPresent()){
+            reserva = oreserva.get();
+            reservaRepository.updateReservaHuespedesById(id, huespedes);
+            return reserva;
+        }
+        return reserva;
+    }
+
+    @Override
+    @Transactional
+    public Reserva updateReservaHabitacionbyId(Long id, Long habitaciones){
+        Reserva reserva = null;
+        Optional<Reserva> oreserva = reservaRepository.findById(id);
+        if(oreserva.isPresent()){
+            reserva = oreserva.get();
+            reservaRepository.updateReservaHabitacionById(id, habitaciones);
+            return reserva;
+        }
+        return reserva;
+    }
+
+    @Override
+    @Transactional
+    public Reserva updateReservaFechaEntradabyId(Long id, LocalDate fechaEntrada){
+        Reserva reserva = null;
+        Optional<Reserva> oreserva = reservaRepository.findById(id);
+        if(oreserva.isPresent()){
+            reserva = oreserva.get();
+            reservaRepository.updateReservaFechaEntradaById(id, fechaEntrada);
+            return reserva;
+        }
+        return reserva;
+    }
+
+    @Override
+    @Transactional
+    public Reserva updateReservaFechaSalidabyId(Long id, LocalDate fechaSalida){
+        Reserva reserva = null;
+        Optional<Reserva> oreserva = reservaRepository.findById(id);
+        if(oreserva.isPresent()){
+            reserva = oreserva.get();
+            reservaRepository.updateReservaFechaSalidaById(id, fechaSalida);
             return reserva;
         }
         return reserva;

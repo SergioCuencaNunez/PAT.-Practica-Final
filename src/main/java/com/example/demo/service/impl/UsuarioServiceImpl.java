@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.model.Reserva;
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.UsuarioService;
@@ -114,9 +115,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         Optional<Usuario> ousuario = usuarioRepository.findById(nif);
         if(ousuario.isPresent()) {
             usuarioRepository.deleteById(nif);
-            return "El usuario con NIF " + nif + " se ha eliminado correctamente";
+            return "El usuario se ha eliminado correctamente";
         }else{
-            return "No hay ningún usuario con NIF " + nif;
+            return "No hay ningún usuario con ese NIF ";
         }
     }
 

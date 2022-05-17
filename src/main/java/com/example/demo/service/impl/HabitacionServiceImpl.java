@@ -43,34 +43,14 @@ public class HabitacionServiceImpl implements HabitacionService {
 
     @Override
     @Transactional
-    public List<Habitacion> getHabitacionesbyEstado(Boolean estado){
-        return habitacionRepository.getHabitacionesByEstado(estado);
-    }
-
-    @Override
-    @Transactional
-    public List<Habitacion> getHabitacionesbyHotelEstado(String hotel, Boolean estado){
-        return habitacionRepository.getHabitacionesByHotelEstado(hotel, estado);
+    public Long getHabitacionCapacidadbyHotel(String tipo){
+        return habitacionRepository.getHabitacionCapacidadByHotel(tipo);
     }
 
     @Override
     @Transactional
     public List<Habitacion> getHabitaciones() {
         return StreamSupport.stream(habitacionRepository.findAll().spliterator(), false).collect(Collectors.toUnmodifiableList());
-    }
-
-    @Override
-    @Transactional
-    public Habitacion updateHabitacionEstadobyTipo(Boolean estado, String tipo){
-        Habitacion habitacion = null;
-        Optional<Habitacion> ohabitacion = habitacionRepository.findById(tipo);
-        if(ohabitacion.isPresent()){
-            habitacion = ohabitacion.get();
-            habitacion.setEstado(estado);
-            habitacionRepository.updateHabitacionEstadoByTipo(habitacion.getEstado(), habitacion.getTipo());
-            return habitacion;
-        }
-        return habitacion;
     }
 
     @Override
@@ -103,7 +83,7 @@ public class HabitacionServiceImpl implements HabitacionService {
 
     @Override
     @Transactional
-    public String insertAndCompareHabitacion(String tipo, Long numero, Long planta, String hotel, Long capacidad, Boolean estado){
+    public String insertAndCompareHabitacion(String tipo, Long numero, Long planta, String hotel, Long capacidad){
         Optional<Habitacion> ohabitacion = habitacionRepository.findById(tipo);
         Optional<Hotel> ohotel = hotelRepository.findById(hotel);
         if(ohabitacion.isPresent()){
@@ -117,8 +97,7 @@ public class HabitacionServiceImpl implements HabitacionService {
             habitacion.setPlanta(planta);
             habitacion.setHotel(hotel);
             habitacion.setCapacidad(capacidad);
-            habitacion.setEstado(estado);
-            habitacionRepository.insertHabitacion(habitacion.getTipo(), habitacion.getNumero(), habitacion.getPlanta(), habitacion.getHotel(), habitacion.getCapacidad(), habitacion.getEstado());
+            habitacionRepository.insertHabitacion(habitacion.getTipo(), habitacion.getNumero(), habitacion.getPlanta(), habitacion.getHotel(), habitacion.getCapacidad());
             return "La habitación " + tipo + " se ha registrado correctamente en el hotel " + hotel;
         }
     }

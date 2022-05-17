@@ -36,19 +36,10 @@ public class HabitacionController {
     }
 
     @Transactional
-    @GetMapping("/habitaciones/estado/{estado}")
-    public ResponseEntity<List<Habitacion>> getHabitacionesEstado(@PathVariable("estado") String estadoStr){
-        Boolean estado = Boolean.parseBoolean(estadoStr);
-        List<Habitacion> habitaciones = habitacionServicio.getHabitacionesbyEstado(estado);
-        return ResponseEntity.ok().body(habitaciones);
-    }
-
-    @Transactional
-    @GetMapping("/habitaciones/hotel-estado/{hotel}/{estado}")
-    public ResponseEntity<List<Habitacion>> getHabitacionesHotelEstado(@PathVariable("hotel") String hotel, @PathVariable("estado") String estadoStr){
-        Boolean estado = Boolean.parseBoolean(estadoStr);
-        List<Habitacion> habitaciones = habitacionServicio.getHabitacionesbyHotelEstado(hotel, estado);
-        return ResponseEntity.ok().body(habitaciones);
+    @GetMapping("/habitaciones/capacidad/{tipo}")
+    public ResponseEntity<Long> getHabitacionCapacidadHotel(@PathVariable("tipo") String tipo){
+        Long capacidad = habitacionServicio.getHabitacionCapacidadbyHotel(tipo);
+        return ResponseEntity.ok().body(capacidad);
     }
 
     @Transactional
@@ -56,17 +47,6 @@ public class HabitacionController {
     public ResponseEntity<List<Habitacion>> getAllHabitaciones() {
         List<Habitacion> habitaciones = habitacionServicio.getHabitaciones();
         return ResponseEntity.ok().body(habitaciones);
-    }
-
-    @Transactional
-    @GetMapping("/habitaciones/update/estado/{estado}/{tipo}")
-    public ResponseEntity<Habitacion> updateHabitacionEstadoTipo(@PathVariable("estado") String estadoStr,@PathVariable("tipo") String tipo){
-        Boolean estado = Boolean.parseBoolean(estadoStr);
-        Habitacion habitacion = habitacionServicio.updateHabitacionEstadobyTipo(estado, tipo);
-        if(habitacion != null){
-            return ResponseEntity.ok().body(habitacion);
-        }
-        return ResponseEntity.notFound().build();
     }
 
     @Transactional
@@ -92,13 +72,12 @@ public class HabitacionController {
     }
 
     @Transactional
-    @GetMapping("/habitaciones/insert/{tipo}/{numero}/{planta}/{hotel}/{capacidad}/{estado}")
-    public ResponseEntity<String> insertCompareHabitacion(@PathVariable("tipo") String tipo,@PathVariable("numero") String numeroStr,@PathVariable("planta") String plantaStr,@PathVariable("hotel") String hotel,@PathVariable("capacidad") String capacidadStr,@PathVariable("estado") String estadoStr){
+    @GetMapping("/habitaciones/insert/{tipo}/{numero}/{planta}/{hotel}/{capacidad}")
+    public ResponseEntity<String> insertCompareHabitacion(@PathVariable("tipo") String tipo,@PathVariable("numero") String numeroStr,@PathVariable("planta") String plantaStr,@PathVariable("hotel") String hotel,@PathVariable("capacidad") String capacidadStr){
         Long numero = Long.parseLong(numeroStr);
         Long planta = Long.parseLong(plantaStr);
         Long capacidad = Long.parseLong(capacidadStr);
-        Boolean estado = Boolean.parseBoolean(estadoStr);
-        String resultado = habitacionServicio.insertAndCompareHabitacion(tipo, numero, planta, hotel, capacidad, estado);
+        String resultado = habitacionServicio.insertAndCompareHabitacion(tipo, numero, planta, hotel, capacidad);
         return ResponseEntity.ok().body(resultado);
     }
 

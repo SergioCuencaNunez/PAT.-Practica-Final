@@ -1,3 +1,7 @@
+const fechaValida = (fecha) => {
+  return fecha instanceof Date && !isNaN(fecha);
+}
+
 async function getReservas(){
     try{
        const address0 = "api/v1/usuarios/correo/" + getCorreo();
@@ -299,10 +303,10 @@ async function getReservas(){
                         var div2 = document.createElement('div');
                         var modificar = document.createElement('button');
                         var cancelar = document.createElement('button');
-                        modificar.setAttribute('onclick',"funcion();");
-                        modificar.innerHTML = "Modificar reservas";
-                        cancelar.setAttribute('onclick',"cancelarReservas();");
-                        cancelar.innerHTML = "Cancelar reservas";
+                        modificar.setAttribute('onclick',"modificarReserva();");
+                        modificar.innerHTML = "Modificar reserva";
+                        cancelar.setAttribute('onclick',"cancelarReserva();");
+                        cancelar.innerHTML = "Cancelar reserva";
                         modificar.className = "secondary-btn";
                         cancelar.className = "secondary-btn";
                         div2.appendChild(modificar);
@@ -318,21 +322,234 @@ async function getReservas(){
     return false;
 }
 
-async function cancelarReservas(){
+async function cancelarReserva(){
     try{
         var reservaId = prompt("Introduzca el ID de la reserva que desea cancelar.", "");
-        if(reservaId !== null){
-            if(confirm("¿Está seguro que desea cancelar la reserva con ID: " + reservaId + " ? Esta acción no se podrá deshacer.")){
+        if(reservaId){
+            if(confirm("¿Está seguro que desea cancelar la reserva con ID: " + reservaId + "? Esta acción no se podrá deshacer.")){
                 const address = "api/v1/reservas/delete/" + reservaId;
                 let request = await fetch(address, {
                     method: 'DELETE'
                 });
                 if(request.ok){
-                    alert("La reserva con ID: " + reservaId + " se ha cancelado correctamente.");
+                    alert("La reserva #" + reservaId + " se ha cancelado correctamente.");
                     location.reload();
                 }else{
-                    alert("La reserva con ID: " + reservaId + " no ha podido ser cancelada debido a que no existe.");
+                    alert("La reserva #" + reservaId + " no ha podido ser cancelada debido a que no existe.");
                 }
+            }
+        }
+    }catch (err){
+       console.error(err.message);
+    }
+    return false;
+}
+
+async function modificarReserva(){
+    try{
+        var reservaId = prompt("Introduzca el ID de la reserva que desea modificar.", "");
+        if(reservaId){
+            const address0 = "api/v1/reservas/id/" + reservaId;
+            let request0 = await fetch(address0, {
+               method: 'GET'
+            });
+            if(request0.ok){
+                 var reserva = await request0.json();
+                 var fechaEntradaDia = reserva.fechaEntrada.substr(8,9);
+                 var fechaEntradaMesAnt = reserva.fechaEntrada.substr(5,2);
+                 var fechaEntradaAno = reserva.fechaEntrada.substr(0,4);
+                 var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                 var fechaEntradaMes = meses[parseInt(fechaEntradaMesAnt) - 1]
+                 var fechaEntrada = fechaEntradaDia + " " + fechaEntradaMes + ", " + fechaEntradaAno;
+                 var fechaSalidaDia = reserva.fechaSalida.substr(8,9);
+                 var fechaSalidaMesAnt = reserva.fechaSalida.substr(5,2);
+                 var fechaSalidaAno = reserva.fechaSalida.substr(0,4);
+                 var fechaSalidaMes = meses[parseInt(fechaSalidaMesAnt) - 1]
+                 var fechaSalida = fechaSalidaDia + " " + fechaSalidaMes + ", " + fechaSalidaAno;
+                 var destinos = {
+                     'Madrid': "Madrid",
+                     'Londres': "Londres",
+                     'Paris': "París",
+                     'Nueva-York': "Nueva York"
+                 };
+                 var hoteles = {
+                     'Melia-Madrid-Princesa': "Meliá Madrid Princesa",
+                     'Gran-Melia-Palacio-de-los-Duques': "Gran Meliá Palacio de los Duques",
+                     'Melia-White-House': "Meliá White House",
+                     'ME-London': "ME London",
+                     'Innside-Paris-Charles-de-Gaulle': "Innside Paris Charles de Gaulle",
+                     'Melia-Paris-La-Defense': "Meliá Paris La Défense",
+                     'TRYP-New-York-Times-Square': "TRYP New York Times Square",
+                     'Innside-New-York-Nomad': "Innside New York Nomad"
+                 };
+                 var habitaciones = {
+                      'Premium': "Habitación Premium",
+                      'Suite': "Suite The Level",
+                      'Grand-Suite-Presidencial': "Grand Suite Presidencial The Level",
+                      'Supremme': " Habitación Supremme",
+                      'Suite-Deluxe': "Suite Deluxe RedLevel",
+                      'Royal-Suite': "Royal Suite RedLevel",
+                      'Premium-King': "Habitación Premium King",
+                      'Junior-Suite': "Junior Suite The Level",
+                      'Marylebone-Suite': "The Marylebone Suite",
+                      'Mode': "Habitación Mode",
+                      'Suite-Personality': "Suite Personality",
+                      'Chic-Penthouse-Suite': "Chic Penthouse Suite",
+                      'Premium-Extra': "Habitación Premium Extra",
+                      'Loft': "The Loft",
+                      'Townhouse-Suite': "The Townhouse Suite",
+                      'Premium-Twin': "Habitación Premium Twin",
+                      'Suite-Premium': "Suite Premium The Level",
+                      'Grand-Suite-Eiffel': "Grand Suite Torre Eiffel The Level",
+                      'Queen': "Habitación Queen",
+                      'King': "Habitación King",
+                      'Junior-Suite-Metro': "Junior Metro Suite",
+                      'King-City': "Habitación King City",
+                      'Studio': "The Studio with Terrace",
+                      'Townhouse-Junior-Suite': "The Townhouse Junior Suite"
+                 };
+                 var parametroAnti = prompt("Reserva #" + reserva.id + "\nPuede modificar los siguientes parámetros: " + "\n\u2022 Tipo de habitación reservada: " + habitaciones[reserva.tipo] + "\n\u2022 Número de huéspedes: " + reserva.huespedes + "\n\u2022 Número de habitaciones: " + reserva.habitaciones + "\n\u2022 Fecha de entrada: " + fechaEntrada + "\n\u2022 Fecha de salida: " + fechaSalida + "\nIntroduzca el parámetro que desea modificar. Si desea cambiar el NIF o el hotel, cancele la reserva.","");
+                 if(parametroAnti){
+                     var parametroAnt = parametroAnti.toLowerCase();
+                     var parametro = parametroAnt.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+                     if(parametro == "tipo de habitacion reservada" || parametro == "tipo de habitacion" || parametro == "tipo habitacion" || parametro == "habitacion" || parametro == "habitacion reservada"){
+                           const address1 = "api/v1/habitaciones/hotel/" + reserva.hotel;
+                           let request1 = await fetch(address1, {
+                               method: 'GET'
+                           });
+                           if(request1.ok){
+                               var habitaciones1 = await request1.json();
+                               var tipoHabitacion = prompt("Tipos de habitaciones disponibles: " + "\n 1. - " + habitaciones[habitaciones1[0].tipo] + "\n 2. - " + habitaciones[habitaciones1[1].tipo] + "\n 3. - " + habitaciones[habitaciones1[2].tipo] + "\nSeleccione el número del tipo de habitación a la cuál desea cambiar.","");
+                               if(tipoHabitacion){
+                                    if(tipoHabitacion == "1" || tipoHabitacion == "2" || tipoHabitacion == "3"){
+                                        const address2 = "api/v1/habitaciones/capacidad/" + habitaciones1[(parseInt(tipoHabitacion))-1].tipo;
+                                        let request2 = await fetch(address2, {
+                                              method: 'GET'
+                                        });
+                                        if(request2.ok){
+                                            var capacidad = await request2.json();
+                                            if(reserva.huespedes <= capacidad){
+                                                const address3 = "api/v1/reservas/update/tipo/" + reserva.id + "/" + habitaciones1[(parseInt(tipoHabitacion))-1].tipo;
+                                                let request3 = await fetch(address3, {
+                                                      method: 'PUT'
+                                                });
+                                                if(request3.ok){
+                                                    alert('El tipo de habitación de la reserva #' + reserva.id + " se ha modificado correctamente.");
+                                                    location.reload();
+                                                }else{
+                                                    alert('No se ha podido modificar el tipo de habitación de la reserva #' + reserva.id + '.');
+                                                }
+                                            }else{
+                                                alert('No se han podido modificar el tipo de habitación de la reserva #' + reserva.id + ' debido a que el número de huéspedes es superior a la capacidad de la habitación.');
+                                            }
+                                        }
+                                    }else{
+                                        alert("Ha introducido un número no válido. La reserva #" + reserva.id + " no ha podido ser modificada.");
+                                    }
+                               }
+                           }
+                     }else if(parametro == "numero de huespedes" || parametro == "numero huespedes" || parametro == "huespedes"){
+                           var numeroHuespedes = prompt("Introduzca el nuevo número de huéspedes de acuerdo al tipo de habitación elegida.");
+                           if(numeroHuespedes){
+                               const address1 = "api/v1/habitaciones/capacidad/" + reserva.tipo;
+                               let request1 = await fetch(address1, {
+                                   method: 'GET'
+                               });
+                               if(request1.ok){
+                                   var capacidad = await request1.json();
+                                   if((parseInt(numeroHuespedes)) <= capacidad){
+                                        const address2 = "api/v1/reservas/update/huespedes/" + reserva.id + "/" + numeroHuespedes;
+                                        let request2 = await fetch(address2, {
+                                           method: 'PUT'
+                                        });
+                                        if(request2.ok){
+                                            alert('El número de huéspedes de la reserva #' + reserva.id + " se ha modificado correctamente.");
+                                            location.reload();
+                                        }else{
+                                            alert('No se ha podido modificar el número de huéspedes de la reserva #' + reserva.id + '.');
+                                        }
+                                   }else{
+                                        alert('No se han podido modificar el número de huéspedes de la reserva #' + reserva.id + ' debido a que es superior a la capacidad de la habitación elegida.');
+                                   }
+                              }
+                           }
+                     }else if(parametro == "numero de habitaciones" || parametro == "numero habitaciones" || parametro == "habitaciones"){
+                           var numeroHabitacionesAnti = prompt("Introduzca el nuevo número de habitaciones.");
+                           if(numeroHabitacionesAnti){
+                                var numeroHabitaciones = parseInt(numeroHabitacionesAnti);
+                                if(numeroHabitaciones == 0){
+                                    alert('Si desea modificar las habitaciones de la reserva #' + reserva.id + " a 0, cancele la reserva.");
+                                }else if(numeroHabitaciones < 10){
+                                        const address1 = "api/v1/reservas/update/habitaciones/" + reserva.id + "/" + numeroHabitaciones;
+                                        let request1 = await fetch(address1, {
+                                           method: 'PUT'
+                                        });
+                                        if(request1.ok){
+                                            alert('El número de habitaciones de la reserva #' + reserva.id + " se ha modificado correctamente.");
+                                            location.reload();
+                                        }else{
+                                            alert('No se ha podido modificar el número de huéspedes de la reserva #' + reserva.id + '.');
+                                        }
+                                }else{
+                                    alert('Si desea hacer una reserva de grupo (más de 9 habitaciones) o de sala de reunión, llame al 912 76 47 47 o envíe un correo electrónico a grupos@melia.com.');
+                                }
+                           }
+                     }else if(parametro == "fecha de entrada" || parametro == "fecha entrada" || parametro == "entrada"){
+                           var fechaEntradaAnti = prompt('Introduzca en el formato "AAAA/MM/DD" la nueva fecha de entrada.');
+                           var fechaEntrada = new Date(fechaEntradaAnti);
+                           var fechaSalida= new Date(reserva.fechaSalida);
+                           if(fechaValida(fechaEntrada)){
+                                if(fechaEntrada < fechaSalida){
+                                        var fechaEntradaAno = fechaEntradaAnti.substr(0,4);
+                                        var fechaEntradaMes = fechaEntradaAnti.substr(5,2);
+                                        var fechaEntradaDia = fechaEntradaAnti.substr(8);
+                                        var fechaEntradaDef = fechaEntradaAno + "-" + fechaEntradaMes + "-" + fechaEntradaDia;
+                                        const address1 = "api/v1/reservas/update/fechaEntrada/" + reserva.id + "/" + fechaEntradaDef;
+                                        let request1 = await fetch(address1, {
+                                           method: 'PUT'
+                                        });
+                                        if(request1.ok){
+                                            alert('La fecha de entrada de la reserva #' + reserva.id + " se ha modificado correctamente.");
+                                            location.reload();
+                                        }else{
+                                            alert('No se ha podido modificar la fecha de entrada de la reserva #' + reserva.id + '.');
+                                        }
+                                }else{
+                                   alert('No se ha podido modificar la fecha de entrada de la reserva #' + reserva.id + ' debido a que es superior a la fecha de salida.');
+                                }
+                           }else{
+                                alert('No se ha podido modificar la fecha de entrada de la reserva #' + reserva.id + ' debido a que ha introducido una fecha no válida.');
+                           }
+                     }else if(parametro == "fecha de salida" || parametro == "fecha salida" || parametro == "salida"){
+                           var fechaSalidaAnti = prompt('Introduzca en el formato "AAAA/MM/DD" la nueva fecha de salida.');
+                           var fechaSalida = new Date(fechaSalidaAnti);
+                           var fechaEntrada= new Date(reserva.fechaEntrada);
+                           if(fechaValida(fechaSalida)){
+                                if(fechaEntrada < fechaSalida){
+                                        var fechaSalidaAno = fechaSalidaAnti.substr(0,4);
+                                        var fechaSalidaMes = fechaSalidaAnti.substr(5,2);
+                                        var fechaSalidaDia = fechaSalidaAnti.substr(8);
+                                        var fechaEntradaDef = fechaSalidaAno + "-" + fechaSalidaMes + "-" + fechaSalidaDia;
+                                        const address1 = "api/v1/reservas/update/fechaSalida/" + reserva.id + "/" + fechaEntradaDef;
+                                        let request1 = await fetch(address1, {
+                                           method: 'PUT'
+                                        });
+                                        if(request1.ok){
+                                            alert('La fecha de salida de la reserva #' + reserva.id + " se ha modificado correctamente.");
+                                            location.reload();
+                                        }else{
+                                            alert('No se ha podido modificar la fecha de salida de la reserva #' + reserva.id + '.');
+                                        }
+                                }else{
+                                   alert('No se ha podido modificar la fecha de salida de la reserva #' + reserva.id + ' debido a que es inferior a la fecha de entrada.');
+                                }
+                           }else{
+                                alert('No se ha podido modificar la fecha de salida de la reserva #' + reserva.id + ' debido a que ha introducido una fecha no válida.');
+                           }
+                     }
+                 }
+            }else{
+                alert("La reserva con ID: " + reservaId + " no ha podido ser modificada debido a que no existe.");
             }
         }
     }catch (err){

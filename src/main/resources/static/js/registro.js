@@ -45,6 +45,7 @@ async function registro() {
                     if(data2.result == "OK") {
                         alert("Credenciales correctos. Se ha registrado con éxito en el programa de fidelización MeliáRewards");
                         localStorage.setItem("correo", correo);
+                        localStorage.setItem("access_token", data2.accessToken);
                         document.location.href="inicio-sesion-clientes.html";
                     }else{
                         alert(data2.result);

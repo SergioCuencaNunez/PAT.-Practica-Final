@@ -32,9 +32,9 @@ public class ReservaController {
         Long id = Long.parseLong(idStr);
         Reserva reserva = reservaServicio.getReservabyId(id);
         if(reserva != null){
-            return ResponseEntity.ok().body(reserva);
+            return new ResponseEntity<>(reserva, HttpStatus.OK);
         }
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
     @Transactional
@@ -59,18 +59,62 @@ public class ReservaController {
     }
 
     @Transactional
-    @GetMapping("/reservas/update/{id}/{hotel}/{destino}/{tipo}/{huespedes}/{habitaciones}/{fechaEntrada}/{fechaSalida}")
-    public ResponseEntity<Reserva> updateReservaId(@PathVariable("id") String idStr,@PathVariable("hotel") String hotel,@PathVariable("destino") String destino, @PathVariable("tipo") String tipo, @PathVariable("huespedes") String huespedesStr,@PathVariable("habitaciones") String habitacionesStr,@PathVariable("fechaEntrada") String fechaEntradaStr,@PathVariable("fechaSalida") String fechaSalidaStr){
+    @PutMapping("/reservas/update/tipo/{id}/{tipo}")
+    public ResponseEntity<String> updateReservaTipoId(@PathVariable("id") String idStr, @PathVariable("tipo") String tipo){
+        Long id = Long.parseLong(idStr);
+        Reserva reserva = reservaServicio.updateReservaTipobyId(id, tipo);
+        if(reserva != null){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+    }
+
+    @Transactional
+    @PutMapping("/reservas/update/huespedes/{id}/{huespedes}")
+    public ResponseEntity<String> updateReservaHuespedesId(@PathVariable("id") String idStr, @PathVariable("huespedes") String huespedesStr){
         Long id = Long.parseLong(idStr);
         Long huespedes = Long.parseLong(huespedesStr);
-        Long habitaciones = Long.parseLong(habitacionesStr);
-        LocalDate fechaEntrada = LocalDate.parse(fechaEntradaStr);
-        LocalDate fechaSalida = LocalDate.parse(fechaSalidaStr);
-        Reserva reserva = reservaServicio.updateReservabyId(id, hotel, destino, tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
+        Reserva reserva = reservaServicio.updateReservaHuespedesbyId(id, huespedes);
         if(reserva != null){
-            return ResponseEntity.ok().body(reserva);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+    }
+
+    @Transactional
+    @PutMapping("/reservas/update/habitaciones/{id}/{habitaciones}")
+    public ResponseEntity<String> updateReservaHabitacionId(@PathVariable("id") String idStr, @PathVariable("habitaciones") String habitacionesStr){
+        Long id = Long.parseLong(idStr);
+        Long habitaciones = Long.parseLong(habitacionesStr);
+        Reserva reserva = reservaServicio.updateReservaHabitacionbyId(id, habitaciones);
+        if(reserva != null){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+    }
+
+    @Transactional
+    @PutMapping("/reservas/update/fechaEntrada/{id}/{fechaEntrada}")
+    public ResponseEntity<String> updateReservaFechaEntradaId(@PathVariable("id") String idStr, @PathVariable("fechaEntrada") String fechaEntradaStr){
+        Long id = Long.parseLong(idStr);
+        LocalDate fechaEntrada = LocalDate.parse(fechaEntradaStr);
+        Reserva reserva = reservaServicio.updateReservaFechaEntradabyId(id, fechaEntrada);
+        if(reserva != null){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+    }
+
+    @Transactional
+    @PutMapping("/reservas/update/fechaSalida/{id}/{fechaSalida}")
+    public ResponseEntity<String> updateReservaFechaSalidaId(@PathVariable("id") String idStr, @PathVariable("fechaSalida") String fechaSalidaStr){
+        Long id = Long.parseLong(idStr);
+        LocalDate fechaSalida = LocalDate.parse(fechaSalidaStr);
+        Reserva reserva = reservaServicio.updateReservaFechaSalidabyId(id, fechaSalida);
+        if(reserva != null){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
     }
 
     @Transactional

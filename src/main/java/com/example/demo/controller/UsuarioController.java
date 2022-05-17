@@ -105,10 +105,14 @@ public class UsuarioController {
     }
 
     @Transactional
-    @GetMapping("/usuarios/delete/{nif}")
+    @DeleteMapping("/usuarios/delete/{nif}")
     public ResponseEntity<String> deleteUsuarioNif(@PathVariable("nif") String nif) {
         String resultado = usuarioServicio.deleteUsuariobyNif(nif);
-        return ResponseEntity.ok().body(resultado);
+        if(resultado.equals("El usuario se ha eliminado correctamente")){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+        }
     }
 
     // INNER-JOIN

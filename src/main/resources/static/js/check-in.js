@@ -42,7 +42,49 @@ async function checkIn(){
                     .then(response => response.json())
                     .then(data1 => {
                     if(data1.result == "OK") {
-                        if(confirm("Reserva localizada.\n\u2022 Identificador de la reserva: " + id + "\n\u2022 NIF empleado para la reserva: " + nif + "\n\u2022 Destino elegido: " + destino + "\n\u2022 Hotel de estancia: " + hotel + "\n\u2022 Tipo de habitación reservada: " + reserva.tipo + "\n\u2022 Número huéspedes: " + reserva.huespedes + "\n\u2022 Número de habitaciones: " + reserva.habitaciones + "\n\u2022 Fecha de entrada: " + checkInDef + "\n\u2022 Fecha de salida: " + checkOutDef + "\n¿Desea realizar el Check-in online?")){
+                        var destinos = {
+                                             'Madrid': "Madrid",
+                                             'Londres': "Londres",
+                                             'Paris': "París",
+                                             'Nueva-York': "Nueva York"
+                                         };
+                        var hoteles = {
+                                             'Melia-Madrid-Princesa': "Meliá Madrid Princesa",
+                                             'Gran-Melia-Palacio-de-los-Duques': "Gran Meliá Palacio de los Duques",
+                                             'Melia-White-House': "Meliá White House",
+                                             'ME-London': "ME London",
+                                             'Innside-Paris-Charles-de-Gaulle': "Innside Paris Charles de Gaulle",
+                                             'Melia-Paris-La-Defense': "Meliá Paris La Défense",
+                                             'TRYP-New-York-Times-Square': "TRYP New York Times Square",
+                                             'Innside-New-York-Nomad': "Innside New York Nomad"
+                                         };
+                        var habitaciones = {
+                                              'Premium': "Habitación Premium",
+                                              'Suite': "Suite The Level",
+                                              'Grand-Suite-Presidencial': "Grand Suite Presidencial The Level",
+                                              'Supremme': " Habitación Supremme",
+                                              'Suite-Deluxe': "Suite Deluxe RedLevel",
+                                              'Royal-Suite': "Royal Suite RedLevel",
+                                              'Premium-King': "Habitación Premium King",
+                                              'Junior-Suite': "Junior Suite The Level",
+                                              'Marylebone-Suite': "The Marylebone Suite",
+                                              'Mode': "Habitación Mode",
+                                              'Suite-Personality': "Suite Personality",
+                                              'Chic-Penthouse-Suite': "Chic Penthouse Suite",
+                                              'Premium-Extra': "Habitación Premium Extra",
+                                              'Loft': "The Loft",
+                                              'Townhouse-Suite': "The Townhouse Suite",
+                                              'Premium-Twin': "Habitación Premium Twin",
+                                              'Suite-Premium': "Suite Premium The Level",
+                                              'Grand-Suite-Eiffel': "Grand Suite Torre Eiffel The Level",
+                                              'Queen': "Habitación Queen",
+                                              'King': "Habitación King",
+                                              'Junior-Suite-Metro': "Junior Metro Suite",
+                                              'King-City': "Habitación King City",
+                                              'Studio': "The Studio with Terrace",
+                                              'Townhouse-Junior-Suite': "The Townhouse Junior Suite"
+                                         };
+                        if(confirm("Reserva localizada.\n\u2022 Identificador de la reserva: " + id + "\n\u2022 NIF empleado para la reserva: " + nif + "\n\u2022 Destino elegido: " + destinos[destino] + "\n\u2022 Hotel de estancia: " + hoteles[hotel] + "\n\u2022 Tipo de habitación reservada: " + habitaciones[reserva.tipo] + "\n\u2022 Número huéspedes: " + reserva.huespedes + "\n\u2022 Número de habitaciones: " + reserva.habitaciones + "\n\u2022 Fecha de entrada: " + checkInDef + "\n\u2022 Fecha de salida: " + checkOutDef + "\n¿Desea realizar el Check-in online?")){
                             const data2 = {"numero": null,
                                            "correo": nif,
                                            "nombre": id,

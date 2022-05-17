@@ -16,15 +16,8 @@ public interface HabitacionRepository extends CrudRepository<Habitacion, String>
     @Query("SELECT* FROM HABITACION WHERE HABITACION.HOTEL= :hotel")
     public List<Habitacion> getHabitacionesByHotel(String hotel);
 
-    @Query("SELECT* FROM HABITACION WHERE HABITACION.ESTADO= :estado")
-    public List<Habitacion> getHabitacionesByEstado(Boolean estado);
-
-    @Query("SELECT* FROM HABITACION WHERE HABITACION.HOTEL= :hotel AND HABITACION.ESTADO= :estado")
-    public List<Habitacion> getHabitacionesByHotelEstado(String hotel, Boolean estado);
-
-    @Query("UPDATE HABITACION SET HABITACION.ESTADO= :estado WHERE HABITACION.TIPO= :tipo")
-    @Modifying
-    void updateHabitacionEstadoByTipo(Boolean estado, String tipo);
+    @Query("SELECT CAPACIDAD FROM HABITACION WHERE HABITACION.TIPO= :tipo")
+    public Long getHabitacionCapacidadByHotel(String tipo);
 
     @Query("UPDATE HABITACION SET HABITACION.NUMERO= :numero WHERE HABITACION.TIPO= :tipo")
     @Modifying
@@ -34,9 +27,9 @@ public interface HabitacionRepository extends CrudRepository<Habitacion, String>
     @Modifying
     void updateHabitacionCapacidadByTipo(Long capacidad, String tipo);
 
-    @Query("INSERT INTO HABITACION (TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD, ESTADO) VALUES(:tipo, :numero, :planta, :hotel, :capacidad, :estado)")
+    @Query("INSERT INTO HABITACION (TIPO, NUMERO,PLANTA, HOTEL, CAPACIDAD) VALUES(:tipo, :numero, :planta, :hotel, :capacidad)")
     @Modifying
-    void insertHabitacion(String tipo, Long numero, Long planta, String hotel, Long capacidad, Boolean estado);
+    void insertHabitacion(String tipo, Long numero, Long planta, String hotel, Long capacidad);
 
 
 }

@@ -22,5 +22,4 @@ public class Habitacion {
     private @Column("PLANTA") Long planta;
     private @Column("HOTEL") String hotel;
     private @Column("CAPACIDAD") Long capacidad;
-    private @Column("ESTADO") Boolean estado;
 }
