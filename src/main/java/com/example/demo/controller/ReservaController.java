@@ -45,13 +45,6 @@ public class ReservaController {
     }
 
     @Transactional
-    @GetMapping("/reservas/destino/{destino}")
-    public ResponseEntity<List<Reserva>> getReservasDestino(@PathVariable("destino") String destino){
-        List<Reserva> reservas = reservaServicio.getReservasbyDestino(destino);
-        return ResponseEntity.ok().body(reservas);
-    }
-
-    @Transactional
     @GetMapping("/reservas/hotel/{hotel}")
     public ResponseEntity<List<Reserva>> getReservasHotel(@PathVariable("hotel") String hotel){
         List<Reserva> reservas = reservaServicio.getReservasbyHotel(hotel);

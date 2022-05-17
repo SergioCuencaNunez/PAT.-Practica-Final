@@ -82,9 +82,9 @@ async function getReservas(nombreHotel){
                               td.appendChild(bold);
                            }else if(i == 2){
                                var habitaciones = {
-                                 'Premium': "Habitación Premium",
-                                 'Suite': "Suite The Level",
-                                 'Grand-Suite-Presidencial': "Grand Suite Presidencial The Level"
+                                 'Queen': "Habitación Queen",
+                                 'King': "Habitación King",
+                                 'Junior-Suite-Metro': "Junior Metro Suite"
                                };
                               var bold = document.createElement('strong');
                               var habitacion = document.createTextNode(habitaciones[reserva.tipo]);
@@ -123,17 +123,17 @@ async function getReservas(nombreHotel){
                            }
                         }else{
                             td.style.width = '395px';
-                            if(reserva.tipo == 'Premium'){
+                            if(reserva.tipo == 'Queen'){
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa1.png";
+                                img.src = "img/room/habs/ts1.png";
                                 td.appendChild(img);
-                            }else if(reserva.tipo == 'Suite'){
+                            }else if(reserva.tipo == 'King'){
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa2.png";
+                                img.src = "img/room/habs/ts2.png";
                                 td.appendChild(img);
                             }else{
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa3.png";
+                                img.src = "img/room/habs/ts3.png";
                                 td.appendChild(img);
                             }
                         }
@@ -161,4 +161,4 @@ async function getReservas(nombreHotel){
     return false;
 }
 
-getReservas('Melia-Madrid-Princesa');
+getReservas('TRYP-New-York-Times-Square');

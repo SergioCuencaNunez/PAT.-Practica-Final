@@ -13,9 +13,6 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
     @Query("SELECT* FROM RESERVA WHERE RESERVA.NIF= :nif")
     public List<Reserva> getReservasByNif(String nif);
 
-    @Query("SELECT* FROM RESERVA WHERE RESERVA.DESTINO= :destino")
-    public List<Reserva> getReservasByDestino(String destino);
-
     @Query("SELECT* FROM RESERVA WHERE RESERVA.HOTEL= :hotel")
     public List<Reserva> getReservasByHotel(String hotel);
 

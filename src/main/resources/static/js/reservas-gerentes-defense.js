@@ -82,9 +82,9 @@ async function getReservas(nombreHotel){
                               td.appendChild(bold);
                            }else if(i == 2){
                                var habitaciones = {
-                                 'Premium': "Habitación Premium",
-                                 'Suite': "Suite The Level",
-                                 'Grand-Suite-Presidencial': "Grand Suite Presidencial The Level"
+                                 'Premium-Twin': "Habitación Premium Twin",
+                                 'Suite-Premium': "Suite Premium The Level",
+                                 'Grand-Suite-Eiffel': "Grand Suite Torre Eiffel The Level"
                                };
                               var bold = document.createElement('strong');
                               var habitacion = document.createTextNode(habitaciones[reserva.tipo]);
@@ -123,17 +123,17 @@ async function getReservas(nombreHotel){
                            }
                         }else{
                             td.style.width = '395px';
-                            if(reserva.tipo == 'Premium'){
+                            if(reserva.tipo == 'Premium-Twin'){
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa1.png";
+                                img.src = "img/room/habs/defense1.png";
                                 td.appendChild(img);
-                            }else if(reserva.tipo == 'Suite'){
+                            }else if(reserva.tipo == 'Suite-Premium'){
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa2.png";
+                                img.src = "img/room/habs/defense2.png";
                                 td.appendChild(img);
                             }else{
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa3.png";
+                                img.src = "img/room/habs/defense3.png";
                                 td.appendChild(img);
                             }
                         }
@@ -161,4 +161,4 @@ async function getReservas(nombreHotel){
     return false;
 }
 
-getReservas('Melia-Madrid-Princesa');
+getReservas('Melia-Paris-La-Defense');

@@ -129,10 +129,6 @@ async function cambiarInformacionPerfil() {
     return false;
 }
 
-/*const setCorreo = (correo) => {
-    document.getElementById("correo").innerHTML = correo;
-}*/
-
 async function cerrarSesion(){
     localStorage.removeItem("access_token");
     console.log(localStorage.getItem("access_token"));

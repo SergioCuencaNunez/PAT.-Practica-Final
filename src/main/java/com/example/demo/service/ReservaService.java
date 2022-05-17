@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public interface ReservaService {
     Reserva getReservabyId(Long id);
     List<Reserva> getReservasbyNif(String nif);
-    List<Reserva> getReservasbyDestino(String destino);
     List<Reserva> getReservasbyHotel(String hotel);
     List<Reserva> getReservas();
     Reserva updateReservabyId(Long id, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida);

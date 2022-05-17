@@ -44,12 +44,6 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public List<Reserva> getReservasbyDestino(String destino) {
-        return reservaRepository.getReservasByDestino(destino);
-    }
-
-    @Override
-    @Transactional
     public List<Reserva> getReservasbyHotel(String hotel) {
         return reservaRepository.getReservasByHotel(hotel);
     }

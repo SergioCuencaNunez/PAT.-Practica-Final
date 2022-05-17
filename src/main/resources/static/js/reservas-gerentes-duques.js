@@ -82,9 +82,9 @@ async function getReservas(nombreHotel){
                               td.appendChild(bold);
                            }else if(i == 2){
                                var habitaciones = {
-                                 'Premium': "Habitación Premium",
-                                 'Suite': "Suite The Level",
-                                 'Grand-Suite-Presidencial': "Grand Suite Presidencial The Level"
+                                 'Supremme': " Habitación Supremme",
+                                 'Suite-Deluxe': "Suite Deluxe RedLevel",
+                                 'Royal-Suite': "Royal Suite RedLevel"
                                };
                               var bold = document.createElement('strong');
                               var habitacion = document.createTextNode(habitaciones[reserva.tipo]);
@@ -123,17 +123,17 @@ async function getReservas(nombreHotel){
                            }
                         }else{
                             td.style.width = '395px';
-                            if(reserva.tipo == 'Premium'){
+                            if(reserva.tipo == 'Supremme'){
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa1.png";
+                                img.src = "img/room/habs/duques1.png";
                                 td.appendChild(img);
-                            }else if(reserva.tipo == 'Suite'){
+                            }else if(reserva.tipo == 'Suite-Deluxe'){
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa2.png";
+                                img.src = "img/room/habs/duques2.png";
                                 td.appendChild(img);
                             }else{
                                 var img = document.createElement('img');
-                                img.src = "img/room/habs/princesa3.png";
+                                img.src = "img/room/habs/duques3.png";
                                 td.appendChild(img);
                             }
                         }
@@ -158,7 +158,6 @@ async function getReservas(nombreHotel){
     }catch (err){
        console.error(err.message);
     }
-    return false;
-}
+    return false;}
 
-getReservas('Melia-Madrid-Princesa');
+getReservas('Gran-Melia-Palacio-de-los-Duques');
