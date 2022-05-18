@@ -18,7 +18,7 @@ async function iniciarSesion(){
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    alert("Inicio de Sesión Correcto");
+                    alert("Inicio de Sesión Correcto.");
                     localStorage.setItem("correo", correo);
                     console.log(data.accessToken)
                     localStorage.setItem("access_token", data.accessToken);

@@ -85,8 +85,8 @@ public class UsuarioController {
     }
 
     @Transactional
-    @PostMapping("/usuarios/insert")
-    public ResponseEntity<LoginResponse> insertCompareUsuario(@RequestBody Usuario usuario, BindingResult bindingResult) {
+    @PostMapping("/usuarios/insert-cliente")
+    public ResponseEntity<LoginResponse> insertCompareCliente(@RequestBody Usuario usuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             LoginResponse loginResponse = new LoginResponse("KO");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
@@ -100,6 +100,26 @@ public class UsuarioController {
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }else{
             LoginResponse loginResponse = new LoginResponse("Un usuario con ese correo electrónico ya está registrado en MeliáRewards.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Transactional
+    @PostMapping("/usuarios/insert-gerente")
+    public ResponseEntity<LoginResponse> insertCompareGerente(@RequestBody Usuario usuario, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            LoginResponse loginResponse = new LoginResponse("KO");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }
+        LoginServiceResult result = loginServicio.registroUsuario(usuario);
+        if (result.isFlag()) {
+            LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
+        }else if(result.getAccessToken().equals("NIF ya registrado")){
+            LoginResponse loginResponse = new LoginResponse("Un usuario con ese NIF ya está registrado en MyMeliáBenefits.");
+            return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            LoginResponse loginResponse = new LoginResponse("Un usuario con ese correo electrónico ya está registrado en MyMeliáBenefits.");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }
     }
@@ -144,12 +164,24 @@ public class UsuarioController {
     }
 
     @Transactional
-    @PostMapping(path="/usuarios/registro", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path="/usuarios/registro-cliente", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> registroCliente(@Valid @RequestBody LoginCredential loginParam, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
         }
-        if((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (loginParam.contrasena().equals(loginParam.contrasena2()))){
+        if((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (!loginParam.correo().contains("@melia")) && (loginParam.contrasena().equals(loginParam.contrasena2()))){
+            return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
+    }
+
+    @Transactional
+    @PostMapping(path="/usuarios/registro-gerente", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> registroGerente(@Valid @RequestBody LoginCredential loginParam, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
+        }
+        if((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (loginParam.correo().contains("@melia")) && (loginParam.contrasena().equals(loginParam.contrasena2()))){
             return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
         }
         return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);

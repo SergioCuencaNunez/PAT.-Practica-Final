@@ -300,19 +300,19 @@ async function getReservas(){
                         div.style.marginBottom = "30px";
                         document.getElementById("tabla").appendChild(div);
                    }
-                        var div2 = document.createElement('div');
-                        var modificar = document.createElement('button');
-                        var cancelar = document.createElement('button');
-                        modificar.setAttribute('onclick',"modificarReserva();");
-                        modificar.innerHTML = "Modificar reserva";
-                        cancelar.setAttribute('onclick',"cancelarReserva();");
-                        cancelar.innerHTML = "Cancelar reserva";
-                        modificar.className = "secondary-btn";
-                        cancelar.className = "secondary-btn";
-                        div2.appendChild(modificar);
-                        div2.appendChild(cancelar);
-                        div2.style.textAlign = "center";
-                        document.getElementById("tabla").appendChild(div2);
+                    var div2 = document.createElement('div');
+                    var modificar = document.createElement('button');
+                    var cancelar = document.createElement('button');
+                    modificar.setAttribute('onclick',"modificarReserva();");
+                    modificar.innerHTML = "Modificar reserva";
+                    cancelar.setAttribute('onclick',"cancelarReserva();");
+                    cancelar.innerHTML = "Cancelar reserva";
+                    modificar.className = "secondary-btn";
+                    cancelar.className = "secondary-btn";
+                    div2.appendChild(modificar);
+                    div2.appendChild(cancelar);
+                    div2.style.textAlign = "center";
+                    document.getElementById("tabla").appendChild(div2);
                }
             }
        }

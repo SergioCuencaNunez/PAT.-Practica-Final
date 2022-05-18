@@ -1742,6 +1742,47 @@ ul, ol {
 	color: #19191a;
 	text-align: center;
 }
+.contacto-gerentes-item {
+	margin-bottom: 35px;
+	overflow: hidden
+}
+.contacto-gerentes-item .ri-text h4 {
+	color: #19191a;
+	margin-bottom: 17px;
+}
+.contacto-gerentes-item .ri-text h3 {
+	color: #dfa974;
+	font-weight: 700;
+	margin-bottom: 14px;
+}
+.contacto-gerentes-item .ri-text h3 span {
+	font-family: "Cabin", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #19191a;
+}
+.contacto-gerentes-item .ri-text .ri-button {
+	margin-bottom: 10px;
+	text-align: center;
+	margin-bottom: 25px;
+}
+.contacto-gerentes-table {
+	border: 1px solid #ebebeb;
+    border-collapse: separate;
+    border-spacing: 25px;
+    margin: 0 auto;
+}
+.contacto-gerentes-item .ri-text table tbody tr td {
+	font-size: 17px;
+	color: #707079;
+	line-height: 36px;
+	line-width: 10px;
+	width: 250px;
+}
+.contacto-gerentes-item .ri-text .primary-btn {
+	color: #19191a;
+	text-align: center;
+}
 .reservas-pagination {
 	text-align: center;
 	padding-top: 20px;
@@ -1765,7 +1806,6 @@ ul, ol {
 	background: #dfa974;
 	color: #ffffff;
 }
-
 .reservas-item p {
 	text-align: justify;
 }

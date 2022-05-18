@@ -1,4 +1,4 @@
-async function registro() {
+async function registroGerentes() {
     try {
         var nombre = document.getElementById("nombre").value;
         var apellido1 = document.getElementById("apellido1").value;
@@ -17,7 +17,7 @@ async function registro() {
         }
         var cumpleanosDef = cumpleanosAno + "-" + numeroMes + "-" + cumpleanosDia;
         const data1 = {nombre: nombre, apellido1: apellido1, apellido2: apellido2, nif: nif, cumpleanos: cumpleanosDef, correo: correo, contrasena: contrasena, contrasena2: contrasena2};
-        const address1 = "api/v1/usuarios/registro-cliente";
+        const address1 = "api/v1/usuarios/registro-gerente";
         fetch(address1, {
             method: 'POST',
             headers: {
@@ -31,8 +31,8 @@ async function registro() {
             if(data1.result == "OK") {
                 console.log("Authenticated");
                 var cumpleanosDefi = new Date(cumpleanosDef);
-                const data2 = {"nif": nif, "nombre": nombre, "apellido1": apellido1, "apellido2": apellido2, "cumpleanos": cumpleanosDefi, "correo": correo, "contrasena": contrasena, "rol": "cliente"};
-                const address2 = "api/v1/usuarios/insert-cliente";
+                const data2 = {"nif": nif, "nombre": nombre, "apellido1": apellido1, "apellido2": apellido2, "cumpleanos": cumpleanosDefi, "correo": correo, "contrasena": contrasena, "rol": "admin"};
+                const address2 = "api/v1/usuarios/insert-gerente";
                 fetch(address2, {
                     method: 'POST',
                     headers: {
@@ -43,16 +43,13 @@ async function registro() {
                 .then(response => response.json())
                 .then(data2 => {
                     if(data2.result == "OK") {
-                        alert("Credenciales correctos. Se ha registrado con éxito en el programa de fidelización MeliáRewards");
-                        localStorage.setItem("correo", correo);
-                        localStorage.setItem("access_token", data2.accessToken);
-                        document.location.href="inicio-sesion-clientes.html";
+                        alert("Credenciales correctos. Se ha registrado con éxito un nuevo administrador en el programa MyMeliáBenefits.");
                     }else{
                         alert(data2.result);
                     }
                 });
             }else{
-                alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales.\nDebe introducir todos los datos marcados, un NIF vigente, un email válido y una contraseña alfanúmerica.\nRecuerde que la contraseña debe ser igual en ambos campos.");
+                alert("Credenciales erróneos o no reconocidos. Por favor, revise sus credenciales.\nDebe introducir todos los datos marcados, un NIF vigente, un email válido (@melia.com) y una contraseña alfanúmerica.\nRecuerde que la contraseña debe ser igual en ambos campos.");
             }
        });
     } catch (err) {
