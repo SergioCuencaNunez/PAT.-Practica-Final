@@ -162,7 +162,6 @@ async function getReservas(nombreHotel){
            div2.appendChild(cancelar);
            div2.style.textAlign = "center";
            document.getElementById("tabla").appendChild(div2);
-
         }
     }catch (err){
        console.error(err.message);
