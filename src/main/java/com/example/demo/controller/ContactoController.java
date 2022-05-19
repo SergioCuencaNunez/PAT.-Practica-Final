@@ -121,10 +121,14 @@ public class ContactoController {
     }
 
     @Transactional
-    @GetMapping("/contactos/delete/{numero}")
-    public ResponseEntity<String> deleteContactoNif(@PathVariable("numero") String numeroStr) {
+    @DeleteMapping("/contactos/delete/{numero}")
+    public ResponseEntity<String> deleteContactoNumero(@PathVariable("numero") String numeroStr){
         Long numero = Long.parseLong(numeroStr);
         String resultado = contactoServicio.deleteContactobyNumero(numero);
-        return ResponseEntity.ok().body(resultado);
+        if(resultado.equals("El mensaje se ha eliminado correctamente")){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+        }
     }
 }

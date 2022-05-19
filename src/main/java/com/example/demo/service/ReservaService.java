@@ -20,4 +20,5 @@ public interface ReservaService {
     ReservaServiceResult comprobarDisponibilidad(String hotel, Long habitaciones);
     ReservaServiceResult checkInReserva(Reserva reserva);
     String deleteReservabyId(Long id);
+    ReservaServiceResult deleteReservaHotelbyId(Reserva reserva, String hotel);
 }

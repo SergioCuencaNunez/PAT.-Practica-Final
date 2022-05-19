@@ -196,4 +196,24 @@ public class ReservaController {
             return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
         }
     }
+
+    @Transactional
+    @DeleteMapping("/reservas/delete/hotel/{hotel}")
+    public ResponseEntity<ReservaResponse> deleteReservaHotelId(@RequestBody Reserva reserva, BindingResult bindingResult, @PathVariable("hotel") String hotel){
+        if(bindingResult.hasErrors()){
+            ReservaResponse reservaResponse = new ReservaResponse("KO");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
+        ReservaServiceResult result = reservaServicio.deleteReservaHotelbyId(reserva, hotel);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else if(result.getAccessToken().equals("La reserva no pertenece a este hotel")){
+            ReservaResponse reservaResponse = new ReservaResponse("No se puede eliminar la reserva seleccionada puesto que no pertenece a este hotel.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("No existe ninguna reserva con ese identificador.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
+    }
 }

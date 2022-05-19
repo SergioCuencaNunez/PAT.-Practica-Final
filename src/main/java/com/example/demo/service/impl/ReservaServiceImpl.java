@@ -26,10 +26,10 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva getReservabyId(Long id){
+    public Reserva getReservabyId(Long id) {
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
-        if(oreserva.isPresent()){
+        if (oreserva.isPresent()) {
             reserva = oreserva.get();
             return reserva;
         }
@@ -56,10 +56,10 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservaTipobyId(Long id, String tipo){
+    public Reserva updateReservaTipobyId(Long id, String tipo) {
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
-        if(oreserva.isPresent()){
+        if (oreserva.isPresent()) {
             reserva = oreserva.get();
             reservaRepository.updateReservaTipoById(id, tipo);
             return reserva;
@@ -69,10 +69,10 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservaHuespedesbyId(Long id, Long huespedes){
+    public Reserva updateReservaHuespedesbyId(Long id, Long huespedes) {
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
-        if(oreserva.isPresent()){
+        if (oreserva.isPresent()) {
             reserva = oreserva.get();
             reservaRepository.updateReservaHuespedesById(id, huespedes);
             return reserva;
@@ -82,10 +82,10 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservaHabitacionbyId(Long id, Long habitaciones){
+    public Reserva updateReservaHabitacionbyId(Long id, Long habitaciones) {
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
-        if(oreserva.isPresent()){
+        if (oreserva.isPresent()) {
             reserva = oreserva.get();
             reservaRepository.updateReservaHabitacionById(id, habitaciones);
             return reserva;
@@ -95,10 +95,10 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservaFechaEntradabyId(Long id, LocalDate fechaEntrada){
+    public Reserva updateReservaFechaEntradabyId(Long id, LocalDate fechaEntrada) {
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
-        if(oreserva.isPresent()){
+        if (oreserva.isPresent()) {
             reserva = oreserva.get();
             reservaRepository.updateReservaFechaEntradaById(id, fechaEntrada);
             return reserva;
@@ -108,10 +108,10 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservaFechaSalidabyId(Long id, LocalDate fechaSalida){
+    public Reserva updateReservaFechaSalidabyId(Long id, LocalDate fechaSalida) {
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
-        if(oreserva.isPresent()){
+        if (oreserva.isPresent()) {
             reserva = oreserva.get();
             reservaRepository.updateReservaFechaSalidaById(id, fechaSalida);
             return reserva;
@@ -121,7 +121,7 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public void insertReserva(Long id, String nif, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida){
+    public void insertReserva(Long id, String nif, String hotel, String destino, String tipo, Long huespedes, Long habitaciones, LocalDate fechaEntrada, LocalDate fechaSalida) {
         Reserva reserva = new Reserva();
         reserva.setId(id);
         reserva.setNif(nif);
@@ -142,16 +142,16 @@ public class ReservaServiceImpl implements ReservaService {
         Long habitacionesTotales = hotelRepository.getHabitacionesTotalesByHotel(hotel);
         Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
 
-        if((habitacionesOcupadas + habitaciones) <= habitacionesTotales) {
+        if ((habitacionesOcupadas + habitaciones) <= habitacionesTotales) {
             return new ReservaServiceResult(true);
-        }else{
+        } else {
             return new ReservaServiceResult(false, "No hay habitaciones disponibles");
         }
     }
 
     @Override
     @Transactional
-    public ReservaServiceResult checkInReserva(Reserva reserva){
+    public ReservaServiceResult checkInReserva(Reserva reserva) {
 
         Long id = reserva.getId();
         String nif = reserva.getNif();
@@ -160,16 +160,16 @@ public class ReservaServiceImpl implements ReservaService {
         LocalDate fechaEntrada = reserva.getFechaEntrada();
         LocalDate fechaSalida = reserva.getFechaSalida();
 
-        if(nif.equals(reservaRepository.getNifReservaById(id)) && hotel.equals(reservaRepository.getHotelReservaById(id)) && destino.equals(reservaRepository.getDestinoReservaById(id)) && fechaEntrada.equals(reservaRepository.getFechaEntradaReservaById(id)) && fechaSalida.equals(reservaRepository.getFechaSalidaReservaById(id))){
+        if (nif.equals(reservaRepository.getNifReservaById(id)) && hotel.equals(reservaRepository.getHotelReservaById(id)) && destino.equals(reservaRepository.getDestinoReservaById(id)) && fechaEntrada.equals(reservaRepository.getFechaEntradaReservaById(id)) && fechaSalida.equals(reservaRepository.getFechaSalidaReservaById(id))) {
             return new ReservaServiceResult(true);
-        }else{
+        } else {
             return new ReservaServiceResult(false, "Reserva no encontrada");
         }
     }
 
     @Override
     @Transactional
-    public ReservaServiceResult registrarReserva(Reserva reserva){
+    public ReservaServiceResult registrarReserva(Reserva reserva) {
 
         Long id = reserva.getId();
         String nif = reserva.getNif();
@@ -184,31 +184,47 @@ public class ReservaServiceImpl implements ReservaService {
         Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
         Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
 
-        if(id == null){
+        if (id == null) {
             ReservaServiceResult result = this.comprobarDisponibilidad(hotel, habitaciones);
-            if(result.isFlag()) {
+            if (result.isFlag()) {
                 hotelRepository.updateHotelOcupacionByNombre(ocupacion + huespedes, hotel);
                 hotelRepository.updateHotelHabitacionesOcupadasByNombre(habitacionesOcupadas + habitaciones, hotel);
                 ReservaServiceImpl.this.insertReserva(id, nif, hotel, destino, tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
                 return new ReservaServiceResult(true);
-            }else{
+            } else {
                 return new ReservaServiceResult(false, "No hay habitaciones disponibles");
             }
-        }else{
+        } else {
             return new ReservaServiceResult(false, "Reserva ya registrada");
         }
     }
 
     @Override
     @Transactional
-    public String deleteReservabyId(Long id){
+    public String deleteReservabyId(Long id) {
         Optional<Reserva> oreserva = reservaRepository.findById(id);
-        if(oreserva.isPresent()){
+        if (oreserva.isPresent()) {
             reservaRepository.deleteById(id);
             return "La reserva se ha borrado correctamente";
-        }else{
+        } else {
             return "No existe una reserva con ese ID";
         }
     }
 
+    @Override
+    @Transactional
+    public ReservaServiceResult deleteReservaHotelbyId(Reserva reserva, String hotel) {
+        List<Reserva> reservas = this.getReservasbyHotel(hotel);
+        Optional<Reserva> oreserva = reservaRepository.findById(reserva.getId());
+        if (oreserva.isPresent()) {
+            if (reservas.contains(reserva)) {
+                reservaRepository.deleteById(reserva.getId());
+                return new ReservaServiceResult(true);
+            } else {
+                return new ReservaServiceResult(false, "La reserva no pertenece a este hotel");
+            }
+        }else{
+            return new ReservaServiceResult(false, "No existe una reserva con ese ID");
+        }
+    }
 }

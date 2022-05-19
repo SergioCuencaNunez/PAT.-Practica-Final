@@ -326,7 +326,7 @@ async function cancelarReserva(){
     try{
         var reservaId = prompt("Introduzca el ID de la reserva que desea cancelar.", "");
         if(reservaId){
-            if(confirm("¿Está seguro que desea cancelar la reserva con ID: " + reservaId + "? Esta acción no se podrá deshacer.")){
+            if(confirm("¿Está seguro que desea cancelar la reserva #" + reservaId + "? Esta acción no se podrá deshacer.")){
                 const address = "api/v1/reservas/delete/" + reservaId;
                 let request = await fetch(address, {
                     method: 'DELETE'

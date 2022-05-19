@@ -120,4 +120,27 @@ async function getUsuarios(){
     return false;
 }
 
+async function eliminarUsuario(){
+    try{
+        var nif = prompt("Introduzca el NIF del usuario del que desea borrar la cuenta.", "");
+        if(nif){
+            if(confirm("¿Está seguro que desea borrar la cuenta del usuario con NIF " + nif + "? Esta acción no se podrá deshacer.")){
+                const address = "api/v1/usuarios/delete/" + nif;
+                let request = await fetch(address, {
+                    method: 'DELETE'
+                });
+                if(request.ok){
+                    alert("La cuenta del usuario con NIF " + nif + " se ha borrado correctamente.");
+                    location.reload();
+                }else{
+                    alert("La cuenta del usuario con NIF " + nif + " no ha podido ser borrada debido a que no existe.");
+                }
+            }
+        }
+    }catch (err){
+       console.error(err.message);
+    }
+    return false;
+}
+
 getUsuarios();

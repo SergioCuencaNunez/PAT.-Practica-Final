@@ -154,6 +154,57 @@ async function getReservas(nombreHotel){
                 div.style.marginBottom = "30px";
                 document.getElementById("tabla").appendChild(div);
            }
+           var div2 = document.createElement('div');
+           var cancelar = document.createElement('button');
+           cancelar.setAttribute('onclick',"cancelarReserva('Innside-Paris-Charles-de-Gaulle');");
+           cancelar.innerHTML = "Cancelar reserva";
+           cancelar.className = "secondary-btn";
+           div2.appendChild(cancelar);
+           div2.style.textAlign = "center";
+           document.getElementById("tabla").appendChild(div2);
+
+        }
+    }catch (err){
+       console.error(err.message);
+    }
+    return false;
+}
+
+async function cancelarReserva(nombreHotel){
+    try{
+        var reservaId = prompt("Introduzca el ID de la reserva que desea cancelar.", "");
+        if(reservaId){
+            const address = "api/v1/reservas/id/" + reservaId;
+            let request = await fetch(address, {
+                method: 'GET'
+            });
+            if(request.ok){
+                var reserva = await request.json();
+                const address1 = "api/v1/reservas/delete/hotel/" + nombreHotel;
+                const data1 = {id: reserva.id, nif: reserva.nif, hotel: reserva.hotel, destino: reserva.destino, tipo: reserva.tipo, huespedes: reserva.huespedes, habitaciones: reserva.habitaciones, fechaEntrada: reserva.fechaEntrada, fechaSalida: reserva.fechaSalida};
+                if(confirm("¿Está seguro que desea cancelar la reserva #" + reservaId + "? Esta acción no se podrá deshacer.")){
+                    fetch(address1, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data1)
+                    })
+                    .then(response => response.json())
+                    .then(data1 => {
+                        if(data1.result == "OK") {
+                            alert("La reserva #" + reservaId + " se ha cancelado correctamente.");
+                            location.reload();
+                        }else if(data1.result == "No se puede eliminar la reserva seleccionada puesto que no pertenece a este hotel."){
+                            alert(data1.result);
+                        }else{
+                            alert("La reserva #" + reservaId + " no ha podido ser cancelada debido a que no existe.");
+                        }
+                    });
+                }
+            }else{
+                alert("La reserva #" + reservaId + " no ha podido ser cancelada debido a que no existe.");
+            }
         }
     }catch (err){
        console.error(err.message);

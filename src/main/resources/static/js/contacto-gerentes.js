@@ -93,4 +93,28 @@ async function getContactos(){
     return false;
 }
 
+
+async function eliminarContacto(){
+    try{
+        var contactoNumero = prompt("Introduzca el número del mensaje que desea borrar.", "");
+        if(contactoNumero){
+            if(confirm("¿Está seguro que desea borrar el mensaje #" + contactoNumero + "? Esta acción no se podrá deshacer.")){
+                const address = "api/v1/contactos/delete/" + contactoNumero;
+                let request = await fetch(address, {
+                    method: 'DELETE'
+                });
+                if(request.ok){
+                    alert("El mensaje #" + contactoNumero + " se ha borrado correctamente.");
+                    location.reload();
+                }else{
+                    alert("El mensaje #" + contactoNumero + " no ha podido ser borrado debido a que no existe.");
+                }
+            }
+        }
+    }catch (err){
+       console.error(err.message);
+    }
+    return false;
+}
+
 getContactos();
