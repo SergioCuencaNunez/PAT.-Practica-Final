@@ -31,6 +31,12 @@ public interface ReservaRepository extends CrudRepository<Reserva, Long> {
     @Query("SELECT FECHASALIDA FROM RESERVA WHERE RESERVA.ID= :id")
     public LocalDate getFechaSalidaReservaById(Long id);
 
+    @Query("SELECT TIPO FROM RESERVA WHERE RESERVA.ID= :id")
+    public String getTipoById(Long id);
+
+    @Query("SELECT HUESPEDES FROM RESERVA WHERE RESERVA.ID= :id")
+    public int getHuespedesById(Long id);
+
     @Query("UPDATE RESERVA SET RESERVA.TIPO= :tipo WHERE RESERVA.ID= :id")
     @Modifying
     void updateReservaTipoById(Long id, String tipo);

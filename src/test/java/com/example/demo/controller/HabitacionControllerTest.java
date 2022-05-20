@@ -67,6 +67,25 @@ public class HabitacionControllerTest {
     }
 
     @Test
+    public void getHabitacionesCapacidad(){
+        Long capacidad = habitacionRepository.getHabitacionCapacidadByHotel("Melia-White-House");
+
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/habitaciones/capacidad/Melia-White-House";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity entity = new HttpEntity<>(headers);
+
+        ResponseEntity<List<Habitacion>> result = testRestTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<List<Habitacion>>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo(capacidad);
+    }
+
+    @Test
     public void getHabitaciones(){
         Iterable<Habitacion> habitaciones = habitacionRepository.findAll();
 
@@ -84,4 +103,22 @@ public class HabitacionControllerTest {
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         then(result.getBody()).isEqualTo(habitaciones);
     }
+
+    @Test
+    public void actualizarCapacidadHabitacion(){
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/habitaciones/update/capacidad/6/Premium";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity entity = new HttpEntity<>(headers);
+
+        ResponseEntity<String> result = testRestTemplate.exchange(
+                url,
+                HttpMethod.PUT,
+                entity,
+                new ParameterizedTypeReference<String>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(habitacionRepository.getHabitacionCapacidadByHotel("Premium")).isEqualTo(6);
+    }
+
 }

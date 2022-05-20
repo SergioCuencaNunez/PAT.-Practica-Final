@@ -1,22 +1,26 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Habitacion;
 import com.example.demo.model.Usuario;
+import com.example.demo.repository.UsuarioRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.*;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public final class UsuarioControllerTest {
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @LocalServerPort
     private int port;
@@ -25,10 +29,30 @@ public final class UsuarioControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
+    public void getUsuarioNif(){
+        Optional<Habitacion> ousuario = usuarioRepository.findById("");
+        Habitacion habitacion = ohabitacion.get();
+
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/habitaciones/tipo/Marylebone-Suite";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity entity = new HttpEntity<>(headers);
+
+        ResponseEntity<Habitacion> result = testRestTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<Habitacion>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo(habitacion);
+    }
+
+    @Test
     public void insertarUsuario_ok(){
 
         //Given
-        String address = "http://localhost:" + port + "/api/v1/usuarios/insert";
+        String address = "http://localhost:" + port + "/api/v1/usuarios/insert-cliente";
         Usuario usuario = new Usuario();
 
         usuario.setNif("78272775A");
@@ -56,7 +80,7 @@ public final class UsuarioControllerTest {
     public void insertarUsuario_ko(){
 
         //Given
-        String address = "http://localhost:" + port + "/api/v1/usuarios/insert";
+        String address = "http://localhost:" + port + "/api/v1/usuarios/insert-cliente";
         Usuario usuario1 = new Usuario();
         Usuario usuario2 = new Usuario();
 
@@ -66,7 +90,7 @@ public final class UsuarioControllerTest {
         usuario1.setApellido1("Hernandez");
         usuario1.setApellido2("Pardo");
         usuario1.setCorreo("laura@gmail.com");
-        usuario1.setContrasena("Lauritaa");
+        usuario1.setContrasena("LauritaaHeranP09");
         String date1 = "2000-08-27";
         LocalDate localDate1 = LocalDate.parse(date1);
         usuario1.setCumpleanos(localDate1);
@@ -176,7 +200,7 @@ public final class UsuarioControllerTest {
     public void registroCliente_ok(){
 
         //Given
-        String address = "http://localhost:" + port + "/api/v1/usuarios/registro";
+        String address = "http://localhost:" + port + "/api/v1/usuarios/registro-cliente";
         LoginCredential loginc = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda654");
 
         HttpHeaders headers = new HttpHeaders();
@@ -194,7 +218,7 @@ public final class UsuarioControllerTest {
     public void registroCliente_ko(){
 
         //Given
-        String address = "http://localhost:" + port + "/api/v1/usuarios/registro";
+        String address = "http://localhost:" + port + "/api/v1/usuarios/registro-cliente";
         //No coincide contrasena1 y contrasena2
         LoginCredential loginc1 = new LoginCredential("Javier","Barneda","Castillejo","68060671Z","2000-02-08","javier_barneda@gmail.com","JavierBarneda653","JavierBarneda654");
         //Nombre vacío

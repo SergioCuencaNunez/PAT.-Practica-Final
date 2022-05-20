@@ -14,8 +14,5 @@ public class HotelHabitacionDTO {
 	private Long ocupacion;
 	private Boolean estadoHotel;
 	private String tipo;
-	private Long numero;
-	private Long planta;
 	private Long capacidadHabitacion;
-	private Boolean estadoHabitacion;
 }

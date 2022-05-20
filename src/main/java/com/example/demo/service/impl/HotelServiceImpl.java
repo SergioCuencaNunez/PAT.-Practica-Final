@@ -132,7 +132,7 @@ public class HotelServiceImpl implements HotelService {
     public List<HotelHabitacionDTO> getHotelesConHabitaciones(){
 
         String query = """ 
-        SELECT HOTEL.NOMBRE, HOTEL.DESTINO, HOTEL.CAPACIDAD, HOTEL.OCUPACION, HOTEL.ESTADO, HABITACION.TIPO, HABITACION.NUMERO, HABITACION.PLANTA, HABITACION.CAPACIDAD, HABITACION.ESTADO 
+        SELECT HOTEL.NOMBRE, HOTEL.DESTINO, HOTEL.CAPACIDAD, HOTEL.OCUPACION, HOTEL.ESTADO, HABITACION.TIPO, HABITACION.CAPACIDAD 
         FROM HABITACION
         INNER JOIN HOTEL ON HOTEL.NOMBRE=HABITACION.HOTEL;
         """;
@@ -147,10 +147,7 @@ public class HotelServiceImpl implements HotelService {
                                 rs.getLong("HOTEL.OCUPACION"),
                                 rs.getBoolean("HOTEL.ESTADO"),
                                 rs.getString("HABITACION.TIPO"),
-                                rs.getLong("HABITACION.NUMERO"),
-                                rs.getLong("HABITACION.PLANTA"),
-                                rs.getLong("HABITACION.CAPACIDAD"),
-                                rs.getBoolean("HABITACION.ESTADO")
+                                rs.getLong("HABITACION.CAPACIDAD")
                         )
         );
         return hotelesLista;

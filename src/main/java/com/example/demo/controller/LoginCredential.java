@@ -32,10 +32,39 @@ public record LoginCredential(
     private static final String DIGITO_CONTROL = "TRWAGMYFPDXBNJZSQVHLCKE";
     private static final String[] INVALIDOS = new String[]{"00000000T", "00000001R", "99999999R"};
 
-    public boolean validar(){
+    public boolean validar_DNI(){
 
         return Arrays.binarySearch(INVALIDOS, nif) < 0
                 && nif.charAt(8) == DIGITO_CONTROL.charAt(Integer.parseInt(nif.substring(0, 8)) % 23);
 
+    }
+
+
+    static int uppercaseCounter=0;
+    // Counter lowercase letters in a password
+    static int lowercaseCounter=0;
+    // Count digits in a password
+    static int digitCounter=0;
+
+    public boolean validar_Contraseña(){
+
+        for (int i=0; i < contrasena.length(); i++ ) {
+            char c = contrasena.charAt(i);
+            if(Character.isUpperCase(c))
+                uppercaseCounter++;
+            else if(Character.isLowerCase(c))
+                lowercaseCounter++;
+            else if(Character.isDigit(c))
+                digitCounter++;
+                    }
+        digitCounter=0;
+        uppercaseCounter=0;
+        lowercaseCounter=0;
+        if (uppercaseCounter >= 1 && lowercaseCounter >= 1 && digitCounter >= 1) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
