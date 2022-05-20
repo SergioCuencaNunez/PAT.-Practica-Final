@@ -72,8 +72,6 @@ public class HotelControllerTest {
 
     @Test
     public void ampliarHabitacionesHotel(){
-        hotelRepository.updateHotelHabitacionesTotalesByNombre(16L,"Melia-White-House");
-
         String url = "http://localhost:" + Integer.toString(port) + "/api/v1/hoteles/update/ampliar/habitacionesTotales/Melia-White-House/16";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity entity = new HttpEntity<>(headers);
@@ -86,7 +84,7 @@ public class HotelControllerTest {
         );
 
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
-        then(hotelRepository.getHabitacionesTotalesByHotel("Melia-White-House")).isEqualTo(16);
+        then(hotelRepository.getHabitacionesTotalesByHotel("Melia-White-House")).isEqualTo(26);
     }
 
     @Test
@@ -109,8 +107,6 @@ public class HotelControllerTest {
 
     @Test
     public void reducirHabitacionesHotel(){
-        hotelRepository.updateHotelHabitacionesTotalesByNombre(6L,"ME-London");
-
         String url = "http://localhost:" + Integer.toString(port) + "/api/v1/hoteles/update/reducir/habitacionesTotales/ME-London/6";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity entity = new HttpEntity<>(headers);
