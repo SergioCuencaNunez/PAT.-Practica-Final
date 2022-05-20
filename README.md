@@ -36,7 +36,7 @@ Se ha dado especial importancia a que los métodos implementados en la gestión 
 
 De esta manera, la información que se muestra siempre en todas las páginas web esta actualizada y se puede verificar. Por ejemplo, al realizar una reserva y su correspondiente check-in online, el usuario recibirá sendas confirmaciones y, podrá acceder y modificar su reserva en su página individual. Por otro lado, el administrador recibirá el mensaje del check-in online, podrá observar la reserva realizada y verá como el hotel tiene más ocupación y habitaciones ocupadas.
 
-Todos los endpoints han sido comprobados con el testing que se implementa y que verifican que los métodos utilizados no tienen fallos o procesan información de manera correcta.
+Todos los endpoints han sido comprobados con el testing que se implementa y que verifican que los métodos utilizados no tienen fallos y que la información procesada es correcta.
 
 ## Información adicional
 - Los usuarios (clientes y gerentes) podrán navegar por toda la web una vez registrados, ya que su sesión permanecerá abierta hasta que ellos deseen cerrarla.
