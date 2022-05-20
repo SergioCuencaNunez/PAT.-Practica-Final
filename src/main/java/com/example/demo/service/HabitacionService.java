@@ -10,8 +10,5 @@ public interface HabitacionService {
     List<Habitacion> getHabitacionesbyHotel(String hotel);
     Long getHabitacionCapacidadbyHotel(String tipo);
     List<Habitacion> getHabitaciones();
-    Habitacion updateHabitacionNumerobyTipo(Long numero, String tipo);
     Habitacion updateHabitacionCapacidadbyTipo(Long capacidad, String tipo);
-    String insertAndCompareHabitacion(String tipo, Long numero, Long planta, String hotel, Long capacidad);
-    String deleteHabitacionbyTipo(String tipo);
 }
