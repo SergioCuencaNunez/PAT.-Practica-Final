@@ -70,7 +70,7 @@ async function cambiarInformacionPerfil() {
             }
         }
         const data1 = {nombre: nombre, apellido1: apellido1, apellido2: apellido2, nif: nif, cumpleanos: cumpleanosDef, correo: correo, contrasena: contrasena, contrasena2: contrasena};
-        const address1 = "api/v1/usuarios/usuarios/registro-gerente";
+        const address1 = "api/v1/usuarios/registro-gerente";
         fetch(address1, {
             method: 'POST',
             headers: {

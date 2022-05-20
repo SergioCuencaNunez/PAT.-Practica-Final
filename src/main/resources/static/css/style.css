@@ -1396,9 +1396,20 @@ ul, ol {
 	color: #19191a;
 	margin-bottom: 15px;
 }
+.registro-text .reg-title2 .reg-form2 h4 {
+	text-align: center;
+	font-size: 24px;
+	color: #19191a;
+	margin-bottom: 15px;
+}
 .registro-text .reg-title2 .reg-form{
     margin-top: 45px;
-    width:560px;
+    width: 50%;
+    margin: auto;
+}
+.registro-text .reg-title2 .reg-form2{
+    margin-top: 45px;
+    width: 100%;
     margin: auto;
 }
 .registro-text .reg-services li {
@@ -1469,38 +1480,48 @@ ul, ol {
     text-transform: uppercase;
     font-weight: 500;
     background: #dfa974;
-    /*padding: 0px 70px 0px 70px;*/
-    /*margin-right: 65px;
-    margin-left: 65px;*/
-    /*position: absolute;*/
 	display: inline-block;
 }
-.registro-text .reg-title2 .reg-form input {
+.registro-text .reg-title2 .reg-form form input {
 	width: 100%;
 	height: 50px;
 	border: 1px solid #e1e1e1;
+	border-radius: 2px;
 	font-size: 16px;
 	color: #19191a;
 	font-weight: 500;
 	padding-left: 25px;
 	margin-bottom: 28px;
+
 }
-.registro-text .reg-title2. reg-form input::-webkit-input-placeholder {
+.registro-text .reg-title2 .reg-form2 form input {
+	width: 100%;
+	height: 50px;
+	border: 1px solid #e1e1e1;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #19191a;
+	font-weight: 500;
+	padding-left: 25px;
+	margin-bottom: 28px;
+
+}
+.registro-text .reg-title2 .reg-form form input::-webkit-input-placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 .reg-form input::-moz-placeholder {
+.registro-text .reg-title2 .reg-form form input::-moz-placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 .reg-form input:-ms-input-placeholder {
+.registro-text .reg-title2 .reg-form form input:-ms-input-placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 . reg-form input::-ms-input-placeholder {
+.registro-text .reg-title2 .reg-form form input::-ms-input-placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 . reg-form input::placeholder {
+.registro-text .reg-title2 .reg-form form input::placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 . reg-form textarea {
+.registro-text .reg-title2 .reg-form form textarea {
 	width: 100%;
 	height: 150px;
 	border: 1px solid #e1e1e1;
@@ -1511,22 +1532,22 @@ ul, ol {
 	margin-bottom: 33px;
 	resize: none;
 }
-.registro-text .reg-title2 . reg-form textarea::-webkit-input-placeholder {
+.registro-text .reg-title2 . reg-form form textarea::-webkit-input-placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 . reg-form textarea::-moz-placeholder {
+.registro-text .reg-title2 . reg-form form textarea::-moz-placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 .reg-form textarea:-ms-input-placeholder {
+.registro-text .reg-title2 .reg-form form textarea:-ms-input-placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 .reg-form textarea::-ms-input-placeholder {
+.registro-text .reg-title2 .reg-form form textarea::-ms-input-placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 .reg-form textarea::placeholder {
+.registro-text .reg-title2 .reg-form form textarea::placeholder {
 	color: #aaaab3;
 }
-.registro-text .reg-title2 .reg-form button {
+.registro-text .reg-title2 .reg-form2 form button {
 	color: #dfa974;
 	border: 1px solid #dfa974;
 	border-radius: 2px;
@@ -1537,18 +1558,29 @@ ul, ol {
     padding: 14px 91px 13px;
 	display: inline-block;
 }
-.registro-text .reg-title2 .reg-form .select-option {
+.registro-text .reg-title2 .reg-form form button {
+	color: #dfa974;
+	border: 1px solid #dfa974;
+	border-radius: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: transparent;
+    padding: 14px 91px 13px;
+	display: inline-block;
+}
+.registro-text .reg-title2 .reg-form form .select-option {
 	margin-bottom: 15px;
 	height: 100px;
     overflow: auto;
 }
-.registro-text .reg-title2 .reg-form .select-option label {
+.registro-text .reg-title2 .reg-form form .select-option label {
 	font-size: 14px;
 	color: #707079;
 	display: block;
 	margin-bottom: 10px;
 }
-.registro-text .reg-title2 .reg-form .select-option .nice-select {
+.registro-text .reg-title2 .reg-form form .select-option .nice-select {
 	border-radius: 2px;
 	border: 1px solid #ebebeb;
 	height: 50px;
@@ -1558,7 +1590,7 @@ ul, ol {
 	width: 100%;
 	float: none;
 }
-.registro-text .reg-title2 .reg-form .select-option .nice-select:after {
+.registro-text .reg-title2 .reg-form form .select-option .nice-select:after {
 	border-bottom: 2px solid #aaaab3;
 	border-right: 2px solid #aaaab3;
 	height: 10px;
@@ -1567,16 +1599,16 @@ ul, ol {
 	width: 10px;
 	top: 36%;
 }
-.registro-text .reg-title2 .reg-form .select-option .nice-select span {
+.registro-text .reg-title2 .reg-form form .select-option .nice-select span {
 	font-size: 16px;
 	color: #aaaab3;
 	font-weight: 500;
 }
-.registro-text .reg-title2 .reg-form .select-option .nice-select .list {
+.registro-text .reg-title2 .reg-form form .select-option .nice-select .list {
 	margin-top: 0;
 	width: 100%;
 }
-.registro-text .reg-title2 .reg-form p {
+.registro-text .reg-title2 .reg-form form p {
 	margin-top: 0px;
 	margin-bottom: 28px;
 	font-size: 16px;
@@ -2504,6 +2536,27 @@ ul, ol {
         padding: 14px 28px 13px;
         height: 46px;
     }
+    .registro-text .reg-title2 .reg-form{
+        margin-top: 45px;
+        width: 60%;
+        margin: auto;
+    }
+    .registro-text .reg-title3 h2 {
+    	font-size: 30px;
+    }
+    .registro-text .reg-services3 p {
+    	font-size: 16px;
+    }
+    .registro-text .reg-services3 li {
+    	font-size: 18px;
+    	margin-bottom: 2px;
+    }
+    .registro-text .reg-services1 li {
+    	margin-bottom: 1px;
+    }
+    .registro-text .reg-services1 .reg-services2 li {
+        margin-bottom: 1px;
+    }
 }
 @media only screen and (max-width: 991px) {
 	.top-nav {
@@ -2774,6 +2827,11 @@ ul, ol {
         padding: 14px 28px 13px;
         height: 46px;
     }
+    .registro-text .reg-title2 .reg-form{
+        margin-top: 45px;
+        width: 65%;
+        margin: auto;
+    }
 }
 /* Tablet Device: 768px */
 
@@ -2859,6 +2917,20 @@ ul, ol {
 	}
 	.hp-room-items .hp-room-item .hr-text {
     	bottom: -165px;
+    }
+    .registro-text .reg-title2 .reg-form{
+        margin-top: 45px;
+        width: 70%;
+        margin: auto;
+    }
+    .registro-text .reg-title3 .reg-button button {
+    	width: 60%;
+    	margin-bottom: 20px;
+    }
+    .about-page-text .ap-title .ap-button{
+        display: block;
+        margin-bottom: 20px;
+        text-align: center;
     }
 }
 /* Medium Mobile: 380px */

@@ -5,13 +5,13 @@ import java.util.Arrays;
 
 public record LoginCredential(
 
-    @Pattern(message="máximo 15 caracteres" , regexp="^[a-zA-Z]{0,15}$")
+    @Pattern(message="máximo 15 caracteres" , regexp="^[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+(\\s*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]*)*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+${0,15}$")
     String nombre,
 
-    @Pattern(message="máximo 20 caracteres" , regexp="^[a-zA-Z]{0,20}$")
+    @Pattern(message="máximo 20 caracteres" , regexp="^[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+(\\s*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]*)*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+${0,20}$")
     String apellido1,
 
-    @Pattern(message="máximo 20 caracteres" , regexp="^[a-zA-Z]{0,20}$")
+    @Pattern(message="máximo 20 caracteres" , regexp="^[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+(\\s*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]*)*[a-zA-ZÀ-ÿ\\u00f1\\u00d1]+${0,20}$")
     String apellido2,
 
     @Pattern(message="máximo 9 caracteres" , regexp="^[0-9]{8}+[TRWAGMYFPDXBNJZSQVHLCKE]$")
@@ -38,7 +38,6 @@ public record LoginCredential(
                 && nif.charAt(8) == DIGITO_CONTROL.charAt(Integer.parseInt(nif.substring(0, 8)) % 23);
 
     }
-
 
     static int uppercaseCounter=0;
     // Counter lowercase letters in a password
