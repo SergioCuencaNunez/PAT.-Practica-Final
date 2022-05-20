@@ -630,14 +630,8 @@ ul, ol {
   Check-in form
 -----------------------*/
 .checkin-form {
-	/*background: #ffffff;*/
-	/*padding: 26px 36px 40px 32px;*/
-	padding: 0 36px 0 32px;
-	/*border-radius: 4px;
-	border-style: solid;
-	border-width: thin;
-	border-color: #dfa974;*/
-	/*Los margin-bottom eran de 8px*/
+	/*padding: 0 36px 0 32px;*/
+	/*margin: 0 auto;*/
 }
 .checkin-form h3 {
 	color: #19191a;
@@ -654,7 +648,7 @@ ul, ol {
 	margin-bottom: 14px;
 }
 .checkin-form form .check-date input {
-	width: 70%;
+	width: 100%;
 	height: 50px;
 	border: 1px solid #ebebeb;
 	border-radius: 2px;
@@ -667,26 +661,8 @@ ul, ol {
 .checkin-form form .check-date i {
 	color: #dfa974;
 	position: absolute;
-    right: 165px;
+    right: 18px;
     bottom: 17px;
-}
-.checkin-form form .text-input input {
-	width: 70%;
-	height: 50px;
-	border: 1px solid #ebebeb;
-	border-radius: 2px;
-	font-size: 16px;
-	color: #19191a;
-	text-transform: uppercase;
-	font-weight: 500;
-	padding-left: 20px;
-	margin-bottom: 14px;
-}
-.checkin-form form .text-input label {
-	font-size: 14px;
-	color: #707079;
-	display: block;
-	margin-bottom: 14px;
 }
 .checkin-form form .select-option {
 	margin-bottom: 14px;
@@ -704,7 +680,7 @@ ul, ol {
 	line-height: 50px;
 	outline: none;
 	padding-left: 20px;
-	width: 70%;
+	width: 100%;
 	float: none;
 }
 .checkin-form form .select-option .nice-select:after {
@@ -735,9 +711,27 @@ ul, ol {
 	color: #dfa974;
 	font-weight: 500;
 	background: transparent;
-	width: 70%;
+	width: 100%;
 	height: 46px;
 	margin-top: 28px;
+}
+.checkin-form form .text-input input {
+	width: 100%;
+	height: 50px;
+	border: 1px solid #ebebeb;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #19191a;
+	text-transform: uppercase;
+	font-weight: 500;
+	padding-left: 20px;
+	margin-bottom: 14px;
+}
+.checkin-form form .text-input label {
+	font-size: 14px;
+	color: #707079;
+	display: block;
+	margin-bottom: 14px;
 }
 .hero-slider {
 	position: absolute;
@@ -1169,24 +1163,28 @@ ul, ol {
 	padding-bottom: 70px;
 }
 .about-page-text {
-	margin-bottom: 65px;
+	margin-bottom: 35px;
 }
 .about-page-text .ap-title {
-	margin-bottom: 30px;
+	margin-bottom: 35px;
 }
-.about-page-text .ap-title h2 {
-	font-size: 44px;
+.about-page-text .ap-title h3 {
+	font-size: 25px;
 	color: #19191a;
-	margin-bottom: 18px;
+	margin-bottom: 15px;
 }
 .about-page-text .ap-title p {
-	font-size: 18px;
+	font-size: 20px;
 	color: #707079;
 	line-height: 28px;
+	margin-bottom: 5px;
+}
+.about-page-text .ap-services{
+	margin-bottom: 8px;
 }
 .about-page-text .ap-services li {
 	list-style: none;
-	font-size: 20px;
+	font-size: 18px;
 	color: #707079;
 	line-height: 42px;
 }
@@ -1210,7 +1208,18 @@ ul, ol {
 .about-page-services .ap-service-item .api-text h3 {
 	color: #ffffff;
 }
-.about-page-text .ap-button a {
+.about-page-text .ap-title .ap-services2 h3{
+	font-size: 25px;
+    color: #19191a;
+    margin-bottom: 10px;
+}
+.about-page-text .ap-title .ap-services2 p {
+	font-size: 20px;
+	color: #707079;
+	line-height: 28px;
+	margin-bottom: 19px;
+}
+.about-page-text .ap-title .ap-button a {
 	display: inline-block;
     color: #ffffff;
     font-size: 14px;
@@ -1897,13 +1906,7 @@ ul, ol {
 }
 
 .room-booking {
-    /*background: #ffffff;
-	padding: 26px 30px 40px 40px;*/
     padding: 0 30px 0 40px;
-	/*border-radius: 4px;
-	border-style: solid;
-    border-width: thin;
-    border-color: #dfa974;*/
 }
 .room-booking h3 {
 	color: #19191a;
@@ -2482,6 +2485,25 @@ ul, ol {
 	.hp-room-items .hp-room-item:hover .hr-text {
 		bottom: 80px;
 	}
+	.about-page-text .ap-services li {
+    	font-size: 16px;
+    }
+	.about-page-text .ap-title p {
+    	font-size: 18px;
+    }
+    .about-page-text .ap-title .ap-services2 p {
+    	font-size: 18px;
+    }
+	.about-page-text .ap-title .ap-button a {
+        display: inline-block;
+        color: #ffffff;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 500;
+        background: #dfa974;
+        padding: 14px 28px 13px;
+        height: 46px;
+    }
 }
 @media only screen and (max-width: 991px) {
 	.top-nav {
@@ -2731,7 +2753,10 @@ ul, ol {
 	}
 	.room-booking {
 		padding: 0;
-		margin-top: 40px;
+		/*margin-top: 40px;*/
+	}
+	.room-booking form button{
+	    margin-bottom: 60px;
 	}
 	.contact-form {
 		padding-top: 30px;
@@ -2739,6 +2764,16 @@ ul, ol {
 	.hero-text {
 		margin-bottom: 40px;
 	}
+	.about-page-text .ap-title .ap-button a {
+    	display: inline-block;
+        color: #ffffff;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 500;
+        background: #dfa974;
+        padding: 14px 28px 13px;
+        height: 46px;
+    }
 }
 /* Tablet Device: 768px */
 

@@ -148,30 +148,39 @@
         <div class="container">
             <div class="about-page-text">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
                         <div class="ap-title">
                             <h2>Tu check-in en unos segundos</h2>
                             <h3>Aprovecha estas ventajas exclusivas</h3>
                             <p>Si haces check-in online desde 96 horas antes de la llegada y hasta las 10h del día de llegada al hotel</p>
-                        </div>
-                        <div>
                             <ul class="ap-services">
                                 <li><i class="icon_check"></i> Consigue una habitación superior (*)</li>
                                 <li><i class="icon_check"></i> Ahorra tiempo con la máxima seguridad</li>
                                 <li><i class="icon_check"></i> Si no eres miembro de MeliáRewards, date de alta ahora y consigue 2000 puntos de bienvenida</li>
                                 <li><i class="icon_check"></i> Asigna huéspedes a cada habitación</li>
                                 <li><i class="icon_check"></i> Obtén tu Llave digital (**)</li>
+                                <li>(*) Sujeto a disponibilidad</li>
+                                <li>(**) Solo en aquellos hoteles con el sistema activo</li>
                             </ul>
-                            <p>(*) Sujeto a disponibilidad <br> (**) Solo en aquellos hoteles con el sistema activo</p><br>
-                            <h3>Descarga nuestra APP</h3>
-                            <p>Check-in más rápido disfrutando de todas las ventajas en tu móvil<p>
-                        </div>
-                        <div class="ap-button">
-                            <a href="https://apps.apple.com/es/app/meliá/id1151855213" target="_blank">Download on the App Store</a>
-                            <a href="https://play.google.com/store/apps/details?id=es.mobail.meliarewards" target="_blank">Disponible en Google Play</a>
+                            <div class="ap-services2">
+                                <h3>Descarga nuestra APP</h3>
+                                <p>Check-in más rápido disfrutando de todas las ventajas en tu móvil<p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="ap-button">
+                                        <a href="https://apps.apple.com/es/app/meliá/id1151855213" target="_blank">Download on the App Store</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="ap-button">
+                                        <a href="https://play.google.com/store/apps/details?id=es.mobail.meliarewards" target="_blank">Disponible en Google Play</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6" style="left: 182px;">
+                    <div class="col-lg-5">
                         <div class="checkin-form">
                             <h3>Check-in</h3>
                             <form id="checkInForm">
@@ -205,15 +214,21 @@
                                         <option value="Innside-New-York-Nomad">Innside New York Nomad</option>
                                     </select>
                                 </div>
-                                <div class="check-date">
-                                    <label for="date-in">Check In:</label>
-                                    <input type="text" class="date-input" id="date-in">
-                                    <i class="icon_calendar"></i>
-                                </div>
-                                <div class="check-date">
-                                    <label for="date-out">Check Out:</label>
-                                    <input type="text" class="date-input" id="date-out">
-                                    <i class="icon_calendar"></i>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="check-date">
+                                            <label for="date-in">Check In:</label>
+                                            <input type="text" class="date-input" id="date-in">
+                                            <i class="icon_calendar"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="check-date">
+                                            <label for="date-out">Check Out:</label>
+                                            <input type="text" class="date-input" id="date-out">
+                                            <i class="icon_calendar"></i>
+                                        </div>
+                                    </div>
                                 </div>
                                 <button onclick="checkIn()" type="submit">Localiza mi reserva</button>
                             </form>

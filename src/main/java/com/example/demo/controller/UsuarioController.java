@@ -154,7 +154,7 @@ public class UsuarioController {
         if (result.isFlag()) {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
-        }else if(result.getAccessToken() == "Contraseña Errónea") {
+        }else if(result.getAccessToken().equals("Contraseña Errónea")){
             LoginResponse loginResponse = new LoginResponse("Contraseña errónea");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }else{

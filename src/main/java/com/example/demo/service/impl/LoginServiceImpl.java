@@ -50,7 +50,6 @@ public class LoginServiceImpl implements LoginService {
                  String value = correo + ":" + contrasena;
                  String accessToken = Base64.getEncoder().encodeToString(value.getBytes());
                  return new LoginServiceResult(true, accessToken);
-
             }else{
                 return new LoginServiceResult(false, "Contraseña Errónea");
             }
