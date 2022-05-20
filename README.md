@@ -28,8 +28,8 @@ Si se inicia sesión como usuario, se tendrá acceso a la página de ``Perfil``,
 En caso de ser administrador, se tendrá total control a todos los aspectos comentados. También dispone de un perfil, al cuál se llega al iniciar sesión, dónde poder modificar los datos personales y, además, crear otros perfiles de gerentes. Por motivos de seguridad, las cuentas de los nuevos administradores se crean dentro de la cuenta de otro. Desde la sección ``Gestión empresarial`` se podrá acceder a:
 - Usuarios: se muestran todos los ususarios junto con su información relevante.
 - Reservas: se muestra para cada hotel, las reservas realizadas, con posibilidad de poder cancelarlas pero no modificarlas, que corre a cargo del usuario.
-- Hoteles: se muestra el control de cada hotel, desde el cuál se pueden ampliar o reducir habitaciones, y cerrar o abrir el hotel. También se pueden acceder a las reservas de cada hotel a través de esta página.
-Esta interfaz también habilita al gerente, poder observar todos los mensajes recibidos (check-in online, suscripciones y mensajes de los clientes).
+- Hoteles: se muestra el control de cada hotel, desde el cuál se pueden ampliar o reducir habitaciones, y cerrar o abrir el hotel. También se pueden acceder a las reservas de cada hotel a través de esta página. 
+- Contacto: se pueden observar todos los mensajes recibidos (check-in online, suscripciones y mensajes de los clientes).
 
 ## Software Back-End
 Se ha dado especial importancia a que los métodos implementados en la gestión de los endpoints REST sean coherentes y reflejen de manera correcta toda la información que se maneja en el sitio web. Para ello, todos los formularios están correctamente validados y no permiten realizar acciones si los datos que se introducen son incorrectos mostrando siempre en cada caso, el error por el cuál se produce o en su caso, la confirmación de que los datos se extraen, se modifican o eliminan de manera correcta.
