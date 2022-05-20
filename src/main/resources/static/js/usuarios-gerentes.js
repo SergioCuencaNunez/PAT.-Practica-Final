@@ -99,8 +99,8 @@ async function getUsuarios(){
                 table.className = "usuario-gerentes-table";
                 //div.appendChild(table);
                 table.style.marginBottom = "30px";
-                //div.style.marginLeft = "15px";
-                //div.style.marginRight = "15px";
+                //table.style.marginLeft = "15px";
+                //table.style.marginRight = "15px";
                 //div.className= "usuario-gerentes-div";*/
                 document.getElementById("tabla").appendChild(table);
            }
