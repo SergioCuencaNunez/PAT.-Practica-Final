@@ -84,23 +84,4 @@ public class HabitacionControllerTest {
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         then(result.getBody()).isEqualTo(habitaciones);
     }
-
-    @Test
-    public void borrarHabitacion(){
-        habitacionRepository.deleteById("Junior-Suite");
-
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/habitaciones/delete/Junior-Suite";
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity entity = new HttpEntity<>(headers);
-
-        ResponseEntity<String> result = testRestTemplate.exchange(
-                url,
-                HttpMethod.GET,
-                entity,
-                new ParameterizedTypeReference<String>(){}
-        );
-
-        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
-        then(result.getBody()).isEqualTo("No hay ninguna habitacion del tipo Junior-Suite");
-    }
 }
