@@ -206,7 +206,8 @@ public class ReservaServiceImpl implements ReservaService {
         Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
         Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
 
-        if (id == null) {
+        //if (id == null) {
+        if(reservaRepository.findById(id) != null){
             ReservaServiceResult result = this.comprobarDisponibilidad(hotel, habitaciones);
             if (result.isFlag()) {
                 hotelRepository.updateHotelOcupacionByNombre(ocupacion + huespedes, hotel);

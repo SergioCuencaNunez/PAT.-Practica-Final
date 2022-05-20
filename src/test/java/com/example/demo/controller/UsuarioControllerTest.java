@@ -107,33 +107,6 @@ public final class UsuarioControllerTest {
     }
 
     @Test
-    public void actualizarCliente() {
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/usuarios/update/sorayita@gmail.com";
-        Usuario usuario = new Usuario();
-
-        usuario.setNombre("Soraya");
-        usuario.setApellido1("Martos");
-        usuario.setApellido2("Sicilia");
-        usuario.setCorreo("sorayaaaaa@gmail.com");
-        usuario.setNif("38421952S");
-        usuario.setCorreo("Sormartossicilia0916");
-        usuario.setCumpleanos(LocalDate.parse("2000-09-16"));
-        usuario.setRol("cliente");
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity entity = new HttpEntity<>(usuario, headers);
-
-        ResponseEntity<LoginResponse> result = restTemplate.exchange(
-                url,
-                HttpMethod.PUT,
-                entity,
-                new ParameterizedTypeReference<LoginResponse>() {
-                }
-        );
-
-        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
-    }
-
-    @Test
     public void insertarUsuario_ok(){
 
         //Given
