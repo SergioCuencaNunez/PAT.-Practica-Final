@@ -457,7 +457,7 @@ async function modificarReserva(){
                                });
                                if(request1.ok){
                                    var capacidad = await request1.json();
-                                   if((parseInt(numeroHuespedes)) <= capacidad){
+                                   if((parseInt(numeroHuespedes)) <= (capacidad*reserva.habitaciones)){
                                         const address2 = "api/v1/reservas/update/huespedes/" + reserva.id + "/" + numeroHuespedes;
                                         let request2 = await fetch(address2, {
                                            method: 'PUT'

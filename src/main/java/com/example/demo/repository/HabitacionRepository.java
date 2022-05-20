@@ -12,7 +12,6 @@ public interface HabitacionRepository extends CrudRepository<Habitacion, String>
     @Query("SELECT* FROM HABITACION WHERE HABITACION.HOTEL= :hotel")
     public List<Habitacion> getHabitacionesByHotel(String hotel);
 
-<<<<<<< HEAD
     @Query("SELECT* FROM HABITACION WHERE HABITACION.ESTADO= :estado")
     public List<Habitacion> getHabitacionesByEstado(Boolean estado);
 
@@ -28,10 +27,9 @@ public interface HabitacionRepository extends CrudRepository<Habitacion, String>
     @Query("UPDATE HABITACION SET HABITACION.ESTADO= :estado WHERE HABITACION.TIPO= :tipo")
     @Modifying
     void updateHabitacionEstadoByTipo(Boolean estado, String tipo);
-=======
+
     @Query("SELECT CAPACIDAD FROM HABITACION WHERE HABITACION.TIPO= :tipo")
     public Long getHabitacionCapacidadByHotel(String tipo);
->>>>>>> c23eb41e856c45155220af9a9135bfa34c22ae64
 
     @Query("UPDATE HABITACION SET HABITACION.NUMERO= :numero WHERE HABITACION.TIPO= :tipo")
     @Modifying
