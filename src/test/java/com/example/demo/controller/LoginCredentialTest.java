@@ -34,7 +34,7 @@ public class LoginCredentialTest {
 
         LoginCredential LoginCredential = new LoginCredential("Javier","Barneda","Castillejo","45132222N","08-02-2000","javier_barneda@gmail.com","JavierBarneda654","JavierBarneda654");
 
-        boolean result = LoginCredential.validar_Contraseña();
+        boolean result = LoginCredential.validar_Contrasena();
         assertEquals(true,result);
 
     }
@@ -46,9 +46,9 @@ public class LoginCredentialTest {
         LoginCredential LoginCredential_invalido1 = new LoginCredential("Javier","Barneda","Castillejo","80762074N","08-02-2000","javier_barneda@gmail.com","aaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaa");
         LoginCredential LoginCredential_invalido2 = new LoginCredential("Javier","Barneda","Castillejo","67756676X","08-02-2000","javier_barneda@gmail.com","AAAAAAAAAAkkllkll","AAAAAAAAAAkkllkll");
         LoginCredential LoginCredential_invalido3 = new LoginCredential("Javier","Barneda","Castillejo","41234189L","08-02-2000","javier_barneda@gmail.com","aaaaaaeerrtt6789867","aaaaaaeerrtt6789867");
-        assertEquals(false, LoginCredential_invalido1.validar_Contraseña());
-        assertEquals(false, LoginCredential_invalido2.validar_Contraseña());
-        assertEquals(false, LoginCredential_invalido3.validar_Contraseña());
+        assertEquals(false, LoginCredential_invalido1.validar_Contrasena());
+        assertEquals(false, LoginCredential_invalido2.validar_Contrasena());
+        assertEquals(false, LoginCredential_invalido3.validar_Contrasena());
 
     }
     

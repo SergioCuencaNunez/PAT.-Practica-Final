@@ -46,24 +46,27 @@ public record LoginCredential(
     // Count digits in a password
     static int digitCounter=0;
 
-    public boolean validar_Contraseña(){
+    public boolean validar_Contrasena(){
 
         for (int i=0; i < contrasena.length(); i++ ) {
             char c = contrasena.charAt(i);
-            if(Character.isUpperCase(c))
+            if (Character.isUpperCase(c))
                 uppercaseCounter++;
-            else if(Character.isLowerCase(c))
+            else if (Character.isLowerCase(c))
                 lowercaseCounter++;
-            else if(Character.isDigit(c))
+            else if (Character.isDigit(c))
                 digitCounter++;
-                    }
-        digitCounter=0;
-        uppercaseCounter=0;
-        lowercaseCounter=0;
+        }
         if (uppercaseCounter >= 1 && lowercaseCounter >= 1 && digitCounter >= 1) {
+            digitCounter=0;
+            uppercaseCounter=0;
+            lowercaseCounter=0;
             return true;
         }
         else {
+            digitCounter=0;
+            uppercaseCounter=0;
+            lowercaseCounter=0;
             return false;
         }
     }
