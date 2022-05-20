@@ -115,10 +115,10 @@ async function abrirHotel(nombreHotel){
        if(request0.ok){
            var hotel = await request0.json();
            var hoteles = {
-             'Melia-Madrid-Princesa': "Meliá Madrid Princesa",
-             'Gran-Melia-Palacio-de-los-Duques': "Gran Meliá Palacio de los Duques",
-             'Melia-White-House': "Meliá White House",
-             'ME-London': "ME London"
+             'Innside-Paris-Charles-de-Gaulle': "Innside Paris Charles de Gaulle",
+             'Melia-Paris-La-Defense': "Meliá Paris La Défense",
+             'TRYP-New-York-Times-Square': "TRYP New York Times Square",
+             'Innside-New-York-Nomad': "Innside New York Nomad"
            };
            if(hotel.estado === true){
                 alert('El hotel ' + hoteles[nombreHotel] + ' ya está abierto al público.');
@@ -147,10 +147,10 @@ async function cerrarHotel(nombreHotel){
        if(request0.ok){
            var hotel = await request0.json();
            var hoteles = {
-             'Melia-Madrid-Princesa': "Meliá Madrid Princesa",
-             'Gran-Melia-Palacio-de-los-Duques': "Gran Meliá Palacio de los Duques",
-             'Melia-White-House': "Meliá White House",
-             'ME-London': "ME London"
+             'Innside-Paris-Charles-de-Gaulle': "Innside Paris Charles de Gaulle",
+             'Melia-Paris-La-Defense': "Meliá Paris La Défense",
+             'TRYP-New-York-Times-Square': "TRYP New York Times Square",
+             'Innside-New-York-Nomad': "Innside New York Nomad"
            };
            if(hotel.estado === false){
                 alert('El hotel ' + hoteles[nombreHotel] + ' ya está cerrado al público y no admite clientes.');
@@ -210,7 +210,7 @@ async function ampliarHabitaciones(nombreHotel){
                     alert('No se han podido ampliar las habitaciones del hotel ' + hoteles[nombreHotel] + '.');
                 }
            }else{
-               alert('Para poder ampliar habitaciones el hotel debe estar cerrado.');
+               alert('Para ampliar habitaciones el hotel debe estar cerrado.');
            }
        }
      }catch (err){
@@ -246,7 +246,7 @@ async function reducirHabitaciones(nombreHotel){
                     alert('No se han podido reducir las habitaciones del hotel ' + hoteles[nombreHotel] + '.');
                 }
            }else{
-               alert('Para poder reducir habitaciones el hotel debe estar cerrado.');
+               alert('Para reducir habitaciones el hotel debe estar cerrado.');
            }
        }
      }catch (err){

@@ -10,7 +10,6 @@ async function setNombre(){
        });
        if(request.ok){
            var usuario = await request.json();
-           console.log(usuario.nombre);
            document.getElementById("cuenta").innerHTML = "Reservas de " + usuario.nombre;
        }
      }catch (err){
@@ -19,9 +18,4 @@ async function setNombre(){
      return false;
 }
 
-/*const setCorreo = (correo) => {
-    document.getElementById("correo").innerHTML = correo;
-}*/
-
 setNombre();
-//setCorreo(getCorreo());

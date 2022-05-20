@@ -129,10 +129,6 @@ async function cambiarInformacionPerfil() {
     return false;
 }
 
-/*const setCorreo = (correo) => {
-    document.getElementById("correo").innerHTML = correo;
-}*/
-
 async function cerrarSesion(){
     localStorage.removeItem("access_token");
     console.log(localStorage.getItem("access_token"));
@@ -141,11 +137,38 @@ async function cerrarSesion(){
     }
 }
 
+async function eliminarCuenta(){
+     try {
+       const address = "api/v1/usuarios/correo/" + getCorreo();
+       let request = await fetch(address, {
+           method: 'GET'
+       });
+       if(request.ok){
+           var usuario = await request.json();
+           var nif = usuario.nif;
+            if(confirm("¿Está seguro que desea eliminar su usuario? Esta acción no se podrá deshacer.")){
+                const address = "api/v1/usuarios/delete/" + nif;
+                let request = await fetch(address, {
+                    method: 'DELETE'
+                });
+                if(request.ok){
+                    alert("La cuenta correspondiente al usuario con NIF " + nif + " se ha eliminado correctamente.");
+                    localStorage.removeItem("access_token");
+                    document.location.href="/inicio-sesion.html";
+                }else{
+                    alert("La cuenta correspondiente al usuario con NIF " + nif + " no ha podido eliminarse.");
+                }
+            }
+       }
+     }catch (err){
+       console.error(err.message);
+     }
+     return false;
+}
+
 setNombre();
 getInformacionPerfil();
 
 $('#perfilForm').submit(function (e) {
     e.preventDefault();
 });
-
-//setCorreo(getCorreo());

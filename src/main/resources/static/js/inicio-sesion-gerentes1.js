@@ -210,7 +210,7 @@ async function ampliarHabitaciones(nombreHotel){
                     alert('No se han podido ampliar las habitaciones del hotel ' + hoteles[nombreHotel] + '.');
                 }
            }else{
-               alert('Para poder ampliar habitaciones el hotel debe estar cerrado.');
+               alert('Para ampliar habitaciones el hotel debe estar cerrado.');
            }
        }
      }catch (err){
@@ -246,7 +246,7 @@ async function reducirHabitaciones(nombreHotel){
                     alert('No se han podido reducir las habitaciones del hotel ' + hoteles[nombreHotel] + '.');
                 }
            }else{
-               alert('Para poder reducir habitaciones el hotel debe estar cerrado.');
+               alert('Para reducir habitaciones el hotel debe estar cerrado.');
            }
        }
      }catch (err){

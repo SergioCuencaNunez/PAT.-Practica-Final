@@ -140,6 +140,7 @@ async function sesionIniciada(){
         document.getElementById("cuenta1").innerHTML = "Mi Cuenta";
     }else if(localStorage.getItem("access_token") != null && localStorage.getItem("access_token_type") == "admin"){
         document.getElementById("cuenta1").innerHTML = "Gestión empresarial";
+        document.getElementById("contacto1").href="./contacto-gerentes.html";
     }
 }
 sesionIniciada();

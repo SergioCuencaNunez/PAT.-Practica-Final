@@ -32,22 +32,15 @@ public class ReservaController {
         Long id = Long.parseLong(idStr);
         Reserva reserva = reservaServicio.getReservabyId(id);
         if(reserva != null){
-            return ResponseEntity.ok().body(reserva);
+            return new ResponseEntity<>(reserva, HttpStatus.OK);
         }
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
     @Transactional
     @GetMapping("/reservas/nif/{nif}")
     public ResponseEntity<List<Reserva>> getReservasNif(@PathVariable("nif") String nif){
         List<Reserva> reservas = reservaServicio.getReservasbyNif(nif);
-        return ResponseEntity.ok().body(reservas);
-    }
-
-    @Transactional
-    @GetMapping("/reservas/destino/{destino}")
-    public ResponseEntity<List<Reserva>> getReservasDestino(@PathVariable("destino") String destino){
-        List<Reserva> reservas = reservaServicio.getReservasbyDestino(destino);
         return ResponseEntity.ok().body(reservas);
     }
 
@@ -66,18 +59,74 @@ public class ReservaController {
     }
 
     @Transactional
-    @GetMapping("/reservas/update/{id}/{hotel}/{destino}/{tipo}/{huespedes}/{habitaciones}/{fechaEntrada}/{fechaSalida}")
-    public ResponseEntity<Reserva> updateReservaId(@PathVariable("id") String idStr,@PathVariable("hotel") String hotel,@PathVariable("destino") String destino, @PathVariable("tipo") String tipo, @PathVariable("huespedes") String huespedesStr,@PathVariable("habitaciones") String habitacionesStr,@PathVariable("fechaEntrada") String fechaEntradaStr,@PathVariable("fechaSalida") String fechaSalidaStr){
+    @PutMapping("/reservas/update/tipo/{id}/{tipo}")
+    public ResponseEntity<String> updateReservaTipoId(@PathVariable("id") String idStr, @PathVariable("tipo") String tipo){
+        Long id = Long.parseLong(idStr);
+        Reserva reserva = reservaServicio.updateReservaTipobyId(id, tipo);
+        if(reserva != null){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+    }
+
+    @Transactional
+    @PutMapping("/reservas/update/huespedes/{id}/{huespedes}")
+    public ResponseEntity<ReservaResponse> updateReservaHuespedesId(@PathVariable("id") String idStr, @PathVariable("huespedes") String huespedesStr){
         Long id = Long.parseLong(idStr);
         Long huespedes = Long.parseLong(huespedesStr);
-        Long habitaciones = Long.parseLong(habitacionesStr);
-        LocalDate fechaEntrada = LocalDate.parse(fechaEntradaStr);
-        LocalDate fechaSalida = LocalDate.parse(fechaSalidaStr);
-        Reserva reserva = reservaServicio.updateReservabyId(id, hotel, destino, tipo, huespedes, habitaciones, fechaEntrada, fechaSalida);
-        if(reserva != null){
-            return ResponseEntity.ok().body(reserva);
+        ReservaServiceResult result = reservaServicio.updateReservaHuespedesbyId(id, huespedes);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else if(result.getAccessToken().equals("No ha modificado el número de huéspedes")){
+            ReservaResponse reservaResponse = new ReservaResponse("No ha realizado ninguna modificación sobre el número de huéspedes en la reserva #" + id + ".");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("No se ha podido modificar el número de huéspedes de la reserva #" + id + ".");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }
-        return ResponseEntity.notFound().build();
+    }
+
+    @Transactional
+    @PutMapping("/reservas/update/habitaciones/{id}/{habitaciones}")
+    public ResponseEntity<ReservaResponse> updateReservaHabitacionId(@PathVariable("id") String idStr, @PathVariable("habitaciones") String habitacionesStr){
+        Long id = Long.parseLong(idStr);
+        Long habitaciones = Long.parseLong(habitacionesStr);
+        ReservaServiceResult result = reservaServicio.updateReservaHabitacionbyId(id, habitaciones);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else if(result.getAccessToken().equals("No ha modificado el número de habitaciones")){
+            ReservaResponse reservaResponse = new ReservaResponse("No ha realizado ninguna modificación sobre el número de habitaciones en la reserva #" + id + ".");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("No se ha podido modificar el número de habitaciones de la reserva #" + id + ".");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Transactional
+    @PutMapping("/reservas/update/fechaEntrada/{id}/{fechaEntrada}")
+    public ResponseEntity<String> updateReservaFechaEntradaId(@PathVariable("id") String idStr, @PathVariable("fechaEntrada") String fechaEntradaStr){
+        Long id = Long.parseLong(idStr);
+        LocalDate fechaEntrada = LocalDate.parse(fechaEntradaStr);
+        Reserva reserva = reservaServicio.updateReservaFechaEntradabyId(id, fechaEntrada);
+        if(reserva != null){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+    }
+
+    @Transactional
+    @PutMapping("/reservas/update/fechaSalida/{id}/{fechaSalida}")
+    public ResponseEntity<String> updateReservaFechaSalidaId(@PathVariable("id") String idStr, @PathVariable("fechaSalida") String fechaSalidaStr){
+        Long id = Long.parseLong(idStr);
+        LocalDate fechaSalida = LocalDate.parse(fechaSalidaStr);
+        Reserva reserva = reservaServicio.updateReservaFechaSalidabyId(id, fechaSalida);
+        if(reserva != null){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
     }
 
     @Transactional
@@ -149,11 +198,34 @@ public class ReservaController {
     }
 
     @Transactional
-    @GetMapping("/reservas/delete/{id}")
+    @DeleteMapping("/reservas/delete/{id}")
     public ResponseEntity<String> deleteReservaId(@PathVariable("id") String idStr){
         Long id = Long.parseLong(idStr);
         String resultado = reservaServicio.deleteReservabyId(id);
-        return ResponseEntity.ok().body(resultado);
+        if(resultado.equals("La reserva se ha borrado correctamente")){
+            return new ResponseEntity<>("", HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+        }
     }
 
+    @Transactional
+    @DeleteMapping("/reservas/delete/hotel/{hotel}")
+    public ResponseEntity<ReservaResponse> deleteReservaHotelId(@RequestBody Reserva reserva, BindingResult bindingResult, @PathVariable("hotel") String hotel){
+        if(bindingResult.hasErrors()){
+            ReservaResponse reservaResponse = new ReservaResponse("KO");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
+        ReservaServiceResult result = reservaServicio.deleteReservaHotelbyId(reserva, hotel);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else if(result.getAccessToken().equals("La reserva no pertenece a este hotel")){
+            ReservaResponse reservaResponse = new ReservaResponse("No se puede eliminar la reserva seleccionada puesto que no pertenece a este hotel.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("No existe ninguna reserva con ese identificador.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }
+    }
 }

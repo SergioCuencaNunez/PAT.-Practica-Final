@@ -17,7 +17,7 @@ async function registro() {
         }
         var cumpleanosDef = cumpleanosAno + "-" + numeroMes + "-" + cumpleanosDia;
         const data1 = {nombre: nombre, apellido1: apellido1, apellido2: apellido2, nif: nif, cumpleanos: cumpleanosDef, correo: correo, contrasena: contrasena, contrasena2: contrasena2};
-        const address1 = "api/v1/usuarios/registro";
+        const address1 = "api/v1/usuarios/registro-cliente";
         fetch(address1, {
             method: 'POST',
             headers: {
@@ -32,7 +32,7 @@ async function registro() {
                 console.log("Authenticated");
                 var cumpleanosDefi = new Date(cumpleanosDef);
                 const data2 = {"nif": nif, "nombre": nombre, "apellido1": apellido1, "apellido2": apellido2, "cumpleanos": cumpleanosDefi, "correo": correo, "contrasena": contrasena, "rol": "cliente"};
-                const address2 = "api/v1/usuarios/insert";
+                const address2 = "api/v1/usuarios/insert-cliente";
                 fetch(address2, {
                     method: 'POST',
                     headers: {
@@ -45,6 +45,7 @@ async function registro() {
                     if(data2.result == "OK") {
                         alert("Credenciales correctos. Se ha registrado con éxito en el programa de fidelización MeliáRewards");
                         localStorage.setItem("correo", correo);
+                        localStorage.setItem("access_token", data2.accessToken);
                         document.location.href="inicio-sesion-clientes.html";
                     }else{
                         alert(data2.result);

@@ -7,7 +7,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gestión Meliá Hotels & Resorts - Perfil</title>
+    <title>Gestión Meliá Hotels & Resorts</title>
     <link rel="icon" type="image/png" href="img/favicon.png"/>
 
     <!-- Google Font -->
@@ -53,10 +53,12 @@
                 <li class="active"><a href="./perfil-gerentes.html">Gestión empresarial</a>
                     <ul class="dropdown">
                         <li><a href="./perfil-gerentes.html">Perfil</a></li>
+                        <li><a href="./usuarios-gerentes.html">Usuarios</a></li>
+                        <li><a href="./reservas-gerentes-princesa.html">Reservas</a></li>
                         <li><a href="./inicio-sesion-gerentes1.html">Hoteles</a></li>
                     </ul>
                 </li>
-                <li><a href="./contact.html">Contacto</a></li>
+                <li><a href="./contacto-gerentes.html">Contacto</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -118,10 +120,12 @@
                                     <li class="active"><a href="./perfil-gerentes.html">Gestión empresarial</a>
                                         <ul class="dropdown">
                                             <li><a href="./perfil-gerentes.html">Perfil</a></li>
+                                            <li><a href="./usuarios-gerentes.html">Usuarios</a></li>
+                                            <li><a href="./reservas-gerentes-princesa.html">Reservas</a></li>
                                             <li><a href="./inicio-sesion-gerentes1.html">Hoteles</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="./contact.html">Contacto</a></li>
+                                    <li><a href="./contacto-gerentes.html">Contacto</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
@@ -180,8 +184,22 @@
                                     y productos de salud.
                                 </p>
                             </ul>
-                            <div class="reg-button">
-                                <button onclick="cerrarSesion()">Cerrar Sesión</button>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="reg-button">
+                                        <button onclick="cerrarSesion()">Cerrar Sesión</button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="reg-button">
+                                        <button onclick="location.href = './registro-gerentes.html';">Crear cuenta</button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="reg-button">
+                                        <button onclick="eliminarCuenta()">Eliminar cuenta</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

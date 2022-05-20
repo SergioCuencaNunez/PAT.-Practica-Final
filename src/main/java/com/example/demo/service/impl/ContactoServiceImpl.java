@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.Contacto;
+import com.example.demo.model.Reserva;
 import com.example.demo.repository.ContactoRepository;
 import com.example.demo.service.ContactoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,9 +70,9 @@ public class ContactoServiceImpl implements ContactoService {
         Optional<Contacto> ocontacto = contactoRepository.findById(numero);
         if(ocontacto.isPresent()) {
             contactoRepository.deleteById(numero);
-            return "El mensaje número " + numero + " se ha eliminado correctamente";
+            return "El mensaje se ha eliminado correctamente";
         }else{
-            return "No hay ningún mensaje con ese numero " + numero;
+            return "No hay ningún mensaje con ese numero";
         }
     }
 }
