@@ -45,7 +45,7 @@ public record LoginCredential(
     // Count digits in a password
     static int digitCounter=0;
 
-    public boolean validar_Contraseña(){
+    public boolean validar_Contrasena(){
 
         for (int i=0; i < contrasena.length(); i++ ) {
             char c = contrasena.charAt(i);
