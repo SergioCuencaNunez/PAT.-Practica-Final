@@ -11,7 +11,7 @@ public interface ReservaService {
     List<Reserva> getReservasbyHotel(String hotel);
     List<Reserva> getReservas();
     Reserva updateReservaTipobyId(Long id, String tipo);
-    Reserva updateReservaHuespedesbyId(Long id, Long huespedes);
+    ReservaServiceResult updateReservaHuespedesbyId(Long id, Long huespedesNuevos);
     Reserva updateReservaHabitacionbyId(Long id, Long habitaciones);
     Reserva updateReservaFechaEntradabyId(Long id, LocalDate fechaEntrada);
     Reserva updateReservaFechaSalidabyId(Long id, LocalDate fechaSalida);

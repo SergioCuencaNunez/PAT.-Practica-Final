@@ -69,15 +69,28 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservaHuespedesbyId(Long id, Long huespedes) {
+    public ReservaServiceResult updateReservaHuespedesbyId(Long id, Long huespedesNuevos) {
         Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
         if (oreserva.isPresent()) {
             reserva = oreserva.get();
-            reservaRepository.updateReservaHuespedesById(id, huespedes);
-            return reserva;
+            String hotel = reserva.getHotel();
+            Long huespedes = reserva.getHuespedes();
+            Long habitaciones = reserva.getHabitaciones();
+            Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
+            if(huespedesNuevos > huespedes){
+                hotelRepository.updateHotelOcupacionByNombre(ocupacion + (huespedesNuevos - huespedes), hotel);
+                reservaRepository.updateReservaHuespedesById(id, huespedesNuevos);
+                return new ReservaServiceResult(true);
+            }else if(huespedesNuevos < huespedes){
+                hotelRepository.updateHotelOcupacionByNombre(ocupacion + (huespedes - huespedesNuevos), hotel);
+                reservaRepository.updateReservaHuespedesById(id, huespedesNuevos);
+                return new ReservaServiceResult(true);
+            }else{
+                return new ReservaServiceResult(false, "No ha modificado el número de huéspedes");
+            }
         }
-        return reserva;
+        return new ReservaServiceResult(false);
     }
 
     @Override
@@ -204,6 +217,14 @@ public class ReservaServiceImpl implements ReservaService {
     public String deleteReservabyId(Long id) {
         Optional<Reserva> oreserva = reservaRepository.findById(id);
         if (oreserva.isPresent()) {
+            Reserva reserva = oreserva.get();
+            String hotel = reserva.getHotel();
+            Long huespedes = reserva.getHuespedes();
+            Long habitaciones = reserva.getHabitaciones();
+            Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
+            Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
+            hotelRepository.updateHotelOcupacionByNombre(ocupacion - huespedes, hotel);
+            hotelRepository.updateHotelHabitacionesOcupadasByNombre(habitacionesOcupadas - habitaciones, hotel);
             reservaRepository.deleteById(id);
             return "La reserva se ha borrado correctamente";
         } else {
@@ -218,6 +239,12 @@ public class ReservaServiceImpl implements ReservaService {
         Optional<Reserva> oreserva = reservaRepository.findById(reserva.getId());
         if (oreserva.isPresent()) {
             if (reservas.contains(reserva)) {
+                Long huespedes = reserva.getHuespedes();
+                Long habitaciones = reserva.getHabitaciones();
+                Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
+                Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
+                hotelRepository.updateHotelOcupacionByNombre(ocupacion - huespedes, hotel);
+                hotelRepository.updateHotelHabitacionesOcupadasByNombre(habitacionesOcupadas - habitaciones, hotel);
                 reservaRepository.deleteById(reserva.getId());
                 return new ReservaServiceResult(true);
             } else {

@@ -71,14 +71,20 @@ public class ReservaController {
 
     @Transactional
     @PutMapping("/reservas/update/huespedes/{id}/{huespedes}")
-    public ResponseEntity<String> updateReservaHuespedesId(@PathVariable("id") String idStr, @PathVariable("huespedes") String huespedesStr){
+    public ResponseEntity<ReservaResponse> updateReservaHuespedesId(@PathVariable("id") String idStr, @PathVariable("huespedes") String huespedesStr){
         Long id = Long.parseLong(idStr);
         Long huespedes = Long.parseLong(huespedesStr);
-        Reserva reserva = reservaServicio.updateReservaHuespedesbyId(id, huespedes);
-        if(reserva != null){
-            return new ResponseEntity<>("", HttpStatus.OK);
+        ReservaServiceResult result = reservaServicio.updateReservaHuespedesbyId(id, huespedes);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else if(result.getAccessToken().equals("No ha modificado el número de huéspedes")){
+            ReservaResponse reservaResponse = new ReservaResponse("No ha realizado ninguna modificación sobre el número de huéspedes en la reserva seleccionada.");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
     }
 
     @Transactional
