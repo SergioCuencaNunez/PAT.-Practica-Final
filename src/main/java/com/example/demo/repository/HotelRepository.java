@@ -9,6 +9,9 @@ import java.util.List;
 
 public interface HotelRepository extends CrudRepository<Hotel, String> {
 
+    @Query("SELECT* FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
+    Hotel getNombre(String nombre);
+
     @Query("SELECT* FROM HOTEL WHERE HOTEL.DESTINO= :destino ")
     public List<Hotel> getHotelesByDestino(String destino);
 
@@ -23,6 +26,9 @@ public interface HotelRepository extends CrudRepository<Hotel, String> {
 
     @Query("SELECT HOTEL.OCUPACION FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
     public Long getOcupacionByHotel(String nombre);
+
+    @Query("SELECT HOTEL.ESTADO FROM HOTEL WHERE HOTEL.NOMBRE= :nombre ")
+    public boolean getEstadoByNombre(String nombre);
 
     @Query("UPDATE HOTEL SET HOTEL.CAPACIDAD= :capacidad WHERE HOTEL.NOMBRE= :nombre ")
     @Modifying
@@ -43,5 +49,7 @@ public interface HotelRepository extends CrudRepository<Hotel, String> {
     @Query("UPDATE HOTEL SET HOTEL.ESTADO= :estado WHERE HOTEL.NOMBRE= :nombre")
     @Modifying
     void updateHotelEstadoByNombre(Boolean estado, String nombre);
+
+
 
 }

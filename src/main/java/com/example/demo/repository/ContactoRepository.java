@@ -12,6 +12,9 @@ public interface ContactoRepository extends CrudRepository<Contacto, Long> {
     @Query("SELECT* FROM CONTACTO WHERE CONTACTO.CORREO= :correo")
     public Contacto getContactoByCorreo(String correo);
 
+    @Query("SELECT* FROM CONTACTO WHERE CONTACTO.NUMERO= :numero")
+    public Contacto getContactoByNumero(Long numero);
+
     @Query("SELECT CORREO FROM CONTACTO")
     public List<String> getContactoCorreos();
 
@@ -24,5 +27,6 @@ public interface ContactoRepository extends CrudRepository<Contacto, Long> {
     @Query("INSERT INTO CONTACTO (NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (:numero,:correo,:nombre,:mensaje)")
     @Modifying
     void insertarContacto(Long numero, String correo, String nombre, String mensaje);
+
 
 }

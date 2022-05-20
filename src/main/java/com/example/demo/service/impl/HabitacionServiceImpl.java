@@ -131,7 +131,7 @@ public class HabitacionServiceImpl implements HabitacionService {
             habitacionRepository.deleteById(tipo);
             return "La habitación " + tipo + " se ha eliminado correctamente";
         }else{
-            return "No hay ninguna habitación del tipo " + tipo;
+            return "No hay ninguna habitacion del tipo " + tipo;
         }
     }
 }

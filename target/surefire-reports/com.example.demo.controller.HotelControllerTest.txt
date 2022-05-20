@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: com.example.demo.controller.HotelControllerTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.2 s <<< FAILURE! - in com.example.demo.controller.HotelControllerTest
+reducirHabitacionesHotel  Time elapsed: 0.036 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 6L
+ but was: 0L
+	at com.example.demo.controller.HotelControllerTest.reducirHabitacionesHotel(HotelControllerTest.java:126)
+
+ampliarHabitacionesHotel  Time elapsed: 0.018 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 16L
+ but was: 32L
+	at com.example.demo.controller.HotelControllerTest.ampliarHabitacionesHotel(HotelControllerTest.java:89)
+

@@ -1,15 +1,17 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Contacto;
+import com.example.demo.repository.ContactoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.*;
+
+import java.util.List;
+
 import static org.assertj.core.api.BDDAssertions.then;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -20,6 +22,88 @@ public final class ContactoControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
+
+    @Autowired
+    private ContactoRepository contactoRepository;
+
+    @Test
+    public void getContactoNumero(){
+        Contacto contacto = contactoRepository.getContactoByNumero(2L);
+
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/numero/2";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<Contacto> result = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<Contacto>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo(contacto);
+
+    }
+
+    @Test
+    public void getContactoCorreo(){
+        Contacto contacto = contactoRepository.getContactoByCorreo("laura.h@gmail.com");
+
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/correo/laura.h@gmail.com";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<Contacto> result = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<Contacto>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo(contacto);
+
+    }
+
+    @Test
+    public void getMensajeCorreo(){
+
+        String mensaje = contactoRepository.getMensajeByCorreo("laura.h@gmail.com");
+
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/mensaje/laura.h@gmail.com";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<String> result = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<String>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo(mensaje);
+    }
+
+    @Test
+    public void getAllContactos(){
+        Iterable<Contacto> contactos = contactoRepository.findAll();
+
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<List<Contacto>> result = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<List<Contacto>>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo(contactos);
+    }
 
     @Test
     public void insertarMensajes_ok(){
@@ -65,8 +149,17 @@ public final class ContactoControllerTest {
         then(result.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
     }
+/*
+    @Test
+    public void insertarCheckIn_ok(){
+
+        String address = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/insert-checkIn";
+        Contacto contacto = new Contacto();
 
 
+
+    }
+*/
     @Test
     public void insertarSuscripcion_ok(){
 
