@@ -186,4 +186,5 @@ public class UsuarioController {
         }
         return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
     }
+
 }

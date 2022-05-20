@@ -39,7 +39,6 @@ public record LoginCredential(
 
     }
 
-
     static int uppercaseCounter=0;
     // Counter lowercase letters in a password
     static int lowercaseCounter=0;
