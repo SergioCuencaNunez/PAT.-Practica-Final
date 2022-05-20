@@ -466,7 +466,7 @@ async function modificarReserva(){
                                             alert('El número de huéspedes de la reserva #' + reserva.id + " se ha modificado correctamente.");
                                             location.reload();
                                         }else{
-                                            alert('No se ha podido modificar el número de huéspedes de la reserva #' + reserva.id + '.');
+                                            alert('No se modificado el número de huéspedes de la reserva #' + reserva.id + ' porque no ha cambiado el número de huéspedes original.');
                                         }
                                    }else{
                                         alert('No se han podido modificar el número de huéspedes de la reserva #' + reserva.id + ' debido a que es superior a la capacidad de la habitación elegida.');

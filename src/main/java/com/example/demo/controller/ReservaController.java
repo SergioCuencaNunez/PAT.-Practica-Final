@@ -79,24 +79,30 @@ public class ReservaController {
             ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
         }else if(result.getAccessToken().equals("No ha modificado el número de huéspedes")){
-            ReservaResponse reservaResponse = new ReservaResponse("No ha realizado ninguna modificación sobre el número de huéspedes en la reserva seleccionada.");
+            ReservaResponse reservaResponse = new ReservaResponse("No ha realizado ninguna modificación sobre el número de huéspedes en la reserva #" + id + ".");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }else{
-            ReservaResponse reservaResponse = new ReservaResponse("");
+            ReservaResponse reservaResponse = new ReservaResponse("No se ha podido modificar el número de huéspedes de la reserva #" + id + ".");
             return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }
     }
 
     @Transactional
     @PutMapping("/reservas/update/habitaciones/{id}/{habitaciones}")
-    public ResponseEntity<String> updateReservaHabitacionId(@PathVariable("id") String idStr, @PathVariable("habitaciones") String habitacionesStr){
+    public ResponseEntity<ReservaResponse> updateReservaHabitacionId(@PathVariable("id") String idStr, @PathVariable("habitaciones") String habitacionesStr){
         Long id = Long.parseLong(idStr);
         Long habitaciones = Long.parseLong(habitacionesStr);
-        Reserva reserva = reservaServicio.updateReservaHabitacionbyId(id, habitaciones);
-        if(reserva != null){
-            return new ResponseEntity<>("", HttpStatus.OK);
+        ReservaServiceResult result = reservaServicio.updateReservaHabitacionbyId(id, habitaciones);
+        if (result.isFlag()) {
+            ReservaResponse reservaResponse = new ReservaResponse("OK", result.getAccessToken());
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.OK);
+        }else if(result.getAccessToken().equals("No ha modificado el número de habitaciones")){
+            ReservaResponse reservaResponse = new ReservaResponse("No ha realizado ninguna modificación sobre el número de habitaciones en la reserva #" + id + ".");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
+        }else{
+            ReservaResponse reservaResponse = new ReservaResponse("No se ha podido modificar el número de habitaciones de la reserva #" + id + ".");
+            return new ResponseEntity<ReservaResponse>(reservaResponse, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
     }
 
     @Transactional

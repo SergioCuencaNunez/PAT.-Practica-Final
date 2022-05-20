@@ -70,13 +70,11 @@ public class ReservaServiceImpl implements ReservaService {
     @Override
     @Transactional
     public ReservaServiceResult updateReservaHuespedesbyId(Long id, Long huespedesNuevos) {
-        Reserva reserva = null;
         Optional<Reserva> oreserva = reservaRepository.findById(id);
         if (oreserva.isPresent()) {
-            reserva = oreserva.get();
+            Reserva reserva = oreserva.get();
             String hotel = reserva.getHotel();
             Long huespedes = reserva.getHuespedes();
-            Long habitaciones = reserva.getHabitaciones();
             Long ocupacion = hotelRepository.getOcupacionByHotel(hotel);
             if(huespedesNuevos > huespedes){
                 hotelRepository.updateHotelOcupacionByNombre(ocupacion + (huespedesNuevos - huespedes), hotel);
@@ -95,15 +93,26 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Reserva updateReservaHabitacionbyId(Long id, Long habitaciones) {
-        Reserva reserva = null;
+    public ReservaServiceResult updateReservaHabitacionbyId(Long id, Long habitacionesNuevas){
         Optional<Reserva> oreserva = reservaRepository.findById(id);
         if (oreserva.isPresent()) {
-            reserva = oreserva.get();
-            reservaRepository.updateReservaHabitacionById(id, habitaciones);
-            return reserva;
+            Reserva reserva = oreserva.get();
+            String hotel = reserva.getHotel();
+            Long habitaciones = reserva.getHabitaciones();
+            Long habitacionesOcupadas = hotelRepository.getHabitacionesOcupadasByHotel(hotel);
+            if(habitacionesNuevas > habitaciones){
+                hotelRepository.updateHotelHabitacionesOcupadasByNombre(habitacionesOcupadas + (habitacionesNuevas - habitaciones), hotel);
+                reservaRepository.updateReservaHabitacionById(id, habitacionesNuevas);
+                return new ReservaServiceResult(true);
+            }else if(habitacionesNuevas < habitaciones){
+                hotelRepository.updateHotelHabitacionesOcupadasByNombre(habitacionesOcupadas + (habitaciones - habitacionesNuevas), hotel);
+                reservaRepository.updateReservaHabitacionById(id, habitacionesNuevas);
+                return new ReservaServiceResult(true);
+            }else{
+                return new ReservaServiceResult(false, "No ha modificado el número de habitaciones");
+            }
         }
-        return reserva;
+        return new ReservaServiceResult(false);
     }
 
     @Override
