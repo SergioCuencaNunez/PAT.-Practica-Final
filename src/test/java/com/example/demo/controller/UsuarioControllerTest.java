@@ -1,28 +1,52 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Habitacion;
 import com.example.demo.model.Usuario;
+import com.example.demo.repository.UsuarioRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.*;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public final class UsuarioControllerTest {
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
     @LocalServerPort
     private int port;
 
     @Autowired
     private TestRestTemplate restTemplate;
+
+    @Test
+    public void getUsuarioNif(){
+        Optional<Habitacion> ousuario = usuarioRepository.findById("");
+        Habitacion habitacion = ohabitacion.get();
+
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/habitaciones/tipo/Marylebone-Suite";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity entity = new HttpEntity<>(headers);
+
+        ResponseEntity<Habitacion> result = testRestTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<Habitacion>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo(habitacion);
+    }
 
     @Test
     public void insertarUsuario_ok(){

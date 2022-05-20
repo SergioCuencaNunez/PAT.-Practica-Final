@@ -103,7 +103,6 @@ public class HabitacionControllerTest {
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         then(result.getBody()).isEqualTo(habitaciones);
     }
-<<<<<<< HEAD
 
     @Test
     public void actualizarCapacidadHabitacion(){
@@ -122,6 +121,4 @@ public class HabitacionControllerTest {
         then(habitacionRepository.getHabitacionCapacidadByHotel("Premium")).isEqualTo(6);
     }
 
-=======
->>>>>>> dc75616fcd438c9a3aea935b6bdb32a5b825cc72
 }
