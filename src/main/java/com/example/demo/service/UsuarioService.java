@@ -13,7 +13,7 @@ public interface UsuarioService {
     Usuario getUsuariobyCorreo(String correo);
     List<Usuario> getUsuariosbyRol(String rol);
     List<Usuario> getUsuarios();
-    LoginServiceResult updateUsuario(Usuario usuario);
+    LoginServiceResult updateUsuario(Usuario usuario, String correoAntiguo);
     void insertUsuario(String nif, String nombre, String apellido1, String apellido2, String correo, String contrasena,LocalDate cumpleanos, String rol);
     String deleteUsuariobyNif(String nif);
     //INNER-JOIN

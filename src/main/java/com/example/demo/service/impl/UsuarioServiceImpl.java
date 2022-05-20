@@ -57,7 +57,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public LoginServiceResult updateUsuario(Usuario usuario) {
+    public LoginServiceResult updateUsuario(Usuario usuario, String correoAntiguo){
 
         String nif = usuario.getNif();
         String nombre = usuario.getNombre();
@@ -66,7 +66,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         String correo = usuario.getCorreo();
         String contrasena = usuario.getContrasena();
         LocalDate cumpleanos = usuario.getCumpleanos();
-        String correoAntiguo = usuario.getRol();
+        String rol = usuario.getRol();
 
         List<String> nifs = usuarioRepository.getUsuarioNifs();
         List<String> correos = usuarioRepository.getUsuarioCorreos();
@@ -77,13 +77,13 @@ public class UsuarioServiceImpl implements UsuarioService {
                 String correoValido = usuarioRepository.getUsuarioCorreoByNif(nif);
                 if(correos.contains(correo)){
                     if(correoValido.equals(correo)){
-                        usuarioRepository.updateUsuarioByNif(nombre, apellido1, apellido2, correo, contrasena, cumpleanos, nif);
+                        usuarioRepository.updateUsuarioByNif(nombre, apellido1, apellido2, correo, contrasena, cumpleanos, rol, nif);
                         return new LoginServiceResult(true);
                     }else {
                         return new LoginServiceResult(false, "Correo ya registrado");
                     }
                 }else {
-                    usuarioRepository.updateUsuarioByNif(nombre, apellido1, apellido2, correo, contrasena, cumpleanos, nif);
+                    usuarioRepository.updateUsuarioByNif(nombre, apellido1, apellido2, correo, contrasena, cumpleanos, rol, nif);
                     return new LoginServiceResult(true);
                 }
             }else{

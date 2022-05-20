@@ -61,13 +61,13 @@ public class UsuarioController {
     }
 
     @Transactional
-    @PutMapping("/usuarios/update")
-    public ResponseEntity<LoginResponse> updateClienteNombreCompletoNif(@RequestBody Usuario usuario, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
+    @PutMapping("/usuarios/update/{correoAntiguo}")
+    public ResponseEntity<LoginResponse> updateClienteNombreCompletoNif(@RequestBody Usuario usuario, @PathVariable String correoAntiguo, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
             LoginResponse loginResponse = new LoginResponse("KO");
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.BAD_REQUEST);
         }
-        LoginServiceResult result = usuarioServicio.updateUsuario(usuario);
+        LoginServiceResult result = usuarioServicio.updateUsuario(usuario, correoAntiguo);
         if (result.isFlag()) {
             LoginResponse loginResponse = new LoginResponse("OK", result.getAccessToken());
             return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
@@ -178,30 +178,6 @@ public class UsuarioController {
     @Transactional
     @PostMapping(path="/usuarios/registro-gerente", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> registroGerente(@Valid @RequestBody LoginCredential loginParam, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
-        }
-        if((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (loginParam.correo().contains("@melia")) && (loginParam.contrasena().equals(loginParam.contrasena2()))){
-            return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
-        }
-        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
-    }
-
-    @Transactional
-    @PostMapping(path="/usuarios/perfil/cliente", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> perfilCliente(@Valid @RequestBody LoginCredential loginParam, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
-        }
-        if((!loginParam.nombre().equals("")) && (!loginParam.apellido1().equals("")) && (!loginParam.apellido2().equals("")) && (!loginParam.nif().equals("")) && (!loginParam.cumpleanos().equals("")) && (!loginParam.correo().equals("")) && (!loginParam.correo().contains("@melia")) && (loginParam.contrasena().equals(loginParam.contrasena2()))){
-            return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
-        }
-        return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
-    }
-
-    @Transactional
-    @PostMapping(path="/usuarios/perfil/gerente", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> perfilGerente(@Valid @RequestBody LoginCredential loginParam, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
         }

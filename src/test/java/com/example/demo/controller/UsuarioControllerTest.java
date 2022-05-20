@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+/*package com.example.demo.controller;
 
 import com.example.demo.model.Habitacion;
 import com.example.demo.model.Usuario;
@@ -237,4 +237,4 @@ public final class UsuarioControllerTest {
         then(result2.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
     }
-}
+}*/
