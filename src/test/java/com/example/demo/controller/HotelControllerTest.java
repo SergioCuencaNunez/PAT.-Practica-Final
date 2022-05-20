@@ -89,7 +89,6 @@ public class HotelControllerTest {
 
     @Test
     public void actualizarEstadoHotel(){
-        hotelRepository.updateHotelEstadoByNombre(false,"Melia-White-House");
         String url = "http://localhost:" + Integer.toString(port) + "/api/v1/hoteles/update/estado/Melia-White-House/false";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity entity = new HttpEntity<>(headers);
@@ -104,7 +103,6 @@ public class HotelControllerTest {
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         then(hotelRepository.getEstadoByNombre("Melia-White-House")).isEqualTo(false);
     }
-
     @Test
     public void reducirHabitacionesHotel(){
         String url = "http://localhost:" + Integer.toString(port) + "/api/v1/hoteles/update/reducir/habitacionesTotales/ME-London/6";
@@ -121,7 +119,6 @@ public class HotelControllerTest {
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         then(hotelRepository.getHabitacionesTotalesByHotel("ME-London")).isEqualTo(6);
     }
-
     @Autowired
     JdbcTemplate jdbcTemplate;
 
@@ -171,7 +168,7 @@ public class HotelControllerTest {
     public void hotelesHabitacionesJoin(){
 
         String query = """ 
-        SELECT HOTEL.NOMBRE, HOTEL.DESTINO, HOTEL.CAPACIDAD, HOTEL.OCUPACION, HOTEL.ESTADO, HABITACION.TIPO, HABITACION.NUMERO, HABITACION.PLANTA, HABITACION.CAPACIDAD, HABITACION.ESTADO 
+        SELECT HOTEL.NOMBRE, HOTEL.DESTINO, HOTEL.CAPACIDAD, HOTEL.OCUPACION, HOTEL.ESTADO, HABITACION.TIPO, HABITACION.CAPACIDAD
         FROM HABITACION
         INNER JOIN HOTEL ON HOTEL.NOMBRE=HABITACION.HOTEL;
         """;
@@ -186,10 +183,7 @@ public class HotelControllerTest {
                                 rs.getLong("HOTEL.OCUPACION"),
                                 rs.getBoolean("HOTEL.ESTADO"),
                                 rs.getString("HABITACION.TIPO"),
-                                rs.getLong("HABITACION.NUMERO"),
-                                rs.getLong("HABITACION.PLANTA"),
-                                rs.getLong("HABITACION.CAPACIDAD"),
-                                rs.getBoolean("HABITACION.ESTADO")
+                                rs.getLong("HABITACION.CAPACIDAD")
                         )
         );
 

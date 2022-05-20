@@ -28,9 +28,9 @@ public final class ContactoControllerTest {
 
     @Test
     public void getContactoNumero(){
-        Contacto contacto = contactoRepository.getContactoByNumero(2L);
+        Contacto contacto = contactoRepository.getContactoByNumero(3L);
 
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/numero/2";
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/numero/3";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
@@ -48,9 +48,9 @@ public final class ContactoControllerTest {
 
     @Test
     public void getContactoCorreo(){
-        Contacto contacto = contactoRepository.getContactoByCorreo("laura.h@gmail.com");
+        Contacto contacto = contactoRepository.getContactoByCorreo("ineg_s@gmail.com");
 
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/correo/laura.h@gmail.com";
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/correo/ineg_s@gmail.com";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
@@ -225,7 +225,22 @@ public final class ContactoControllerTest {
         then(result2.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
         then(result3.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
-
     }
 
+    @Test
+    public void reducirHabitacionesHotel(){
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/delete/2";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity entity = new HttpEntity<>(headers);
+
+        ResponseEntity<String> result = restTemplate.exchange(
+                url,
+                HttpMethod.DELETE,
+                entity,
+                new ParameterizedTypeReference<String>(){}
+        );
+
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(contactoRepository.getContactoByNumero(2L)).isEqualTo(null);
+    }
 }
