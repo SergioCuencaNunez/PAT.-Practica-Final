@@ -76,6 +76,6 @@ INSERT INTO HABITACION(TIPO, HOTEL, CAPACIDAD) VALUES ('King-City', 'Innside-New
 INSERT INTO HABITACION(TIPO, HOTEL, CAPACIDAD) VALUES ('Studio', 'Innside-New-York-Nomad',4);
 INSERT INTO HABITACION(TIPO, HOTEL, CAPACIDAD) VALUES ('Townhouse-Junior-Suite', 'Innside-New-York-Nomad',5);
 
-INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (1,'javier_barneda@gmail.com','Javier','Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias');
+INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (1,'econderana@gmail.com','Elena','Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias');
 INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (2,'laura.h@gmail.com','Laura','Solicito una devolución y reembolso de mi reserva en Melia White House. Un saludo');
 INSERT INTO CONTACTO(NUMERO, CORREO, NOMBRE, MENSAJE) VALUES (3,'ineg_s@gmail.com','Ines','¿Que servicios encuentro cerca del hotel Melia Paris La Defense? Muchas gracias');

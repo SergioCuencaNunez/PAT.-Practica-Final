@@ -149,17 +149,7 @@ public final class ContactoControllerTest {
         then(result.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
     }
-/*
-    @Test
-    public void insertarCheckIn_ok(){
 
-        String address = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/insert-checkIn";
-        Contacto contacto = new Contacto();
-
-
-
-    }
-*/
     @Test
     public void insertarSuscripcion_ok(){
 
@@ -194,20 +184,20 @@ public final class ContactoControllerTest {
 
         //Correo contenido en Contactos
         contacto1.setNumero(6L);
-        contacto1.setCorreo("javier_barneda@gmail.com");
-        contacto1.setNombre("Javier");
+        contacto1.setCorreo("econderana@gmail.com");
+        contacto1.setNombre("Elena");
         contacto1.setMensaje("Querria saber más información acerca del hotel Melia Madrid Princesa. Gracias");
 
         //Correo vacío
         contacto2.setNumero(7L);
         contacto2.setCorreo("");
-        contacto2.setNombre("Ana");
+        contacto2.setNombre("Inés");
         contacto2.setMensaje("Testing Fallido 1");
 
         //Correo contenido en Usuarios
         contacto3.setNumero(8L);
-        contacto3.setCorreo("econderana@gmail.com");
-        contacto3.setNombre("Elena");
+        contacto3.setCorreo("aa@yahoo.com");
+        contacto3.setNombre("Ana");
         contacto3.setMensaje("Prueba Fallida Testing");
 
         HttpHeaders headers = new HttpHeaders();
@@ -228,7 +218,7 @@ public final class ContactoControllerTest {
     }
 
     @Test
-    public void reducirHabitacionesHotel(){
+    public void eliminarMensaje(){
         String url = "http://localhost:" + Integer.toString(port) + "/api/v1/contactos/delete/2";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity entity = new HttpEntity<>(headers);

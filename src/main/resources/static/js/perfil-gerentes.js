@@ -59,7 +59,7 @@ async function cambiarInformacionPerfil() {
         }
         var cumpleanosDef = cumpleanosAno + "-" + numeroMes + "-" + cumpleanosDia;
 
-        if(contrasena == ""){
+        if(contrasena == "" && contrasena2 == ""){
             const address0 = "api/v1/usuarios/correo/" + getCorreoPerfil();
             let request = await fetch(address0, {
                method: 'GET'
@@ -67,9 +67,10 @@ async function cambiarInformacionPerfil() {
             if(request.ok){
                var usuario = await request.json();
                contrasena = usuario.contrasena;
+               contrasena2 = contrasena;
             }
         }
-        const data1 = {nombre: nombre, apellido1: apellido1, apellido2: apellido2, nif: nif, cumpleanos: cumpleanosDef, correo: correo, contrasena: contrasena, contrasena2: contrasena};
+        const data1 = {nombre: nombre, apellido1: apellido1, apellido2: apellido2, nif: nif, cumpleanos: cumpleanosDef, correo: correo, contrasena: contrasena, contrasena2: contrasena2};
         const address1 = "api/v1/usuarios/registro-gerente";
         fetch(address1, {
             method: 'POST',
