@@ -113,8 +113,8 @@ public final class ContactoControllerTest {
         Contacto contacto = new Contacto();
 
         contacto.setNumero(4L);
-        contacto.setCorreo("javier_barneda@gmail.com");
-        contacto.setNombre("Javier");
+        contacto.setCorreo("econderana@gmail.com");
+        contacto.setNombre("Elena");
         contacto.setMensaje("Prueba de Testing");
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <Contacto> request = new HttpEntity<>(contacto, headers);
@@ -206,7 +206,7 @@ public final class ContactoControllerTest {
 
         //Correo contenido en Usuarios
         contacto3.setNumero(8L);
-        contacto3.setCorreo("econderana@melia.com");
+        contacto3.setCorreo("econderana@gmail.com");
         contacto3.setNombre("Elena");
         contacto3.setMensaje("Prueba Fallida Testing");
 

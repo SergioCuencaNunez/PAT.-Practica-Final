@@ -272,7 +272,7 @@ public class ReservaControllerTest {
         String address = "http://localhost:" + port + "/api/v1/reservas/insert";
         Reserva reserva = new Reserva();
 
-        reserva.setId(100067L);
+        reserva.setId(null);
         reserva.setNif("15563677Z");
         reserva.setHotel("TRYP-New-York-Times-Square");
         reserva.setDestino("Nueva-York");
