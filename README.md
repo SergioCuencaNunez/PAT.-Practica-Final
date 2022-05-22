@@ -41,7 +41,7 @@ Todos los endpoints han sido comprobados con el testing que se implementa y que 
 ## Información adicional
 - Los usuarios (clientes y gerentes) podrán navegar por toda la web una vez registrados, ya que su sesión permanecerá abierta hasta que ellos deseen cerrarla.
 - La página de inicio de sesión determina si el usuario es administrador o cliente para poder redirigirlo a su página correspondiente.
-- Los usuarios no pueden registrarse con correos que contienen la extensión del correo de la empresa (@melia).
+- Los usuarios no pueden registrarse con correos que contienen la extensión del correo de la empresa (@melia) y no se pueden crear nuevas cuentas de administradores si el correo no incluye la extensión mencionada.
 - La aplicación web está adaptada para poder ser utilizada en cualquier dispositivo (ordenador, tablet, móvil) al ser completamente responsiva.
 - Hay una gran variedad de datos e información almacenada en las tablas inicialmente. Dos ejemplos de usuarios con los que puede navegar con la página para probar su funcionamiento son:
 
